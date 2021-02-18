@@ -5,6 +5,7 @@
     left: 16.5%;
     margin-top: 93px;
     margin-right: 12%;
+    min-height: 650px;
 }
 .home_btn
 {
@@ -84,18 +85,20 @@
 
 }
 
-.footer
+.entry #footer
 {
+    position:absolute;
+    float: bottom;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-    bottom: 80px;
+    bottom: 0px;
     margin-top:80px;
     margin-bottom: 40px;
     font-size:13px;
     color:rgba(177, 176, 186, 0.842); 
 }
-.footer hr
+
+.entry #footer hr
 {
-    position: relative;
     width: 1200px;
     max-width: width 1200px;
     margin-right: 2%;
@@ -108,7 +111,7 @@
 .paginator
 {
 
-  margin-bottom: 20px;
+  margin-bottom: 150px;
   margin-top:40px;
   width:100%;
 
