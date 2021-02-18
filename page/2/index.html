@@ -77,6 +77,8 @@
             <head>
     <title>
         
+            关东关
+        
     </title>
 </head>
 <body>
@@ -131,6 +133,93 @@
 
 <div class="mainbody" id="mainbody">
 <!-- 加载post_entry -->
+
+    
+
+        
+<link rel="stylesheet" href="/blog/css/rightbar.css">
+
+
+<script src="/blog/js/hidebar.js"></script>
+
+<div id="right_bar">
+
+    <div id="recent_update" class="recent_update">
+        <span> Recent Update </span>
+        <div>
+         <a href="/blog/2021/02/15/unity脚本生命周期-Script-lifecycle-overview/" class="post">unity脚本生命周期 </a><a href="/blog/2021/02/15/MVC（UGUI）/" class="post">MVC（UGUI） </a><a href="/blog/2021/02/15/C-中的值类型和引用类型/" class="post">C#中的值类型和引用类型 </a><a href="/blog/2021/02/15/C-特性-Attribute/" class="post">C#特性(Attribute) </a><a href="/blog/2021/02/15/C-反射-Reflection/" class="post">C#反射(Reflection) </a>
+        </div>
+    </div>
+
+    <div id="tagcloud" class="tagcloud">
+        <span> Trending Tags </span>
+        <div>
+         <a href="#" class="tag">C# </a><a href="#" class="tag">.net </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">unity </a>
+        </div>
+    </div>
+
+</div>
+<script>
+    var bar=document.getElementById("right_bar");
+    MoveBar(bar,"right_bar_hide",1120)
+</script>
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/02/12/协变与逆变/"  target="_self">协变与逆变 </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            逆变（contravariant）与协变（covariant）是C#4新增的概念，只能用修饰泛型委托和泛型接口中的泛型字符。
+根据里氏替换原则：父类可以装子类，而子类不能装父类。可以这样理解：
+
+“协变”-&gt;”和谐的变”-&gt;”父类装子类，感受是和谐的”-&gt;string-&gt;object :协变
+
+“逆变”-&gt;”逆常的变”-&gt;”子类装父类，感受不和谐的”-&gt;object-&gt;string :逆变
+
+
+假设，有两个父子关系类，Human类和Ch...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Feb 12th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>3 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">4693</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+
+        
+        
+        <div class="paginator">
+         <a class="extend prev" rel="prev" href="/blog/"><</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
+        </div>
+
+    <div class="footer">
+        <hr>
+        <font>©2021</font>
+        <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
+        some copyrights reserved
+        <div style="float: right; margin-right: -200px;">
+            <font>Powered by</font>
+            <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
+            framework
+        </div>
+    </div>
+
     
 
     
@@ -138,7 +227,11 @@
 
     
 
+
+
 </div>
+
+
 
 <script>
      var bar=document.getElementById("top_btn")
@@ -204,6 +297,7 @@
 <script>
     hljs.initHighlightingOnLoad();
 </script>
+
 
 </body>
 
