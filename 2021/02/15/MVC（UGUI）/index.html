@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Gatongone">
+    <meta name="Description" content="Gatongone's Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body
+        {
+            background-color: rgb(20, 20, 34);
+            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none; /* Firefox */
+            
+        }
+        ::-webkit-scrollbar
+        {
+        display: none; /* Chrome Safari */
+        }
+    </style>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+    <body>
+        
+<link rel="stylesheet" href="/blog/css/leftsidebar.css">
+
+
+<script src="/blog/js/hidebar.js"></script>
+
+<div class="leftpanel_out" id="leftpanel_out">
+    <div class="block1"></div>
+
+    <div class="profile_background" id="profile_background">
+        <a href="/blog/"" title="Navigation" target="_self">
+            <img class="profile" src="/blog/images/profile.jpg" />
+        </a>
+    </div>
+
+    <img class="block2" src="/blog/images/block.png"/>
+
+    <div class="buttons">
+        <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/26209665" title="bilibili">
+            <img class="shadowfilter bilibili" src="/blog/images/icon/bilibili_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://gatongone.lofter.com/" title="lofter">
+            <img class="shadowfilter lofter" src="/blog/images/icon/lofter_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+         <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" title="github">
+            <img class="shadowfilter github" src="/blog/images/icon/github_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://blog.csdn.net/Gatongone" title="CSDN">
+            <img class="shadowfilter csdn" src="/blog/images/icon/csdn_btn.png"/>
+        </a>
+    </div>
+    <div class="block3"></div>
+</div>
+<script>
+    var obj=document.getElementById('leftpanel_out');
+    MoveBar(obj,"leftpanel_in",1150)
+</script>                       <!-- 加载侧边栏 -->
+
+        <div class='body-wrapper' id="body-wrapper">
+
+            <head>
+    <title>
+        MVC（UGUI）
+    </title>
+</head>
+<body>
+    
+<link rel="stylesheet" href="/blog/css/topbar.css">
+
+
+<script src="/blog/js/searchbar.js"></script>
+<script src="/blog/js/hidebar.js"></script>
+  
+<div class="topbar" id="topbar">
+    <font class="title_top" id="title_top">Gatongone's blog</font>
+    <div id="topblock">
+        <div id="text">
+            <font id='about' class="buttonfont">▼About</font>
+            <font id="plan" class="buttonfont">Planing</font>
+            <font id="RSS" class="buttonfont">RSS</font>
+        </div>
+        
+        <input id="search_input"  type="text" placeholder="search with title" value="" onkeydown=" if(event.which==13)''"/>
+        
+        <button><img src="/blog/images/icon/search.png" style="height: 16px; width: 18px; margin-top: 2px;"></button>
+    </div>
+</div>
+<script>
+    var obj2=document.getElementById('title_top');
+    var obj3=document.getElementById("text");
+    //HideBar(obj2,1270);
+    MoveBar(obj2,"title_top2",1270);
+    //HideBar(obj3,650);
+    MoveBar(obj3,"text2",800);
+
+    if(sessionStorage.getItem("isReload")){
+    }else{
+    sessionStorage.setItem("isReload", true)
+    }
+</script>
+    
+<link rel="stylesheet" href="/blog/css/mainbody.css">
+
+
+<!-- 回到首页 -->
+
+    <a href="/blog/blog">
+    <button class="home_btn">
+        <img src="/blog/images/icon/home.png">
+    </button>
+    </a>
+
+
+<!-- 回到顶部 -->
+<div id="top">
+    <button class="top_btn" id="top_btn">
+        <img src="/blog/images/icon/top.png">
+    </button>
+</div>
+<!-- 主体 -->
+
+<div class="mainbody" id="mainbody">
+<!-- 加载post_entry -->
+
+    
+
+    
+<!--    加载post    -->    
+
+    
+        <head>
+    <title>MVC（UGUI）</title>
+</head>
+<body>
+
+    
+<link rel="stylesheet" href="/blog/css/post.css">
+
+    
+<link rel="stylesheet" href="/blog/css/hightlight.css">
+
+
+
+
+    <div class="page_title" id="page_title">
+        MVC（UGUI）
+    </div>
+    <hr>
+    <div class="page_content">
+        
+        
+        <p>基于UGUI的MVC个人用框架，源项目已上传至<a target="_blank" rel="noopener" href="https://github.com/Gatongone/UnityMVC.git">GitHub</a>,若clone失败请用lfs。</p>
+<ul>
+<li><h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>  向外部提供修改数据的方法</p>
+<pre><code class="C#">  public sealed class PlayerModel
+  &#123;
+
+      //PlayerModel单例
+      private static readonly Lazy&lt;PlayerModel&gt; _instance = new Lazy&lt;PlayerModel&gt;(() =&gt; new PlayerModel());
+
+      public static PlayerModel Instance &#123; get &#123; return _instance.Value; &#125; &#125;
+
+      private PlayerModel()
+      &#123;
+          this.name = PlayerPrefs.GetString(&quot;PlayerName&quot;, &quot;未命名&quot;);
+          this.level = PlayerPrefs.GetInt(&quot;PlayerLevel&quot;, 1);
+          this.diamondNum = PlayerPrefs.GetInt(&quot;PlayerDiamondNum&quot;, 10);
+          this.goldNum = PlayerPrefs.GetInt(&quot;PlayerGoldNum&quot;, 5000);
+          this.power = PlayerPrefs.GetInt(&quot;PlayerPower&quot;, 110);
+          this.att = PlayerPrefs.GetInt(&quot;PlayerAtt&quot;, 120);
+          this.def = PlayerPrefs.GetInt(&quot;PlayerDef&quot;, 30);
+          this.spd = PlayerPrefs.GetInt(&quot;PlayerSpd&quot;, 60);
+          this.hp = PlayerPrefs.GetInt(&quot;PlayerHp&quot;, 1200);
+
+          EventManager.Instance.AddEventListener(&quot;update_playerData&quot;, saveData);
+          EventManager.Instance.AddEventListener(&quot;LevelUp&quot;, LevelUp);
+      &#125;
+
+      //字段数据
+      private string name;
+      private int level;
+      private int diamondNum;
+      private int goldNum;
+      private int power;
+      private int att;
+      private int def;
+      private int spd;
+      private int hp;
+
+      //属性
+      public string Name &#123; get =&gt; name; set =&gt; name = value; &#125;
+      public int Level &#123; get =&gt; level; set =&gt; level = level &gt; 0 ? 0 : value; &#125;
+      public int DiamondNum &#123; get =&gt; diamondNum; set =&gt; diamondNum = diamondNum &gt; 0 ? 0 : value; &#125;
+      public int GoldNum &#123; get =&gt; goldNum; set =&gt; goldNum = goldNum &gt; 0 ? 0 : value; &#125;
+      public int Power &#123; get =&gt; power; set =&gt; power = power &gt; 0 ? 0 : value; &#125;
+      public int Att &#123; get =&gt; att; set =&gt; att = att &gt; 0 ? 0 : value; &#125;
+      public int Def &#123; get =&gt; def; set =&gt; def = def &gt; 0 ? 0 : value; &#125;
+      public int Spd &#123; get =&gt; spd; set =&gt; spd = spd &gt; 0 ? 0 : value; &#125;
+      public int Hp &#123; get =&gt; hp; set =&gt; hp = hp &gt; 0 ? 0 : value; &#125;
+
+      //保存数据
+      public void saveData()
+      &#123;
+          PlayerPrefs.SetString(&quot;PlayerName&quot;, this.name);
+          PlayerPrefs.SetInt(&quot;PlayerLevel&quot;, this.level);
+          PlayerPrefs.SetInt(&quot;PlayerDiamondNum&quot;, this.diamondNum);
+          PlayerPrefs.SetInt(&quot;PlayerGoldNum&quot;, this.goldNum);
+          PlayerPrefs.SetInt(&quot;PlayerPower&quot;, this.power);
+          PlayerPrefs.SetInt(&quot;PlayerAtt&quot;, this.att);
+          PlayerPrefs.SetInt(&quot;PlayerDef&quot;, this.def);
+          PlayerPrefs.SetInt(&quot;PlayerSpd&quot;, this.spd);
+          PlayerPrefs.SetInt(&quot;PlayerHp&quot;, this.hp);
+
+      &#125;
+      private void LevelUp()
+      &#123;
+          Debug.Log(&quot;升级了&quot;);
+
+          this.level += 1;
+          this.power = 100;
+          this.att += level * 7;
+          this.def += level * 3;
+          this.spd += level * 2;
+          this.hp += level * level;
+
+          EventManager.Instance.InvokeEvent(&quot;update_playerData&quot;);
+      &#125;
+      
+  &#125;
+</code></pre>
+</br>
+</br>
+</br>
+</br>
+</br>
+</li>
+<li><h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><p>  向外部提供修改UI的方法</p>
+<ul>
+<li><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><pre><code class="C#">    public interface IView
+    &#123;
+        void UpdateInfo(PlayerModel data);
+    &#125;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h3 id="View示例1"><a href="#View示例1" class="headerlink" title="View示例1"></a>View示例1</h3><pre><code class="C#">    public class MainView : MonoBehaviour,IView
+    &#123;
+        public Button skill_btn;
+        public Button roll_btn;
+
+        public Text playerName_txt;
+        public Text playerLevel_txt;
+        public Text playerDiamond_txt;
+        public Text playerGold_txt;
+        public Text playerPower_txt;
+
+        public void UpdateInfo(PlayerModel data)
+        &#123;
+            playerName_txt.text = data.Name.ToString();
+            playerLevel_txt.text = data.Level.ToString();
+            playerDiamond_txt.text = data.DiamondNum.ToString();
+            playerGold_txt.text = data.GoldNum.ToString();
+            playerPower_txt.text = data.Power.ToString();
+        &#125;
+    &#125;
+</code></pre>
+</li>
+<li><h3 id="View示例2"><a href="#View示例2" class="headerlink" title="View示例2"></a>View示例2</h3><pre><code class="C#">public class RoleView : MonoBehaviour,IView
+  &#123;
+      public Button close_btn;
+      public Button levelUp_btn;
+      public Text playerLevel_txt;
+      public Text playerAtt_txt;
+      public Text playerDef_txt;
+      public Text playerSpd_txt;
+      public Text playerHp_txt;
+
+      public void UpdateInfo(PlayerModel data)
+      &#123;
+          playerLevel_txt.text = data.Level.ToString();
+          playerAtt_txt.text = data.Att.ToString();
+          playerDef_txt.text = data.Def.ToString();
+          playerSpd_txt.text = data.Spd.ToString();
+          playerHp_txt.text = data.Hp.ToString();
+      &#125;
+  &#125;
+</code></pre>
+</li>
+</ul>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<ul>
+<li><h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><p>  控制View和Model</p>
+<ul>
+<li><h3 id="抽象控制器基类"><a href="#抽象控制器基类" class="headerlink" title="抽象控制器基类"></a>抽象控制器基类</h3><pre><code class="C#">    public abstract class BaseController&lt;Controller, View&gt; : MonoBehaviour
+    where Controller : BaseController&lt;Controller, View&gt;,new()
+    where View : IView, new()
+    &#123;
+        //单例
+        private static volatile Controller instance;
+        private static object initLock = new object();
+
+        public static Controller Instance
+        &#123;
+            get
+            &#123;
+                if (instance == null)
+                &#123;
+                    throw new ArgumentNullException($&quot;未初始化&#123;nameof(Controller)&#125;控制器&quot;);
+                &#125;
+                else
+                    return instance;
+            &#125;
+        &#125;
+
+        public static void Init(string ResourcePath, string CanvasName)
+        &#123;
+            if (instance == null)
+            &#123;
+                lock (initLock)
+                &#123;
+                    if (instance == null)
+                    &#123;
+                        //从预制体中加载
+                        GameObject res = Resources.Load(ResourcePath) as GameObject;
+                        GameObject obj = Instantiate(res);
+
+                        //设置画布为父对象
+                        obj.transform.SetParent(GameObject.Find(CanvasName).transform, false);
+
+                        //加载到场景中的资源生成控制器
+                        instance = obj.GetComponent&lt;Controller&gt;();
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+
+        protected View view;//需要被匹配的View
+
+        //匹配View
+        protected virtual void Start()
+        &#123;
+            //视图更新监听玩家数据更新事件
+            EventManager.Instance.AddEventListener(&quot;update_playerData&quot;, UpdateView);
+            
+            view = transform.gameObject.GetComponent&lt;View&gt;();
+            view?.UpdateInfo(PlayerModel.Instance);
+        &#125;
+
+        //视图显示否
+        public static void ShowView()
+        &#123;
+            instance?.gameObject.SetActive(true);
+        &#125;
+        public static void HideView()
+        &#123;
+            instance?.gameObject.SetActive(false);
+        &#125;
+        //销毁UI
+        public static void Destroy()
+        &#123;
+            EventManager.Instance.RemoveEventListener(&quot;update_playerData&quot;, instance.UpdateView);
+            Destroy(instance?.gameObject);
+        &#125;
+        //更新视图——根据玩家数据
+        protected virtual void UpdateView()
+        &#123;
+            instance?.view.UpdateInfo(PlayerModel.Instance);
+        &#125;
+    &#125;
+</code></pre>
+</li>
+<li><h3 id="控制器实例1"><a href="#控制器实例1" class="headerlink" title="控制器实例1"></a>控制器实例1</h3><pre><code class="C#">    public class MainController : BaseController&lt;MainController, MainView&gt;
+    &#123;
+        void Start()
+        &#123;
+            base.Start();
+            //技能按钮
+            view.skill_btn.onClick.AddListener(() =&gt; &#123; &#125;);
+            
+            //视图按钮
+            view.roll_btn.onClick.AddListener(ShowRoll);
+        &#125;
+        private void ShowRoll()
+        &#123;
+            RoleController.Init(&quot;UI/RolePanel&quot;,&quot;Canvas&quot;);
+            RoleController.ShowView();
+        &#125;
+    &#125;
+</code></pre>
+</li>
+<li><h3 id="控制器实例2"><a href="#控制器实例2" class="headerlink" title="控制器实例2"></a>控制器实例2</h3><pre><code class="C#">public class RoleController : BaseController&lt;RoleController, RoleView&gt;
+    &#123;
+        private void Start()
+        &#123;
+            base.Start();
+            //关闭按钮事件
+            view.close_btn.onClick.AddListener(() =&gt;
+            &#123;
+                RoleController.Destroy();
+            &#125;);
+            //升级按钮事件
+            view.levelUp_btn.onClick.AddListener(() =&gt;
+            &#123;
+                EventManager.Instance.InvokeEvent(&quot;LevelUp&quot;);
+            &#125;);
+        &#125;
+    &#125;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    
+    <div class="footer">
+    <hr>
+        <font> ©2021 </font>
+        <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
+        some copyrights reserved
+        <div style="float: right; margin-right: -200px;">
+              Feb 15th  2021,  3:04:44  |
+            <font>Powered by</font>
+            <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
+            framework
+     </div>
+    </div>
+</body>
+    
+
+</div>
+
+<script>
+     var bar=document.getElementById("top_btn")
+     var showtime=0;
+     var hidetime=0;
+     window.addEventListener("pageshow",function(){
+         let scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+        if(scrollTop ==0)
+        {
+            bar.style.display = 'none';
+        }
+        else
+        {
+            bar.style.display = 'block';
+        }
+        window.addEventListener("scroll",function(){
+            bar.style.display = 'block';
+            scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+            if(scrollTop != 0)
+            {
+                if(hidetime==0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    hidetime++;
+                }
+                showtime=0;
+            }  
+            else
+            {
+                if(showtime==0 && hidetime!=0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    showtime++;
+                    hidetime=0;
+                }
+            }
+        }) 
+     })
+     
+    var timer = null;
+    bar.onclick = function()
+    {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn()
+        {
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            if(top > 0)
+            {
+                document.body.scrollTop = document.documentElement.scrollTop = top - 80;
+                timer = requestAnimationFrame(fn);
+            }
+            else
+            {
+                cancelAnimationFrame(timer);
+            } 
+        });
+    }
+         
+</script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+</body>                                             <!--  加载主体  -->
+
+        </div>                                                                 
+        
+<script src="/blog/js/searchbar.js"></script>
+<script src="/blog/js/hidebar.js"></script>
+              <!--    加载JS  -->                                                          
+    </body>
+
+</html>
