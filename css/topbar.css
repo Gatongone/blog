@@ -108,6 +108,7 @@
 #topblock input:focus
 {
     width:260px;
+    height: 25px;
     color:rgba(240, 248, 255, 0.595);
     border-color: rgba(240, 248, 255, 0.595);
     filter: drop-shadow(0 0 3px  rgb(60, 62, 184) );
