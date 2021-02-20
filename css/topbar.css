@@ -94,8 +94,10 @@
     width: 200px;
     height: 25px;
     outline:none;  
-    background:none;  
-    border: 2px solid;
+    background-color: rgb(20, 20, 34);
+    font-size: 5px;
+    border: 1px solid ;
+    border-width: 2px;
     color:rgba(240, 248, 255, 0.315);
     border-color: rgba(240, 248, 255, 0.315);
     border-top-left-radius: 90px;
@@ -108,7 +110,6 @@
 #topblock input:focus
 {
     width:260px;
-    height: 25px;
     color:rgba(240, 248, 255, 0.595);
     border-color: rgba(240, 248, 255, 0.595);
     filter: drop-shadow(0 0 3px  rgb(60, 62, 184) );
@@ -127,9 +128,9 @@
     color:rgba(255, 253, 253, 0.629);
     position: absolute;
     outline: none;
-    top: -2px;
     right: 40px;
     width: 70px;
+    margin-top: -2px;
     height: 30px;
     border-top-right-radius: 90px;
     border-bottom-right-radius: 90px;
