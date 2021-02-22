@@ -186,6 +186,7 @@
 <li>枚举：enum</li>
 <li>结构体：struct</li>
 <li>指针：int*,float*,……</li>
+<li>可空类型：int?,float?,……</li>
 </ul>
 </li>
 <li><h3 id="引用类型："><a href="#引用类型：" class="headerlink" title="引用类型："></a>引用类型：</h3><ul>
@@ -193,7 +194,6 @@
 <li>接口：interface</li>
 <li>数组：xxx[] </li>
 <li>委托：delegate,Func&lt;&gt;,Action&lt;&gt;</li>
-<li>可空类型：int?,float?,……</li>
 <li>其他：string,DateTime……</li>
 </ul>
 </li>
@@ -201,7 +201,7 @@
 </br>
 
 <hr>
-<h2 id="值类型和引用类型的区别"><a href="#值类型和引用类型的区别" class="headerlink" title="值类型和引用类型的区别"></a>值类型和引用类型的区别</h2><ul>
+<h2 id="值类型和引用类型的在内存上区别"><a href="#值类型和引用类型的在内存上区别" class="headerlink" title="值类型和引用类型的在内存上区别"></a>值类型和引用类型的在内存上区别</h2><ul>
 <li><p>值类型实例一般保存在线程栈中，因此不受GC的控制，缓解了托管堆中的压力。值类型的实例就是自己本身。值类型创建时，runtime会为其分配一个内存空间到栈上。</p>
 </li>
 <li><p>引用类型一定分配在托管堆中，在C#中受到GC的控制，以此过多的引用类型会导致GC的次数，以致于性能下降。引用类型被创建（new）时，runtime会创建两个内存空间，一个分配在栈上用于保存实例，一个分配在堆中用于保存指向实例的内存地址。</p>
@@ -385,6 +385,28 @@ int i = (int)obj;
 <p><img src="https://raw.githubusercontent.com/Gatongone/ImageContainer/main/Others/array.jpg" alt="alt" style="max-width:100%;" ></p>
 </li>
 </ul>
+</br>
+
+<hr>
+<h2 id="特殊的引用：string驻留池"><a href="#特殊的引用：string驻留池" class="headerlink" title="特殊的引用：string驻留池"></a>特殊的引用：string驻留池</h2><pre><code>string作为一种特殊的引用类型却往往表现出值类型的行为，最特别的是它的不变性，当我们同时new两个相同字符串的string时，检查地址会发现指向的是同一个实例对象。
+
+```C#
+ string a = &quot;ssss&quot;;
+ string b = &quot;ssss&quot;;
+ //a和b均指向同一地址
+```
+
+这是由于`CLR`在初始化时维护了一张`哈希表（驻留池）`，其中键为字符串，值为指向托管堆中字符串的引用。`JIT`在编译时，会检查驻留池中的字符串，如果没有找到，则在托管堆中构造一个指向该字符串的对象引用，并将该字符串和引用添加至散列表中。
+
+```C#
+ string a = &quot;abc&quot;;
+ string b = a;
+ a = &quot;abcdef&quot;
+ Console.WriteLine(&quot;b=&quot;+b);
+ //输出：b=abc
+```
+在上面的程序中之所以会表现出值类型的行为，是因为`string b = a;`并不是b指向了a的引用，而是指向了驻留池中的字符串&quot;abc&quot;。
+</code></pre>
 </br>
 
 <hr>

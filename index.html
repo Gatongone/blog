@@ -160,14 +160,14 @@
     <div id="recent_update" class="recent_update">
         <span> Recent Update </span>
         <div>
-         <a href="/blog/2021/02/15/unity脚本生命周期-Script-lifecycle-overview/" class="post">unity脚本生命周期 </a><a href="/blog/2021/02/15/MVC（UGUI）/" class="post">MVC（UGUI） </a><a href="/blog/2021/02/15/C-中的值类型和引用类型/" class="post">C#中的值类型和引用类型 </a><a href="/blog/2021/02/15/C-特性-Attribute/" class="post">C#特性(Attribute) </a><a href="/blog/2021/02/15/C-反射-Reflection/" class="post">C#反射(Reflection) </a>
+         <a href="/blog/2021/02/22/C-6-C-9新增特性/" class="post">C#6-C#9新增特性 </a><a href="/blog/2021/02/15/unity脚本生命周期-Script-lifecycle-overview/" class="post">unity脚本生命周期 </a><a href="/blog/2021/02/15/MVC（UGUI）/" class="post">MVC（UGUI） </a><a href="/blog/2021/02/15/C-中的值类型和引用类型/" class="post">C#中的值类型和引用类型 </a><a href="/blog/2021/02/15/C-特性-Attribute/" class="post">C#特性(Attribute) </a>
         </div>
     </div>
 
     <div id="tagcloud" class="tagcloud">
         <span> Trending Tags </span>
         <div>
-         <a href="#" class="tag">C# </a><a href="#" class="tag">.net </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">unity </a>
+         <a href="#" class="tag">C# </a><a href="#" class="tag">.net </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">unity </a><a href="#" class="tag">Attribute </a>
         </div>
     </div>
 
@@ -176,6 +176,53 @@
     var bar=document.getElementById("right_bar");
     MoveBar(bar,"right_bar_hide",1120)
 </script>
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/02/22/C-6-C-9新增特性/"  target="_self">C#6-C#9新增特性 </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            
+C#6
+只读属性或成员函数的方法表达式体class Person
+{
+    private string FirstName,LastName;
+
+    //属性
+    public string name =&gt; $&amp;quot;{FirstName&amp;#125; —— {LastName&amp;#125;&amp;quot;;
+
+
+
+
+
+
+        //方法
+
+        //原来的
+        public string get...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Feb 22nd,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span></span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">28902</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
 
         
             
@@ -246,7 +293,7 @@ Model  向外部提供修改数据的方法
         <span>10 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">9698</span>
+        <span class="words">9684</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -275,13 +322,14 @@ Model  向外部提供修改数据的方法
 枚举：enum
 结构体：struct
 指针：int*,float*,……
+可空类型：int?,float?,……
 
 
 引用类型：
 类：class
 接口：interface
 数组：xxx[] 
-委托：delegate,Func&lt;&gt;,Action&lt;...
+委托：del...
     </span>
 
     <div>
@@ -292,7 +340,7 @@ Model  向外部提供修改数据的方法
         <span>11 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">6339</span>
+        <span class="words">7014</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -369,45 +417,6 @@ Model  向外部提供修改数据的方法
 
         <img src="/blog/images/icon/words.png" alt="">
         <span class="words">6604</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/14/GUI（IMGUI）/"  target="_self">GUI（IMGUI） </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            全称：即时模式用户交互界面，是一种即见即所得的UI系统，一般用作创建游戏内置工具和脚本检视面板而不作为游戏玩家的UI。
-
-
-
-OnGui()继承了MonoBehaviour的脚本都可以调用OnGui()。OnGui()中的控件绘制函数都是由GUI类提供的静态函数，这些空间的的常见参数类型:
-
-位置参数：Rect(x ,y ,w ,h);（x，y位置信息；w，h尺寸信息）
-显示文本：string
-图片信息：Texture
-组合信息：GUI...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 14th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>10 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">9646</span>
 
     </div>
     <hr color=#49495b SIZE=1>
