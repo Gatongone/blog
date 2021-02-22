@@ -75,6 +75,17 @@ hr
 {
     line-height:20px;
 }
+.page_content p code
+{
+    color: rgb(35, 153, 98);
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(3, 0, 32);
+    border-radius: 15px;
+}
 .footer
 {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
