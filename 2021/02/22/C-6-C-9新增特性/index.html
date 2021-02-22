@@ -876,7 +876,7 @@ public class MainTest//main调试
 当前线程ID：11,AsyncGetData中返回的数字:8
 异步流遍历结束
 </code></pre>
-<p>GetData所在的线程ID都是一样的，AsyncGetData所在线程的id有时会变化，<code>hread.Sleep()</code>会阻塞线程，等待Task对象的执行完成后会继续执行,当处理一些长线的调用时，可能会导致线程占用过多等问题。<code>await Task.Delay(500)</code>不会阻塞当前线程，当它await任务时，该线程可以去做其它工作。</p>
+<p>GetData所在的线程ID都是一样的，AsyncGetData所在线程的id有时会变化，<code>hread.Sleep()</code>会阻塞线程，等待Task对象的执行完成后会继续执行,当处理一些长线的调用时，可能会导致线程占用过多等问题。<code>await Task.Delay()</code>不会阻塞当前线程，当它await任务时，该线程可以去做其它工作。</p>
 </li>
 </ul>
 </li>
