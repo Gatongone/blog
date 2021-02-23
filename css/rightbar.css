@@ -105,6 +105,7 @@
 .post:hover
 {
     color: rgb(168, 166, 166);
+    text-decoration:underline;
 }
 
 
@@ -159,7 +160,7 @@
     margin-top: 15px;
     max-height: 230px;
     overflow-y: scroll;
-    margin-left: 10px;
+    margin-left: -20px;
 }
 .post_index
 {
@@ -187,7 +188,7 @@
     position: fixed;
     height: 40px;
     width: 100%;
-    margin-left: 15px;
+    margin-left: 35px;
     background: linear-gradient(rgba(20, 20, 34, 0.001),rgba(20, 20, 34,1)); 
     pointer-events: none;
     
