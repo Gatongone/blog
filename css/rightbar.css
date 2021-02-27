@@ -82,7 +82,7 @@
 }
 .recent_update div
 {
-    margin-top: 15px;
+    margin-top: -10px;
     height: 150px;
 }
 .recent_update
@@ -101,6 +101,9 @@
     font-size: 13px;
     margin-left: 12px;
     margin-top: 9px;
+    overflow-x:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .post:hover
 {
@@ -157,7 +160,7 @@
 
 .post_index div
 {
-    margin-top: 15px;
+    margin-top: 2px;
     max-height: 230px;
     overflow-y: scroll;
     margin-left: -20px;
