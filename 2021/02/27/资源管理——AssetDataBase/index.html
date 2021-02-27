@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Gatongone">
+    <meta name="Description" content="Gatongone's Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body
+        {
+            background-color: rgb(20, 20, 34);
+            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none; /* Firefox */
+            
+        }
+        ::-webkit-scrollbar
+        {
+        display: none; /* Chrome Safari */
+        }
+    </style>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+    <body>
+        
+<link rel="stylesheet" href="/blog/css/leftsidebar.css">
+
+
+<script src="/blog/js/hidebar.js"></script>
+
+<div class="leftpanel_out" id="leftpanel_out">
+    <div class="block1"></div>
+
+    <div class="profile_background" id="profile_background">
+        <a href="https://gatongone.github.io" title="Navigation" target="_self">
+            <img class="profile" src="/blog/images/profile.jpg" />
+        </a>
+    </div>
+
+    <img class="block2" src="/blog/images/block.png"/>
+
+    <div class="buttons">
+        <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/26209665" title="bilibili">
+            <img class="shadowfilter bilibili" src="/blog/images/icon/bilibili_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://gatongone.lofter.com/" title="lofter">
+            <img class="shadowfilter lofter" src="/blog/images/icon/lofter_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+         <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" title="github">
+            <img class="shadowfilter github" src="/blog/images/icon/github_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://blog.csdn.net/Gatongone" title="CSDN">
+            <img class="shadowfilter csdn" src="/blog/images/icon/csdn_btn.png"/>
+        </a>
+    </div>
+    <div class="block3"></div>
+</div>
+<script>
+    var obj=document.getElementById('leftpanel_out');
+    MoveBar(obj,"leftpanel_in",1150)
+</script>                       <!-- 加载侧边栏 -->
+
+        <div class='body-wrapper' id="body-wrapper">
+
+            <head>
+ 
+</head>
+<body>
+    
+<link rel="stylesheet" href="/blog/css/topbar.css">
+
+
+<script src="/blog/js/searchbar.js"></script>
+<script src="/blog/js/hidebar.js"></script>
+  
+<div class="topbar" id="topbar">
+    <font class="title_top" id="title_top">Gatongone's blog</font>
+    <div id="topblock">
+        <div id="text">
+            <font id='about' class="buttonfont">▼About</font>
+            <font id="plan" class="buttonfont">Planing</font>
+            <font id="RSS" class="buttonfont">RSS</font>
+        </div>
+        
+        <input id="search_input"  type="text" placeholder="search with title" value="" onkeydown=" if(event.which==13)''">
+        <button><img src="/blog/images/icon/search.png" style="height: 16px; width: 18px; margin-top: 2px;"></button>
+    </div>
+</div>
+
+<!-- swiftype search -->
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','7xj-dxBhzvJx1yWsVMJU','2.0.0');
+</script>
+    </script>
+
+
+<script>
+    var obj2=document.getElementById('title_top');
+    var obj3=document.getElementById("text");
+    //HideBar(obj2,1270);
+    MoveBar(obj2,"title_top2",1270);
+    //HideBar(obj3,650);
+    MoveBar(obj3,"text2",800);
+
+    if(sessionStorage.getItem("isReload")){
+    }else{
+    sessionStorage.setItem("isReload", true)
+    }
+</script>
+    
+<link rel="stylesheet" href="/blog/css/mainbody.css">
+
+
+<!-- 回到首页 -->
+
+    <a href="/blog/">
+    <button class="home_btn">
+        <img src="/blog/images/icon/home.png">
+    </button>
+    </a>
+
+
+<!-- 回到顶部 -->
+<div id="top">
+    <button class="top_btn" id="top_btn">
+        <img src="/blog/images/icon/top.png">
+    </button>
+</div>
+<!-- 主体 -->
+
+<div class="mainbody" id="mainbody">
+<!-- 加载post_entry -->
+    <div class="entry">
+    
+
+    
+<!--    加载post    -->    
+
+    
+        <head>
+    <title>资源管理——AssetDataBase</title>
+</head>
+<body>
+
+    
+<link rel="stylesheet" href="/blog/css/post.css">
+
+    
+<link rel="stylesheet" href="/blog/css/hightlight.css">
+
+
+    
+<link rel="stylesheet" href="/blog/css/rightbar.css">
+
+
+<script src="/blog/js/hidebar.js"></script>
+
+<div id="right_bar">
+
+        
+
+        
+            <div id="post_index" class="post_index">
+                <span> Post Index </span>
+                <div>
+                    <div id="clear"></div>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AssetDatabase%E5%B8%B8%E7%94%A8%E7%9A%84%E8%B5%84%E6%BA%90%E6%93%8D%E4%BD%9C"><span class="toc-text">AssetDatabase常用的资源操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E8%B5%84%E6%BA%90"><span class="toc-text">加载资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD%E8%B5%84%E6%BA%90"><span class="toc-text">卸载资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E8%B5%84%E6%BA%90"><span class="toc-text">导入资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%B5%84%E6%BA%90"><span class="toc-text">创建资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%B9%B6%E4%BF%9D%E5%AD%98%E4%B8%80%E4%B8%AA%E5%B7%B2%E6%9C%89%E7%9A%84Asset"><span class="toc-text">修改并保存一个已有的Asset</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB"><span class="toc-text">其他函数汇总</span></a></li></ol>
+                </div>
+                
+             </div>
+        
+
+</div>
+<script>
+    var bar=document.getElementById("right_bar");
+    MoveBar(bar,"right_bar_hide",1120)
+</script>
+
+    <div class="page_title" id="page_title">
+        资源管理——AssetDataBase
+    </div>
+    <hr>
+    <div class="page_content">
+        
+        
+        <p>AssetDatabase是一个对资源进行读写等操作的编辑器类接口，位于工程目录的Assets/Editor文件夹下，需要引入<code>UnityEditor</code>命名空间和宏管理。</p>
+<pre><code class="C#">#if UNITY_EDITOR
+using UnityEditor; //手机上没有UnityEditor文件
+#endif
+</code></pre>
+<ul>
+<li><h2 id="AssetDatabase常用的资源操作"><a href="#AssetDatabase常用的资源操作" class="headerlink" title="AssetDatabase常用的资源操作"></a>AssetDatabase常用的资源操作</h2><ol>
+<li><h3 id="加载资源"><a href="#加载资源" class="headerlink" title="加载资源"></a>加载资源</h3><table>
+<thead>
+<tr>
+<th>加载类型</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>加载单个Asset</td>
+<td>UnityEngine.Object LoadAssetAtPath(string assetPath, Type type);</td>
+</tr>
+<tr>
+<td>加载路径下优先级最高Asset(一般是第一个)</td>
+<td>LoadMainAssetAtPath(string assetPath);</td>
+</tr>
+<tr>
+<td>加载路径下所有Asset</td>
+<td>LoadAllAssetsAtPath(string assetPath);</td>
+</tr>
+<tr>
+<td>加载路径下所有sub Asset</td>
+<td>LoadAllAssetRepresentationsAtPath(string assetPath);</td>
+</tr>
+</tbody></table>
+<pre><code class="C#">Material mat = AssetDatabase.LoadAssetAtPath(&quot;Assets/red.mat&quot;, typeof(Material)) as Material;
+//或者
+Material mat = AssetDatabase.LoadAssetAtPath&lt;Material&gt;(&quot;Assets/red.mat&quot;);
+</code></pre>
+</li>
+<li><h3 id="卸载资源"><a href="#卸载资源" class="headerlink" title="卸载资源"></a>卸载资源</h3><p> Resources.UnloadAsset(Object asset);</p>
+<pre><code class="C#">Resources.UnloadAsset(mat);//居然不是AssetDatabase下的方法
+</code></pre>
+</li>
+<li><h3 id="导入资源"><a href="#导入资源" class="headerlink" title="导入资源"></a>导入资源</h3><p> ImportAsset(string path, ImportAssetOptions options);</p>
+<p> 通常Unity只在需要时自动导入已拖放至该工程的资源，但也可以通过脚本的方式下导入这些资源</p>
+<table>
+<thead>
+<tr>
+<th>ImportAssetOptions导入资源选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Default</td>
+<td>默认导入选项。</td>
+</tr>
+<tr>
+<td>ForceUpdate</td>
+<td>用户启动资源导入。</td>
+</tr>
+<tr>
+<td>ForceSynchronousImport</td>
+<td>同步导入所有资源。</td>
+</tr>
+<tr>
+<td>TryFastReimportFromMetaData</td>
+<td>允许快速从元数据重新导入。</td>
+</tr>
+<tr>
+<td>ImportRecursive</td>
+<td>当一个文件夹被导入，导入所有内容。</td>
+</tr>
+</tbody></table>
+<pre><code class="C#">AssetDatabase.ImportAsset(&quot;Assets/Textures/texture.jpg&quot;, ImportAssetOptions.Default);
+</code></pre>
+</li>
+<li><h3 id="创建资源"><a href="#创建资源" class="headerlink" title="创建资源"></a>创建资源</h3><p> CreateAsset(UnityEngine.Object asset, string path);</p>
+<p> 注意Unity中不允许对单个资源同时创建两份，因此CreateAsset前必须保证资源是一个新的实例。创建结束后刷新则可以在path下看到新创建的Asset。</p>
+<pre><code class="C#">Material mat2 = Object.Instantiate&lt;Material&gt;(mat);
+AssetDatabase.CreateAsset(mat2, &quot;Assets/red2.mat&quot;);
+AssetDatabase.Refresh();
+</code></pre>
+</li>
+<li><h3 id="修改并保存一个已有的Asset"><a href="#修改并保存一个已有的Asset" class="headerlink" title="修改并保存一个已有的Asset"></a>修改并保存一个已有的Asset</h3><pre><code class="C#">//修改了mat的颜色
+mat.color = Color.white;
+//标记为已更改的资源,但不会立即保存到磁盘
+EditorUtility.SetDirty(mat);
+//保存到磁盘
+AssetDatabase.SaveAssets();
+</code></pre>
+</li>
+</ol>
+</li>
+<li><h2 id="其他函数汇总"><a href="#其他函数汇总" class="headerlink" title="其他函数汇总"></a>其他函数汇总</h2><table>
+<thead>
+<tr>
+<th>静态函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AddObjectToAsset</td>
+<td>添加对象到Asset</td>
+</tr>
+<tr>
+<td>AssetPathToGUID</td>
+<td>获得Asset的GUID</td>
+</tr>
+<tr>
+<td>ClearLabels</td>
+<td>删除所有Asset标签</td>
+</tr>
+<tr>
+<td>Contains</td>
+<td>当对象是一个资源(在资源文件夹中的文件)时返回true，否则返回false(例如场景中的对象或者在运行时生成的对象)。</td>
+</tr>
+<tr>
+<td>CopyAsset</td>
+<td>复制Asset</td>
+</tr>
+<tr>
+<td>CreateAsset</td>
+<td>创建Asset</td>
+</tr>
+<tr>
+<td>CreateFolder</td>
+<td>创建文件夹。</td>
+</tr>
+<tr>
+<td>DeleteAsset</td>
+<td>删除Asset</td>
+</tr>
+<tr>
+<td>ExportPackage</td>
+<td>导出包</td>
+</tr>
+<tr>
+<td>FindAssets</td>
+<td>查找Asset</td>
+</tr>
+<tr>
+<td>GenerateUniqueAssetPath</td>
+<td>创建唯一Asset路径</td>
+</tr>
+<tr>
+<td>GetAllAssetBundleNames</td>
+<td>获得Asset数据库的所有资源包名称</td>
+</tr>
+<tr>
+<td>GetAssetDependencyHash</td>
+<td>获得Asset所有依赖关系的哈希值</td>
+</tr>
+<tr>
+<td>GetAssetOrScenePath</td>
+<td>获得资源或场景路径</td>
+</tr>
+<tr>
+<td>GetAssetPath</td>
+<td>获得Asset路径</td>
+</tr>
+<tr>
+<td>GetAssetPathFromTextMetaFilePath</td>
+<td>获得根据“.meta”文件获得Asset路径</td>
+</tr>
+<tr>
+<td>GetAssetPathsFromAssetBundle</td>
+<td>获得从给定assetBundle名获得路径</td>
+</tr>
+<tr>
+<td>GetAssetPathsFromAssetBundleAndAssetName</td>
+<td>获得从给定assetBundle名和Asset名获得路径</td>
+</tr>
+<tr>
+<td>GetCachedIcon</td>
+<td>获得Asset图标</td>
+</tr>
+<tr>
+<td>GetDependencies</td>
+<td>获得依赖关系的路径列表</td>
+</tr>
+<tr>
+<td>GetLabels</td>
+<td>获得资源标签</td>
+</tr>
+<tr>
+<td>GetSubFolders</td>
+<td>获得子文件夹</td>
+</tr>
+<tr>
+<td>GetTextMetaFilePathFromAssetPath</td>
+<td>获取与Asset关联的“.meta”文件</td>
+</tr>
+<tr>
+<td>GetUnusedAssetBundleNames</td>
+<td>获得所有未使用的资源包的名字</td>
+</tr>
+<tr>
+<td>GUIDToAssetPath</td>
+<td>通过GUID返回Asset路径</td>
+</tr>
+<tr>
+<td>ImportAsset</td>
+<td>导入Asset。</td>
+</tr>
+<tr>
+<td>ImportPackage</td>
+<td>导入包</td>
+</tr>
+<tr>
+<td>IsForeignAsset</td>
+<td>是否是外部Asset</td>
+</tr>
+<tr>
+<td>IsMainAsset</td>
+<td>是否是主要Asset吗</td>
+</tr>
+<tr>
+<td>IsNativeAsset</td>
+<td>是否是本地Asset吗</td>
+</tr>
+<tr>
+<td>IsOpenForEdit</td>
+<td>用来进行编辑模式的版本控制，为真则Asset可以编辑，否则不能编辑</td>
+</tr>
+<tr>
+<td>IsSubAsset</td>
+<td>Asset是另一种Asset的子对象么？</td>
+</tr>
+<tr>
+<td>IsValidFolder</td>
+<td>给定一个文件夹的绝对路径，如果它存在，返回真，否则为假</td>
+</tr>
+<tr>
+<td>LoadAllAssetRepresentationsAtPath</td>
+<td>返回指定路径下所有Asset的陈述</td>
+</tr>
+<tr>
+<td>LoadAllAssetsAtPath</td>
+<td>获得Asset包含的所有对象</td>
+</tr>
+<tr>
+<td>LoadAssetAtPath</td>
+<td>获得Asset内指定类型的子对象</td>
+</tr>
+<tr>
+<td>LoadMainAssetAtPath</td>
+<td>返回Asset对象组中第一个对象</td>
+</tr>
+<tr>
+<td>MoveAsset</td>
+<td>移动Asset</td>
+</tr>
+<tr>
+<td>MoveAssetToTrash</td>
+<td>将Asset移动到垃圾桶</td>
+</tr>
+<tr>
+<td>OpenAsset</td>
+<td>用相关应用程序打开Asset</td>
+</tr>
+<tr>
+<td>Refresh</td>
+<td>刷新</td>
+</tr>
+<tr>
+<td>RemoveAssetBundleName</td>
+<td>从Asset数据库删除assetBundle名字</td>
+</tr>
+<tr>
+<td>RemoveUnusedAssetBundleNames</td>
+<td>在Asset数据库中删除未使用的assetBundle名字</td>
+</tr>
+<tr>
+<td>RenameAsset</td>
+<td>重命名Asset</td>
+</tr>
+<tr>
+<td>SaveAssets</td>
+<td>保存所有改变的Asset到磁盘</td>
+</tr>
+<tr>
+<td>SetLabels</td>
+<td>替换Asset上的标签列表</td>
+</tr>
+<tr>
+<td>StartAssetEditing</td>
+<td>开始Asset导入</td>
+</tr>
+<tr>
+<td>StopAssetEditing</td>
+<td>停止Asset导入</td>
+</tr>
+<tr>
+<td>ValidateMoveAsset</td>
+<td>检查一个Asset文件是否可以从一个文件夹移动到另一个文件夹。（不实际移动文件）</td>
+</tr>
+<tr>
+<td>WriteImportSettingsIfDirty</td>
+<td>将导入设置写入磁盘</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+
+    </div>
+    
+    <div class="footer">
+    <hr>
+        <font> ©2021 </font>
+        <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
+        some copyrights reserved
+        <div style="float: right; margin-right: -200px;">
+              Feb 27th  2021,  4:47:35  |
+            <font>Powered by</font>
+            <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
+            framework
+        </div>
+    </div>
+</body>
+    
+
+
+
+</div>
+
+
+
+<script>
+     var bar=document.getElementById("top_btn")
+     var showtime=0;
+     var hidetime=0;
+     window.addEventListener("pageshow",function(){
+         let scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+        if(scrollTop ==0)
+        {
+            bar.style.display = 'none';
+        }
+        else
+        {
+            bar.style.display = 'block';
+        }
+        window.addEventListener("scroll",function(){
+            bar.style.display = 'block';
+            scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+            if(scrollTop != 0)
+            {
+                if(hidetime==0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    hidetime++;
+                }
+                showtime=0;
+            }  
+            else
+            {
+                if(showtime==0 && hidetime!=0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    showtime++;
+                    hidetime=0;
+                }
+            }
+        }) 
+     })
+     
+    var timer = null;
+    bar.onclick = function()
+    {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn()
+        {
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            if(top > 0)
+            {
+                document.body.scrollTop = document.documentElement.scrollTop = top - 80;
+                timer = requestAnimationFrame(fn);
+            }
+            else
+            {
+                cancelAnimationFrame(timer);
+            } 
+        });
+    }
+         
+</script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+</body>                                             <!--  加载主体  -->
+
+        </div>                                                                 
+        
+<script src="/blog/js/searchbar.js"></script>
+<script src="/blog/js/hidebar.js"></script>
+              <!--    加载JS  -->                                                          
+    </body>
+
+</html>
