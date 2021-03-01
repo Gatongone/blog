@@ -450,18 +450,21 @@ public void AddDependenciesBundle(string path, string mainbundelname , string bu
 </li>
 </ol>
 </li>
-<li><h2 id="资源优化的建议"><a href="#资源优化的建议" class="headerlink" title="资源优化的建议"></a>资源优化的建议</h2><pre><code>  * 预先制定详细合理的美术规划：目标机型什么样的，根据目标机型的配置，规定内存上限来制定场景、特效、UI等方案；
-  * 最好在打包AssetBundle时就管理资源间的依赖；
-  * 加载Asset时通过引用计数等方式管理资源的卸载；
-  * 压缩贴图（移动端最好压缩成ETC/pvrtc）、模型、动作
-  * 在切换场景或定时地进行GC
-  * 尽量防止资源被长期占用
-  * 注意代码造成频繁触发的C#GC（比如在update中new一些比较大的Object，或多次在堆栈中分配资源）
-  * 擅于利用分析工具：
-    * PC：profilor
-    * Android：adb
-    * IOS：instruments 
-</code></pre>
+<li><h2 id="资源优化的建议"><a href="#资源优化的建议" class="headerlink" title="资源优化的建议"></a>资源优化的建议</h2><ul>
+<li>预先制定详细合理的美术规划：目标机型什么样的，根据目标机型的配置，规定内存上限来制定场景、特效、UI等方案；</li>
+<li>最好在打包AssetBundle时就管理资源间的依赖；</li>
+<li>加载Asset时通过引用计数等方式管理资源的卸载；</li>
+<li>压缩贴图（移动端最好压缩成ETC/pvrtc）、模型、动作</li>
+<li>在切换场景或定时地进行GC</li>
+<li>尽量防止资源被长期占用</li>
+<li>注意代码造成频繁触发的C#GC（比如在update中new一些比较大的Object，或多次在堆栈中分配资源）</li>
+<li>擅于利用分析工具：<ul>
+<li>PC：profilor</li>
+<li>Android：adb</li>
+<li>IOS：instruments </li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 
