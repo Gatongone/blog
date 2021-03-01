@@ -182,7 +182,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#unity%E8%B5%84%E6%BA%90%E7%B1%BB%E5%9E%8B%E5%92%8C%E8%B5%84%E6%BA%90%E7%9A%84%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">unity资源类型和资源的管理方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E7%B1%BB%E5%9E%8BAsset-%E8%B5%84%E4%BA%A7-%EF%BC%9A"><span class="toc-text">资源类型Asset(资产)：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Asset%E7%9A%84%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">Asset的管理方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#meta-%E8%B5%84%E6%BA%90%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-text">.meta: 资源的引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unity-%E8%B5%84%E6%BA%90%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="toc-text">.unity: 资源间的关系：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#unity%E8%B5%84%E6%BA%90%E7%B1%BB%E5%9E%8B%E5%92%8C%E8%B5%84%E6%BA%90%E7%9A%84%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">unity资源类型和资源的管理方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E7%B1%BB%E5%9E%8BAsset-%E8%B5%84%E4%BA%A7-%EF%BC%9A"><span class="toc-text">资源类型Asset(资产)：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Asset%E7%9A%84%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">Asset的管理方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#meta-%E8%B5%84%E6%BA%90%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-text">.meta: 资源的引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unity-%E5%9C%BA%E6%99%AF%E4%B8%AD%E8%B5%84%E6%BA%90%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="toc-text">.unity: 场景中资源间的关系：</span></a></li></ol>
                 </div>
                 
              </div>
@@ -260,7 +260,7 @@ using UnityEditor; //手机上没有UnityEditor文件
 </br>
 
 <ul>
-<li><h2 id="unity-资源间的关系："><a href="#unity-资源间的关系：" class="headerlink" title=".unity: 资源间的关系："></a>.unity: 资源间的关系：</h2><p>  利用unity制作游戏本质上就是在一个运行中的软件中制作游戏，而运行中的软件之所以能读取到创建了哪些对象信息是因为引擎对场景的配置文件进行了读取。 当在Inspector面板上拖拽脚本和资源，会被.unity文件视为引用。因此.unity文件保存了场景中资源与资源之间的关系。</p>
+<li><h2 id="unity-场景中资源间的关系："><a href="#unity-场景中资源间的关系：" class="headerlink" title=".unity: 场景中资源间的关系："></a>.unity: 场景中资源间的关系：</h2><p>  利用unity制作游戏本质上就是在一个运行中的软件中制作游戏，而运行中的软件之所以能读取到创建了哪些对象信息是因为引擎对场景的配置文件进行了读取。 当在Inspector面板上拖拽脚本和资源，会被.unity文件视为引用。因此.unity文件保存了场景中资源与资源之间的关系。</p>
 <p>  <img src="https://raw.githubusercontent.com/Gatongone/ImageContainer/main/Others/ScenesFile.png" alt="alt" style="max-width:100%;" ></p>
 <p>  当保存场景后会在Assets文件夹下自动的生成.unity这样的一个场景文件。</p>
 <p>  打开后是一个yaml格式的场景配置文件（序列化文件）。</p>

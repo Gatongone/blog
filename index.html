@@ -161,7 +161,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/02/27/资源管理——Resources/" class="post">资源管理——Resources </a><a href="/blog/2021/02/27/资源管理——AssetDataBase/" class="post">资源管理——AssetDataBase </a><a href="/blog/2021/02/25/unity资源概要/" class="post">unity资源概要 </a><a href="/blog/2021/02/22/C-6-C-9新增特性/" class="post">C#6-C#9新增特性 </a><a href="/blog/2021/02/15/unity脚本生命周期-Script-lifecycle-overview/" class="post">unity脚本生命周期 </a>
+             <a href="/blog/2021/03/01/资源管理——AssetBundle/" class="post">资源管理——AssetBundle </a><a href="/blog/2021/02/27/资源管理——Resources/" class="post">资源管理——Resources </a><a href="/blog/2021/02/27/资源管理——AssetDataBase/" class="post">资源管理——AssetDataBase </a><a href="/blog/2021/02/25/unity资源概要/" class="post">unity资源概要 </a><a href="/blog/2021/02/22/C-6-C-9新增特性/" class="post">C#6-C#9新增特性 </a>
             </div>
         </div>
 
@@ -180,6 +180,39 @@
     var bar=document.getElementById("right_bar");
     MoveBar(bar,"right_bar_hide",1120)
 </script>
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/03/01/资源管理——AssetBundle/"  target="_self">资源管理——AssetBundle </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            开发人员可以通过AssetBundle将一个资源分到多个包或者将多个资源打到一个包内，并且可以实时地从任意位置加载资源包。Asset在打包时维护一个指向它所依赖包的id。相较于Resources,AssetBundle能自己控制资源的精确管理，包括资源的引用计数。更重要的一点，在游戏发布后，可以从服务器或本地中动态地加载资源包对资源进行更新（热更新），这是Resources所不能做到的。
+
+AssetBundle常用的资源操作
+Asse...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Mar 1st,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span></span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">9129</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
 
         
             
@@ -228,7 +261,7 @@ Resources.Load&lt;Material&gt;(&amp;quot;myMaterial&amp;quot;)//...
         <span>3 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">1700</span>
+        <span class="words">1695</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -311,7 +344,7 @@ TextAsset：后缀标记为.path文件可以被unity读取（比如json标记为
         <span>3 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">3001</span>
+        <span class="words">3013</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -394,43 +427,6 @@ Awake：   此函数始终会在任何 Start 函数之前以及预制件（prefa
 
         <img src="/blog/images/icon/words.png" alt="">
         <span class="words">6955</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/15/MVC(UGUI)/"  target="_self">MVC(UGUI) </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            基于UGUI的MVC个人用框架，源项目已上传至GitHub,若clone失败请用lfs。
-
-Model  向外部提供修改数据的方法
-  public sealed class PlayerModel
-  {
-
-      //PlayerModel单例
-      private static readonly Lazy&lt;PlayerModel&gt; _instance = new Lazy&lt;PlayerModel&gt;(() =&gt; new P...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 15th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>10 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">9684</span>
 
     </div>
     <hr color=#49495b SIZE=1>
