@@ -161,7 +161,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/03/01/资源管理——AssetBundle/" class="post">资源管理——AssetBundle </a><a href="/blog/2021/02/27/资源管理——Resources/" class="post">资源管理——Resources </a><a href="/blog/2021/02/27/资源管理——AssetDataBase/" class="post">资源管理——AssetDataBase </a><a href="/blog/2021/02/25/unity资源概要/" class="post">unity资源概要 </a><a href="/blog/2021/02/22/C-6-C-9新增特性/" class="post">C#6-C#9新增特性 </a>
+             <a href="/blog/2021/03/03/非泛型单例下的万能参数容器-非object/" class="post">非泛型单例下的万能参数容器(非object) </a><a href="/blog/2021/03/01/资源管理——AssetBundle/" class="post">资源管理——AssetBundle </a><a href="/blog/2021/02/27/资源管理——Resources/" class="post">资源管理——Resources </a><a href="/blog/2021/02/27/资源管理——AssetDataBase/" class="post">资源管理——AssetDataBase </a><a href="/blog/2021/02/25/unity资源概要/" class="post">unity资源概要 </a>
             </div>
         </div>
 
@@ -180,6 +180,44 @@
     var bar=document.getElementById("right_bar");
     MoveBar(bar,"right_bar_hide",1120)
 </script>
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/03/03/非泛型单例下的万能参数容器-非object/"  target="_self">非泛型单例下的万能参数容器(非object) </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            最近在项目中遇到的问题。
+已有以下两个类，一个工厂类负责根据泛型进行生产；一个单例基类。现在的需求是：继承单例基类来实现一个工厂管理器（FactoryMgr）。
+//泛型工厂
+public class Factory&lt;T&gt;{&amp;#125;
+//单例
+public class Singleton&lt;T&gt; where T : new()
+{
+    
+    private static readonly Lazy&lt;T&gt; _instance =...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Mar 3rd,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>2 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">1851</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
 
         
             
@@ -395,47 +433,9 @@ C#6
 </div>
 
         
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/15/unity脚本生命周期-Script-lifecycle-overview/"  target="_self">unity脚本生命周期 </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            
-摘自unity官方手册：https://docs.unity3d.com/2019.3/Documentation/Manual/ExecutionOrder.html
-
-
-
-
-场景第一次加载当 场景 开始时会调用这些函数（场景中每个对象执行一次）
-
-Awake：   此函数始终会在任何 Start 函数之前以及预制件（prefab）之后实例化（如果 GameObject 在启动期间处于非活动状态，则在激活之前不会调用 Awake。）...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 15th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>5 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">6955</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-
-        
         
         <div class="paginator">
-             <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/">></a>
+             <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/2/">></a>
         </div>
 
         <div id="footer">

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Gatongone">
+    <meta name="Description" content="Gatongone's Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body
+        {
+            background-color: rgb(20, 20, 34);
+            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none; /* Firefox */
+            
+        }
+        ::-webkit-scrollbar
+        {
+            display: none; /* Chrome Safari */
+        }
+    </style>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+    <body>
+        
+<link rel="stylesheet" href="/blog/css/leftsidebar.css">
+
+
+<script src="/blog/js/hidebar.js"></script>
+
+<div class="leftpanel_out" id="leftpanel_out">
+    <div class="block1"></div>
+
+    <div class="profile_background" id="profile_background">
+        <a href="https://gatongone.github.io" title="Navigation" target="_self">
+            <img class="profile" src="/blog/images/profile.jpg" />
+        </a>
+    </div>
+
+    <img class="block2" src="/blog/images/block.png"/>
+
+    <div class="buttons">
+        <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/26209665" title="bilibili">
+            <img class="shadowfilter bilibili" src="/blog/images/icon/bilibili_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://gatongone.lofter.com/" title="lofter">
+            <img class="shadowfilter lofter" src="/blog/images/icon/lofter_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+         <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" title="github">
+            <img class="shadowfilter github" src="/blog/images/icon/github_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://blog.csdn.net/Gatongone" title="CSDN">
+            <img class="shadowfilter csdn" src="/blog/images/icon/csdn_btn.png"/>
+        </a>
+    </div>
+    <div class="block3"></div>
+</div>
+<script>
+    var obj=document.getElementById('leftpanel_out');
+    MoveBar(obj,"leftpanel_in",1150)
+</script>                       <!-- 加载侧边栏 -->
+
+        <div class='body-wrapper' id="body-wrapper">
+
+            <head>
+ 
+</head>
+<body>
+    
+<link rel="stylesheet" href="/blog/css/topbar.css">
+
+
+<script src="/blog/js/searchbar.js"></script>
+<script src="/blog/js/hidebar.js"></script>
+  
+<div class="topbar" id="topbar">
+    <font class="title_top" id="title_top">Gatongone's blog</font>
+    <div id="topblock">
+        <div id="text">
+            <font id='about' class="buttonfont">▼About</font>
+            <font id="plan" class="buttonfont">Planing</font>
+            <font id="RSS" class="buttonfont">RSS</font>
+        </div>
+        
+        <input id="search_input"  type="text" placeholder="search with title" value="" onkeydown=" if(event.which==13)''">
+        <button><img src="/blog/images/icon/search.png" style="height: 16px; width: 18px; margin-top: 2px;"></button>
+    </div>
+</div>
+
+<!-- swiftype search -->
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','7xj-dxBhzvJx1yWsVMJU','2.0.0');
+</script>
+    </script>
+
+
+<script>
+    var obj2=document.getElementById('title_top');
+    var obj3=document.getElementById("text");
+    //HideBar(obj2,1270);
+    MoveBar(obj2,"title_top2",1270);
+    //HideBar(obj3,650);
+    MoveBar(obj3,"text2",800);
+
+    if(sessionStorage.getItem("isReload")){
+    }else{
+    sessionStorage.setItem("isReload", true)
+    }
+</script>
+    
+<link rel="stylesheet" href="/blog/css/mainbody.css">
+
+
+<!-- 回到首页 -->
+
+    <a href="/blog/">
+    <button class="home_btn">
+        <img src="/blog/images/icon/home.png">
+    </button>
+    </a>
+
+
+<!-- 回到顶部 -->
+<div id="top">
+    <button class="top_btn" id="top_btn">
+        <img src="/blog/images/icon/top.png">
+    </button>
+</div>
+<!-- 主体 -->
+
+<div class="mainbody" id="mainbody">
+<!-- 加载post_entry -->
+    <div class="entry">
+    
+
+    
+<!--    加载post    -->    
+
+    
+        <head>
+    <title>非泛型单例下的万能参数容器(非object)</title>
+</head>
+<body>
+
+    
+<link rel="stylesheet" href="/blog/css/post.css">
+
+    
+<link rel="stylesheet" href="/blog/css/hightlight.css">
+
+
+    
+<link rel="stylesheet" href="/blog/css/rightbar.css">
+
+
+<script src="/blog/js/hidebar.js"></script>
+
+<div id="right_bar">
+
+        
+
+        
+            <div id="post_index" class="post_index">
+                <span> Post Index </span>
+                <div>
+                    <div id="clear"></div>
+                    
+                </div>
+                
+             </div>
+        
+
+</div>
+<script>
+    var bar=document.getElementById("right_bar");
+    MoveBar(bar,"right_bar_hide",1120)
+</script>
+
+    <div class="page_title" id="page_title">
+        非泛型单例下的万能参数容器(非object)
+    </div>
+    <hr>
+    <div class="page_content">
+        
+        
+        <p>最近在项目中遇到的问题。</p>
+<p>已有以下两个类，一个<code>工厂类</code>负责根据泛型进行生产；一个<code>单例基类</code>。现在的需求是：继承单例基类来实现一个<code>工厂管理器（FactoryMgr）</code>。</p>
+<pre><code class="C#">//泛型工厂
+public class Factory&lt;T&gt;&#123;&#125;
+//单例
+public class Singleton&lt;T&gt; where T : new()
+&#123;
+    
+    private static readonly Lazy&lt;T&gt; _instance = new Lazy&lt;T&gt;(() =&gt; new());
+    public static T Instance &#123; get &#123; return _instance.Value; &#125; &#125;
+    public static string type&#123; get =&gt; typeof(T).ToString(); &#125;
+&#125;
+</code></pre>
+</br>
+
+<p><code>FactoryMgr</code>中需要一个容器用于存储工厂，问题就在于这个容器。因为<code>Factory&lt;T&gt;</code>中T为任意类型，因此首先想到的是用<code>object</code>去装，如下</p>
+<pre><code class="C#">public class  FactoryMgr : Singleton&lt;FactoryMgr&gt;
+&#123;
+    //委托列表
+    public List&lt;Factory&lt;object&gt;&gt; list = new();
+
+    //为list添加委托
+    public void AddFactory(Factory&lt;object&gt; factory)
+    &#123;
+        list.Add(factory);
+    &#125; 
+&#125;
+</code></pre>
+</br>
+
+<p>但用object必然避免不了装箱和拆箱带来的问题，因此想到了用泛型，但是由于<code>FactoryMgr</code>是非泛型单例，所以<code>List&lt;T&gt;</code>这种操作肯定是不行的。由此我想到了利用里氏替换原则，用一个接口<code>IPublicFactory</code>代替<code>object</code>，再用一个继承了<code>IPublicFactory</code>接口的<code>PublicFactory&lt;T&gt;</code>类去装<code>Factory&lt;T&gt;</code>就可以达到效果。代码如下：</p>
+<pre><code class="C#">public interface IPublicFactory &#123;&#125;
+public class PublicFactory&lt;T&gt; : IPublicFactory
+&#123;
+    public Factory&lt;T&gt; factory;
+&#125;
+
+public class FactoryMgr: Singleton&lt;FactoryMgr&gt;
+&#123;
+    //工厂列表
+    public List&lt;IPublicFactory&gt; factorylist = new();
+
+    //添加工厂到列表
+    public void AddFactory&lt;T&gt;(Action&lt;T&gt; action)
+    &#123;
+        factorylist.Add(new PublicFactory&lt;T&gt;());
+    &#125;
+&#125;
+</code></pre>
+<p>当然这样也有些不足点，因为每次都要new一个<code>PublicFactory&lt;T&gt;</code>占用堆内存。但是相对于装箱拆箱的性能损耗来说可能更好一些。</p>
+
+    </div>
+    
+    <div class="footer">
+    <hr>
+        <font> ©2021 </font>
+        <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
+        some copyrights reserved
+        <div style="float: right; margin-right: -200px;">
+              Mar 3rd  2021,  3:39:36  |
+            <font>Powered by</font>
+            <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
+            framework
+        </div>
+    </div>
+</body>
+    
+
+
+
+</div>
+
+
+
+<script>
+     var bar=document.getElementById("top_btn")
+     var showtime=0;
+     var hidetime=0;
+     window.addEventListener("pageshow",function(){
+         let scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+        if(scrollTop ==0)
+        {
+            bar.style.display = 'none';
+        }
+        else
+        {
+            bar.style.display = 'block';
+        }
+        window.addEventListener("scroll",function(){
+            bar.style.display = 'block';
+            scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+            if(scrollTop != 0)
+            {
+                if(hidetime==0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    hidetime++;
+                }
+                showtime=0;
+            }  
+            else
+            {
+                if(showtime==0 && hidetime!=0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    showtime++;
+                    hidetime=0;
+                }
+            }
+        }) 
+     })
+     
+    var timer = null;
+    bar.onclick = function()
+    {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn()
+        {
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            if(top > 0)
+            {
+                document.body.scrollTop = document.documentElement.scrollTop = top - 80;
+                timer = requestAnimationFrame(fn);
+            }
+            else
+            {
+                cancelAnimationFrame(timer);
+            } 
+        });
+    }
+         
+</script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+</body>                                             <!--  加载主体  -->
+
+        </div>                                                                 
+        
+<script src="/blog/js/searchbar.js"></script>
+<script src="/blog/js/hidebar.js"></script>
+              <!--    加载JS  -->                                                          
+    </body>
+
+</html>
