@@ -205,14 +205,7 @@
 <ul>
 <li><h2 id="AssetBundle常用的资源操作"><a href="#AssetBundle常用的资源操作" class="headerlink" title="AssetBundle常用的资源操作"></a>AssetBundle常用的资源操作</h2><ol>
 <li><h3 id="Asset打包"><a href="#Asset打包" class="headerlink" title="Asset打包"></a>Asset打包</h3><ul>
-<li><h3 id="通过脚本自定义编辑器打包工具"><a href="#通过脚本自定义编辑器打包工具" class="headerlink" title="通过脚本自定义编辑器打包工具"></a>通过脚本自定义编辑器打包工具</h3><p>BuildAssetBundles(</p>
-<pre><code>string outputPath, 
-AssetBundleBuild[] builds, 
-BuildAssetBundleOptions assetBundleOptions, 
-BuildTarget targetPlatform
-</code></pre>
-<p>); </p>
-<pre><code class="C#">public class Build
+<li><h3 id="通过脚本自定义编辑器打包工具"><a href="#通过脚本自定义编辑器打包工具" class="headerlink" title="通过脚本自定义编辑器打包工具"></a>通过脚本自定义编辑器打包工具</h3><pre><code class="C#">public class Build
   &#123;
       
       [MenuItem(&quot;Publish/BuildAssetBundle&quot;)]
@@ -304,7 +297,7 @@ BuildTarget targetPlatform
 <p>打包后生成的文件夹：</p>
 <p><img src="https://raw.githubusercontent.com/Gatongone/ImageContainer/main/Others/BundleFolder.png" alt="img" style="max-width:100%;" ></p>
 <p>发现生成了Bundle和test文件，其中<code>Bundle</code>是一个与目录名一致的自动生成的主包,其记录了AB包直接的依赖关系；而<code>test</code>才是真正打包出来的AB包。</p>
-<p>其中<code>.unity3d</code>为后缀（或无后缀的）的是真正的二进制资源文件，而<code>.manifest</code>为后缀的文件则记录了资源信息、依赖关系、版本信息等。</p>
+<p>其中<code>.unity3d</code>为后缀（或无后缀的）的是真正的二进制资源文件，而<code>.manifest</code>为后缀的文件为描述文件，记录了资源信息、依赖关系、版本信息等。</p>
 <p>.manifest下所记录的信息：</p>
 <p><img src="https://raw.githubusercontent.com/Gatongone/ImageContainer/main/Others/BundleDetail.png" alt="img" style="max-width:100%;" ></p>
 <p>可以发现记录了上面所写的abb.assetNames和依赖关系，当然因为这个cube无依赖关系所有没有记录。</p>
@@ -434,13 +427,13 @@ public void AddDependenciesBundle(string path, string mainbundelname , string bu
     //加载 主包
     AssetBundle bundleMain = AssetBundle.LoadFromFile(path+&quot;/&quot;+mainbundelname);
 
-    //获取 主包配置文件
+    //获取 主包描述文件
     AssetBundleManifest maninfest = bundleMain.LoadAsset&lt;AssetBundleManifest&gt;(&quot;AssetBundleManifest&quot;);
 
-    //获取 主包配置文件 中 所有依赖信息(一般是所依赖的包名)
+    //获取 主包描述文件 中 所有依赖信息(一般是所依赖的包名)
     string[] infos = maninfest.GetAllDependencies(bundlename);
 
-    //遍历依赖信息加载依赖包
+    //遍历 依赖信息 加载 依赖包
     foreach (var item in infos)
     &#123;
         AssetBundle.LoadFromFile(path + &quot;/&quot; + item);
