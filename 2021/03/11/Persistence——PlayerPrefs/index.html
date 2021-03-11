@@ -76,10 +76,6 @@
 
             <head>
  
-    <title>
-            关东关
-    </title>
- 
 </head>
 <body>
     
@@ -135,6 +131,12 @@
 
 <!-- 回到首页 -->
 
+    <a href="/blog/">
+    <button class="home_btn">
+        <img src="/blog/images/icon/home.png">
+    </button>
+    </a>
+
 
 <!-- 回到顶部 -->
 <div id="top">
@@ -149,7 +151,23 @@
     <div class="entry">
     
 
-        
+    
+<!--    加载post    -->    
+
+    
+        <head>
+    <title>Persistence——PlayerPrefs</title>
+</head>
+<body>
+
+    
+<link rel="stylesheet" href="/blog/css/post.css">
+
+    
+<link rel="stylesheet" href="/blog/css/hightlight.css">
+
+
+    
 <link rel="stylesheet" href="/blog/css/rightbar.css">
 
 
@@ -158,21 +176,16 @@
 <div id="right_bar">
 
         
-        <div id="recent_update" class="recent_update">
-            <span> Recent Update </span>
-            <div>
-             <a href="/blog/2021/03/11/Persistence——PlayerPrefs/" class="post">Persistence——PlayerPrefs </a><a href="/blog/2021/03/03/非泛型单例下的万能参数容器-非object/" class="post">非泛型单例下的万能参数容器(非object) </a><a href="/blog/2021/03/01/资源管理——AssetBundle/" class="post">资源管理——AssetBundle </a><a href="/blog/2021/02/27/资源管理——Resources/" class="post">资源管理——Resources </a><a href="/blog/2021/02/27/资源管理——AssetDataBase/" class="post">资源管理——AssetDataBase </a>
-            </div>
-        </div>
 
-        <div id="tagcloud" class="tagcloud">
-            <span> Trending Tags </span>
-            <div>
-             <a href="#" class="tag">C# </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">.net </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">unity </a>
-            </div>
-        </div>
         
-
+            <div id="post_index" class="post_index">
+                <span> Post Index </span>
+                <div>
+                    <div id="clear"></div>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="toc-text">相关函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E6%95%B0%E6%8D%AE%E5%AD%98%E5%85%A5%E5%86%85%E5%AD%98%E4%B8%AD"><span class="toc-text">将数据存入内存中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E6%95%B0%E6%8D%AE%E4%BF%9D%E5%AD%98%E5%88%B0%E7%A3%81%E7%9B%98"><span class="toc-text">将数据保存到磁盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-text">读取数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="toc-text">判断数据是否存在</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="toc-text">删除数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE"><span class="toc-text">数据存储位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mac-OS"><span class="toc-text">Mac OS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux"><span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android"><span class="toc-text">Android</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IOS"><span class="toc-text">IOS</span></a></li></ol></li></ol>
+                </div>
+                
+             </div>
         
 
 </div>
@@ -181,109 +194,92 @@
     MoveBar(bar,"right_bar_hide",1120)
 </script>
 
+    <div class="page_title" id="page_title">
+        Persistence——PlayerPrefs
+    </div>
+    <hr>
+    <div class="page_content">
         
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/14/GUI(IMGUI)/"  target="_self">GUI(IMGUI) </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            全称：即时模式用户交互界面，是一种即见即所得的UI系统，一般用作创建游戏内置工具和脚本检视面板而不作为游戏玩家的UI。
-
-
-
-
-OnGui()继承了MonoBehaviour的脚本都可以调用OnGui()。OnGui()中的控件绘制函数都是由GUI类提供的静态函数，这些空间的的常见参数类型:
-
-位置参数：Rect(x ,y ,w ,h);（x，y位置信息；w，h尺寸信息）
-显示文本：string
-图片信息：Texture
-组合信息：GU...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 14th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>10 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">9702</span>
+        
+        <p>Unity中提供了PlayerPrefs公共类用于存储玩家数据，支持int、float、string三种类型数据的存储，这类似于以键值对的形式进行的存储。</p>
+<ul>
+<li><h2 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h2><ul>
+<li><h3 id="将数据存入内存中"><a href="#将数据存入内存中" class="headerlink" title="将数据存入内存中"></a>将数据存入内存中</h3><p>  当使用Set方法时只会将数据存入内存，而并非磁盘中。也就是说如果游戏在运行时崩溃，将导致数据丢失。</p>
+<p>  PS：使用相同的键名将会导致数据覆盖，即使类型不一样。</p>
+<pre><code class="C#">PlayerPrefs.SetString(&quot;PlayerName&quot;, &quot;关东关&quot;);
+PlayerPrefs.SetInt(&quot;PlayerHP&quot;, 100);
+PlayerPrefs.SetFloat(&quot;PlayerATT&quot;, 73.52f);
+PlayerPrefs.SetInt(&quot;PlayerOCD&quot;, OCD? 1 : 0 );
+</code></pre>
+</li>
+<li><h3 id="将数据保存到磁盘"><a href="#将数据保存到磁盘" class="headerlink" title="将数据保存到磁盘"></a>将数据保存到磁盘</h3><pre><code>PlayerPrefs.Save();
+</code></pre>
+</li>
+<li><h3 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h3><p>  优先从内存中读取，若内存中没有则从磁盘中读取。</p>
+<p>  若读取数据失败（比如无法找到键名），则返回默认值：</p>
+<p>  int:0、float:0、string:null</p>
+<pre><code class="C#">string name = PlayerPrefs.GetString(&quot;PlayerName&quot;);
+int HP = PlayerPrefs.GetInt(&quot;HP&quot;);
+float ATT = PlayerPrefs.GetFloat(&quot;ATT&quot;);
+//参数二为查找失败时返回的默认值
+bool OCD = PlayerPrefs.GetInt(&quot;PlayerOCD&quot;,0) == 0? false : true;
+</code></pre>
+</li>
+<li><h3 id="判断数据是否存在"><a href="#判断数据是否存在" class="headerlink" title="判断数据是否存在"></a>判断数据是否存在</h3><pre><code class="C#">if( PlayerPrefs.HasKey(&quot;PlayerHP&quot;) )
+&#123;
+    //do something
+&#125;
+</code></pre>
+</li>
+<li><h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><pre><code class="C#">//删除某键及数据
+PlayerPrefs.DeleteKey(&quot;PlayerName&quot;);
+//删除所有键及数据
+PlayerPrefs.DeleteAll();
+</code></pre>
+</li>
+</ul>
+</li>
+<li><h2 id="数据存储位置"><a href="#数据存储位置" class="headerlink" title="数据存储位置"></a>数据存储位置</h2><p>  打开Unity中 Edit → Project Settings → Player 得到公司名称和产品名称（一般是项目名称）</p>
+<ul>
+<li><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><ul>
+<li>打开注册表：regedit 找到 HKEY_CURRENT_USER\Software\Unity\UnityEditor\[公司名称]\[产品名称]</li>
+</ul>
+</li>
+<li><h3 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h3><ul>
+<li>~/Library/Preferences/unity.[公司名称].[产品名称].plist</li>
+</ul>
+</li>
+<li><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><ul>
+<li>~/.config/unity3d/[公司名称]/[产品名称]</li>
+</ul>
+</li>
+<li><h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><ul>
+<li>/data/data/[包名]/shared_prefs/pkg-name.xml</li>
+</ul>
+</li>
+<li><h3 id="IOS"><a href="#IOS" class="headerlink" title="IOS"></a>IOS</h3><ul>
+<li>~/Library/Preferences/[应用ID].plist</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
     </div>
-    <hr color=#49495b SIZE=1>
-</div>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/12/协变与逆变/"  target="_self">协变与逆变 </a>   
     
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            逆变（contravariant）与协变（covariant）是C#4新增的概念，只能用修饰泛型委托和泛型接口中的泛型字符。
-根据里氏替换原则：父类可以装子类，而子类不能装父类。可以这样理解：
-
-“协变”-&gt;”和谐的变”-&gt;”父类装子类，感受是和谐的”-&gt;string-&gt;object :协变
-
-“逆变”-&gt;”逆常的变”-&gt;”子类装父类，感受不和谐的”-&gt;object-&gt;string :逆变
-
-
-假设，有两个父子关系类，Human类和Ch...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 12th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>3 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">4704</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-
-        
-        
-        <div class="paginator">
-             <a class="extend prev" rel="prev" href="/blog/page/2/"><</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span>
-        </div>
-
-        <div id="footer">
-            <hr>
-            <font>©2021</font>
-            <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
-            some copyrights reserved
-            <div style="float: right;">
-                <font>Powered by</font>
-                <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
-                framework
-            </div>
+    <div class="footer">
+    <hr>
+        <font> ©2021 </font>
+        <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
+        some copyrights reserved
+        <div style="float: right; margin-right: -200px;">
+              Mar 11th  2021,  10:29:59  |
+            <font>Powered by</font>
+            <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
+            framework
         </div>
     </div>
-
-
-    
-
-    
-<!--    加载post    -->    
-
+</body>
     
 
 
@@ -358,9 +354,7 @@ OnGui()继承了MonoBehaviour的脚本都可以调用OnGui()。OnGui()中的控�
 </script>
 
 
-</body>
-
-                                             <!--  加载主体  -->
+</body>                                             <!--  加载主体  -->
 
         </div>                                                                 
         

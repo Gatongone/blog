@@ -182,7 +182,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E9%9B%86%E5%92%8C%E5%85%83%E6%95%B0%E6%8D%AE"><span class="toc-text">程序集和元数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-text">反射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">三种关键类型:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Type"><span class="toc-text">Type:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Assembly"><span class="toc-text">Assembly:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activator"><span class="toc-text">Activator:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%BF%87%E7%A8%8B"><span class="toc-text">反射过程</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E9%9B%86%E5%92%8C%E5%85%83%E6%95%B0%E6%8D%AE"><span class="toc-text">程序集和元数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-text">反射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">三种关键类型:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Type"><span class="toc-text">Type:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Assembly"><span class="toc-text">Assembly:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activator"><span class="toc-text">Activator:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%BF%87%E7%A8%8B"><span class="toc-text">反射过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B"><span class="toc-text">通过反射获取泛型类型</span></a></li></ol>
                 </div>
                 
              </div>
@@ -441,6 +441,21 @@
         Console.WriteLine(propInfo.GetValue(obj2));
     &#125;
 &#125;
+</code></pre>
+</li>
+</ul>
+<hr>
+<ul>
+<li><h2 id="通过反射获取泛型类型"><a href="#通过反射获取泛型类型" class="headerlink" title="通过反射获取泛型类型"></a>通过反射获取泛型类型</h2><pre><code class="C#">Factory&lt;Coin&gt; coinFactory = new Factory&lt;Coin&gt;();
+Type factoryType = coinFactory.GetType();
+
+//获得所有泛型
+Type[] types = factoryType.GetGenericArguments();
+//输出第一个
+Console.WriteLine(types[0]);
+</code></pre>
+<pre><code>输出：
+Markdown.Codes.Coin
 </code></pre>
 </li>
 </ul>

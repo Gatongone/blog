@@ -161,7 +161,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/03/03/非泛型单例下的万能参数容器-非object/" class="post">非泛型单例下的万能参数容器(非object) </a><a href="/blog/2021/03/01/资源管理——AssetBundle/" class="post">资源管理——AssetBundle </a><a href="/blog/2021/02/27/资源管理——Resources/" class="post">资源管理——Resources </a><a href="/blog/2021/02/27/资源管理——AssetDataBase/" class="post">资源管理——AssetDataBase </a><a href="/blog/2021/02/25/unity资源概要/" class="post">unity资源概要 </a>
+             <a href="/blog/2021/03/11/Persistence——PlayerPrefs/" class="post">Persistence——PlayerPrefs </a><a href="/blog/2021/03/03/非泛型单例下的万能参数容器-非object/" class="post">非泛型单例下的万能参数容器(非object) </a><a href="/blog/2021/03/01/资源管理——AssetBundle/" class="post">资源管理——AssetBundle </a><a href="/blog/2021/02/27/资源管理——Resources/" class="post">资源管理——Resources </a><a href="/blog/2021/02/27/资源管理——AssetDataBase/" class="post">资源管理——AssetDataBase </a>
             </div>
         </div>
 
@@ -180,6 +180,41 @@
     var bar=document.getElementById("right_bar");
     MoveBar(bar,"right_bar_hide",1120)
 </script>
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/03/11/Persistence——PlayerPrefs/"  target="_self">Persistence——PlayerPrefs </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            Unity中提供了PlayerPrefs公共类用于存储玩家数据，支持int、float、string三种类型数据的存储，这类似于以键值对的形式进行的存储。
+
+相关函数
+将数据存入内存中  当使用Set方法时只会将数据存入内存，而并非磁盘中。也就是说如果游戏在运行时崩溃，将导致数据丢失。
+  PS：使用相同的键名将会导致数据覆盖，即使类型不一样。
+PlayerPrefs.SetString(&amp;quot;PlayerName&amp;quot;, ...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Mar 11th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>4 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">2662</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
 
         
             
@@ -383,50 +418,6 @@ TextAsset：后缀标记为.path文件可以被unity读取（比如json标记为
 
         <img src="/blog/images/icon/words.png" alt="">
         <span class="words">3013</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/22/C-6-C-9新增特性/"  target="_self">C#6-C#9新增特性 </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            
-C#6
-只读属性或成员函数的方法表达式体class Person
-{
-    private string FirstName,LastName;
-
-    //属性
-    public string name =&gt; $&amp;quot;{FirstName&amp;#125; —— {LastName&amp;#125;&amp;quot;;
-
-    //方法
-
-    //原来的
-    public string getName()
-    {
-    ...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 22nd,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>22 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">30412</span>
 
     </div>
     <hr color=#49495b SIZE=1>
