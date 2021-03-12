@@ -237,10 +237,10 @@ using UnityEditor; //手机上没有UnityEditor文件
 </br>
 
 <ul>
-<li><h2 id="meta-资源的引用"><a href="#meta-资源的引用" class="headerlink" title=".meta: 资源的引用"></a>.meta: 资源的引用</h2><p>  <img src="https://raw.githubusercontent.com/Gatongone/ImageContainer/main/Others/MetaFile.png" alt="alt" style="max-width:100%;" ></p>
+<li><h2 id="meta-资源的引用"><a href="#meta-资源的引用" class="headerlink" title=".meta: 资源的引用"></a>.meta: 资源的引用</h2><p>  <img src="MetaFile.png" alt="alt" style="max-width:100%;" ></p>
 <p>  当从外部导入或创建资源时将自动生成一个.meta文件。</p>
 <p>  打开后是一个yaml格式的序列化文件</p>
-<p>  <img src="https://raw.githubusercontent.com/Gatongone/ImageContainer/main/Others/.meta.png" alt="alt" style="max-width:100%;" ></p>
+<p>  <img src="meta.png" alt="alt" style="max-width:100%;" ></p>
 <p>  在unity中引用一个游戏资源，并非是通过路径的方式，而是通过一个GUID来指向工程里的该资源文件。因此即使移动、重命名或修改资源内容，资源依旧可以通过GUID来引用。（注意，当资源内有多个子文件，unity将为子文件分配一个FileID来区分每个子文件，其中资源间的依赖关系通过GUID来确定，资源内部的依赖关系通过fileID来确定）</p>
 <p>  在导入资源时unity将会完成以下事情：</p>
 <ol>
@@ -261,10 +261,10 @@ using UnityEditor; //手机上没有UnityEditor文件
 
 <ul>
 <li><h2 id="unity-场景中资源间的关系："><a href="#unity-场景中资源间的关系：" class="headerlink" title=".unity: 场景中资源间的关系："></a>.unity: 场景中资源间的关系：</h2><p>  利用unity制作游戏本质上就是在一个运行中的软件中制作游戏，而运行中的软件之所以能读取到创建了哪些对象信息是因为引擎对场景的配置文件进行了读取。 当在Inspector面板上拖拽脚本和资源，会被.unity文件视为引用。因此.unity文件保存了场景中资源与资源之间的关系。</p>
-<p>  <img src="https://raw.githubusercontent.com/Gatongone/ImageContainer/main/Others/ScenesFile.png" alt="alt" style="max-width:100%;" ></p>
+<p>  <img src="ScenesFile.png" alt="alt" style="max-width:100%;" ></p>
 <p>  当保存场景后会在Assets文件夹下自动的生成.unity这样的一个场景文件。</p>
 <p>  打开后是一个yaml格式的场景配置文件（序列化文件）。</p>
-<p>  <img src="https://raw.githubusercontent.com/Gatongone/ImageContainer/main/Others/.unity.png" alt="alt" style="max-width:100%;" ></p>
+<p>  <img src="unity.png" alt="alt" style="max-width:100%;" ></p>
 <p>  在编辑器下，当创建一个MonoBehaviour脚本时，保存后自动生成程序集，并被分配ID。而在把脚本拖拽到GameObject上时，脚本与GameObject的关联信息将被保存在.unity中。</p>
 <p>  运行期间，Unity读取.unity文件中的信息，并根据ID与资源的关系，通过反射（类似于C#反射，但不是C#内置的）创建在Scene中看到的对象。</p>
 </li>

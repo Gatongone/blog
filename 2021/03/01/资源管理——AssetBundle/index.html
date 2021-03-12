@@ -295,21 +295,22 @@
 </tr>
 </tbody></table>
 <p>打包后生成的文件夹：</p>
-<p><img src="https://raw.githubusercontent.com/Gatongone/ImageContainer/main/Others/BundleFolder.png" alt="img" style="max-width:100%;" ></p>
+<p><img src="BundleFolder.png" alt="img" style="max-width:100%;" ></p>
 <p>发现生成了Bundle和test文件，其中<code>Bundle</code>是一个与目录名一致的自动生成的主包,其记录了AB包直接的依赖关系；而<code>test</code>才是真正打包出来的AB包。</p>
 <p>其中<code>.unity3d</code>为后缀（或无后缀的）的是真正的二进制资源文件，而<code>.manifest</code>为后缀的文件为描述文件，记录了资源信息、依赖关系、版本信息等。</p>
 <p>.manifest下所记录的信息：</p>
-<p><img src="https://raw.githubusercontent.com/Gatongone/ImageContainer/main/Others/BundleDetail.png" alt="img" style="max-width:100%;" ></p>
+<p><img src="BundleDetail.png" alt="img" style="max-width:100%;" ></p>
 <p>可以发现记录了上面所写的abb.assetNames和依赖关系，当然因为这个cube无依赖关系所有没有记录。</p>
 </br>
 </br>
 </li>
 <li><h3 id="官方提供的打包工具Asset-Bundle-Browser"><a href="#官方提供的打包工具Asset-Bundle-Browser" class="headerlink" title="官方提供的打包工具Asset Bundle Browser"></a>官方提供的打包工具Asset Bundle Browser</h3><p>首先需要在GitHub上下载<a target="_blank" rel="noopener" href="https://github.com/Unity-Technologies/AssetBundles-Browser">Asset Bundle Browser</a>到项目。</p>
 <p>导入成功后可以在unity<code>windows</code>菜单下看到<code>Asset Bundle Browser</code>选项。点击后则可以打开打包窗口<code>AssetBundles</code>，其中一共有三个页签<code>Configure</code>（配置）、<code>Build</code>（打包）、<code>Inspect</code>（检视）。</p>
+<p><img src="Inspector.png" alt="img" style="max-width:100%;" ></p>
 <p>打开一个Asset，在<code>Inspector</code>面板最下方可以看到<code>AssetBundle</code>其中左边的菜单是包名，右边的菜单是包名二级引用（可以不填）</p>
 <p>在<code>AssetBundle</code>选择<code>new</code>并起名以此声明为需要被打包的资源，回到<code>AssetBundles</code>窗口,可以在<code>Configure</code>页签中看到需要被打包的资源。</p>
 <p>进入<code>Build</code>页签，点击Build则根据<code>Output Path</code>生成AB包到路径。</p>
-<p><img src="https://raw.githubusercontent.com/Gatongone/ImageContainer/main/Others/AssetBundles_Build.png" alt="img" style="max-width:100%;" ></p>
+<p><img src="AssetBundles_Build.png" alt="img" style="max-width:100%;" ></p>
 <p>这里重点说一下<code>Build</code>页签下的参数</p>
 <ul>
 <li><code>BuildTarget</code>：要打包的目标平台</li>

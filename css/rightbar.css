@@ -82,7 +82,7 @@
 }
 .recent_update div
 {
-    margin-top: 10px;
+    margin-top: -10px;
     height: 150px;
 }
 .recent_update
