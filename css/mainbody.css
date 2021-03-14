@@ -190,20 +190,15 @@
 {
     #mainbody
     {
+        width:90%;
+        left: 5%;
         transform: translate3d(0,50px,0);
         transition: all 0.5s ease-in-out;
     }
     .entry #footer
     {
-        width: 500px;
-        float: bottom;
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-        bottom: 0px;
-        margin-top:80px;
-        margin-bottom: 40px;
-        font-size:13px;
-        color:rgba(177, 176, 186, 0.842); 
-        transform: translate3d(5000px,0,0);
-        transition: all 0.02s ease-in-out;
+       display:none;
     }
+
+
 }

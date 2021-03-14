@@ -15,11 +15,12 @@
             background-color: rgb(20, 20, 34);
             -ms-overflow-style: none; /* IE 10+ */
             scrollbar-width: none; /* Firefox */
-            
+            overflow-x: hidden;
         }
-        ::-webkit-scrollbar
+        body::-webkit-scrollbar
         {
-            display: none; /* Chrome Safari */
+            display: auto; /* Chrome Safari */
+            width: 0px;
         }
     </style>
 <meta name="generator" content="Hexo 5.3.0"></head>
@@ -100,13 +101,13 @@
     <a href="https://www.gatongone.site" target="_self">
         <img src="/blog/images/NeonGame.png"/>
     </a>
-        <font class="title_top" id="title_top" align="left">Blog Of </br>Gatongone</font>
+        <font class="title_top" id="title_top" align="left">Gatongone's blog</font>
     </div>
     <div id="topblock">
         <div id="text">
             <nav>
                 <ul>
-                    <li><a href="#" id='about' class="buttonfont">▼About</a></li>
+                    <li><a href="#" id='about' class="buttonfont">About</a></li>
                     <li><a href="#" id="plan" class="buttonfont">Planing</a></li>
                     <li><a href="#" id="RSS" class="buttonfont">RSS</a></li>
                 </ul>
@@ -238,6 +239,49 @@ UnityEngine.Object Lo...
 
     </div>
     <hr color=#49495b SIZE=1>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    (function($) {
+
+        $.fn.visible = function(partial) {
+
+            var $t = $(this),
+                $w = $(window),
+                viewTop = $w.scrollTop(),
+                viewBottom = viewTop + $w.height(),
+                _top = $t.offset().top,
+                _bottom = _top + $t.height(),
+                compareTop = partial === true ? _bottom : _top,
+                compareBottom = partial === true ? _top : _bottom;
+
+            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+        };
+
+    })(jQuery);
+
+    var win = $(window);
+
+    var allMods = $(".post_entry");
+
+    allMods.each(function(i, el) {
+        var el = $(el);
+        if (el.visible(true)) {
+            el.addClass("already-visible");
+        }
+    });
+
+    win.scroll(function(event) {
+
+        allMods.each(function(i, el) {
+            var el = $(el);
+            if (el.visible(true)) {
+                el.addClass("come-in");
+            }
+        });
+
+    });
+    </script>
 </div>
 
         
@@ -275,6 +319,49 @@ TextAsset：后缀标记为.path文件可以被unity读取（比如json标记为
 
     </div>
     <hr color=#49495b SIZE=1>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    (function($) {
+
+        $.fn.visible = function(partial) {
+
+            var $t = $(this),
+                $w = $(window),
+                viewTop = $w.scrollTop(),
+                viewBottom = viewTop + $w.height(),
+                _top = $t.offset().top,
+                _bottom = _top + $t.height(),
+                compareTop = partial === true ? _bottom : _top,
+                compareBottom = partial === true ? _top : _bottom;
+
+            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+        };
+
+    })(jQuery);
+
+    var win = $(window);
+
+    var allMods = $(".post_entry");
+
+    allMods.each(function(i, el) {
+        var el = $(el);
+        if (el.visible(true)) {
+            el.addClass("already-visible");
+        }
+    });
+
+    win.scroll(function(event) {
+
+        allMods.each(function(i, el) {
+            var el = $(el);
+            if (el.visible(true)) {
+                el.addClass("come-in");
+            }
+        });
+
+    });
+    </script>
 </div>
 
         
@@ -319,6 +406,49 @@ C#6
 
     </div>
     <hr color=#49495b SIZE=1>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    (function($) {
+
+        $.fn.visible = function(partial) {
+
+            var $t = $(this),
+                $w = $(window),
+                viewTop = $w.scrollTop(),
+                viewBottom = viewTop + $w.height(),
+                _top = $t.offset().top,
+                _bottom = _top + $t.height(),
+                compareTop = partial === true ? _bottom : _top,
+                compareBottom = partial === true ? _top : _bottom;
+
+            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+        };
+
+    })(jQuery);
+
+    var win = $(window);
+
+    var allMods = $(".post_entry");
+
+    allMods.each(function(i, el) {
+        var el = $(el);
+        if (el.visible(true)) {
+            el.addClass("already-visible");
+        }
+    });
+
+    win.scroll(function(event) {
+
+        allMods.each(function(i, el) {
+            var el = $(el);
+            if (el.visible(true)) {
+                el.addClass("come-in");
+            }
+        });
+
+    });
+    </script>
 </div>
 
         
@@ -357,6 +487,49 @@ Awake：   此函数始终会在任何 Start 函数之前以及预制件（prefa
 
     </div>
     <hr color=#49495b SIZE=1>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    (function($) {
+
+        $.fn.visible = function(partial) {
+
+            var $t = $(this),
+                $w = $(window),
+                viewTop = $w.scrollTop(),
+                viewBottom = viewTop + $w.height(),
+                _top = $t.offset().top,
+                _bottom = _top + $t.height(),
+                compareTop = partial === true ? _bottom : _top,
+                compareBottom = partial === true ? _top : _bottom;
+
+            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+        };
+
+    })(jQuery);
+
+    var win = $(window);
+
+    var allMods = $(".post_entry");
+
+    allMods.each(function(i, el) {
+        var el = $(el);
+        if (el.visible(true)) {
+            el.addClass("already-visible");
+        }
+    });
+
+    win.scroll(function(event) {
+
+        allMods.each(function(i, el) {
+            var el = $(el);
+            if (el.visible(true)) {
+                el.addClass("come-in");
+            }
+        });
+
+    });
+    </script>
 </div>
 
         
@@ -394,6 +567,49 @@ Model  向外部提供修改数据的方法
 
     </div>
     <hr color=#49495b SIZE=1>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    (function($) {
+
+        $.fn.visible = function(partial) {
+
+            var $t = $(this),
+                $w = $(window),
+                viewTop = $w.scrollTop(),
+                viewBottom = viewTop + $w.height(),
+                _top = $t.offset().top,
+                _bottom = _top + $t.height(),
+                compareTop = partial === true ? _bottom : _top,
+                compareBottom = partial === true ? _top : _bottom;
+
+            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+        };
+
+    })(jQuery);
+
+    var win = $(window);
+
+    var allMods = $(".post_entry");
+
+    allMods.each(function(i, el) {
+        var el = $(el);
+        if (el.visible(true)) {
+            el.addClass("already-visible");
+        }
+    });
+
+    win.scroll(function(event) {
+
+        allMods.each(function(i, el) {
+            var el = $(el);
+            if (el.visible(true)) {
+                el.addClass("come-in");
+            }
+        });
+
+    });
+    </script>
 </div>
 
         
@@ -441,6 +657,49 @@ Model  向外部提供修改数据的方法
 
     </div>
     <hr color=#49495b SIZE=1>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    (function($) {
+
+        $.fn.visible = function(partial) {
+
+            var $t = $(this),
+                $w = $(window),
+                viewTop = $w.scrollTop(),
+                viewBottom = viewTop + $w.height(),
+                _top = $t.offset().top,
+                _bottom = _top + $t.height(),
+                compareTop = partial === true ? _bottom : _top,
+                compareBottom = partial === true ? _top : _bottom;
+
+            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+        };
+
+    })(jQuery);
+
+    var win = $(window);
+
+    var allMods = $(".post_entry");
+
+    allMods.each(function(i, el) {
+        var el = $(el);
+        if (el.visible(true)) {
+            el.addClass("already-visible");
+        }
+    });
+
+    win.scroll(function(event) {
+
+        allMods.each(function(i, el) {
+            var el = $(el);
+            if (el.visible(true)) {
+                el.addClass("come-in");
+            }
+        });
+
+    });
+    </script>
 </div>
 
         

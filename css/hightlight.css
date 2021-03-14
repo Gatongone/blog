@@ -17,7 +17,7 @@
 }
 .hljs {
 	display: block;
-	overflow-x: auto;
+	overflow-x: none;
 	padding: 0.5em;
 	color: rgb(224, 216, 236);
     background: rgb(9,9,24);
@@ -30,8 +30,16 @@
     font-size:14px;
 	font-family:'consola';
 	font-weight: normal;
+	transition: all 0.5s ease-in-out;;
 }
 
+.hljs:hover {
+  overflow-x: auto;
+  border-radius: 10px;
+  background: rgb(16, 16, 65);
+  color: rgb(192, 185, 202);
+  transition: all 0.3s ease-in-out;
+}
 
 .hljs-comment,.hljs-quote {
 	color:rgba(139, 149, 158, 0.808);

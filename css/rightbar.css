@@ -99,7 +99,6 @@
     text-decoration:underline;
 }
 
-
 .post_index span
 {
     color: rgba(240, 248, 255, 0.35);
@@ -194,5 +193,12 @@
         height: 180px;
         width: 180px;
         transform: translate3d(900px,0,0);
+    }
+}
+@media screen and (max-width:650px)
+{
+    #right_bar
+    {
+        display: none;
     }
 }

@@ -195,6 +195,10 @@
 
 @media screen and (max-width:1300px)
 {
+    #topblock #text
+    {
+        display: none;
+    }
     .top_left
     {
         position:absolute;
@@ -231,12 +235,12 @@
         top: -15px;
     }
 }
-@media screen and (max-width:720px)
+@media screen and (max-width:850px)
 {
     #topblock #search
     {
         float:right;
-        right: 20px;
+        right: 50px;
         margin-top: 150px;
         text-align: right;
     }
@@ -254,5 +258,18 @@
     {
         position:absolute;
         top: -15px;
+    }
+}
+@media screen and (max-width:650px)
+{
+    .top_left
+    {
+        left: 0;
+    }
+    #topblock #search
+    {
+        right: 0px;
+        margin-right: 30px;
+        text-align: right;
     }
 }
