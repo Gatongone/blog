@@ -161,7 +161,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/03/11/Persistence——PlayerPrefs/" class="post">Persistence——PlayerPrefs </a><a href="/blog/2021/03/03/非泛型单例下的万能参数容器-非object/" class="post">非泛型单例下的万能参数容器(非object) </a><a href="/blog/2021/03/01/资源管理——AssetBundle/" class="post">资源管理——AssetBundle </a><a href="/blog/2021/02/27/资源管理——Resources/" class="post">资源管理——Resources </a><a href="/blog/2021/02/27/资源管理——AssetDataBase/" class="post">资源管理——AssetDataBase </a>
+             <a href="/blog/2021/03/14/C-流Stream/" class="post">C#流Stream </a><a href="/blog/2021/03/14/Persistence——XML/" class="post">Persistence——XML </a><a href="/blog/2021/03/11/Persistence——PlayerPrefs/" class="post">Persistence——PlayerPrefs </a><a href="/blog/2021/03/03/非泛型单例下的万能参数容器-非object/" class="post">非泛型单例下的万能参数容器(非object) </a><a href="/blog/2021/03/01/资源管理——AssetBundle/" class="post">资源管理——AssetBundle </a>
             </div>
         </div>
 
@@ -180,6 +180,82 @@
     var bar=document.getElementById("right_bar");
     MoveBar(bar,"right_bar_hide",1120)
 </script>
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/02/15/C-特性-Attribute/"  target="_self">C#特性(Attribute) </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+               特性是一种能用于为元数据添加额外信息的类，可以用通过方括号([])的方式在元素（可以是类、接口、成员、函数、函数参数等）前声明标签。标签则代表该元素拥有该特性。之后可以通过反射的方式获取特性。
+
+标签  标签的本质其实是构造函数，写在元素的上一行表示他们具有该特性的信息,相当于声明了一个类对象关联到该元素。如果特性类名是XXXAttribute，那么在掉用标签时会自动省略Attribute，比如  [XXX(“it is a st...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Feb 15th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>6 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">4851</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/02/15/C-反射-Reflection/"  target="_self">C#反射(Reflection) </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            
+程序集和元数据
+程序集：.net中由C#、VB等语言的编译器编译后所产生的代码集合（包含了CIL）,一般被存放在bin文件中，后缀名一般为.dll（库文件）、.exe（可执行文件）。别人可以通过反射调用其他人的程序集的元数据。
+
+元数据：用来描述数据的数据，本质上就是用于描述被编译成程序集之前的各种类、成员等信息，元数据是保存在程序集中的。
+
+
+
+
+
+
+
+
+反射在程序运行时，可以获得其他程序集或自身程序集中的元数据，该过程就叫反射。
+...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Feb 15th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>6 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">7014</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
 
         
             
