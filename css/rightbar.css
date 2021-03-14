@@ -82,13 +82,13 @@
 }
 .recent_update div
 {
-    margin-top: -10px;
+    margin-top: 10px;
     height: 150px;
 }
 .recent_update
 {
     max-width:340px;
-    margin:auto;
+ 
     height:auto;
     border-left: 1px solid rgba(73,73,91,0.4);
     padding-left:5px;
@@ -103,7 +103,6 @@
     margin-top: 9px;
     overflow-x:hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;
 }
 .post:hover
 {
