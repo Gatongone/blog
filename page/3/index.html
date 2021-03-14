@@ -29,9 +29,6 @@
         
 <link rel="stylesheet" href="/blog/css/leftsidebar.css">
 
-
-<script src="/blog/js/hidebar.js"></script>
-
 <div class="leftpanel_out" id="leftpanel_out">
     <div class="block1"></div>
 
@@ -94,7 +91,6 @@
 
 
 <script src="/blog/js/searchbar.js"></script>
-<script src="/blog/js/hidebar.js"></script>
   
 <div class="topbar" id="topbar">
     <div class = "top_left" id="top_left">
@@ -169,9 +165,6 @@
         
 <link rel="stylesheet" href="/blog/css/rightbar.css">
 
-
-<script src="/blog/js/hidebar.js"></script>
-
 <div id="right_bar">
 
         
@@ -199,6 +192,7 @@
             
 <link rel="stylesheet" href="/blog/css/post_entry.css">
 
+
 <div class="post_entry">
     <a class="post_title" href="/blog/2021/02/15/C-特性-Attribute/"  target="_self">C#特性(Attribute) </a>   
     
@@ -225,54 +219,13 @@
 
     </div>
     <hr color=#49495b SIZE=1>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-    (function($) {
-
-        $.fn.visible = function(partial) {
-
-            var $t = $(this),
-                $w = $(window),
-                viewTop = $w.scrollTop(),
-                viewBottom = viewTop + $w.height(),
-                _top = $t.offset().top,
-                _bottom = _top + $t.height(),
-                compareTop = partial === true ? _bottom : _top,
-                compareBottom = partial === true ? _top : _bottom;
-
-            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
-
-        };
-
-    })(jQuery);
-
-    var win = $(window);
-
-    var allMods = $(".post_entry");
-
-    allMods.each(function(i, el) {
-        var el = $(el);
-        if (el.visible(true)) {
-            el.addClass("already-visible");
-        }
-    });
-
-    win.scroll(function(event) {
-
-        allMods.each(function(i, el) {
-            var el = $(el);
-            if (el.visible(true)) {
-                el.addClass("come-in");
-            }
-        });
-
-    });
-    </script>
 </div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
             
 <link rel="stylesheet" href="/blog/css/post_entry.css">
+
 
 <div class="post_entry">
     <a class="post_title" href="/blog/2021/02/15/C-反射-Reflection/"  target="_self">C#反射(Reflection) </a>   
@@ -312,54 +265,13 @@
 
     </div>
     <hr color=#49495b SIZE=1>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-    (function($) {
-
-        $.fn.visible = function(partial) {
-
-            var $t = $(this),
-                $w = $(window),
-                viewTop = $w.scrollTop(),
-                viewBottom = viewTop + $w.height(),
-                _top = $t.offset().top,
-                _bottom = _top + $t.height(),
-                compareTop = partial === true ? _bottom : _top,
-                compareBottom = partial === true ? _top : _bottom;
-
-            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
-
-        };
-
-    })(jQuery);
-
-    var win = $(window);
-
-    var allMods = $(".post_entry");
-
-    allMods.each(function(i, el) {
-        var el = $(el);
-        if (el.visible(true)) {
-            el.addClass("already-visible");
-        }
-    });
-
-    win.scroll(function(event) {
-
-        allMods.each(function(i, el) {
-            var el = $(el);
-            if (el.visible(true)) {
-                el.addClass("come-in");
-            }
-        });
-
-    });
-    </script>
 </div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
             
 <link rel="stylesheet" href="/blog/css/post_entry.css">
+
 
 <div class="post_entry">
     <a class="post_title" href="/blog/2021/02/14/GUI(IMGUI)/"  target="_self">GUI(IMGUI) </a>   
@@ -395,54 +307,13 @@ OnGui()继承了MonoBehaviour的脚本都可以调用OnGui()。OnGui()中的控�
 
     </div>
     <hr color=#49495b SIZE=1>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-    (function($) {
-
-        $.fn.visible = function(partial) {
-
-            var $t = $(this),
-                $w = $(window),
-                viewTop = $w.scrollTop(),
-                viewBottom = viewTop + $w.height(),
-                _top = $t.offset().top,
-                _bottom = _top + $t.height(),
-                compareTop = partial === true ? _bottom : _top,
-                compareBottom = partial === true ? _top : _bottom;
-
-            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
-
-        };
-
-    })(jQuery);
-
-    var win = $(window);
-
-    var allMods = $(".post_entry");
-
-    allMods.each(function(i, el) {
-        var el = $(el);
-        if (el.visible(true)) {
-            el.addClass("already-visible");
-        }
-    });
-
-    win.scroll(function(event) {
-
-        allMods.each(function(i, el) {
-            var el = $(el);
-            if (el.visible(true)) {
-                el.addClass("come-in");
-            }
-        });
-
-    });
-    </script>
 </div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
             
 <link rel="stylesheet" href="/blog/css/post_entry.css">
+
 
 <div class="post_entry">
     <a class="post_title" href="/blog/2021/02/12/协变与逆变/"  target="_self">协变与逆变 </a>   
@@ -476,50 +347,8 @@ OnGui()继承了MonoBehaviour的脚本都可以调用OnGui()。OnGui()中的控�
 
     </div>
     <hr color=#49495b SIZE=1>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-    (function($) {
-
-        $.fn.visible = function(partial) {
-
-            var $t = $(this),
-                $w = $(window),
-                viewTop = $w.scrollTop(),
-                viewBottom = viewTop + $w.height(),
-                _top = $t.offset().top,
-                _bottom = _top + $t.height(),
-                compareTop = partial === true ? _bottom : _top,
-                compareBottom = partial === true ? _top : _bottom;
-
-            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
-
-        };
-
-    })(jQuery);
-
-    var win = $(window);
-
-    var allMods = $(".post_entry");
-
-    allMods.each(function(i, el) {
-        var el = $(el);
-        if (el.visible(true)) {
-            el.addClass("already-visible");
-        }
-    });
-
-    win.scroll(function(event) {
-
-        allMods.each(function(i, el) {
-            var el = $(el);
-            if (el.visible(true)) {
-                el.addClass("come-in");
-            }
-        });
-
-    });
-    </script>
 </div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
         
@@ -615,6 +444,9 @@ OnGui()继承了MonoBehaviour的脚本都可以调用OnGui()。OnGui()中的控�
 
 <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+<script src="/blog/js/showpost.js"></script>
+
 <script>
     hljs.initHighlightingOnLoad();
 </script>

@@ -112,9 +112,12 @@
     }
 }
 
-
+.post_entry
+{
+    opacity: 0;
+}
 .come-in {
-    transform: translateX(-150px);
+    transform: translateX(-100px);
     animation: come-in 0.5s cubic-bezier(0, -0.01, 0, 0.99) forwards;
 }
 .come-in:nth-child(odd) {
@@ -122,7 +125,7 @@
     animation-duration: 0.75s;
 }
 .leave {
-    transform: translateX(150px);
+    transform: translateX(100px);
     animation: leave 0.5s cubic-bezier(0, -0.01, 0, 0.99) forwards;
 }
 .leave:nth-child(odd) {
@@ -142,7 +145,7 @@
 }
 @keyframes leave {
     to {
-        transform: translateX(-800);
+        transform: translateX(-100);
         opacity: 0;
     }
 }

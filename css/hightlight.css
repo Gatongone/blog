@@ -36,7 +36,7 @@
 .hljs:hover {
   overflow-x: auto;
   border-radius: 10px;
-  background: rgb(16, 16, 65);
+  background: rgb(13, 13, 49);
   color: rgb(192, 185, 202);
   transition: all 0.3s ease-in-out;
 }
