@@ -3,6 +3,8 @@
     font-family: 'pixel_font';  
     src: url("/fonts/Pixel_zh.TTF");
 }
+
+
 .main
 {
     min-width:1200px;

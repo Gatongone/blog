@@ -8,6 +8,8 @@
     font-family: 'pixel_font';  
     src: url("/fonts/Pixel_zh.TTF");
 }
+
+
 .topbar
 {
     position:relative;
@@ -18,35 +20,35 @@
 {
     float:left;
     margin-left: 16.5%;;
+    filter: drop-shadow(0 0 3px  rgb(46, 74, 233) );
+    transition: all 0.5s ease-in-out;
 }
-.logo
+.top_left img
 {
     float:left;
+    margin-top: -30px;
+    filter: drop-shadow(0 0 7px  rgb(145, 60, 184) );
+}
+.top_left img:hover
+{
+    filter:  hue-rotate(270deg) drop-shadow(0px 0px 8px  rgb(67, 64, 224));
 }
 .title_top
 {
     float:left;
+    margin-left:20px;
     font-family: "pixel_font2";
     font-weight:bold;
-    color: rgb(189, 53, 149);
+    color: rgb(189, 53, 182);
     font-size: 43px;
     filter:
     drop-shadow(0px 0px 5px rgb(189, 53, 149));
-
     transition: all 0.5s ease-in-out;
 }
-.title_top2
-{
-    float:left;
-    font-family: "pixel_font2";
-    font-weight:bold;
-    color: rgb(189, 53, 149);
-    font-size: 43px;
-    margin-left: 16.5%;;
-    filter:drop-shadow(0px 0px 5px rgb(189, 53, 149));
 
-    transform: translate3d(-1000px,0,0);
-    transition: all 0.5s ease-in-out;
+.title_top:hover
+{
+    filter:  hue-rotate(270deg) drop-shadow(0px 0px 8px  rgb(67, 64, 224));
 }
 .buttonfont
 {
@@ -56,16 +58,11 @@
     font-family:"pixel_font2";
     font-size: 20px;
     margin-top: 3px;
-    
 }
 .text
 {
     transition: all 0.9s ease-in-out;
-}
-.text2
-{
-    transform: translate3d(-1000px,0,0);
-    transition: all 0.9s ease-in-out;
+    right: 50px;
 }
 .topbar div
 {
@@ -85,20 +82,20 @@
 {
     right:300px;
 }
-
 #topblock
 {
     position:relative;
     float: right;
     margin-top: 13px;
     margin-right: 4%;
-
-
+}
+#topblock #search
+{
+    transition: all 0.4s ease-in-out;
 }
 #topblock input
 {
-    position: relative;
-    margin-top: -20px;
+    position: absolute;
     right: 40px;
     width: 200px;
     height: 25px;
@@ -137,10 +134,9 @@
     color:rgba(255, 253, 253, 0.629);
     position: absolute;
     outline: none;
-    right: 40px;
+    right: -5px;
     width: 70px;
-    margin-top: -2px;
-    height: 30px;
+    height: 31px;
     border-top-right-radius: 90px;
     border-bottom-right-radius: 90px;
     border: none;
@@ -149,6 +145,7 @@
     background-size:400%;
     animation: light 8s infinite;
     z-index: 1;
+    transition: 0.1s linear;
 }
 #topblock button:hover
 {
@@ -178,4 +175,90 @@
 #topblock button img
 {
     opacity:0.6;
+}
+@media screen and (max-width:1300px)
+{
+    .top_left
+    {
+        position:absolute;
+        filter: drop-shadow(0 0 3px  rgb(46, 74, 233) );
+        text-align: center;
+        transition: all 0.5s ease-in-out;
+        transform: scale(0.8);
+    }
+    .title_top
+    {
+        position:absolute;
+        text-align: right;
+    }
+    #topblock #search
+    {
+        float:right;
+        left: -200px;
+        margin-top: 130px;
+        text-align: right;
+    }
+    #topblock #search input
+    {
+        position:absolute;
+        width: 300px;
+        top: -15px;
+    }
+    #topblock #search input:focus
+    {
+        width: 400px;
+    }
+    #topblock #search button
+    {
+        position:absolute;
+        top: -15px;
+    }
+    .text
+    {
+        position: absolute;
+        right: 90px;
+        transition: all 0.9s ease-in-out;
+    }
+
+    #about
+    {
+        right:320px;
+        margin-top: -2px;
+        transition: all 0.9s ease-in-out;
+    }
+    #plan
+    {
+        right:200px;
+        transition: all 0.9s ease-in-out;
+    }
+    #RSS
+    {
+        right:120px;
+        transition: all 0.9s ease-in-out;
+    }
+}
+@media screen and (max-width:900px)
+{
+    #topblock #search
+    {
+        float:right;
+        left: -100px;
+        margin-top: 130px;
+        text-align: right;
+    }
+    #topblock #search input
+    {
+        position:absolute;
+        width: 150px;
+        top: -15px;
+    }
+    #topblock #search input:focus
+    {
+        width: 250px;
+    }
+    #topblock #search button
+    {
+        position:absolute;
+        top: -15px;
+    }
 }

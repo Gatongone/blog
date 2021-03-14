@@ -35,7 +35,7 @@
     <div class="block1"></div>
 
     <div class="profile_background" id="profile_background">
-        <a href="https://www.gatongone.site" title="Navigation" target="_self">
+        <a href="https://www.gatongone.site/blog" target="_self">
             <img class="profile" src="/blog/images/profile.jpg" />
         </a>
     </div>
@@ -71,8 +71,8 @@
     <div class="block3"></div>
 </div>
 <script>
-    var obj=document.getElementById('leftpanel_out');
-    MoveBar(obj,"leftpanel_in",1150)
+    // var obj=document.getElementById('leftpanel_out');
+    // MoveBar(obj,"leftpanel_in",1150)
 </script>                       <!-- 加载侧边栏 -->
 
         <div class='body-wrapper' id="body-wrapper">
@@ -96,19 +96,22 @@
 <script src="/blog/js/hidebar.js"></script>
   
 <div class="topbar" id="topbar">
-    <div class = "top_left">
-        <img  class="logo" src="/blog/images/NeonGame.png"/>
+    <div class = "top_left" id="top_left">
+    <a href="https://www.gatongone.site" target="_self">
+        <img src="/blog/images/NeonGame.png"/>
+    </a>
         <font class="title_top" id="title_top">Gatongone</font>
     </div>
     <div id="topblock">
-        <div id="text">
+        <div id="text" class="text">
             <font id='about' class="buttonfont">▼About</font>
             <font id="plan" class="buttonfont">Planing</font>
             <font id="RSS" class="buttonfont">RSS</font>
         </div>
-        
-        <input id="search_input"  type="text" placeholder="search with title" value="" onkeydown=" if(event.which==13)''">
-        <button><img src="/blog/images/icon/search.png" style="height: 16px; width: 18px; margin-top: 2px;"></button>
+        <div id="search">
+            <input id="search_input"  type="text" placeholder="search with title" value="" onkeydown=" if(event.which==13)''">
+            <button><img src="/blog/images/icon/search.png" style="height: 16px; width: 18px; margin-top: 2px;"></button>
+        </div>
     </div>
 </div>
 
@@ -126,17 +129,17 @@
 
 
 <script>
-    var obj2=document.getElementById('title_top');
-    var obj3=document.getElementById("text");
-    //HideBar(obj2,1270);
-    MoveBar(obj2,"title_top2",1270);
-    //HideBar(obj3,650);
-    MoveBar(obj3,"text2",800);
+    // var obj2=document.getElementById('top_left');
+    // var obj3=document.getElementById("text");
+    // //HideBar(obj2,1270);
+    // MoveBar(obj2,"top_left2",1270);
+    // //HideBar(obj3,650);
+    // MoveBar(obj3,"text2",800);
 
-    if(sessionStorage.getItem("isReload")){
-    }else{
-    sessionStorage.setItem("isReload", true)
-    }
+    // if(sessionStorage.getItem("isReload")){
+    // }else{
+    // sessionStorage.setItem("isReload", true)
+    // }
 </script>
     
 <link rel="stylesheet" href="/blog/css/mainbody.css">
@@ -186,8 +189,8 @@
 
 </div>
 <script>
-    var bar=document.getElementById("right_bar");
-    MoveBar(bar,"right_bar_hide",1120)
+    // var bar=document.getElementById("right_bar");
+    // MoveBar(bar,"right_bar_hide",1120)
 </script>
 
         

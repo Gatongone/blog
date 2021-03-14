@@ -1,3 +1,25 @@
+@media screen and (max-width:1300px)
+{
+    .leftpanel_out
+    {
+        background-color:rgb(32, 31, 50);
+        position: fixed;
+
+        height:620px;
+        width: 180px;
+        margin-left: -10px;
+        bottom: 10%;
+        top:10%;
+
+        border-top-right-radius:110px;
+        border-bottom-right-radius:110px;
+        box-shadow: 0px 0px 30px 20px rgba(20, 3, 41, 0.25);
+
+        
+        transform: translate3d(-180px,0,0);
+        transition: all 0.5s ease-in-out;
+    }
+}
 .leftpanel_out
 {
     background-color:rgb(32, 31, 50);
@@ -15,25 +37,7 @@
 
     transition: all 0.5s ease-in-out;
 }
-.leftpanel_in
-{
-    background-color:rgb(32, 31, 50);
-    position: fixed;
 
-    height:620px;
-    width: 180px;
-    margin-left: -10px;
-    bottom: 10%;
-    top:10%;
-
-    border-top-right-radius:110px;
-    border-bottom-right-radius:110px;
-    box-shadow: 0px 0px 30px 20px rgba(20, 3, 41, 0.25);
-
-    
-    transform: translate3d(-180px,0,0);
-    transition: all 0.5s ease-in-out;
-}
 .profile_background
 {
 
