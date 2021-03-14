@@ -439,12 +439,14 @@ using (FileStream reader = File.Open(path, FileMode.Open,FileAccess.Read))
 <ul>
 <li><h2 id="StreamWriter"><a href="#StreamWriter" class="headerlink" title="StreamWriter"></a>StreamWriter</h2><p>  继承至TextWriter,提供了以<code>特定编码（默认为UTF-8）</code>对连续<code>字符</code>进行写入的方法</p>
 <ul>
-<li><h3 id="常用构造函数-1"><a href="#常用构造函数-1" class="headerlink" title="常用构造函数"></a>常用构造函数</h3>构造函数|描述</li>
+<li><h3 id="常用构造函数-1"><a href="#常用构造函数-1" class="headerlink" title="常用构造函数"></a>常用构造函数</h3><p>构造函数|描述</p>
+</li>
 </ul>
 <p>  —–|—–<br>  StreamWriter(string path)|根据路径写入<br>  StreamWriter(string path, bool append)|append是否在末尾加入<br>  StreamWriter(string path, bool append, Encoding encoding)|encoding以何种编码写入<br>  StreamWriter(string path, bool append, Encoding encoding, int bufferSize)|bufferSize缓冲区大小<br>  StreamWriter(string stream)|根据流写入<br>  StreamWriter(Stream stream, Encoding encoding)|encoding以何种编码写入<br>  StreamWriter(Stream stream, Encoding encoding, int bufferSize)|bufferSize缓冲区大小</p>
 </li>
 </ul>
 <pre><code>* ### 常用方法
+
 方法|描述
 -----|-----
 Write(string value)|将字符串写入流
@@ -452,7 +454,9 @@ Write(string format, params Object[] arg)|将可变长参数arg进行format格�
 WriteLine()|向当于写入一个换行
 WriteLine(string value)|写入一行字符串
 WriteLine(string format, params Object[] arg)|将可变长参数arg进行format格式化并以一行写入流
+
 * ### 写文件操作
+
 直接根据路径进行写入：一般用在不需要对流进行访问权限、文件操作、文件共享时
 ```C#
 string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
