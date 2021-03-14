@@ -38,6 +38,7 @@
 {
     float:left;
     margin-left:20px;
+    margin-top: 20px;
     font-family: "pixel_font2";
     font-weight:bold;
     color: rgb(189, 53, 182);
@@ -210,7 +211,6 @@
     .title_top
     {
         position:absolute;
-        margin-top: 30px;
         text-align: left;
     }
     #topblock #search
