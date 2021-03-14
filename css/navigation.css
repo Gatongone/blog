@@ -3,20 +3,16 @@
     font-family: 'pixel_font';  
     src: url("/fonts/Pixel_zh.TTF");
 }
-
-
 .main
 {
-    min-width:1200px;
-    position: fixed;
+
+
     /* margin-left: 550px;
     margin-top: 200px; */
-    
     margin-left:35%;
     margin-top: 12%;
     display: grid;
     grid-template-columns: 650px;
-
     transform: scale(1.1);
 }
 
@@ -183,4 +179,47 @@
 .start:hover::after
 {
     right: 70%;
+}
+
+@media screen and (max-width:1300px)
+{
+    .father
+    {
+        display:flex;
+        align-items:center;
+        width: 100%;
+        margin-top: 150px;
+        height: 100%;
+    }
+    .main
+    {
+        margin: 0 auto;
+        transform: scale(0.9);
+    }
+}
+@media screen and (max-width:650px)
+{
+    .father
+    {
+        text-align:center;
+    }
+    .title
+    {
+        margin-right: 120px;
+        transform: scale(0.8);
+    }
+    .search
+    {
+        display:none;
+    }
+    .description
+    {
+        display: none;
+    }
+    #start
+    {
+       left: 0;
+       margin-left:170px;
+       transform: scale(0.9);
+    }
 }
