@@ -273,4 +273,12 @@
         margin-right: 30px;
         text-align: right;
     }
+    #topblock #search input
+    {
+        width: 230px;
+    }
+    #topblock #search input:focus
+    {
+        width: 300px;
+    }
 }
