@@ -35,7 +35,7 @@
     <div class="block1"></div>
 
     <div class="profile_background" id="profile_background">
-        <a href="https://www.gatongone.site/blog" target="_self">
+        <a href="/blog/" target="_self">
             <img class="profile" src="/blog/images/profile.jpg" />
         </a>
     </div>
@@ -96,13 +96,17 @@
     <a href="https://www.gatongone.site" target="_self">
         <img src="/blog/images/NeonGame.png"/>
     </a>
-        <font class="title_top" id="title_top">Gatongone</font>
+        <font class="title_top" id="title_top" align="left">Blog Of </br>Gatongone</font>
     </div>
     <div id="topblock">
-        <div id="text" class="text">
-            <font id='about' class="buttonfont">▼About</font>
-            <font id="plan" class="buttonfont">Planing</font>
-            <font id="RSS" class="buttonfont">RSS</font>
+        <div id="text">
+            <nav>
+                <ul>
+                    <li><a href="#" id='about' class="buttonfont">▼About</a></li>
+                    <li><a href="#" id="plan" class="buttonfont">Planing</a></li>
+                    <li><a href="#" id="RSS" class="buttonfont">RSS</a></li>
+                </ul>
+            </nav>
         </div>
         <div id="search">
             <input id="search_input"  type="text" placeholder="search with title" value="" onkeydown=" if(event.which==13)''">
@@ -143,7 +147,7 @@
 
 <!-- 回到首页 -->
 
-    <a href="/blog/">
+    <a href="javascript:window.history.back()">
     <button class="home_btn">
         <img src="/blog/images/icon/home.png">
     </button>
@@ -204,10 +208,7 @@
         
 
 </div>
-<script>
-    // var bar=document.getElementById("right_bar");
-    // MoveBar(bar,"right_bar_hide",1120)
-</script>
+
 
     <div class="page_title" id="page_title">
         C#流Stream
