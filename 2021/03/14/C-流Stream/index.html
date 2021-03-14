@@ -481,21 +481,93 @@ using (FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write))
 <ul>
 <li><h2 id="StreamReader"><a href="#StreamReader" class="headerlink" title="StreamReader"></a>StreamReader</h2><p>  继承至TextReader,提供了以<code>特定编码（默认为UTF-8）</code>对连续<code>字符</code>进行读取并将数据写入缓冲区的方法</p>
 <ul>
-<li><h3 id="常用构造函数-2"><a href="#常用构造函数-2" class="headerlink" title="常用构造函数"></a>常用构造函数</h3>构造函数|描述</li>
-</ul>
-<p>  —–|—–<br>  StreamReader(string path)|根据路径读取<br>  StreamReader(string path, Encoding encoding)|encoding以何种编码读取<br>  StreamReader(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks)|detectEncodingFromByteOrderMarks是否自动判断用何种编码读取<br>  StreamReader(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)|BufferSize缓冲区大小<br>  StreamReader(Stream stream)|根据流读取<br>  StreamReader(Stream stream, Encoding encoding)|encoding以何种编码读取<br>  StreamReader(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks)|detectEncodingFromByteOrderMarks是否自动判断用何种编码读取<br>  StreamReader(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)|BufferSize缓冲区大小</p>
-<ul>
-<li><h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3>方法|描述</li>
-</ul>
-<p>  —–|—–<br>  Peek()|寻找当前字符的下个字符,当返回值是-1时，表示是最后一个字符<br>  Read()|读取下一个字符, 但是和peek方法不同，Read方法使指针指向下个字符，但是Peek还是指向原来那个字符<br>  Read(char[] buffer, int index, int count)|从index处读取count个字符并赋值给buffer<br>  ReadBlock(char[] buffer, int index, int count)|与Read的方法一致，效率更高但并非线程安全<br>  ReadLine()|从当前流中读取一行字符并将数据作为字符串返回<br>  ReadLineAsync()|从当前流中异步读取一行字符并将数据作为字符串返回<br>  ReadToEnd()|从流的当前位置到末尾读取所有字符</p>
-<ul>
-<li><h3 id="读文件操作-1"><a href="#读文件操作-1" class="headerlink" title="读文件操作"></a>读文件操作</h3>根据路径读取<pre><code class="C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
+<li><h3 id="常用构造函数-2"><a href="#常用构造函数-2" class="headerlink" title="常用构造函数"></a>常用构造函数</h3><table>
+<thead>
+<tr>
+<th>构造函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>StreamReader(string path)</td>
+<td>根据路径读取</td>
+</tr>
+<tr>
+<td>StreamReader(string path, Encoding encoding)</td>
+<td>encoding以何种编码读取</td>
+</tr>
+<tr>
+<td>StreamReader(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks)</td>
+<td>detectEncodingFromByteOrderMarks是否自动判断用何种编码读取</td>
+</tr>
+<tr>
+<td>StreamReader(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)</td>
+<td>BufferSize缓冲区大小</td>
+</tr>
+<tr>
+<td>StreamReader(Stream stream)</td>
+<td>根据流读取</td>
+</tr>
+<tr>
+<td>StreamReader(Stream stream, Encoding encoding)</td>
+<td>encoding以何种编码读取</td>
+</tr>
+<tr>
+<td>StreamReader(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks)</td>
+<td>detectEncodingFromByteOrderMarks是否自动判断用何种编码读取</td>
+</tr>
+<tr>
+<td>StreamReader(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)</td>
+<td>BufferSize缓冲区大小</td>
+</tr>
+</tbody></table>
+</li>
+<li><h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Peek()</td>
+<td>寻找当前字符的下个字符,当返回值是-1时，表示是最后一个字符</td>
+</tr>
+<tr>
+<td>Read()</td>
+<td>读取下一个字符, 但是和peek方法不同，Read方法使指针指向下个字符，但是Peek还是指向原来那个字符</td>
+</tr>
+<tr>
+<td>Read(char[] buffer, int index, int count)</td>
+<td>从index处读取count个字符并赋值给buffer</td>
+</tr>
+<tr>
+<td>ReadBlock(char[] buffer, int index, int count)</td>
+<td>与Read的方法一致，效率更高但并非线程安全</td>
+</tr>
+<tr>
+<td>ReadLine()</td>
+<td>从当前流中读取一行字符并将数据作为字符串返回</td>
+</tr>
+<tr>
+<td>ReadLineAsync()</td>
+<td>从当前流中异步读取一行字符并将数据作为字符串返回</td>
+</tr>
+<tr>
+<td>ReadToEnd()</td>
+<td>从流的当前位置到末尾读取所有字符</td>
+</tr>
+</tbody></table>
+</li>
+<li><h3 id="读文件操作-1"><a href="#读文件操作-1" class="headerlink" title="读文件操作"></a>读文件操作</h3><p>根据路径读取</p>
+<pre><code class="C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
 using (StreamReader reader = new StreamReader(path))
 &#123;
   string str = reader.ReadToEnd();
 &#125;
 </code></pre>
-根据流读取<pre><code class="C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
+<p>根据流读取</p>
+<pre><code class="C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
 using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
 &#123;
   using (StreamReader reader = new StreamReader(fs))
