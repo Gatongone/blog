@@ -266,6 +266,7 @@
     .top_left
     {
         left: 0;
+        margin-left: -8px;
     }
     #topblock #search
     {
