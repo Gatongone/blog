@@ -8,6 +8,10 @@
     font-family: 'consola';  
     src: url("/fonts/consola.ttf");
 }
+.page_content
+{
+    margin-bottom:80px;
+}
 .page_content p,ol,ul,dl,table,address,blockquote,form,span,i,em,strong,label
 {
    color:rgba(177, 176, 186, 0.842); 
@@ -16,6 +20,7 @@
 
 #page_title
 {
+    margin-top: 25px;
     color: #179287;
     font-size: 35px;
     font-family: 'pixel_font';  
