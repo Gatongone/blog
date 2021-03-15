@@ -178,12 +178,16 @@
 {
     text-decoration: none;
 }
+#topblock nav ul li a:hover
+{
+    text-decoration:underline;
+}
 
 #topblock nav input
 {
     display:none;
 }
-#topblock nav label
+#check
 {
     display:none;
 }
@@ -218,8 +222,6 @@
     }
     #topblock nav
     { 
-        z-index: 99;
-        position: fixed;
         display: flex;
         width: 200px;
         height: 100%;
@@ -230,12 +232,15 @@
     }
     #topblock nav ul
     {
-        padding-top: 30vh;
+        z-index: 89;
+        position: fixed;
+        padding-top: 40vh;
         padding-left: 100px;
         right: 0;
+        margin-top: -80px;
         height: 100vh;
-        width: 100%;
-        background-color: rgb(9, 9, 24);
+        width: 200px;
+        background-color: rgba(9, 9, 27,0.8);
         animation: anim_in 2s;
         display: none;
     }
@@ -247,11 +252,11 @@
        justify-content:center;
        align-items:center;
     }
-
-    #topblock nav label
+    #check
     {
+        right: 0;
+        margin-right: 80px;
         z-index: 99;
-        margin-left:75px;
         display: inline-block;   
         position:absolute;
 
@@ -261,8 +266,8 @@
         cursor: pointer;
         transition: all .5s ease-out;
     }
-    #topblock nav label::before,
-    #topblock nav label::after
+    #check::before,
+    #check::after
     {
         content:"";
         position:absolute;
@@ -275,26 +280,31 @@
         filter: drop-shadow(0 0 3px  rgb(58, 45, 235) );
         transition:transform 0.3s ease-out, top 0.3s ease-out 0.3s;
     }
-    #topblock nav label::before
+    #check::before
     {
         top: calc(50% - 10px);
     }
-    #topblock nav label::after
+    #check::after
     {
         top: calc(50% + 6px);
     }
-    #topblock  nav input:checked + label::before
+    #topblock  nav input:checked + #check
+    {
+        right: 60px;
+        position:fixed;
+    }
+    #topblock  nav input:checked + #check::before
     {
         top:calc(50% - 2px);
         transform: rotate(-45deg);
-
+        filter: drop-shadow(0 0 3px  rgb(118, 45, 235) );
         transition:bottom 0.5s ease-out,transform 0.4s ease-out;
     }
-    #topblock  nav input:checked + label::after
+    #topblock  nav input:checked + #check::after
     {
         top:calc(50% - 2px);
         transform: rotate(45deg);
-
+        filter: drop-shadow(0 0 3px  rgb(118, 45, 235) );
         transition:bottom 0.5s ease-out,transform 0.4s ease-out;
     }
 
@@ -325,10 +335,6 @@
 }
 @media screen and (max-width:1300px)
 {
-    .topbar
-    {
-        width: 100%;
-    }
     .top_left
     {   
         filter: drop-shadow(0 0 3px  rgb(46, 74, 233) );
@@ -378,15 +384,25 @@
 
 @media screen and (max-width:650px)
 {
-    #topblock nav label
+    #check
     {
         margin-top: 10px;
-        margin-left: 110px;
+        margin-right: 20px;
         transform: scale(0.7);
     }
-    #topblock  nav input:checked + label
+    #topblock  nav input:checked + #check
     {
-        margin-left: 70px;
+        right: 40%;
+        margin-top: 50px;
         transition: all 1.0s ease-out;
+    }
+    #topblock nav ul
+    {
+        width: 100%;
+        background-color: rgba(9, 9, 27,1);
+    }
+    #topblock nav ul li
+    {
+      margin-left: 120px;
     }
 }
