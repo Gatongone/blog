@@ -209,7 +209,7 @@
     .main
     {
         text-align: center;
-        margin-top: 70%;
+        margin-top: 60%;
         transform: translateY(-50%);
         display: flex;
         align-items: center;
@@ -234,6 +234,11 @@
     {
        transform: scale(0.9);
        font-size: 20px;
+    }
+    .start::before,
+    .start::after
+    {
+        display: none;
     }
     .search
     {
