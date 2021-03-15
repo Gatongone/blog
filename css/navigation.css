@@ -201,16 +201,17 @@
 {
     .father
     {
-        text-align:center;
+        padding: 50%,0;
     }
     .title
     {
-        margin-right: 120px;
         transform: scale(0.8);
     }
     .search
     {
-        display:none;
+        margin:0 auto;
+        margin-top: 20px;
+        width: 70%;
     }
     .description
     {
@@ -218,8 +219,7 @@
     }
     #start
     {
-       left: 0;
-       margin-left:170px;
+       margin-top: 40px;
        transform: scale(0.9);
     }
 }
