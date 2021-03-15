@@ -387,6 +387,6 @@
     #topblock  nav input:checked + label
     {
         margin-left: 70px;
-        transition: all 1.5s ease-out;
+        transition: all 1.0s ease-out;
     }
 }
