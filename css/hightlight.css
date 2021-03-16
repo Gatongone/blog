@@ -17,7 +17,7 @@
 }
 .hljs {
 	display: block;
-	overflow-x: none;
+	overflow-x: hidden;
 	padding: 0.5em;
 	color: rgb(224, 216, 236);
     background: rgb(9,9,24);
