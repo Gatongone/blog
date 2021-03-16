@@ -395,7 +395,7 @@
 </ul>
 <hr>
 <ul>
-<li><h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h2><pre><code class="C#">//测试类1
+<li><h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h2><pre><code class="C#">    //脚本1
 public class LogComponent_1:MonoBehaviour
 &#123;
     int i = 1;
@@ -407,8 +407,8 @@ public class LogComponent_1:MonoBehaviour
        
         if (i==3)
         &#123;
-            //模拟3帧后执行销毁并添加一个脚本
-            this.gameobject.AddComponent&lt;LogComponent_2&gt;(new LogComponent_2());
+            //模拟3帧后执行启用脚本2
+            this.gameobject.GetComponent&lt;LogComponent_2&gt;().Enable();
             this.Destroy();
         &#125;
         i++;     
@@ -417,18 +417,24 @@ public class LogComponent_1:MonoBehaviour
     public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger1 Disable&quot;);
     public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger1 Destroy&quot;);
 &#125;
-//测试类2
+//脚本2
 public class LogComponent_2:MonoBehaviour
 &#123;
     int i = 1;
-    public override void Awake()=&gt;Console.WriteLine(&quot;Logger2 Awake&quot;);
+    public override void Awake()
+    &#123;
+        //模拟脚本2在Awake时禁用
+        Console.WriteLine(&quot;Logger2 Awake&quot;);
+        this.Disable();
+    &#125;
     public override void Start()=&gt; Console.WriteLine(&quot;Logger2 Start&quot;);
     public override void Update()
     &#123;
        Console.WriteLine(&quot;Logger2 Update&quot;);
-        //模拟4帧后不启用
+        //模拟4帧后禁用，并动态地开启一个脚本3
         if (i==4)
         &#123;
+            this.gameobject.AddComponent&lt;LogComponent_3&gt;(new LogComponent_3());
             this.Disable();
         &#125;
         i++;
@@ -437,6 +443,30 @@ public class LogComponent_2:MonoBehaviour
     public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger2 Disable&quot;);
     public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger2 Destroy&quot;);
 &#125;
+//脚本3
+ public class LogComponent_3:MonoBehaviour
+&#123;
+    int i = 1;
+    public override void Awake()
+    &#123;
+        Console.WriteLine(&quot;Logger3 Awake&quot;);
+        this.Disable();
+    &#125;
+    public override void Start()=&gt; Console.WriteLine(&quot;Logger3 Start&quot;);
+    public override void Update()
+    &#123;
+       Console.WriteLine(&quot;Logger3 Update&quot;);
+        //模拟8帧后禁用
+        if (i==2)
+        &#123;
+            this.Disable();
+        &#125;
+        i++;
+    &#125;
+    public override void OnEnable()=&gt;Console.WriteLine(&quot;Logger3 Enable&quot;);
+    public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger3 Disable&quot;);
+    public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger3 Destroy&quot;);
+&#125;
 </code></pre>
 <p>  主函数</p>
 <pre><code class="C#">public class MainTest//main调试
@@ -444,11 +474,11 @@ public class LogComponent_2:MonoBehaviour
     public static void Main(string[] args)
     &#123;
         //模拟拖拽脚本到场景中的gameobject上
-        GameObject gameobject = new GameObject(new LogComponent_1());
+        GameObject gameobject = new GameObject(new LogComponent_1(),new LogComponent_2());
 
         gameobject.Name=&quot;Cube&quot;;
         Console.WriteLine($&quot;创建了一个GameObject对象：&#123;gameobject.Name&#125;&quot;);
-        
+
         //开始游戏！
         MainMono.Instance.GameStart();
     &#125;
@@ -458,8 +488,21 @@ public class LogComponent_2:MonoBehaviour
 </ul>
 <hr>
 <ul>
-<li><h2 id="测试结果分析"><a href="#测试结果分析" class="headerlink" title="测试结果分析"></a>测试结果分析</h2><p>  <img src="Test.jpg" alt="alt" style="max-width:100%;" ><br>  主函数创建一个GameObject,并为其添加了脚本1<code>LogComponent_1</code>,脚本1在3帧后销毁自身并开启脚本2<code>LogComponent_2</code>,脚本2在4帧后禁用自身</p>
-<p>  到达预期效果，嗯，开心。</p>
+<li><h2 id="测试结果分析"><a href="#测试结果分析" class="headerlink" title="测试结果分析"></a>测试结果分析</h2><p>  <img src="Test.jpg" alt="alt" style="max-width:100%;" ></p>
+<ul>
+<li><p>主函数创建一个GameObject,并为其添加了脚本1<code>LogComponent_1</code>和脚本2<code>LogComponent_2</code></p>
+</li>
+<li><p>脚本2在awake中禁用自身，将不会执行接下来的生命周期函数</p>
+</li>
+<li><p>脚本1在执行了3帧后摧毁自身并启用脚本2</p>
+</li>
+<li><p>脚本2在4帧后禁用自身，并动态地开启一个脚本3</p>
+</li>
+<li><p>脚本3在8帧后禁用自身</p>
+<p>虽然由于update是放在for循环中，导致动态添加的脚本3不能执行Awake、OnEnable、Start</p>
+<p>但是还是到达预期效果，嗯，开心。</p>
+</li>
+</ul>
 </li>
 </ul>
 
