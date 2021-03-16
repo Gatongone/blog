@@ -490,15 +490,15 @@ public class LogComponent_2:MonoBehaviour
 <ul>
 <li><h2 id="测试结果分析"><a href="#测试结果分析" class="headerlink" title="测试结果分析"></a>测试结果分析</h2><p>  <img src="Test.jpg" alt="alt" style="max-width:100%;" ></p>
 <ul>
-<li><p>主函数创建一个GameObject,并为其添加了脚本1<code>LogComponent_1</code>和脚本2<code>LogComponent_2</code></p>
+<li><p>主函数创建一个GameObject,并为其添加了脚本1<code>LogComponent_1</code>和脚本2<code>LogComponent_2</code>;</p>
 </li>
-<li><p>脚本2在awake中禁用自身，将不会执行接下来的生命周期函数</p>
+<li><p>脚本2在awake中禁用自身，将不会执行接下来的生命周期函数;</p>
 </li>
-<li><p>脚本1在执行了3帧后摧毁自身并启用脚本2</p>
+<li><p>脚本1在执行了3帧后摧毁自身并启用脚本2;</p>
 </li>
-<li><p>脚本2在4帧后禁用自身，并动态地开启一个脚本3</p>
+<li><p>脚本2在4帧后禁用自身，并动态地开启一个脚本3<code>LogComponent_3</code>;</p>
 </li>
-<li><p>脚本3在8帧后禁用自身</p>
+<li><p>脚本3在8帧后禁用自身;</p>
 <p>虽然由于update是放在for循环中，导致动态添加的脚本3不能执行Awake、OnEnable、Start</p>
 <p>但是还是到达预期效果，嗯，开心。</p>
 </li>
