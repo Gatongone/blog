@@ -191,7 +191,24 @@
 {
     display:none;
 }
+
 @media screen and (max-width:1530px)
+{
+    .top_left
+    {   
+        margin-left: 15%;
+        transition: all 0.5s ease-in-out;
+        transform: scale(0.8);
+    }
+    .title_top
+    {
+        position:absolute;
+        text-align: left;
+        margin-top: -5px;
+    }
+}
+
+@media screen and (max-width:1300px)
 {    
     *
     {

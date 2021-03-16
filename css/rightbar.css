@@ -162,9 +162,8 @@
     border-left: 1px solid rgba(73,73,91,0.4);
     padding-left:5px;
     position: relative;
-    
-
 }
+
 #clear
 {
     position: absolute;
@@ -182,6 +181,13 @@
     background: linear-gradient(rgba(20, 20, 34, 0.001),rgba(20, 20, 34,1)); 
     pointer-events: none;
     
+}
+@media screen and (max-width:1534px)
+{
+    .post_index
+    {
+        
+    }
 }
 @media screen and (max-width:1300px)
 {
