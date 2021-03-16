@@ -217,7 +217,15 @@
 <li><p>unity不支持多线程————————————那么或许有一个专门负责执行每个脚本的生命周期的大mono</p>
 </li>
 </ol>
-<p>综上可大概获得几个关键类：<br>    * GameObject：负责管理Mono，并将所管理的mono发布到MainMono上<br>    * MonoBehaviour：一个基类，有各种各样的生命周期函数和一个gameobject字段<br>    * MainMono：接收能进入生命周期脚本的mono，并按生命周期顺序执行他们的生命周期</p>
+<p>综上可大概获得几个关键类：</p>
+<ul>
+<li><p>GameObject：负责管理Mono，并将所管理的mono发布到MainMono上</p>
+</li>
+<li><p>MonoBehaviour：一个基类，有各种各样的生命周期函数和一个gameobject字段</p>
+</li>
+<li><p>MainMono：接收能进入生命周期脚本的mono，并按生命周期顺序执行他们的生命周期</p>
+</li>
+</ul>
 <hr>
 <h2 id="关键类"><a href="#关键类" class="headerlink" title="关键类"></a>关键类</h2><ul>
 <li><h3 id="MonoBehaviour"><a href="#MonoBehaviour" class="headerlink" title="MonoBehaviour"></a>MonoBehaviour</h3><p>  为子类提供生命周期函数，需要通知gameobject哪些脚本被启用或销毁了，以此通知MainMono禁用或启用该脚本的生命周期函数</p>
