@@ -264,9 +264,11 @@
     public Action Start;
     public Action Update;
 
-    //模拟游戏开始后
+    //模拟游戏开始
     public void GameStart()
     &#123;
+         Console.WriteLine(&quot;游戏开始！&quot;);
+
         if(Awake!=null)
             Awake.Invoke();
         if(OnEnable!=null)
