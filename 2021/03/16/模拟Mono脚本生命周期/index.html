@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Gatongone">
+    <meta name="Description" content="Gatongone's Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+    <style>
+        body
+        {
+            background-color: rgb(20, 20, 34);
+            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none; /* Firefox */
+            overflow-x: hidden;
+            height: 100%;
+        }
+        body::-webkit-scrollbar
+        {
+            display: auto; /* Chrome Safari */
+            width: 0px;
+        }
+    </style>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+    <body>
+        
+<link rel="stylesheet" href="/blog/css/leftsidebar.css">
+
+<div class="leftpanel_out" id="leftpanel_out">
+    <div class="block1"></div>
+
+    <div class="profile_background" id="profile_background">
+        <a href="/blog/" target="_self">
+            <img class="profile" src="/blog/images/profile.jpg" />
+        </a>
+    </div>
+
+    <img class="block2" src="/blog/images/block.png"/>
+
+    <div class="buttons">
+        <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/26209665" title="bilibili">
+            <img class="shadowfilter bilibili" src="/blog/images/icon/bilibili_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://gatongone.lofter.com/" title="lofter">
+            <img class="shadowfilter lofter" src="/blog/images/icon/lofter_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+         <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" title="github">
+            <img class="shadowfilter github" src="/blog/images/icon/github_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://blog.csdn.net/Gatongone" title="CSDN">
+            <img class="shadowfilter csdn" src="/blog/images/icon/csdn_btn.png"/>
+        </a>
+    </div>
+    <div class="block3"></div>
+</div>
+<script>
+    // var obj=document.getElementById('leftpanel_out');
+    // MoveBar(obj,"leftpanel_in",1150)
+</script>                       <!-- 加载侧边栏 -->
+
+        <div class='body-wrapper' id="body-wrapper">
+
+            <head>
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+ 
+</head>
+<body>
+    
+<link rel="stylesheet" href="/blog/css/topbar.css">
+
+
+<script src="/blog/js/searchbar.js"></script>
+  
+<div class="topbar" id="topbar">
+    <div class = "top_left" id="top_left">
+    <a href="https://www.gatongone.site" target="_self">
+        <img src="/blog/images/NeonGame.png"/>
+    </a>
+        <font class="title_top" id="title_top" align="left">Gatongone's blog</font>
+    </div>
+    <div id="topblock">
+            <nav>
+                <input type="checkbox" id="nav"/><label for="nav" class="check" id="check"></label>
+                <ul>
+                    <li><a href="#" id='about' class="buttonfont">About</a></li>
+                    <li><a href="#" id="plan" class="buttonfont">Planing</a></li>
+                    <li><a href="#" id="RSS" class="buttonfont">RSS</a></li>
+                </ul>
+            </nav>
+    </div>
+    <div id="search">
+        <input id="search_input"  type="text" placeholder="search with title" value="" onkeydown=" if(event.which==13)''">
+        <button><img src="/blog/images/icon/search.png" style="height: 16px; width: 18px; margin-top: 2px;"></button>
+    </div>
+</div>
+
+<!-- swiftype search -->
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','7xj-dxBhzvJx1yWsVMJU','2.0.0');
+</script>
+    </script>
+
+
+
+<script src="/blog/js/hidebar.js"></script>
+
+    
+<link rel="stylesheet" href="/blog/css/mainbody.css">
+
+
+<!-- 回到首页 -->
+
+    <a href="/blog/">
+    <button class="home_btn" >
+        <img src="/blog/images/icon/home.png">
+    </button>
+    </a>
+
+
+<!-- 回到顶部 -->
+<div id="top">
+    <button class="top_btn" id="top_btn">
+        <img src="/blog/images/icon/top.png">
+    </button>
+</div>
+<!-- 主体 -->
+
+<div class="mainbody" id="mainbody">
+<!-- 加载post_entry -->
+    <div class="entry">
+    
+
+    
+<!--    加载post    -->    
+
+    
+        <head>
+    <title>模拟Mono脚本生命周期</title>
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+</head>
+<body>
+
+    
+<link rel="stylesheet" href="/blog/css/post.css">
+
+    
+<link rel="stylesheet" href="/blog/css/hightlight.css">
+
+
+    
+<link rel="stylesheet" href="/blog/css/rightbar.css">
+
+<div id="right_bar">
+
+        
+
+        
+            <div id="post_index" class="post_index">
+                <span> Post Index </span>
+                <div>
+                    <div id="clear"></div>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%B1%BB"><span class="toc-text">关键类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MonoBehaviour"><span class="toc-text">MonoBehaviour</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MainMono"><span class="toc-text">MainMono</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GameObject"><span class="toc-text">GameObject</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%B1%BB"><span class="toc-text">测试类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-text">测试结果分析</span></a></li></ol>
+                </div>
+                
+             </div>
+        
+             
+</div>
+
+
+    <div class="page_title" id="page_title">
+        模拟Mono脚本生命周期
+    </div>
+    <hr>
+    <div class="page_content">
+        
+        
+        <p>为了加深对Mono生命周期和GameObject的印象，特地尝试了模拟Mono工作原理。</p>
+<p>分析思路如下：</p>
+<ol>
+<li><p>unity是如何组织场景中的对象的————————————场景管理每一个gameobject,gameobject挂载各个脚本</p>
+</li>
+<li><p>继承了mono的脚本可以实现start、update等生命周期的函数——————————————mono基类应该以virtual声明的生命周期函数</p>
+</li>
+<li><p>mono是挂载在gameobject身上的组件，并且可以挂载多个————————————gameobject中应该存在一个mono容器</p>
+</li>
+<li><p>可以从挂载的脚本获得被挂载的gameobject——————————————mono中应该有gameobject字段</p>
+</li>
+<li><p>每个脚本的每个生命周期似乎都是同时执行的——————————————unity中应该有并发处理每个生命周期函数的方法</p>
+</li>
+<li><p>unity不支持多线程————————————那么或许有一个专门负责执行每个脚本的生命周期的大mono</p>
+</li>
+</ol>
+<p>综上可大概获得几个关键类：<br>    * GameObject：负责管理Mono，并将所管理的mono发布到MainMono上<br>    * MonoBehaviour：一个基类，有各种各样的生命周期函数和一个gameobject字段<br>    * MainMono：接收能进入生命周期脚本的mono，并按生命周期顺序执行他们的生命周期</p>
+<hr>
+<h2 id="关键类"><a href="#关键类" class="headerlink" title="关键类"></a>关键类</h2><ul>
+<li><h3 id="MonoBehaviour"><a href="#MonoBehaviour" class="headerlink" title="MonoBehaviour"></a>MonoBehaviour</h3><p>  为子类提供生命周期函数，需要通知gameobject哪些脚本被启用或销毁了，以此通知MainMono禁用或启用该脚本的生命周期函数</p>
+<pre><code class="C#">public class MonoBehaviour
+&#123;
+    public bool IsEnabled = true;
+    public GameObject gameobject;
+    public virtual void Awake()&#123;&#125;
+    public virtual void Start()&#123;&#125;
+    public virtual void Update()&#123;&#125;
+    public virtual void OnEnable()&#123;&#125;
+    public virtual void OnDisable()&#123;&#125;
+    public virtual void OnDestroy()&#123;&#125;
+
+    //销毁脚本
+    public void Destroy()
+    &#123;
+        OnDestroy();
+        this.gameobject.DestroyComponent(this);
+    &#125;
+    //不启用脚本
+    public void  Disable()
+    &#123;
+        OnDisable();
+        this.gameobject.DisableComponent(this);
+    &#125;
+    //启用脚本
+    public void  Enable()
+    &#123;
+        OnEnable();
+        this.gameobject.EnableComponent(this);
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><h3 id="MainMono"><a href="#MainMono" class="headerlink" title="MainMono"></a>MainMono</h3><p>  通过单例委托接收MainMono发过来的脚本生命周期函数</p>
+<pre><code class="C#">public class MainMono
+&#123;
+    public static readonly Lazy&lt;MainMono&gt; instance = new Lazy&lt;MainMono&gt;(() =&gt; new MainMono());
+    public static MainMono Instance &#123; get =&gt; instance.Value; &#125;
+
+    public Action Awake;
+    public Action OnEnable;
+    public Action Start;
+    public Action Update;
+
+    //模拟游戏开始后
+    public void GameStart()
+    &#123;
+        if(Awake!=null)
+            Awake.Invoke();
+        if(OnEnable!=null)
+            OnEnable.Invoke();
+        if(Start!=null)
+            Start.Invoke();
+        
+        while (true)
+        &#123;
+            if(Update!=null)
+                Update.Invoke();
+
+            Thread.Sleep(1000);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><h3 id="GameObject"><a href="#GameObject" class="headerlink" title="GameObject"></a>GameObject</h3><p>  以列表存储mono脚本，通过可变长参数在初始化时将脚本加入列表并发布给MainMono</p>
+<pre><code class="C#">public class GameObject
+&#123;
+    public List&lt;MonoBehaviour&gt; componentlist = new List&lt;MonoBehaviour&gt;();
+
+    public Action OnDestroy;
+    public Action OnDisable;
+
+    public GameObject(params MonoBehaviour[] args)
+    &#123;
+        foreach (var component in args)
+        &#123;
+            //加入组件列表
+            componentlist.Add(component);
+
+            //设置gameobjct
+            component.gameobject = this;
+
+            //初始化到主Mono
+            MainMono.Instance.Awake += component.Awake;
+            MainMono.Instance.OnEnable += component.OnEnable;
+            MainMono.Instance.Start += component.Start;
+            MainMono.Instance.Update += component.Update;
+            this.OnDestroy += component.OnDestroy;
+
+            //如果不启用则不加入
+            if (!component.IsEnabled)
+            &#123;
+                MainMono.Instance.OnEnable -= component.OnEnable;
+                MainMono.Instance.Start -= component.Start;
+                MainMono.Instance.Update -= component.Update;
+            &#125;
+        &#125;
+    &#125;
+    //添加脚本
+    public void AddComponent(MonoBehaviour component)
+    &#123;
+        componentlist.Add(component);
+        component.gameobject = this;
+
+        //初始化到主Mono
+        MainMono.Instance.Awake += component.Awake;
+        MainMono.Instance.OnEnable += component.OnEnable;
+        MainMono.Instance.Start += component.Start;
+        MainMono.Instance.Update += component.Update;
+        this.OnDestroy += component.OnDestroy;
+        //如果不启用则不加入
+        if (!component.IsEnabled)
+        &#123;
+            MainMono.Instance.OnEnable -= component.OnEnable;
+            MainMono.Instance.Start -= component.Start;
+            MainMono.Instance.Update -= component.Update;
+        &#125;
+    &#125;
+    //摧毁脚本
+    public void DestroyComponent(MonoBehaviour component)
+    &#123;
+        componentlist.Remove(component);
+
+        MainMono.Instance.Awake -= component.Awake;
+        MainMono.Instance.OnEnable -= component.OnEnable;
+        MainMono.Instance.Start -= component.Start;
+        MainMono.Instance.Update -= component.Update;
+        this.OnDestroy -= component.OnDestroy;
+
+        //---------
+        //移除逻辑
+        //---------
+    &#125;
+    //不启用脚本
+    public void DisableComponent(MonoBehaviour component)
+    &#123;
+        MainMono.Instance.OnEnable -= component.OnEnable;
+        MainMono.Instance.Start -= component.Start;
+        MainMono.Instance.Update -= component.Update;
+    &#125;
+    //启用脚本
+    public void EnableComponent(MonoBehaviour component)
+    &#123;
+        MainMono.Instance.OnEnable += component.OnEnable;
+        MainMono.Instance.Start += component.Start;
+        MainMono.Instance.Update += component.Update;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<hr>
+<ul>
+<li><h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h2><pre><code class="C#">//测试类1
+public class LogComponent_1:MonoBehaviour
+&#123;
+    int i = 1;
+    public override void Awake()=&gt;Console.WriteLine(&quot;Logger1 Awake&quot;);
+    public override void Start()=&gt; Console.WriteLine(&quot;Logger1 Start&quot;);
+    public override void Update()
+    &#123;
+       Console.WriteLine(&quot;Logger1 Update&quot;);
+       
+        if (i==3)
+        &#123;
+            //模拟3帧后执行销毁并添加一个脚本
+            this.gameobject.AddComponent&lt;LogComponent_2&gt;(new LogComponent_2());
+            this.Destroy();
+        &#125;
+        i++;     
+    &#125;
+    public override void OnEnable()=&gt;Console.WriteLine(&quot;Logger1 Enable&quot;);
+    public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger1 Disable&quot;);
+    public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger1 Destroy&quot;);
+&#125;
+//测试类2
+public class LogComponent_2:MonoBehaviour
+&#123;
+    int i = 1;
+    public override void Awake()=&gt;Console.WriteLine(&quot;Logger2 Awake&quot;);
+    public override void Start()=&gt; Console.WriteLine(&quot;Logger2 Start&quot;);
+    public override void Update()
+    &#123;
+       Console.WriteLine(&quot;Logger2 Update&quot;);
+        //模拟4帧后不启用
+        if (i==4)
+        &#123;
+            this.Disable();
+        &#125;
+        i++;
+    &#125;
+    public override void OnEnable()=&gt;Console.WriteLine(&quot;Logger2 Enable&quot;);
+    public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger2 Disable&quot;);
+    public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger2 Destroy&quot;);
+&#125;
+</code></pre>
+<p>  主函数</p>
+<pre><code class="C#">public class MainTest//main调试
+&#123;
+    public static void Main(string[] args)
+    &#123;
+        //模拟拖拽脚本到场景中的gameobject上
+        GameObject gameObject = new GameObject(new LogComponent_1());
+
+        //开始游戏！
+        MainMono.Instance.GameStart();
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<hr>
+<ul>
+<li><h2 id="测试结果分析"><a href="#测试结果分析" class="headerlink" title="测试结果分析"></a>测试结果分析</h2><p>  <img src="Test.jpg" alt="alt" style="max-width:100%;" ><br>  主函数创建一个GameObject,并为其添加了脚本1<code>LogComponent_1</code>,脚本1在3帧后销毁自身并开启脚本2<code>LogComponent_2</code>,脚本2在4帧后禁用自身</p>
+<p>  到达预期效果，嗯，开心。</p>
+</li>
+</ul>
+
+    </div>
+    
+    <div class="footer">
+    <hr>
+        <font> ©2021 </font>
+        <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
+        some copyrights reserved
+        <div style="float: right; margin-right: -200px;">
+              Mar 16th  2021,  11:27:00  |
+            <font>Powered by</font>
+            <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
+            framework
+        </div>
+    </div>
+</body>
+    
+
+
+
+</div>
+
+
+
+<script>
+     var bar=document.getElementById("top_btn")
+     var showtime=0;
+     var hidetime=0;
+     window.addEventListener("pageshow",function(){
+         let scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+        if(scrollTop ==0)
+        {
+            bar.style.display = 'none';
+        }
+        else
+        {
+            bar.style.display = 'block';
+        }
+        window.addEventListener("scroll",function(){
+            bar.style.display = 'block';
+            scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+            if(scrollTop != 0)
+            {
+                if(hidetime==0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    hidetime++;
+                }
+                showtime=0;
+            }  
+            else
+            {
+                if(showtime==0 && hidetime!=0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    showtime++;
+                    hidetime=0;
+                }
+            }
+        }) 
+     })
+     
+    var timer = null;
+    bar.onclick = function()
+    {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn()
+        {
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            if(top > 0)
+            {
+                document.body.scrollTop = document.documentElement.scrollTop = top - 80;
+                timer = requestAnimationFrame(fn);
+            }
+            else
+            {
+                cancelAnimationFrame(timer);
+            } 
+        });
+    }
+         
+</script>
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+<script src="/blog/js/showpost.js"></script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+</body>                                             <!--  加载主体  -->
+
+        </div>                                                                 
+        
+<script src="/blog/js/searchbar.js"></script>
+<script src="/blog/js/hidebar.js"></script>
+              <!--    加载JS  -->                                                          
+    </body>
+
+</html>
