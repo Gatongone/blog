@@ -288,7 +288,9 @@
 <li><h3 id="GameObject"><a href="#GameObject" class="headerlink" title="GameObject"></a>GameObject</h3><p>  以列表存储mono脚本，通过可变长参数在初始化时将脚本加入列表并发布给MainMono</p>
 <pre><code class="C#">public class GameObject
 &#123;
-    public List&lt;MonoBehaviour&gt; componentlist = new List&lt;MonoBehaviour&gt;();
+    public string Name;
+
+    private List&lt;MonoBehaviour&gt; componentlist = new List&lt;MonoBehaviour&gt;();
 
     public Action OnDestroy;
     public Action OnDisable;
@@ -320,7 +322,7 @@
         &#125;
     &#125;
     //添加脚本
-    public void AddComponent(MonoBehaviour component)
+    public void AddComponent&lt;T&gt;(T component)where T : MonoBehaviour
     &#123;
         componentlist.Add(component);
         component.gameobject = this;
@@ -339,9 +341,22 @@
             MainMono.Instance.Update -= component.Update;
         &#125;
     &#125;
-    //摧毁脚本
-    public void DestroyComponent(MonoBehaviour component)
+    //获取脚本
+    public T GetComponent&lt;T&gt;()where T : MonoBehaviour
     &#123;
+       foreach (var item in componentlist)
+       &#123;
+           if(item is T)
+                return item as T;
+       &#125;
+        return null;
+    &#125;
+    //移除脚本
+    public void DestroyComponent(MonoBehaviour component)
+    &#123;            
+        //---------
+        //移除逻辑
+        //---------
         componentlist.Remove(component);
 
         MainMono.Instance.Awake -= component.Awake;
@@ -349,12 +364,8 @@
         MainMono.Instance.Start -= component.Start;
         MainMono.Instance.Update -= component.Update;
         this.OnDestroy -= component.OnDestroy;
-
-        //---------
-        //移除逻辑
-        //---------
     &#125;
-    //不启用脚本
+    //禁用脚本
     public void DisableComponent(MonoBehaviour component)
     &#123;
         MainMono.Instance.OnEnable -= component.OnEnable;
@@ -423,8 +434,11 @@ public class LogComponent_2:MonoBehaviour
     public static void Main(string[] args)
     &#123;
         //模拟拖拽脚本到场景中的gameobject上
-        GameObject gameObject = new GameObject(new LogComponent_1());
+        GameObject gameobject = new GameObject(new LogComponent_1());
 
+        gameobject.Name=&quot;Cube&quot;;
+        Console.WriteLine($&quot;创建了一个GameObject对象：&#123;gameobject.Name&#125;&quot;);
+        
         //开始游戏！
         MainMono.Instance.GameStart();
     &#125;
