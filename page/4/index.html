@@ -183,7 +183,7 @@
 
 
 <div class="post_entry">
-    <a class="post_title" href="/blog/2021/04/06/计网笔记/"  target="_self">计网笔记 </a>   
+    <a class="post_title" href="/blog/2021/02/12/协变与逆变/"  target="_self">协变与逆变 </a>   
     
     </br>
     <span class="content">
@@ -191,237 +191,26 @@
             
             
             
-            
-概述
-三网融合
-计算机网络
+            逆变（contravariant）与协变（covariant）是C#4新增的概念，只能用修饰泛型委托和泛型接口中的泛型字符。
+根据里氏替换原则：父类可以装子类，而子类不能装父类。可以这样理解：
 
-电信网络
+“协变”-&gt;”和谐的变”-&gt;”父类装子类，感受是和谐的”-&gt;string-&gt;object :协变
 
-游戏电视网络
-
-Network 计算机网络由若干个结点（node）和连接这些点的链路（link）组成
+“逆变”-&gt;”逆常的变”-&gt;”子类装父类，感受不和谐的”-&gt;object-&gt;string :逆变
 
 
-
-Internet 互联网  特指起源于美国研制的ARPAnet，最大的、覆盖全球的计算机网络
- 互联网的基本特性:
- * 连通性：用户间可以交换信息
- * 共享：资源的共享
-
- 互联网+：互联网 + 各个传统行业
-
-internet(internetwork) 互连网  通过路由器将各个...
+假设，有两个父子关系类，Human类和Ch...
     </span>
 
     <div>
         <img src="/blog/images/icon/date.png" alt="">
-        <span> Apr 6th,   2021</span>
+        <span> Feb 12th,   2021</span>
 
         <img src="/blog/images/icon/time.png" alt="">
-        <span>20 min</span>
+        <span>3 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">16818</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/03/21/渲染流水线（渲染管线）/"  target="_self">渲染流水线（渲染管线） </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            
-应用阶段  由CPU控制的阶段，这个阶段开发者有最多的控制权
-
-数据准备
-准备场景数据  包括：摄像机位置、视锥体参数、模型信息、光照光源信息
-
-粗粒度剔除  包括：视锥体剔除（剔除掉不包含在视锥体内或与视锥体相交的物体）、遮挡剔除（剔除掉被最前面物体挡住的物体）
-  目的是减少提交给GPU的无效数据
-
-设置渲染状态：  定义网格应该怎样被渲染，包括shader、纹理、材质、光源的选定和属性设置
-
-
-
-数据处理
-将渲染数据加载到显存 ...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Mar 21st,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>5 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">3641</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/03/16/模拟Mono脚本生命周期/"  target="_self">模拟Mono脚本生命周期 </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            为了加深对Mono生命周期和GameObject的印象，特地尝试了模拟Mono工作原理。
-分析思路如下：
-
-unity是如何组织场景中的对象的————————————场景管理每一个gameobject,gameobject挂载各个脚本
-
-继承了mono的脚本可以实现start、update等生命周期的函数——————————————mono基类应该以virtual声明的生命周期函数
-
-mono是挂载在gameobject身上的组件，并且...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Mar 16th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>10 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">9653</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/03/14/C-流Stream/"  target="_self">C#流Stream </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            流的本质都是字节文件，而之所以划分成字节流和字符流，是由于使用场景不同而导致的。
-
-字节流：用于处理二进制对象
-字符流：用于处理字符或字符串
-
-字符流本质上只是对字节流进行字符集化，也就是根据不同的encode来进行处理。
-也就是说字符流是字节流的子集。因此，所有能用字符流处理的情况都能用字节流处理，只不过会增加字符集化这部分操作。而字符流的写入过程就是将字符编码成字节，再将字节存储到磁盘中；字符流的读取过程就是将读取的字节再翻译成字符...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Mar 14th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>15 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">11911</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/03/14/Persistence——XML/"  target="_self">Persistence——XML </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            XML(Extensible Markup Language)即可拓展标记语言，作为互联网传输工具，无关于开发平台，可以实现不同系统之间的数据交互。(Extensible Markup Language)
-
-相关操作
-加载xml文件  一般有三种方法：
-
-XmlDocument：把数据加载到内存中进行读取
-XmlTextReader：通过流形式读取，能减少内存占用，但是是单向只读的
-LINQ to XML：一种启用了 LINQ 的内存 ...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Mar 14th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>12 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">13533</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/03/11/Persistence——PlayerPrefs/"  target="_self">Persistence——PlayerPrefs </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            Unity中提供了PlayerPrefs公共类用于存储玩家数据，支持int、float、string三种类型数据的存储，这类似于以键值对的形式进行的存储。
-
-相关函数
-将数据存入内存中  当使用Set方法时只会将数据存入内存，而并非磁盘中。也就是说如果游戏在运行时崩溃，将导致数据丢失。
-  PS：使用相同的键名将会导致数据覆盖，即使类型不一样。
-PlayerPrefs.SetString(&amp;quot;PlayerName&amp;quot;, ...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Mar 11th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>4 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">2662</span>
+        <span class="words">4704</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -431,7 +220,7 @@ PlayerPrefs.SetString(&amp;quot;PlayerName&amp;quot;, ...
         
         
         <div class="paginator">
-             <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/2/">></a>
+             <a class="extend prev" rel="prev" href="/blog/page/3/"><</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span>
         </div>
 
         <div id="footer">
