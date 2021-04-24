@@ -160,7 +160,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/04/06/计网笔记/" class="post">计网笔记 </a><a href="/blog/2021/03/21/渲染流水线（渲染管线）/" class="post">渲染流水线（渲染管线） </a><a href="/blog/2021/03/16/模拟Mono脚本生命周期/" class="post">模拟Mono脚本生命周期 </a><a href="/blog/2021/03/14/C-流Stream/" class="post">C#流Stream </a><a href="/blog/2021/03/14/Persistence——XML/" class="post">Persistence——XML </a>
+             <a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a><a href="/blog/2021/04/24/Unity-GL/" class="post">Unity.GL </a><a href="/blog/2021/04/06/计网笔记/" class="post">计网笔记 </a><a href="/blog/2021/03/21/渲染流水线（渲染管线）/" class="post">渲染流水线（渲染管线） </a><a href="/blog/2021/03/16/模拟Mono脚本生命周期/" class="post">模拟Mono脚本生命周期 </a>
             </div>
         </div>
 
@@ -183,7 +183,7 @@
 
 
 <div class="post_entry">
-    <a class="post_title" href="/blog/2021/04/06/计网笔记/"  target="_self">计网笔记 </a>   
+    <a class="post_title" href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/"  target="_self">DataSet、DataTable、DataAdapter </a>   
     
     </br>
     <span class="content">
@@ -192,6 +192,77 @@
             
             
             
+先说一下三者之间的关系  DataTable是DataSet的子集，用于区分一个DataSet里的不同数据，如果没有这个需求当然也可以不需要建立DataTable。
+  DataAdapter就是连接数据源和DataSet之间的桥梁,如果把，数据比作水，数据源比作水源，DataSet比作水库，那么DataAdpater就相当于输水管，通过输水管将水源中的水运输到水库中进行保管；而DataTable就相当于水库中分开管理的小水库，比如这...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Apr 24th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>10 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">4818</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/04/24/Unity-GL/"  target="_self">Unity.GL </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            Unity.GL是Unity提供的低级别图形库，能发出类似于OpenGL即时模式的渲染指令，一般用于操作活动变换矩阵。当只需要绘制线条或三角形且不想处理网格时一般会使用此类（当然在一般情况下都应该使用 Graphics.DrawMesh 或 CommandBuffer而不使用即时模式）。
+
+
+如何使用
+使用范围  如果在Update()中调用GL，这将会在渲染摄像机前执行，这很有可能会由于摄像机清除屏幕而导致GL绘制对象不可见。
+  一...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Apr 24th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>7 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">6277</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/04/06/计网笔记/"  target="_self">计网笔记 </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            计算机网络
 概述
 三网融合
 计算机网络
@@ -211,7 +282,7 @@ Internet 互联网  特指起源于美国研制的ARPAnet，最大的、覆盖�
 
  互联网+：互联网 + 各个传统行业
 
-internet(internetwork) 互连网  通过路由器将各个...
+internet(internetwork) 互连网  通过路...
     </span>
 
     <div>
@@ -222,7 +293,7 @@ internet(internetwork) 互连网  通过路由器将各个...
         <span>20 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">16818</span>
+        <span class="words">19800</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -346,82 +417,6 @@ mono是挂载在gameobject身上的组件，并且...
 
         <img src="/blog/images/icon/words.png" alt="">
         <span class="words">11911</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/03/14/Persistence——XML/"  target="_self">Persistence——XML </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            XML(Extensible Markup Language)即可拓展标记语言，作为互联网传输工具，无关于开发平台，可以实现不同系统之间的数据交互。(Extensible Markup Language)
-
-相关操作
-加载xml文件  一般有三种方法：
-
-XmlDocument：把数据加载到内存中进行读取
-XmlTextReader：通过流形式读取，能减少内存占用，但是是单向只读的
-LINQ to XML：一种启用了 LINQ 的内存 ...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Mar 14th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>12 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">13533</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/03/11/Persistence——PlayerPrefs/"  target="_self">Persistence——PlayerPrefs </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            Unity中提供了PlayerPrefs公共类用于存储玩家数据，支持int、float、string三种类型数据的存储，这类似于以键值对的形式进行的存储。
-
-相关函数
-将数据存入内存中  当使用Set方法时只会将数据存入内存，而并非磁盘中。也就是说如果游戏在运行时崩溃，将导致数据丢失。
-  PS：使用相同的键名将会导致数据覆盖，即使类型不一样。
-PlayerPrefs.SetString(&amp;quot;PlayerName&amp;quot;, ...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Mar 11th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>4 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">2662</span>
 
     </div>
     <hr color=#49495b SIZE=1>

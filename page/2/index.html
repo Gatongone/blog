@@ -160,7 +160,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/04/06/计网笔记/" class="post">计网笔记 </a><a href="/blog/2021/03/21/渲染流水线（渲染管线）/" class="post">渲染流水线（渲染管线） </a><a href="/blog/2021/03/16/模拟Mono脚本生命周期/" class="post">模拟Mono脚本生命周期 </a><a href="/blog/2021/03/14/C-流Stream/" class="post">C#流Stream </a><a href="/blog/2021/03/14/Persistence——XML/" class="post">Persistence——XML </a>
+             <a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a><a href="/blog/2021/04/24/Unity-GL/" class="post">Unity.GL </a><a href="/blog/2021/04/06/计网笔记/" class="post">计网笔记 </a><a href="/blog/2021/03/21/渲染流水线（渲染管线）/" class="post">渲染流水线（渲染管线） </a><a href="/blog/2021/03/16/模拟Mono脚本生命周期/" class="post">模拟Mono脚本生命周期 </a>
             </div>
         </div>
 
@@ -176,6 +176,82 @@
              
 </div>
 
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/03/14/Persistence——XML/"  target="_self">Persistence——XML </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            XML(Extensible Markup Language)即可拓展标记语言，作为互联网传输工具，无关于开发平台，可以实现不同系统之间的数据交互。(Extensible Markup Language)
+
+相关操作
+加载xml文件  一般有三种方法：
+
+XmlDocument：把数据加载到内存中进行读取
+XmlTextReader：通过流形式读取，能减少内存占用，但是是单向只读的
+LINQ to XML：一种启用了 LINQ 的内存 ...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Mar 14th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>12 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">13533</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/03/11/Persistence——PlayerPrefs/"  target="_self">Persistence——PlayerPrefs </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            Unity中提供了PlayerPrefs公共类用于存储玩家数据，支持int、float、string三种类型数据的存储，这类似于以键值对的形式进行的存储。
+
+相关函数
+将数据存入内存中  当使用Set方法时只会将数据存入内存，而并非磁盘中。也就是说如果游戏在运行时崩溃，将导致数据丢失。
+  PS：使用相同的键名将会导致数据覆盖，即使类型不一样。
+PlayerPrefs.SetString(&amp;quot;PlayerName&amp;quot;, ...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Mar 11th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>4 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">2662</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
             
@@ -349,91 +425,6 @@ UnityEngine.Object Lo...
 
         <img src="/blog/images/icon/words.png" alt="">
         <span class="words">6075</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/25/unity资源概要/"  target="_self">unity资源概要 </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            
-unity资源类型和资源的管理方式
-资源类型Asset(资产)：
-PureAsset: Texture,Mesh,Animator,shader等纯资源，不能直接拖拽到场景中
-Prefab: 预制体必须Instantiate才能作为GameObject出现在场景中
-Scene：各种场景资源
-ScriptableObject:脚本对象
-TextAsset：后缀标记为.path文件可以被unity读取（比如json标记为.path才能被u...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 25th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>3 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">2727</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/22/C-6-C-9新增特性/"  target="_self">C#6-C#9新增特性 </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            
-C#6
-只读属性或成员函数的方法表达式体class Person
-{
-    private string FirstName,LastName;
-
-    //属性
-    public string name =&gt; $&amp;quot;{FirstName&amp;#125; —— {LastName&amp;#125;&amp;quot;;
-
-    //方法
-
-    //原来的
-    public string getName()
-    {
-    ...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 22nd,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>22 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">30420</span>
 
     </div>
     <hr color=#49495b SIZE=1>

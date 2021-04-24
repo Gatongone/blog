@@ -333,11 +333,11 @@ string str2 = $&quot;s=&#123;a+b&#125;&quot;; //输出 s=3
 </br>
 </li>
 <li><h3 id="使用索引器初始化关联集合"><a href="#使用索引器初始化关联集合" class="headerlink" title="使用索引器初始化关联集合"></a>使用索引器初始化关联集合</h3><p>比如初始化字典时可以用</p>
-<pre><code class="c#">Dictionary&lt;int string&gt; dictionary=new Dictionary&lt;int,string&gt;()
+<pre><code class="c#">Dictionary&lt;string,int&gt; dictionary=new Dictionary&lt;string,int&gt;()
 &#123;
-    &#123;1,&quot;this is fitst string&quot;&#125;,
-    &#123;2,&quot;this is second string&quot;&#125;
-    &#123;3,&quot;this is third string&quot;&#125;
+    &#123;&quot;this is fitst string&quot;,1&#125;,
+    &#123;&quot;this is second string&quot;,1&#125;,
+    &#123;&quot;this is third string&quot;,1&#125;
 &#125;;
 </code></pre>
 </br> 
