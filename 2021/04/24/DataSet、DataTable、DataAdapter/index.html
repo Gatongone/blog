@@ -184,7 +184,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">先说一下三者之间的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataSet"><span class="toc-text">DataSet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DataSet%E7%BB%93%E6%9E%84"><span class="toc-text">DataSet结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataTable"><span class="toc-text">DataTable</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DataTable%E7%9A%84%E5%A3%B0%E6%98%8E%EF%BC%9A"><span class="toc-text">DataTable的声明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataTable%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%93%8D%E4%BD%9C"><span class="toc-text">DataTable的构造和操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataAdapter"><span class="toc-text">DataAdapter</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">先说一下三者之间的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataSet"><span class="toc-text">DataSet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DataSet%E7%BB%93%E6%9E%84"><span class="toc-text">DataSet结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataSource"><span class="toc-text">DataSource</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataTable"><span class="toc-text">DataTable</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DataTable%E7%9A%84%E5%A3%B0%E6%98%8E%EF%BC%9A"><span class="toc-text">DataTable的声明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataTable%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%93%8D%E4%BD%9C"><span class="toc-text">DataTable的构造和操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataAdapter"><span class="toc-text">DataAdapter</span></a></li></ol>
                 </div>
                 
              </div>
@@ -215,14 +215,13 @@
 </ul>
 </li>
 </ul>
-<pre><code>* ### DataSource
-
-    如果需要将DataSource和DataSet或DataTable关联，需要进行数据源绑定：
-    ```C#
-    this.GridView1.DataSource = ds.Table[&quot;table_1&quot;];
-    this.GridView1.DataBind();
-    ```
+<ul>
+<li><h3 id="DataSource"><a href="#DataSource" class="headerlink" title="DataSource"></a>DataSource</h3><p>  如果需要将DataSource和DataSet或DataTable关联，需要进行数据源绑定：</p>
+<pre><code class="C#">this.GridView1.DataSource = ds.Table[&quot;table_1&quot;];
+this.GridView1.DataBind();
 </code></pre>
+</li>
+</ul>
 <hr>
 <ul>
 <li><h2 id="DataTable"><a href="#DataTable" class="headerlink" title="DataTable"></a>DataTable</h2><ul>
