@@ -724,14 +724,22 @@
 <p>适配器每从网络上受到一个MAC帧，就首先用硬件检测MAC帧中的MAC地址，发往本站的帧则收下，否则丢弃该帧</p>
 <p>IEEE802标准规定MAC地址字段可采用6字节（48位）或2字节（16位）</p>
 <p>当采用48位的MAC地址时，其MAC地址结构为：</p>
-<p>24bit|&emsp;24bit</p>
-</li>
-</ul>
-<p>  —–|—–<br>  组织唯一标识符||&emsp;扩展唯一标识符</p>
-  </br>
+<table>
+<thead>
+<tr>
+<th>24bit</th>
+<th>&emsp;24bit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>组织唯一标识符</td>
+<td>|&emsp;扩展唯一标识符</td>
+</tr>
+</tbody></table>
+</br>
 
-<p>  IEEE 把地址字段第一字节的最低第 2 位规定为 G/L位，表示 Global/Local。</p>
-<ul>
+<p>IEEE 把地址字段第一字节的最低第 2 位规定为 G/L位，表示 Global/Local。</p>
+</li>
 <li><p>当 G/L位 = 0 时，是全球管理（保证在全球没有相同的地址），厂商向IEEE购买的 OUI 都属于全球管理。</p>
 </li>
 <li><p>当 G/L位 = 1 时， 是本地管理，这时用户可任意分配网络上的地址。</p>
@@ -827,7 +835,7 @@
 <p>6bit|6bit|4bit|2bit|45~1500bit|4bit</p>
 </li>
 </ul>
-<p>   —–|—–|—–|—–|—–|—–<br>   目的源地址&emsp;||源地址&emsp;||tag&emsp;||类型&emsp;||数据||&emsp;FCS</p>
+<p>  —–|—–|—–|—–|—–|—–<br>  目的源地址&emsp;||源地址&emsp;||tag&emsp;||类型&emsp;||数据||&emsp;FCS</p>
 <hr>
 <ul>
 <li><h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><ul>

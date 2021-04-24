@@ -368,10 +368,120 @@
 </li>
 </ul>
 </li>
-<li><h3 id="静态函数"><a href="#静态函数" class="headerlink" title="静态函数"></a>静态函数</h3><p>函数|描述</p>
-</li>
+<li><h3 id="静态函数"><a href="#静态函数" class="headerlink" title="静态函数"></a>静态函数</h3></li>
 </ul>
-<p>  —–|—–<br>  Begin|开始绘制 3D 图元<br>  End|结束绘制 3D 图元<br>  PopMatrix|从矩阵堆栈顶部恢复模型、视图和投影矩阵<br>  PushMatrix|将模型、视图和投影矩阵保存到矩阵堆栈顶部<br>  Vertex|提交一个顶点<br>  Vertex3|提交一个顶点，范围是左下角的(0,0,0)到右上角的(1,1,0）<br>  Clear|清除当前渲染缓冲区<br>  ClearWithSkybox|使用摄像机的天空盒清除当前渲染缓冲区<br>  Color|设置当前顶点颜色<br>  Flush|将驱动程序命令缓冲区中排队等待的命令发送到 GPU<br>  GetGPUProjectionMatrix|从摄像机的投影矩阵计算 GPU 投影矩阵<br>  InvalidateState|使内部缓存的渲染状态无效<br>  IssuePluginEvent|向本机代码插件发送用户定义的事件<br>  LoadIdentity|将标识加载到当前的模型和视图矩阵中<br>  LoadOrtho|Helper 函数，用于设置正交投影<br>  LoadPixelMatrix|设置一个用于像素校正渲染的矩阵,<br>  LoadProjectionMatrix|将任意矩阵加载到当前投影矩阵。<br>  MultiTexCoord|对实际纹理 unit 设置当前纹理坐标 (v.x,v.y,v.z)<br>  MultiTexCoord2|为实际纹理 unit 设置当前纹理坐标 (x,y)<br>  MultiTexCoord3|对实际纹理 unit 设置当前纹理坐标 (x,y,z)<br>  MultMatrix|将当前模型矩阵设置为指定的矩阵<br>  RenderTargetBarrier|解析渲染目标，以便用于从该目标进行采样的后续运算<br>  TexCoord|为所有纹理单位均设置当前纹理坐标 (v.x,v.y,v.z)<br>  TexCoord2|为所有纹理单位均设置当前纹理坐标 (x,y)<br>  TexCoord3|为所有纹理单位均设置当前纹理坐标 (x,y,z)<br>  Viewport|设置渲染视口</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Begin</td>
+<td>开始绘制 3D 图元</td>
+</tr>
+<tr>
+<td>End</td>
+<td>结束绘制 3D 图元</td>
+</tr>
+<tr>
+<td>PopMatrix</td>
+<td>从矩阵堆栈顶部恢复模型、视图和投影矩阵</td>
+</tr>
+<tr>
+<td>PushMatrix</td>
+<td>将模型、视图和投影矩阵保存到矩阵堆栈顶部</td>
+</tr>
+<tr>
+<td>Vertex</td>
+<td>提交一个顶点</td>
+</tr>
+<tr>
+<td>Vertex3</td>
+<td>提交一个顶点，范围是左下角的(0,0,0)到右上角的(1,1,0）</td>
+</tr>
+<tr>
+<td>Clear</td>
+<td>清除当前渲染缓冲区</td>
+</tr>
+<tr>
+<td>ClearWithSkybox</td>
+<td>使用摄像机的天空盒清除当前渲染缓冲区</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>设置当前顶点颜色</td>
+</tr>
+<tr>
+<td>Flush</td>
+<td>将驱动程序命令缓冲区中排队等待的命令发送到 GPU</td>
+</tr>
+<tr>
+<td>GetGPUProjectionMatrix</td>
+<td>从摄像机的投影矩阵计算 GPU 投影矩阵</td>
+</tr>
+<tr>
+<td>InvalidateState</td>
+<td>使内部缓存的渲染状态无效</td>
+</tr>
+<tr>
+<td>IssuePluginEvent</td>
+<td>向本机代码插件发送用户定义的事件</td>
+</tr>
+<tr>
+<td>LoadIdentity</td>
+<td>将标识加载到当前的模型和视图矩阵中</td>
+</tr>
+<tr>
+<td>LoadOrtho</td>
+<td>Helper 函数，用于设置正交投影</td>
+</tr>
+<tr>
+<td>LoadPixelMatrix</td>
+<td>设置一个用于像素校正渲染的矩阵,</td>
+</tr>
+<tr>
+<td>LoadProjectionMatrix</td>
+<td>将任意矩阵加载到当前投影矩阵。</td>
+</tr>
+<tr>
+<td>MultiTexCoord</td>
+<td>对实际纹理 unit 设置当前纹理坐标 (v.x,v.y,v.z)</td>
+</tr>
+<tr>
+<td>MultiTexCoord2</td>
+<td>为实际纹理 unit 设置当前纹理坐标 (x,y)</td>
+</tr>
+<tr>
+<td>MultiTexCoord3</td>
+<td>对实际纹理 unit 设置当前纹理坐标 (x,y,z)</td>
+</tr>
+<tr>
+<td>MultMatrix</td>
+<td>将当前模型矩阵设置为指定的矩阵</td>
+</tr>
+<tr>
+<td>RenderTargetBarrier</td>
+<td>解析渲染目标，以便用于从该目标进行采样的后续运算</td>
+</tr>
+<tr>
+<td>TexCoord</td>
+<td>为所有纹理单位均设置当前纹理坐标 (v.x,v.y,v.z)</td>
+</tr>
+<tr>
+<td>TexCoord2</td>
+<td>为所有纹理单位均设置当前纹理坐标 (x,y)</td>
+</tr>
+<tr>
+<td>TexCoord3</td>
+<td>为所有纹理单位均设置当前纹理坐标 (x,y,z)</td>
+</tr>
+<tr>
+<td>Viewport</td>
+<td>设置渲染视口</td>
+</tr>
+</tbody></table>
   </br>
 
 <p>  关于<code>GL.LoadPixeMatrix()</code>和<code>GL.GL.LoadOrtho()</code>：</p>
