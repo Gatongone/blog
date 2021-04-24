@@ -550,16 +550,17 @@
 <li>差错控制（判断帧是否正确，正确则剥去首尾部，错误则丢弃）</li>
 </ul>
 </li>
-<li><h3 id="字节（字符）填充"><a href="#字节（字符）填充" class="headerlink" title="字节（字符）填充"></a>字节（字符）填充</h3><p>SOH&emsp;||帧中间的数据部分||&emsp;EOT</p>
+<li><h3 id="字节（字符）填充"><a href="#字节（字符）填充" class="headerlink" title="字节（字符）填充"></a>字节（字符）填充</h3><p>SOH||帧中间的数据部分||EOT</p>
 </li>
 </ul>
 <p>  —–|—–|—–<br>  &emsp; | &emsp; | &emsp;    </p>
 <p>  SOH、EOT被叫做帧定界符分别表示从首部开始到尾部结束，但是SOH和EOT并不能准确得帧定界（比如数据部分插入了SOH或EOT，这将导致数据的丢失），因此需要进行<code>字符填充（字节填充）</code>：在数据段中出现的SOH或EOT前面插入一个转义字符<code>ESC</code></p>
 </li>
 </ul>
-<pre><code>SOH&amp;emsp;\|| 数据段&amp;emsp;\|&amp;emsp;ESC&amp;emsp;\|&amp;emsp;EOT&amp;emsp;\|&amp;emsp;数据段 |\|&amp;emsp;EOT
------|-----|-----
-&amp;emsp;|&amp;emsp;|&amp;emsp;
+<pre><code>SOH\||数据段\||ESC\||EOT\||数据段\||EOT
+-----|-----|-----|-----|-----|-----
+ | | | | |
+
 
 * ### 比特填充（零比特填充）
 
@@ -723,9 +724,9 @@ CRC能检测出多位突发性差错，但不能进行纠正
 
     当采用48位的MAC地址时，其MAC地址结构为：
 
-    24bit|&amp;emsp;24bit
+    24bit\||24bit
     -----|-----
-    组织唯一标识符|\|&amp;emsp;扩展唯一标识符
+    组织唯一标识符\||扩展唯一标识符
 
   &lt;/br&gt;
 
