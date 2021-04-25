@@ -185,7 +185,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">先说一下三者之间的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataSet"><span class="toc-text">DataSet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DataSet%E7%BB%93%E6%9E%84"><span class="toc-text">DataSet结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataSource"><span class="toc-text">DataSource</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataTable"><span class="toc-text">DataTable</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DataTable%E7%9A%84%E5%A3%B0%E6%98%8E%EF%BC%9A"><span class="toc-text">DataTable的声明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataTable%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%93%8D%E4%BD%9C"><span class="toc-text">DataTable的构造和操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataAdapter"><span class="toc-text">DataAdapter</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text"> 先说一下三者之间的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dataset"><span class="toc-text"> DataSet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dataset%E7%BB%93%E6%9E%84"><span class="toc-text"> DataSet结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#datasource"><span class="toc-text"> DataSource</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#datatable"><span class="toc-text"> DataTable</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#datatable%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="toc-text"> DataTable的声明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#datatable%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%93%8D%E4%BD%9C"><span class="toc-text"> DataTable的构造和操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dataadapter"><span class="toc-text"> DataAdapter</span></a></li></ol>
                 </div>
                 
              </div>
@@ -202,171 +202,193 @@
         
         
         <ul>
-<li><h2 id="先说一下三者之间的关系"><a href="#先说一下三者之间的关系" class="headerlink" title="先说一下三者之间的关系"></a>先说一下三者之间的关系</h2><p>  DataTable是DataSet的子集，用于区分一个DataSet里的不同数据，如果没有这个需求当然也可以不需要建立DataTable。</p>
-<p>  DataAdapter就是连接数据源和DataSet之间的桥梁,如果把，数据比作水，数据源比作水源，DataSet比作水库，那么DataAdpater就相当于输水管，通过输水管将水源中的水运输到水库中进行保管；而DataTable就相当于水库中分开管理的小水库，比如这个小水库是用来输给小明家的，那个小水库是用来输给小红家的。</p>
+<li>
+<h2 id="先说一下三者之间的关系"><a class="markdownIt-Anchor" href="#先说一下三者之间的关系"></a> 先说一下三者之间的关系</h2>
+<p>DataTable是DataSet的子集，用于区分一个DataSet里的不同数据，如果没有这个需求当然也可以不需要建立DataTable。</p>
+<p>DataAdapter就是连接数据源和DataSet之间的桥梁,如果把，数据比作水，数据源比作水源，DataSet比作水库，那么DataAdpater就相当于输水管，通过输水管将水源中的水运输到水库中进行保管；而DataTable就相当于水库中分开管理的小水库，比如这个小水库是用来输给小明家的，那个小水库是用来输给小红家的。</p>
 </li>
 </ul>
-<hr>
+<hr />
 <ul>
-<li><h2 id="DataSet"><a href="#DataSet" class="headerlink" title="DataSet"></a>DataSet</h2><p>  DataSet即数据集，是ADO.NET种的关键类，据说是为了代替DataReader而出现的，用于对数据暂存和操作，包括了查找、排序、过滤、缓存更改、处理分级数据、与XML数据交互等</p>
+<li>
+<h2 id="dataset"><a class="markdownIt-Anchor" href="#dataset"></a> DataSet</h2>
+<p>DataSet即数据集，是ADO.NET种的关键类，据说是为了代替DataReader而出现的，用于对数据暂存和操作，包括了查找、排序、过滤、缓存更改、处理分级数据、与XML数据交互等</p>
 <ul>
-<li><h3 id="DataSet结构"><a href="#DataSet结构" class="headerlink" title="DataSet结构"></a>DataSet结构</h3><p>  DataSet中维护了一个数据表集合Tables，用于存放DataTable，而每个DataTable中又分为行和列，具体关系如下</p>
-<p>  <img src="https://img-blog.csdn.net/20160507191503914?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img" style="max-width:100%;" ></p>
+<li>
+<h3 id="dataset结构"><a class="markdownIt-Anchor" href="#dataset结构"></a> DataSet结构</h3>
+<p>DataSet中维护了一个数据表集合Tables，用于存放DataTable，而每个DataTable中又分为行和列，具体关系如下</p>
+<p><img src="https://img-blog.csdn.net/20160507191503914?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img" style="max-width:100%;"  /></p>
 </li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><h3 id="DataSource"><a href="#DataSource" class="headerlink" title="DataSource"></a>DataSource</h3><p>  如果需要将DataSource和DataSet或DataTable关联，需要进行数据源绑定：</p>
-<pre><code class="lang-C#">  this.GridView1.DataSource = ds.Table[&quot;table_1&quot;];
-  this.GridView1.DataBind();
+<li>
+<h3 id="datasource"><a class="markdownIt-Anchor" href="#datasource"></a> DataSource</h3>
+<p>如果需要将DataSource和DataSet或DataTable关联，需要进行数据源绑定：</p>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">this</span>.GridView1.DataSource = ds.Table[<span class="hljs-string">"table_1"</span>];
+<span class="hljs-keyword">this</span>.GridView1.DataBind();
 </code></pre>
 </li>
 </ul>
-<hr>
+</li>
+</ul>
+<hr />
 <ul>
-<li><h2 id="DataTable"><a href="#DataTable" class="headerlink" title="DataTable"></a>DataTable</h2><ul>
-<li><h3 id="DataTable的声明："><a href="#DataTable的声明：" class="headerlink" title="DataTable的声明："></a>DataTable的声明：</h3><pre><code class="lang-C#">//带名字的声明
-DataTable dt1 = new DataTable(&quot;table_1&quot;);
+<li>
+<h2 id="datatable"><a class="markdownIt-Anchor" href="#datatable"></a> DataTable</h2>
+<ul>
+<li>
+<h3 id="datatable的声明"><a class="markdownIt-Anchor" href="#datatable的声明"></a> DataTable的声明：</h3>
+</li>
+</ul>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">//带名字的声明</span>
+DataTable dt1 = <span class="hljs-keyword">new</span> DataTable(<span class="hljs-string">"table_1"</span>);
 
-//不带名字的声明 
-DataTable dt2 = new DataTable();
+<span class="hljs-comment">//不带名字的声明 </span>
+DataTable dt2 = <span class="hljs-keyword">new</span> DataTable();
 
-//声明并添加到数据集
-DataSet ds = new DataSet();
-DataTable = ds.Tables.Add(&quot;table_3&quot;);
+<span class="hljs-comment">//声明并添加到数据集</span>
+DataSet ds = <span class="hljs-keyword">new</span> DataSet();
+DataTable = ds.Tables.Add(<span class="hljs-string">"table_3"</span>);
 </code></pre>
 <p>记得把表放入数据集中</p>
-<pre><code class="lang-C#">ds.Tables.Add(dt1);
+<pre class="highlight"><code class="C#">ds.Tables.Add(dt1);
 ds.Tables.Add(dt2);
 </code></pre>
 <p>取的时候可以这样取</p>
-<pre><code class="lang-C#">//第一个有名字可以这样取
-ds.Table[&quot;table_1&quot;];
-//或者
-ds.Table[0];
+<pre class="highlight"><code class="C#"><span class="hljs-comment">//第一个有名字可以这样取</span>
+ds.Table[<span class="hljs-string">"table_1"</span>];
+<span class="hljs-comment">//或者</span>
+ds.Table[<span class="hljs-number">0</span>];
 
-//因为第二个没有名字，所以只能这样取
-ds.Tables[1];
+<span class="hljs-comment">//因为第二个没有名字，所以只能这样取</span>
+ds.Tables[<span class="hljs-number">1</span>];
 </code></pre>
-</li>
+<ul>
+<li>
+<h3 id="datatable的构造和操作"><a class="markdownIt-Anchor" href="#datatable的构造和操作"></a> DataTable的构造和操作</h3>
+<ul>
+<li>
+<p>DataTable的构造</p>
+<p>先构造行，再构造列，注意行和列的声明方式有些不同</p>
+<ul>
+<li>插入列：</li>
 </ul>
-<ul>
-<li><h3 id="DataTable的构造和操作"><a href="#DataTable的构造和操作" class="headerlink" title="DataTable的构造和操作"></a>DataTable的构造和操作</h3><ul>
-<li><p>DataTable的构造</p>
-<p>  先构造行，再构造列，注意行和列的声明方式有些不同</p>
-<ul>
-<li><p>插入列：</p>
-<pre><code class="lang-C#">
-//方法一：先实例化再添加
-//创建一个实例，构造函数为列名和列的数据类型
-DataColumn column = new DataColumn(&quot;列名1&quot;,typeof(string));
-//将列加入到表中
+<pre class="highlight"><code class="C#">
+<span class="hljs-comment">//方法一：先实例化再添加</span>
+<span class="hljs-comment">//创建一个实例，构造函数为列名和列的数据类型</span>
+DataColumn column = <span class="hljs-keyword">new</span> DataColumn(<span class="hljs-string">"列名1"</span>,<span class="hljs-keyword">typeof</span>(<span class="hljs-keyword">string</span>));
+<span class="hljs-comment">//将列加入到表中</span>
 dt.Columns.Add(column);
 
-//方法二：边实例化边添加
-dt.Columns.Add(&quot;列名2&quot;,typeof(string));
+<span class="hljs-comment">//方法二：边实例化边添加</span>
+dt.Columns.Add(<span class="hljs-string">"列名2"</span>,<span class="hljs-keyword">typeof</span>(<span class="hljs-keyword">string</span>));
 </code></pre>
-</li>
-<li><p>插入行：</p>
+<ul>
+<li>插入行：</li>
+</ul>
 <p>注意是没有行名的，行类似于一个栈，第一个添加到DataTable的就是第0行</p>
-<pre><code class="lang-C#">
-//方法一：先实例化再添加
-//创建一个实例
+<pre class="highlight"><code class="C#">
+<span class="hljs-comment">//方法一：先实例化再添加</span>
+<span class="hljs-comment">//创建一个实例</span>
 DataRow row = dt.NewRow();
-//填写内容:
-//注意0是列号不是行号
-row[0]=&quot;内容&quot;;
-//或者
-row[&quot;列名&quot;]=&quot;内容&quot;;
+<span class="hljs-comment">//填写内容:</span>
+<span class="hljs-comment">//注意0是列号不是行号</span>
+row[<span class="hljs-number">0</span>]=<span class="hljs-string">"内容"</span>;
+<span class="hljs-comment">//或者</span>
+row[<span class="hljs-string">"列名"</span>]=<span class="hljs-string">"内容"</span>;
 dt.Rows.Add(row);
 </code></pre>
 </li>
-</ul>
-</li>
-<li><p>DataTable的操作</p>
+<li>
+<p>DataTable的操作</p>
 <ul>
-<li><p>DataTable的遍历</p>
-<pre><code class="lang-C#">//先遍历列再遍历行
-foreach (DataRow row in dt.Rows) 
+<li>DataTable的遍历</li>
+</ul>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">//先遍历列再遍历行</span>
+<span class="hljs-keyword">foreach</span> (DataRow row <span class="hljs-keyword">in</span> dt.Rows) 
 &#123; 
-  foreach (DataColumn column in dt.Columns) 
-  &#123; 
-      Console.WriteLine(row[column]); 
-  &#125; 
+    <span class="hljs-keyword">foreach</span> (DataColumn column <span class="hljs-keyword">in</span> dt.Columns) 
+    &#123; 
+        Console.WriteLine(row[column]); 
+    &#125; 
 &#125;
 </code></pre>
-</li>
-<li><p>排序</p>
-<pre><code class="lang-C#">//按某列降序排序，升序是Asc
+<ul>
+<li>排序</li>
+</ul>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">//按某列降序排序，升序是Asc</span>
 DataView dv = dt.DefaultView; 
-dv.Sort = &quot;列名  Desc&quot;; 
+dv.Sort = <span class="hljs-string">"列名  Desc"</span>; 
 DataTable dt = dv.ToTable();
 </code></pre>
-</li>
-<li><p>查找行</p>
-<pre><code class="lang-C#">//查找列名为column1且字段为空的行
-DataRow[] drs1 = dt.Select(&quot;column1 is null&quot;);
-//查找列名为column0且字段为内容的行
-DataRow[] drs2 = dt.Select(&quot;column0 = &#39;内容&#39;&quot;);
-</code></pre>
-</li>
-<li><p>拷贝表</p>
-<pre><code class="lang-C#">DataTable dtCopy = dt.Clone();
-</code></pre>
-<p>*</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
 <ul>
-<li><h2 id="DataAdapter"><a href="#DataAdapter" class="headerlink" title="DataAdapter"></a>DataAdapter</h2><p>  DadaAdapter即适配器，一般就干两件事：从数据源获得数据（SQL中一般是通过SQL指令，在声明适配器时处理），填充数据到DataSet数据集（Fill方法）。</p>
+<li>查找行</li>
+</ul>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">//查找列名为column1且字段为空的行</span>
+DataRow[] drs1 = dt.Select(<span class="hljs-string">"column1 is null"</span>);
+<span class="hljs-comment">//查找列名为column0且字段为内容的行</span>
+DataRow[] drs2 = dt.Select(<span class="hljs-string">"column0 = '内容'"</span>);
+</code></pre>
 <ul>
-<li><p>DataAdapter的声明，一般有三种方式</p>
-<pre><code class="lang-C#">  //声明连接字符串
-  private static string connString = @&quot;Data Source=DESKTOP-GVLLFG5\SQLEXPRESS;Initial Catalog=DBTest;Integrated Security=True&quot;;
+<li>拷贝表</li>
+</ul>
+<pre class="highlight"><code class="C#">DataTable dtCopy = dt.Clone();
+</code></pre>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<h2 id="dataadapter"><a class="markdownIt-Anchor" href="#dataadapter"></a> DataAdapter</h2>
+<p>DadaAdapter即适配器，一般就干两件事：从数据源获得数据（SQL中一般是通过SQL指令，在声明适配器时处理），填充数据到DataSet数据集（Fill方法）。</p>
+<ul>
+<li>
+<p>DataAdapter的声明，一般有三种方式</p>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">//声明连接字符串</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">string</span> connString = <span class="hljs-string">@"Data Source=DESKTOP-GVLLFG5\SQLEXPRESS;Initial Catalog=DBTest;Integrated Security=True"</span>;
 
-  //初始化连接实例
-  public static SqlConnection connection = new SqlConnection(connString);
+<span class="hljs-comment">//初始化连接实例</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> SqlConnection connection = <span class="hljs-keyword">new</span> SqlConnection(connString);
 
-  //声明一个查询指令
-  private static SqlCommand cmd = new SqlCommand(&quot;select * from DBTest&quot;, connection);
+<span class="hljs-comment">//声明一个查询指令</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> SqlCommand cmd = <span class="hljs-keyword">new</span> SqlCommand(<span class="hljs-string">"select * from DBTest"</span>, connection);
 
-  //方法一：通过 查询指令 声明
-  SqlDataAdapter da1 = new SqlDataAdapter(cmd);
+<span class="hljs-comment">//方法一：通过 查询指令 声明</span>
+SqlDataAdapter da1 = <span class="hljs-keyword">new</span> SqlDataAdapter(cmd);
 
-  //方法二：通过 查询字符串 和 连接字符串 声明
-  SqlDataAdapter da2 = new SqlDataAdapter(&quot;select * from DBTest&quot;, connString);
+<span class="hljs-comment">//方法二：通过 查询字符串 和 连接字符串 声明</span>
+SqlDataAdapter da2 = <span class="hljs-keyword">new</span> SqlDataAdapter(<span class="hljs-string">"select * from DBTest"</span>, connString);
 
-  //方法三：通过 查询字符串 和 连接实例 声明
-  SqlDataAdapter da3 = new SqlDataAdapter(&quot;select * from DBTest&quot;, connection);
+<span class="hljs-comment">//方法三：通过 查询字符串 和 连接实例 声明</span>
+SqlDataAdapter da3 = <span class="hljs-keyword">new</span> SqlDataAdapter(<span class="hljs-string">"select * from DBTest"</span>, connection);
 </code></pre>
 </li>
-<li><p>Fill():</p>
-<p>  填充数据集，意思就是将数据源的数据填充到DataSet中（输水管将水源的水输到水库中）</p>
-<p>  填充的几种方式：</p>
-<pre><code class="lang-C#">  //......
-  //数据库连接吧啦吧啦.....
-  //......
+<li>
+<p>Fill():</p>
+<p>填充数据集，意思就是将数据源的数据填充到DataSet中（输水管将水源的水输到水库中）</p>
+<p>填充的几种方式：</p>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">//......</span>
+<span class="hljs-comment">//数据库连接吧啦吧啦.....</span>
+<span class="hljs-comment">//......</span>
 
-  DataSet ds = new DataSet();
-  DataTable dt = new DataTable(&quot;table_1&quot;);
-  ds.Tables.Add(ds);
-  SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+DataSet ds = <span class="hljs-keyword">new</span> DataSet();
+DataTable dt = <span class="hljs-keyword">new</span> DataTable(<span class="hljs-string">"table_1"</span>);
+ds.Tables.Add(ds);
+SqlDataAdapter adapter = <span class="hljs-keyword">new</span> SqlDataAdapter(cmd);
 
-  //方式一：直接填充到数据集中
-  adapter.Fill(ds);
+<span class="hljs-comment">//方式一：直接填充到数据集中</span>
+adapter.Fill(ds);
 
-  //方式二：直接填充到数据表中
-  adater.Fill(dt);
+<span class="hljs-comment">//方式二：直接填充到数据表中</span>
+adater.Fill(dt);
 
-  //方式三：填充到数据集中的某个数据表中
-  adater.Fill(ds,&quot;table_2&quot;);//如果ds中没有table_2的表则会自动创建一个名为table_2的表
+<span class="hljs-comment">//方式三：填充到数据集中的某个数据表中</span>
+adater.Fill(ds,<span class="hljs-string">"table_2"</span>);<span class="hljs-comment">//如果ds中没有table_2的表则会自动创建一个名为table_2的表</span>
 </code></pre>
 </li>
 </ul>
