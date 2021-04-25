@@ -203,48 +203,48 @@
         
         <p>最近在项目中遇到的问题。</p>
 <p>已有以下两个类，一个<code>工厂类</code>负责根据泛型进行生产；一个<code>单例基类</code>。现在的需求是：继承单例基类来实现一个<code>工厂管理器（FactoryMgr）</code>。</p>
-<pre><code class="lang-C#">//泛型工厂
-public class Factory&lt;T&gt;&#123;&#125;
-//单例
-public class Singleton&lt;T&gt; where T : new()
+<pre class="highlight"><code class="C#"><span class="hljs-comment">//泛型工厂</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Factory</span>&lt;<span class="hljs-title">T</span>&gt;&#123;&#125;
+<span class="hljs-comment">//单例</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-title">where</span> <span class="hljs-title">T</span> : <span class="hljs-title">new</span>()
 &#123;
-
-    private static readonly Lazy&lt;T&gt; _instance = new Lazy&lt;T&gt;(() =&gt; new());
-    public static T Instance &#123; get &#123; return _instance.Value; &#125; &#125;
-    public static string type&#123; get =&gt; typeof(T).ToString(); &#125;
+    
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">readonly</span> Lazy&lt;T&gt; _instance = <span class="hljs-keyword">new</span> Lazy&lt;T&gt;(() =&gt; <span class="hljs-keyword">new</span>());
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> T Instance &#123; <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _instance.Value; &#125; &#125;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">string</span> type&#123; <span class="hljs-keyword">get</span> =&gt; <span class="hljs-keyword">typeof</span>(T).ToString(); &#125;
 &#125;
 </code></pre>
-<p>&lt;/br&gt;</p>
+</br>
 <p><code>FactoryMgr</code>中需要一个容器用于存储工厂，问题就在于这个容器。因为<code>Factory&lt;T&gt;</code>中T为任意类型，因此首先想到的是用<code>object</code>去装，如下</p>
-<pre><code class="lang-C#">public class  FactoryMgr : Singleton&lt;FactoryMgr&gt;
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span>  <span class="hljs-title">FactoryMgr</span> : <span class="hljs-title">Singleton</span>&lt;<span class="hljs-title">FactoryMgr</span>&gt;
 &#123;
-    //委托列表
-    public List&lt;Factory&lt;object&gt;&gt; list = new();
+    <span class="hljs-comment">//委托列表</span>
+    <span class="hljs-keyword">public</span> List&lt;Factory&lt;<span class="hljs-keyword">object</span>&gt;&gt; list = <span class="hljs-keyword">new</span>();
 
-    //为list添加委托
-    public void AddFactory(Factory&lt;object&gt; factory)
+    <span class="hljs-comment">//为list添加委托</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddFactory</span>(<span class="hljs-params">Factory&lt;<span class="hljs-keyword">object</span>&gt; factory</span>)</span>
     &#123;
         list.Add(factory);
     &#125; 
 &#125;
 </code></pre>
-<p>&lt;/br&gt;</p>
+</br>
 <p>但用object必然避免不了装箱和拆箱带来的问题，因此想到了用泛型，但是由于<code>FactoryMgr</code>是非泛型单例，所以<code>List&lt;T&gt;</code>这种操作肯定是不行的。由此我想到了利用里氏替换原则，用一个接口<code>IPublicFactory</code>代替<code>object</code>，再用一个继承了<code>IPublicFactory</code>接口的<code>PublicFactory&lt;T&gt;</code>类去装<code>Factory&lt;T&gt;</code>就可以达到效果。代码如下：</p>
-<pre><code class="lang-C#">public interface IPublicFactory &#123;&#125;
-public class PublicFactory&lt;T&gt; : IPublicFactory
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">IPublicFactory</span> &#123;&#125;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PublicFactory</span>&lt;<span class="hljs-title">T</span>&gt; : <span class="hljs-title">IPublicFactory</span>
 &#123;
-    public Factory&lt;T&gt; factory;
+    <span class="hljs-keyword">public</span> Factory&lt;T&gt; factory;
 &#125;
 
-public class FactoryMgr: Singleton&lt;FactoryMgr&gt;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">FactoryMgr</span>: <span class="hljs-title">Singleton</span>&lt;<span class="hljs-title">FactoryMgr</span>&gt;
 &#123;
-    //工厂列表
-    public List&lt;IPublicFactory&gt; factorylist = new();
+    <span class="hljs-comment">//工厂列表</span>
+    <span class="hljs-keyword">public</span> List&lt;IPublicFactory&gt; factorylist = <span class="hljs-keyword">new</span>();
 
-    //添加工厂到列表
-    public void AddFactory&lt;T&gt;(Action&lt;T&gt; action)
+    <span class="hljs-comment">//添加工厂到列表</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> AddFactory&lt;T&gt;(Action&lt;T&gt; action)
     &#123;
-        factorylist.Add(new PublicFactory&lt;T&gt;());
+        factorylist.Add(<span class="hljs-keyword">new</span> PublicFactory&lt;T&gt;());
     &#125;
 &#125;
 </code></pre>
@@ -350,6 +350,21 @@ public class FactoryMgr: Singleton&lt;FactoryMgr&gt;
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 
 </html>
