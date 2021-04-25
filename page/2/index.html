@@ -160,7 +160,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a><a href="/blog/2021/04/24/Unity-GL/" class="post">Unity.GL </a><a href="/blog/2021/04/06/计网笔记/" class="post">计网笔记 </a><a href="/blog/2021/03/21/渲染流水线（渲染管线）/" class="post">渲染流水线（渲染管线） </a><a href="/blog/2021/03/16/模拟Mono脚本生命周期/" class="post">模拟Mono脚本生命周期 </a>
+             <a href="/blog/2021/04/25/四元数/" class="post">四元数 </a><a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a><a href="/blog/2021/04/24/Unity-GL/" class="post">Unity.GL </a><a href="/blog/2021/04/06/计网笔记/" class="post">计网笔记 </a><a href="/blog/2021/03/21/渲染流水线（渲染管线）/" class="post">渲染流水线（渲染管线） </a>
             </div>
         </div>
 
@@ -176,6 +176,44 @@
              
 </div>
 
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/03/14/C-流Stream/"  target="_self">C#流Stream </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            流的本质都是字节文件，而之所以划分成字节流和字符流，是由于使用场景不同而导致的。
+
+字节流：用于处理二进制对象
+字符流：用于处理字符或字符串
+
+字符流本质上只是对字节流进行字符集化，也就是根据不同的encode来进行处理。
+也就是说字符流是字节流的子集。因此，所有能用字符流处理的情况都能用字节流处理，只不过会增加字符集化这部分操作。而字符流的写入过程就是将字符编码成字节，再将字节存储到磁盘中；字符流的读取过程就是将读取的字节再翻译成字符...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Mar 14th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>15 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">11911</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
             
@@ -377,54 +415,6 @@ Resources.Load&lt;Material&gt;(&amp;quot;myMaterial&amp;quot;)//...
 
         <img src="/blog/images/icon/words.png" alt="">
         <span class="words">1695</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/27/资源管理——AssetDataBase/"  target="_self">资源管理——AssetDataBase </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            AssetDatabase是一个对资源进行读写等操作的编辑器类接口，位于工程目录的Assets/Editor文件夹下，需要引入UnityEditor命名空间和宏管理。
-#if UNITY_EDITOR
-using UnityEditor; //手机上没有UnityEditor文件
-#endif
-
-
-AssetDatabase常用的资源操作
-加载资源
-
-
-加载类型
-方法
-
-
-
-加载单个Asset
-UnityEngine.Object Lo...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 27th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>5 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">6075</span>
 
     </div>
     <hr color=#49495b SIZE=1>
