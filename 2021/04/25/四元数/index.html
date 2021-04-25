@@ -219,42 +219,24 @@
 <p>  对于两个复数：z<sub>1</sub> = a + bi，z<sub>2</sub> = c + di，可以分别用两个向量表示：</p>
 <p>  z<sub>1</sub> = ( a , b )，z<sub>2</sub> = ( c , d )</p>
 <p>  那么对于两个复数的相乘，可以得到：</p>
+<p>  ${z_1 z_2}$ </p>
+<p>  $= (a + bi)(c + di)$</p>
+<p>  $= ac−bd+adi+bdi$</p>
+<p>  $= {\left[ \begin{matrix} a &amp; -b \ b &amp; a \end{matrix} \right]\left[ \begin{matrix} c \ d \end{matrix} \right]}$</p>
+<p>  单独对 ${\left[ \begin{matrix} a &amp; -b \ b &amp; a \end{matrix} \right]}$做变形得：</p>
+<p>  ${\left[ \begin{matrix} a &amp; -b \ b &amp; a \end{matrix} \right]} = {\sqrt{a^2+b^2}\left[ \begin{matrix} \frac{a}{\sqrt{a^2+b^2}} &amp; \frac{-b}{\sqrt{a^2+b^2}} \ \frac{b}{\sqrt{a^2+b^2}} &amp; \frac{a}{\sqrt{a^2+b^2}} \end{matrix} \right]} = \lvert{z_1}\rvert \left[ \begin{matrix} cosθ &amp; -sinθ \ sinθ &amp; cosθ \end{matrix} \right]$</p>
+<p>  带入刚才的式子得：</p>
+<p>  ${z_1 z_2} = \lvert{z_1}\rvert \left[ \begin{matrix} cosθ &amp; -sinθ \ sinθ &amp; cosθ \end{matrix} \right] \left[ \begin{matrix} c \ d \end{matrix} \right]$ </p>
+<p>  对于右边这部分，假设c = 1 ， d = 0时：</p>
+<p>  $\left[ \begin{matrix} cosθ &amp; -sinθ \ sinθ &amp; cosθ \end{matrix} \right] \left[ \begin{matrix} 1 \ 0 \end{matrix} \right] = \left[ \begin{matrix} cosθ \ sinθ \end{matrix} \right] = (cosθ,sinθ)$</p>
+<p>  画在坐标轴上可得：</p>
+<p>  <img src="1.jpg" alt="img" style="max-width:100%;" ></p>
+<p>  这就说明当z<sub>2</sub>是一个单位向量时，乘一个复数，相当于把这个向量逆时针旋转了θ度；当z<sub>2</sub> = （0,1）时，带入得(-sinθ,cosθ)，相当于顺时针旋转了θ度。</p>
+<p>  上面的结果再乘上$\lvert{z}\rvert$得</p>
+<p>  $z_2 = (\lvert{z}\rvert cosθ , \lvert{z}\rvert sinθ)$</p>
+<p>  这就相当于把向量z<sub>2</sub>放大了$\lvert{z}\rvert$倍。</p>
+<p>  至此可以得出结论：一个向量（复数）乘以一个复数，相当于对该向量进行了旋转并放大了该复数模长倍（该结论对四元数同样适用）。</p>
 </li>
-</ul>
-<pre><code>$&#123;z_1 z_2&#125;$ 
-
-$= (a + bi)(c + di)$
-
-$= ac−bd+adi+bdi$
-
-$= &#123;\left[ \begin&#123;matrix&#125; a &amp; -b \\ b &amp; a \end&#123;matrix&#125; \right]\left[ \begin&#123;matrix&#125; c \\ d \end&#123;matrix&#125; \right]&#125;$
-
-单独对 $&#123;\left[ \begin&#123;matrix&#125; a &amp; -b \\ b &amp; a \end&#123;matrix&#125; \right]&#125;$做变形得：
-
-$&#123;\left[ \begin&#123;matrix&#125; a &amp; -b \\ b &amp; a \end&#123;matrix&#125; \right]&#125; = &#123;\sqrt&#123;a^2+b^2&#125;\left[ \begin&#123;matrix&#125; \frac&#123;a&#125;&#123;\sqrt&#123;a^2+b^2&#125;&#125; &amp; \frac&#123;-b&#125;&#123;\sqrt&#123;a^2+b^2&#125;&#125; \\ \frac&#123;b&#125;&#123;\sqrt&#123;a^2+b^2&#125;&#125; &amp; \frac&#123;a&#125;&#123;\sqrt&#123;a^2+b^2&#125;&#125; \end&#123;matrix&#125; \right]&#125; = \lvert&#123;z_1&#125;\rvert \left[ \begin&#123;matrix&#125; cosθ &amp; -sinθ \\ sinθ &amp; cosθ \end&#123;matrix&#125; \right]$
-
-带入刚才的式子得：
-
-$&#123;z_1 z_2&#125; = \lvert&#123;z_1&#125;\rvert \left[ \begin&#123;matrix&#125; cosθ &amp; -sinθ \\ sinθ &amp; cosθ \end&#123;matrix&#125; \right] \left[ \begin&#123;matrix&#125; c \\ d \end&#123;matrix&#125; \right]$ 
-
-对于右边这部分，假设c = 1 ， d = 0时：
-
-$\left[ \begin&#123;matrix&#125; cosθ &amp; -sinθ \\ sinθ &amp; cosθ \end&#123;matrix&#125; \right] \left[ \begin&#123;matrix&#125; 1 \\ 0 \end&#123;matrix&#125; \right] = \left[ \begin&#123;matrix&#125; cosθ \\ sinθ \end&#123;matrix&#125; \right] = (cosθ,sinθ)$
-
-画在坐标轴上可得：
-
-![img](1.jpg)
-
-这就说明当z&lt;sub&gt;2&lt;/sub&gt;是一个单位向量时，乘一个复数，相当于把这个向量逆时针旋转了θ度；当z&lt;sub&gt;2&lt;/sub&gt; = （0,1）时，带入得(-sinθ,cosθ)，相当于顺时针旋转了θ度。
-
-上面的结果再乘上$\lvert&#123;z&#125;\rvert$得
-
-$z_2 = (\lvert&#123;z&#125;\rvert cosθ , \lvert&#123;z&#125;\rvert sinθ)$
-
-这就相当于把向量z&lt;sub&gt;2&lt;/sub&gt;放大了$\lvert&#123;z&#125;\rvert$倍。
-
-至此可以得出结论：一个向量（复数）乘以一个复数，相当于对该向量进行了旋转并放大了该复数模长倍（该结论对四元数同样适用）。
-</code></pre><ul>
 <li><h2 id="四元数（Quaternion）"><a href="#四元数（Quaternion）" class="headerlink" title="四元数（Quaternion）"></a>四元数（Quaternion）</h2><p>  在三维空间中，为了能更好地表示旋转并避免万向节锁的出现，因此引入了四元数（Quaternion）。</p>
 <p>  四元数描述了一个旋转轴和一个旋转角度，，四元数的数学公式可以这样表示：</p>
 <p>  ${Q = cos\frac{θ}{2} + xsin\frac{θ}{2}i + ysin\frac{θ}{2}j + zsin\frac{θ}{2}k}$</p>
