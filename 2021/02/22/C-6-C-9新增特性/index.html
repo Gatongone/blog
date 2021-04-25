@@ -202,28 +202,28 @@
         
         <ul>
 <li><h2 id="C-6"><a href="#C-6" class="headerlink" title="C#6"></a>C#6</h2><ul>
-<li><h3 id="只读属性或成员函数的方法表达式体"><a href="#只读属性或成员函数的方法表达式体" class="headerlink" title="只读属性或成员函数的方法表达式体"></a>只读属性或成员函数的方法表达式体</h3><pre><code class="C#">class Person
-&#123;
-    private string FirstName,LastName;
+<li><h3 id="只读属性或成员函数的方法表达式体"><a href="#只读属性或成员函数的方法表达式体" class="headerlink" title="只读属性或成员函数的方法表达式体"></a>只读属性或成员函数的方法表达式体</h3><pre><code class="lang-C#">  class Person
+  &#123;
+      private string FirstName,LastName;
 
-    //属性
-    public string name =&gt; $&quot;&#123;FirstName&#125; —— &#123;LastName&#125;&quot;;
+      //属性
+      public string name =&gt; $&quot;&#123;FirstName&#125; —— &#123;LastName&#125;&quot;;
 
-    //方法
+      //方法
 
-    //原来的
-    public string getName()
-    &#123;
-        return $&quot;&#123;FirstName&#125; —— &#123;LastName&#125;&quot;;
-    &#125; 
-    //使用goes to表达式
-    public string getName() =&gt; $&quot;&#123;FirstName&#125; —— &#123;LastName&#125;&quot;;
-&#125;
+      //原来的
+      public string getName()
+      &#123;
+          return $&quot;&#123;FirstName&#125; —— &#123;LastName&#125;&quot;;
+      &#125; 
+      //使用goes to表达式
+      public string getName() =&gt; $&quot;&#123;FirstName&#125; —— &#123;LastName&#125;&quot;;
+  &#125;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="using-static-namespace-静态命名空间"><a href="#using-static-namespace-静态命名空间" class="headerlink" title="using  static namespace 静态命名空间"></a>using  static namespace 静态命名空间</h3><p>如果引用命名空间时使用<code>static</code>关键字，那么对该命名空间中的静态方法可以直接调用而不需要使用 类名.方法();的写法</p>
-<pre><code class="C#">using  static MarkDown.Code.TestClass;
+<pre><code class="lang-C#">using  static MarkDown.Code.TestClass;
 
 namespace MyNamespace
 &#123;
@@ -233,16 +233,16 @@ namespace MyNamespace
   &#125;   
 &#125;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="？：null条件运算符"><a href="#？：null条件运算符" class="headerlink" title="？：null条件运算符"></a>？：null条件运算符</h3><p>  Nullable&lt; T &gt;的简写，int? 相当于Nullable&lt; int &gt;,该类型可以被赋为null值，但仍然是值类型</p>
 <p>  注意：？修饰的必须是可为null的类型,空值与任何值的运算结果均为空</p>
-<pre><code class="c#">  int x1 = default(int);//默认值为0
+<pre><code class="lang-c#">  int x1 = default(int);//默认值为0
   int? x2 = default(int?);//默认值为null
   int? x3 = x2 + 1;//输出仍然为null
 </code></pre>
 <p>  null条件运算符执行顺序为如果student不为空则返回 student. name，否则返回null</p>
-<pre><code class="c#">public class Student
+<pre><code class="lang-c#">public class Student
 &#123;
     public string name;
     public int? id;
@@ -261,14 +261,14 @@ public class Test()
 
         //使用null条件运算符后：
         name = student?.name;       
-        
+
         int? id = student?.id//必须为可空类型服务
         int id = student?.id//报错
     &#125;
 &#125;
 </code></pre>
 <p>同样可以用在方法中</p>
-<pre><code class="C#">public class Point
+<pre><code class="lang-C#">public class Point
 &#123;
     public int? x;
     public int? y;
@@ -297,12 +297,12 @@ public class MainTest
             if(coordinate.getPoint()!=null)
                 x = coordinate.getPoint().x;
     &#125;
-&#125; 
+&#125;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="字符串的内插"><a href="#字符串的内插" class="headerlink" title="字符串的内插"></a>字符串的内插</h3><p>内插的引入很好的解决了Format所带来的参数麻烦问题（参数值个数必须一致、顺序必须一致，占位符必须一致）</p>
-<pre><code class="c#">int a=1,b=2,c=3;
+<pre><code class="lang-c#">int a=1,b=2,c=3;
 
 //原来的写法
 string.Format(&quot;&#123;0&#125; + &#123;1&#125; = &#123;2&#125;&quot;, a, b, c);
@@ -313,10 +313,10 @@ string str = $&quot;&#123;a&#125; + &#123;b&#125; = &#123;c&#125;&quot;;
 //利用内插在字符串中进行运算
 string str2 = $&quot;s=&#123;a+b&#125;&quot;; //输出 s=3
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="nameof-操作符"><a href="#nameof-操作符" class="headerlink" title="nameof 操作符"></a>nameof 操作符</h3><p>nameof的作用是接收元素后返回元素名字。这个操作符能将class和class的所用成员，比如方法、变量以及属性作为参数而后返回一个它们的名字。这避免我们在代码中hardcode字符串( 比如可以用#defined PI 3.14159265 的程序直接写x = 3.14159265; 而不用x = PI; )，也避免使用反射来获得这些名字。</p>
-<pre><code class="c#">  class Program
+<pre><code class="lang-c#">  class Program
   &#123;
       static void Main(string[] args)
       &#123;
@@ -324,32 +324,29 @@ string str2 = $&quot;s=&#123;a+b&#125;&quot;; //输出 s=3
           WriteLine(nameof(Student.Name));//输出: Name;
       &#125;
   &#125;
-  
+
   class Student
   &#123;
       public string Name &#123; get; set; &#125;
   &#125;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="使用索引器初始化关联集合"><a href="#使用索引器初始化关联集合" class="headerlink" title="使用索引器初始化关联集合"></a>使用索引器初始化关联集合</h3><p>比如初始化字典时可以用</p>
-<pre><code class="c#">Dictionary&lt;string,int&gt; dictionary=new Dictionary&lt;string,int&gt;()
+<pre><code class="lang-c#">Dictionary&lt;string,int&gt; dictionary=new Dictionary&lt;string,int&gt;()
 &#123;
     &#123;&quot;this is fitst string&quot;,1&#125;,
     &#123;&quot;this is second string&quot;,1&#125;,
     &#123;&quot;this is third string&quot;,1&#125;
 &#125;;
 </code></pre>
-</br> 
-</br>
-
+<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
 </li>
 </ul>
 </li>
 </ul>
 <hr>
-</br>
-
+<p>&lt;/br&gt;</p>
 <ul>
 <li><h2 id="C-7"><a href="#C-7" class="headerlink" title="C#7"></a>C#7</h2><ul>
 <li><h3 id="ref-和-out-变量"><a href="#ref-和-out-变量" class="headerlink" title="ref 和 out 变量"></a>ref 和 out 变量</h3><p>ref和out的共同点：</p>
@@ -360,10 +357,9 @@ string str2 = $&quot;s=&#123;a+b&#125;&quot;; //输出 s=3
 </ul>
 <p>ref和out的区别是：</p>
 <ul>
-<li><p><code>ref</code>：参数在调用前必须初始化，可以将参数的数值传递进函数；</p>
-</li>
+<li><code>ref</code>：参数在调用前必须初始化，可以将参数的数值传递进函数；</li>
 <li><p><code>out</code>：参数在调用前可以不初始化，但是会把参数清空，在未被赋予新值之前是未初始化的状态</p>
-<pre><code class="C#">static void Main(string[] args)
+<pre><code class="lang-C#">static void Main(string[] args)
 &#123;
   int x=5;
   int y=3;
@@ -397,12 +393,12 @@ public static void SwapReference_out(out int a,out int b)
   b = temp;
 &#125;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 </ul>
 </li>
 <li><h3 id="元组（Tuple）和-弃元（Discards）"><a href="#元组（Tuple）和-弃元（Discards）" class="headerlink" title="元组（Tuple）和 弃元（Discards）"></a>元组（Tuple）和 弃元（Discards）</h3><p>使用元组（Tuple）作为函数类型能返回多个返回值。</p>
-<pre><code class="C#">  static void Main(string[] args)
+<pre><code class="lang-C#">  static void Main(string[] args)
   &#123;
       //元组类型的声明和初始化：
       (int x ,string y) turple = (3 , &quot;a turple string&quot;);
@@ -427,7 +423,7 @@ public static void SwapReference_out(out int a,out int b)
       int b=66;
       (a,b)=(b,a);
   &#125;
-  
+
   //一个元组类型的方法，a和b可省略,因为不会存在上下文中，仅仅作为一个标识
   public  static (int a, string b) TurpleMethod()
   &#123;
@@ -435,7 +431,7 @@ public static void SwapReference_out(out int a,out int b)
   &#125;
 </code></pre>
 <p>利用元组给构造函数或方法的参数直接赋值；</p>
-<pre><code class="C#">  public class MainTest
+<pre><code class="lang-C#">  public class MainTest
   &#123;
 
       static void Main(string[] args)
@@ -454,7 +450,7 @@ public static void SwapReference_out(out int a,out int b)
   &#125;
 </code></pre>
 <p>弃元类似于未被赋值的参数，如果调用的该函数不需要用到某个参数，可以用下划线<code>_</code>代替</p>
-<pre><code class="C#">  static void Main(string[] args)
+<pre><code class="lang-C#">  static void Main(string[] args)
   &#123;
       var (name, age, _) = DiscardsMethod(&quot;关东关&quot;, 5);
       Console.WriteLine(name + &quot;今年&quot; + age + &quot;了&quot;);
@@ -481,10 +477,10 @@ public static void SwapReference_out(out int a,out int b)
       return (name, age, discription);
   &#125;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="模式匹配-pattern-matching"><a href="#模式匹配-pattern-matching" class="headerlink" title="模式匹配 ( pattern matching )"></a>模式匹配 ( pattern matching )</h3><p>  模式匹配其实就是对类型的检测，C#7增强了<code>is</code>和<code>switch</code>的用法；<br>  在原本<code>is</code>的基础上，C#7增强了其用法，可以在检查类型的同时，支持类型的转换,类似于is和as的结合。现在<code>is</code>后面甚至可以跟着常量。</p>
-<pre><code class="C#">  public class Person//定义一个人类，拥有名字
+<pre><code class="lang-C#">  public class Person//定义一个人类，拥有名字
   &#123;
       public string Name &#123; get; set; &#125;
       public Person(string name)
@@ -515,7 +511,7 @@ public static void SwapReference_out(out int a,out int b)
   &#125;
 </code></pre>
 <p>对于<code>switch</code>来说，现在<code>case</code>的后面可以通过<code>when</code>关键字来进行条件判断过滤；</p>
-<pre><code class="C#">  public abstract class Person//人类
+<pre><code class="lang-C#">  public abstract class Person//人类
   &#123;
       public abstract int age &#123; get; set; &#125;
       public abstract string sex &#123; get; set; &#125;
@@ -565,10 +561,10 @@ public static void SwapReference_out(out int a,out int b)
       &#125;
   &#125;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="本地方法（LocalFunction）"><a href="#本地方法（LocalFunction）" class="headerlink" title="本地方法（LocalFunction）"></a>本地方法（LocalFunction）</h3><p>  本地方法的出现使得在方法内定义并调用方法成为可能，其实就是方法内部的方法(可以无限套娃的那种)。</p>
-<pre><code class="C#">  static void Main(string[] args)
+<pre><code class="lang-C#">  static void Main(string[] args)
   &#123;
       Console.WriteLine(Function(5));
       //输出 10
@@ -583,13 +579,13 @@ public static void SwapReference_out(out int a,out int b)
       &#125;
   &#125;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="更多的表达式体"><a href="#更多的表达式体" class="headerlink" title="更多的表达式体"></a>更多的表达式体</h3><p>C#6中支持的表达式体成员在C#7中得到了扩展，它能支持更多的成员：<code>构造函数</code>、<code>析构函数</code>、带 get，set 访问器的<code>属性</code>、以及<code>索引器</code>（索引器表达体在C#6中就存在）。如下所示</p>
-<pre><code class="C#">  public class Student
+<pre><code class="lang-C#">  public class Student
   &#123;
       private string name;
-  
+
       //构造函数
       public Student(string name) =&gt; _name = name;
 
@@ -604,9 +600,9 @@ public static void SwapReference_out(out int a,out int b)
       &#125;
   &#125;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
-<li><h3 id="可命名的实参"><a href="#可命名的实参" class="headerlink" title="可命名的实参"></a>可命名的实参</h3><pre><code class="C#">  static void Main(string[] args)
+<li><h3 id="可命名的实参"><a href="#可命名的实参" class="headerlink" title="可命名的实参"></a>可命名的实参</h3><pre><code class="lang-C#">  static void Main(string[] args)
   &#123;
       Method(5, true, &quot;A string&quot;);//原来的写法
 
@@ -614,32 +610,32 @@ public static void SwapReference_out(out int a,out int b)
 
       Method(5, z: &quot;A string&quot;, y: true);//混合使用
   &#125;
-  public static void Method(int x,bool y ,string z)&#123;&#125;      
+  public static void Method(int x,bool y ,string z)&#123;&#125;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="private-protected-新增访问修饰符"><a href="#private-protected-新增访问修饰符" class="headerlink" title="private protected 新增访问修饰符"></a>private protected 新增访问修饰符</h3><p>  新增的<code>private protected</code>的组合访问修饰符被规定：</p>
 <ul>
 <li>访问仅限于包含类 或 当前程序集中派生自包含类的类型</li>
 </ul>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
-<li><h3 id="新增-“非空类型”-和-“枚举类型”-的泛型约束"><a href="#新增-“非空类型”-和-“枚举类型”-的泛型约束" class="headerlink" title="新增 “非空类型” 和 “枚举类型” 的泛型约束"></a>新增 “非空类型” 和 “枚举类型” 的泛型约束</h3><pre><code class="C#">  //枚举类型约束
+<li><h3 id="新增-“非空类型”-和-“枚举类型”-的泛型约束"><a href="#新增-“非空类型”-和-“枚举类型”-的泛型约束" class="headerlink" title="新增 “非空类型” 和 “枚举类型” 的泛型约束"></a>新增 “非空类型” 和 “枚举类型” 的泛型约束</h3><pre><code class="lang-C#">  //枚举类型约束
   public class EnumInfor&lt;T&gt; where T : Enum &#123;&#125;
 
   //非空类型约束
-  public class UnmanagedInfor&lt;T&gt; where T : unmanaged &#123;&#125;   
+  public class UnmanagedInfor&lt;T&gt; where T : unmanaged &#123;&#125;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
-<li><h3 id="新增-委托类型的默认文本表达式"><a href="#新增-委托类型的默认文本表达式" class="headerlink" title="新增 委托类型的默认文本表达式"></a>新增 委托类型的默认文本表达式</h3><pre><code class="C#">  Func&lt;string,int&gt; myfunc = default(Func&lt;string,int&gt;);
+<li><h3 id="新增-委托类型的默认文本表达式"><a href="#新增-委托类型的默认文本表达式" class="headerlink" title="新增 委托类型的默认文本表达式"></a>新增 委托类型的默认文本表达式</h3><pre><code class="lang-C#">  Func&lt;string,int&gt; myfunc = default(Func&lt;string,int&gt;);
   //或
   Func&lt;string,int&gt; myfunc = default;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="Throw增强"><a href="#Throw增强" class="headerlink" title="Throw增强"></a>Throw增强</h3><p>  现在的Throw可以在任意地方抛出异常</p>
-<pre><code class="C#">  public class Student
+<pre><code class="lang-C#">  public class Student
   &#123;
       private string name = null ?? throw new ArgumentNullException(nameof(GetName));
 
@@ -650,60 +646,57 @@ public static void SwapReference_out(out int a,out int b)
           get =&gt; age;
           set =&gt; age = value &lt;= 0 ? throw new ArgumentException(&quot;参数不合法&quot;) : value;
       &#125;
-  &#125;  
+  &#125;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
-<li><h3 id="改进的数字文本"><a href="#改进的数字文本" class="headerlink" title="改进的数字文本"></a>改进的数字文本</h3><pre><code class="C#">  long int oldnum = 123456789;
+<li><h3 id="改进的数字文本"><a href="#改进的数字文本" class="headerlink" title="改进的数字文本"></a>改进的数字文本</h3><pre><code class="lang-C#">  long int oldnum = 123456789;
   //或
   long int newnum = 123_456_789;//与old等价，只是更易阅读
 </code></pre>
-</br> 
-</br>
-
+<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
 </li>
 </ul>
 </li>
 </ul>
 <hr>
-</br>
-
+<p>&lt;/br&gt;</p>
 <ul>
 <li><h2 id="C-8"><a href="#C-8" class="headerlink" title="C#8"></a>C#8</h2><ul>
 <li><h3 id="默认的接口方法"><a href="#默认的接口方法" class="headerlink" title="默认的接口方法"></a>默认的接口方法</h3><p>  类似于java8中的接口默认方法，使得接口能够实现自己的行为，以至于能更好的减少代码的复用性。但是由于接口不能直接引用其他字段，因此，接口只能实现类似于抽象类中virtual的虚拟方法（本质上不一样，默认接口方法是只是针对该接口而言,子类不能直接调用）。因此接口的实现类不必实现默认的接口方法（也实现不了）。</p>
 <p>  相较于抽象类，默认接口的最大不同是：在C#中，只能继承至一个基类，但可以实现任意数量的接口。</p>
-<pre><code class="c#">public interface ILogger //接口
-&#123;
-    //默认的接口方法，有行为
-    void DoSomething(string info)
-    &#123;
-        outPut(info);
-    &#125;
+<pre><code class="lang-c#">  public interface ILogger //接口
+  &#123;
+      //默认的接口方法，有行为
+      void DoSomething(string info)
+      &#123;
+          outPut(info);
+      &#125;
 
-    //普通的接口方法，无行为
-    void outPut(string info);
-&#125;
+      //普通的接口方法，无行为
+      void outPut(string info);
+  &#125;
 
-public class Logger : ILogger//接口的实现类
-&#123;
-    //只需要实现普通的接口方法
-    public void outPut(string info)
-    &#123;
-        Console.WriteLine(info);
-    &#125;
-&#125;
+  public class Logger : ILogger//接口的实现类
+  &#123;
+      //只需要实现普通的接口方法
+      public void outPut(string info)
+      &#123;
+          Console.WriteLine(info);
+      &#125;
+  &#125;
 
-public class MainTest
-&#123;
-    static void Main(string[] args)
-    &#123;
-        ILogger logger = new Logger();
-        logger.DoSomething(&quot;这是一条信息&quot;);
-    &#125;
-&#125;        
+  public class MainTest
+  &#123;
+      static void Main(string[] args)
+      &#123;
+          ILogger logger = new Logger();
+          logger.DoSomething(&quot;这是一条信息&quot;);
+      &#125;
+  &#125;
 </code></pre>
 <p>  ps：虽然默认的接口方法解决了接口多继承所带来的<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/EZ_jIjT6hYFrhbJ9BZ7Amw">菱形问题（函数二义性）</a>，但仍旧带来了新的问题：例如下面的程序，虽然接口B和接口C都实现了A接口的方法，但是由于是默认的接口方法，而子接口的默认方法本质上是对所继承至父接口的方法的隐藏而不是覆写，因此A类的Dosomething();对于D类来说仍然是未被实现的接口成员。</p>
-<pre><code class="c#">  public interface A
+<pre><code class="lang-c#">  public interface A
   &#123;
       void DoSomething();
   &#125;
@@ -722,120 +715,118 @@ public class MainTest
   &#123; &#125;//报错，“D”未实现接口成员“A.DoSomething()”
 </code></pre>
 <p>  一句话来说就是：子接口（简称：<code>IB</code>）若实现了对父接口（简称：<code>IA</code>）的同名的默认接口方法，那么对于 <code>IB</code> 来说 <code>IB</code> 将隐藏 <code>IA</code> 的同名方法；而默认接口方法是一种特殊的虚方法（不能被子类直接调用），该方法对于其实现类（简称：<code>B</code>）来说相当于不存在，因此 <code>B</code> 将未实现 <code>IA</code> 的接口成员。</p>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="数组范围和下标类型"><a href="#数组范围和下标类型" class="headerlink" title="数组范围和下标类型"></a>数组范围和下标类型</h3><p>  C#8引入了index类型用于表示数组的下标，”^”用于表示数组的倒数第几个数(倒数第一个要从^1开始算)，”..”操作符表示数组的范围(左闭右开)</p>
-<pre><code class="C#">  int[] array= new int[5] &#123; 1, 2, 3, 4, 5 &#125;;
+<pre><code class="lang-C#">  int[] array= new int[5] &#123; 1, 2, 3, 4, 5 &#125;;
   Index x = 0;
   Index y = ^1;
   var range = array[1..4];
-      
+
   Console.WriteLine($&quot;array[x]=&#123;array[x]&#125;, array[y]=&#123;array[y]&#125;&quot;);
   Console.WriteLine($&quot;range=&#123;string.Join(&quot;,&quot;, range)&#125;&quot;);
   //输出：
   //array[x]=1, array[y]=5
   //range=2,3,4
 </code></pre>
-</br>
-</li>
-<li><h3 id="模式匹配表达式（Switch-expressions）"><a href="#模式匹配表达式（Switch-expressions）" class="headerlink" title="模式匹配表达式（Switch expressions）"></a>模式匹配表达式（Switch expressions）</h3><ul>
+<p>&lt;/br&gt;</p>
+<ul>
+<li><h3 id="模式匹配表达式（Switch-expressions）"><a href="#模式匹配表达式（Switch-expressions）" class="headerlink" title="模式匹配表达式（Switch expressions）"></a>模式匹配表达式（Switch expressions）</h3></li>
 <li><p>Switch表达式 </p>
-<p>   当一个方法只被用于做switch判断时可以这样写</p>
-<pre><code class="C#">public static string StringToWeek(string week) =&gt; week switch
+<p>  当一个方法只被用于做switch判断时可以这样写</p>
+<pre><code class="lang-C#">public static string StringToWeek(string week) =&gt; week switch
 &#123;
-  &quot;1&quot; =&gt; &quot;Monday&quot;,
-  &quot;2&quot; =&gt; &quot;Tuesday&quot;,
-  &quot;3&quot; =&gt; &quot;Wednesday&quot;,
-  &quot;4&quot; =&gt; &quot;Thursday&quot;,
-  &quot;5&quot; =&gt; &quot;Friday&quot;,
-  &quot;6&quot; =&gt; &quot;Saturday&quot;,
-  &quot;7&quot; =&gt; &quot;Sunday&quot;,
-  _   =&gt; throw new NotImplementdException(&quot;不存在的星期&quot;),
+ &quot;1&quot; =&gt; &quot;Monday&quot;,
+ &quot;2&quot; =&gt; &quot;Tuesday&quot;,
+ &quot;3&quot; =&gt; &quot;Wednesday&quot;,
+ &quot;4&quot; =&gt; &quot;Thursday&quot;,
+ &quot;5&quot; =&gt; &quot;Friday&quot;,
+ &quot;6&quot; =&gt; &quot;Saturday&quot;,
+ &quot;7&quot; =&gt; &quot;Sunday&quot;,
+ _   =&gt; throw new NotImplementdException(&quot;不存在的星期&quot;),
 &#125;
 </code></pre>
 </li>
 <li><p>属性模式(Property patterns)</p>
-<pre><code class="C#">public class Shape
+<pre><code class="lang-C#">public class Shape
 &#123;
-    public int X&#123; get; set; &#125;
-    public int Y&#123; get; set; &#125;
+   public int X&#123; get; set; &#125;
+   public int Y&#123; get; set; &#125;
 &#125;
 public class Cube:Shape
 &#123;
-    public int Length&#123; get; set; &#125;
-    public int Height&#123; get; set; &#125;
-    public int Width&#123; get; set; &#125;
+   public int Length&#123; get; set; &#125;
+   public int Height&#123; get; set; &#125;
+   public int Width&#123; get; set; &#125;
 &#125;
 public class MainTest//main调试
 &#123;
-    public static string getProperty(Shape s) =&gt; s switch
-    &#123;
-        &#123; X: 5, Y: 5 &#125;                                              =&gt; $&quot;Shape的坐标&#123;s.X&#125;&quot;,
-        Cube &#123; Length: 5 &#125;                                          =&gt; &quot;Cube的长是5&quot;,
-        Cube c when c.Length==c.Width&amp;&amp;c.Length==c.Height           =&gt; &quot;这是一个正方形&quot;,
-        Cube&#123;Length:var length ,Height:var height, Width:var width&#125; =&gt; $&quot;Cube的边长分别为&#123;length&#125;,&#123;height&#125;,&#123;width&#125;&quot;,
-        //上面这个也可以写成这样：
-        //Cube c                                                    =&gt; $&quot;Cube的边长分别为&#123;c.Length&#125;,&#123;c.Height&#125;,&#123;c.Width&#125;&quot;,
-        _                                                           =&gt; throw new NotImplementedException(&quot;errow&quot;),
-    &#125;;
-    public static void Main(string[] args)
-    &#123;
-        Shape shape = new Shape&#123;X = 5, Y = 5&#125;;
-        Cube cube1 = new Cube&#123; Length = 5&#125;;
-        Cube cube2 = new Cube&#123;Length = 6,Height = 6,Width = 6&#125;;
-        Cube cube3 = new Cube&#123;Length = 4,Height = 6,Width = 5&#125;;
-        Console.WriteLine(getProperty(shape));
-        Console.WriteLine(getProperty(cube1));
-        Console.WriteLine(getProperty(cube2));
-        Console.WriteLine(getProperty(cube3));
-        //输出：
-        //Shape的坐标5
-        //Cube的长是5
-        //这是一个正方形
-        //Cube的边长分别为4,6,5
+   public static string getProperty(Shape s) =&gt; s switch
+   &#123;
+       &#123; X: 5, Y: 5 &#125;                                              =&gt; $&quot;Shape的坐标&#123;s.X&#125;&quot;,
+       Cube &#123; Length: 5 &#125;                                          =&gt; &quot;Cube的长是5&quot;,
+       Cube c when c.Length==c.Width&amp;&amp;c.Length==c.Height           =&gt; &quot;这是一个正方形&quot;,
+       Cube&#123;Length:var length ,Height:var height, Width:var width&#125; =&gt; $&quot;Cube的边长分别为&#123;length&#125;,&#123;height&#125;,&#123;width&#125;&quot;,
+       //上面这个也可以写成这样：
+       //Cube c                                                    =&gt; $&quot;Cube的边长分别为&#123;c.Length&#125;,&#123;c.Height&#125;,&#123;c.Width&#125;&quot;,
+       _                                                           =&gt; throw new NotImplementedException(&quot;errow&quot;),
+   &#125;;
+   public static void Main(string[] args)
+   &#123;
+       Shape shape = new Shape&#123;X = 5, Y = 5&#125;;
+       Cube cube1 = new Cube&#123; Length = 5&#125;;
+       Cube cube2 = new Cube&#123;Length = 6,Height = 6,Width = 6&#125;;
+       Cube cube3 = new Cube&#123;Length = 4,Height = 6,Width = 5&#125;;
+       Console.WriteLine(getProperty(shape));
+       Console.WriteLine(getProperty(cube1));
+       Console.WriteLine(getProperty(cube2));
+       Console.WriteLine(getProperty(cube3));
+       //输出：
+       //Shape的坐标5
+       //Cube的长是5
+       //这是一个正方形
+       //Cube的边长分别为4,6,5
 
-    &#125;
+   &#125;
 &#125;
 </code></pre>
 </li>
 <li><p>元组模式(Property patterns)</p>
-<pre><code class="C#">public static string getName(string FirstName, string LastName) =&gt; (FirstName, LastName) switch
+<pre><code class="lang-C#">public static string getName(string FirstName, string LastName) =&gt; (FirstName, LastName) switch
 &#123;
-    (&quot;马&quot;,&quot;东超&quot;) =&gt; $&quot;&#123;FirstName&#125;·&#123;LastName&#125;&quot;,
-    (&quot;马&quot;,&quot;冬梅&quot;) =&gt; $&quot;&#123;FirstName&#125;·&#123;LastName&#125;&quot;,
-    (&quot;马&quot;,&quot;邦德&quot;) =&gt; $&quot;&#123;FirstName&#125;·&#123;LastName&#125;&quot;,
-    (_,_) =&gt; throw new NotImplementedException(&quot;空名字&quot;),
+   (&quot;马&quot;,&quot;东超&quot;) =&gt; $&quot;&#123;FirstName&#125;·&#123;LastName&#125;&quot;,
+   (&quot;马&quot;,&quot;冬梅&quot;) =&gt; $&quot;&#123;FirstName&#125;·&#123;LastName&#125;&quot;,
+   (&quot;马&quot;,&quot;邦德&quot;) =&gt; $&quot;&#123;FirstName&#125;·&#123;LastName&#125;&quot;,
+   (_,_) =&gt; throw new NotImplementedException(&quot;空名字&quot;),
 &#125;;
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
+</li>
+<li><h3 id="静态本地方法"><a href="#静态本地方法" class="headerlink" title="静态本地方法"></a>静态本地方法</h3><p>C#8中可以对本地方法声明为静态用以保护成员变量和实例</p>
+<pre><code class="lang-C#">  public int Function()
+  &#123;
+      int a = 2;
+      int b = 3;
+      return StaticAdd();
+      //静态本地方法
+      static int StaticAdd() =&gt; a + b;//a + b报错，因为不能对本地方法外的实例和成员变量进行访问
+  &#125;
+</code></pre>
+<p>&lt;/br&gt;</p>
 </li>
 </ul>
-</li>
-<li><h3 id="静态本地方法"><a href="#静态本地方法" class="headerlink" title="静态本地方法"></a>静态本地方法</h3><p> C#8中可以对本地方法声明为静态用以保护成员变量和实例</p>
-<pre><code class="C#">    public int Function()
-    &#123;
-        int a = 2;
-        int b = 3;
-        return StaticAdd();
-        //静态本地方法
-        static int StaticAdd() =&gt; a + b;//a + b报错，因为不能对本地方法外的实例和成员变量进行访问
-    &#125;
-</code></pre>
-</br>
 </li>
 <li><h3 id="异步流"><a href="#异步流" class="headerlink" title="异步流"></a>异步流</h3><p> 异步流是可枚举类（Enumerable）的异步变体，它会在遍历下一个元素的时候（Next）会涉及异步操作。只要继承自 IAsyncEnumerable 就能实现。</p>
 <p> 自定义的异步迭代器方法特征如下：</p>
 <ul>
-<li><p>通过关键字<code>async</code>标记为异步</p>
-</li>
-<li><p>迭代器将返回<code>IAsyncEnumerable</code>或<code>IAsyncEnumerator</code>类型。</p>
-</li>
+<li>通过关键字<code>async</code>标记为异步</li>
+<li>迭代器将返回<code>IAsyncEnumerable</code>或<code>IAsyncEnumerator</code>类型。</li>
 <li><p>要使用 <code>await</code> 表达式，如 await foreach、await using 语句；以及 <code>yield</code> 语句，如yield return、yield break</p>
 <p>通过下面的程序可以看出异步流和同步流的区别</p>
-<pre><code class="C#"> public class MainTest//main调试
+<pre><code class="lang-C#"> public class MainTest//main调试
  &#123;
      private static string ThreadId =&gt; Thread.CurrentThread.ManagedThreadId.ToString();
-     
+
      public static async Task Main(string[] args)
      &#123;
          Console.WriteLine(&quot;同步流遍历 IEnumerable 开始&quot;);
@@ -853,7 +844,7 @@ public class MainTest//main调试
              Console.WriteLine($&quot;当前线程ID：&#123;ThreadId&#125;,AsyncGetData中返回的数字:&#123;item&#125;&quot;);
          &#125;
          Console.WriteLine(&quot;异步流遍历结束&quot;);
-         
+
      &#125;
      //同步流获取数据
      public static  IEnumerable&lt;int&gt; GetData(int count)
@@ -899,119 +890,111 @@ public class MainTest//main调试
 当前线程ID：11,AsyncGetData中返回的数字:7
 当前线程ID：11,AsyncGetData中返回的数字:8
 异步流遍历结束
-</code></pre>
-<p>GetData所在的线程ID都是一样的，AsyncGetData所在线程的id有时会变化，<code>hread.Sleep()</code>会阻塞线程，等待Task对象的执行完成后会继续执行,当处理一些长线的调用时，可能会导致线程占用过多等问题。<code>await Task.Delay()</code>不会阻塞当前线程，当它await任务时，该线程可以去做其它工作。</p>
+</code></pre><p>GetData所在的线程ID都是一样的，AsyncGetData所在线程的id有时会变化，<code>hread.Sleep()</code>会阻塞线程，等待Task对象的执行完成后会继续执行,当处理一些长线的调用时，可能会导致线程占用过多等问题。<code>await Task.Delay()</code>不会阻塞当前线程，当它await任务时，该线程可以去做其它工作。</p>
 </li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-</br> 
-</br>
-
+<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
 <hr>
-</br>
-
+<p>&lt;/br&gt;</p>
 <ul>
 <li><h2 id="C-9"><a href="#C-9" class="headerlink" title="C#9"></a>C#9</h2><ul>
-<li><h3 id="init初始化属性访问器"><a href="#init初始化属性访问器" class="headerlink" title="init初始化属性访问器"></a>init初始化属性访问器</h3><p>  对于为了给属性初始化而不得不加set访问器的情况，现在在C#9中可以通过<code>init</code>关键字来实现初始化。<br>  <code>init</code>关键字可以在构造函数中进行初始化，一旦初始化完毕就不允许更改。</p>
-<pre><code class="C#">  public class Student
-  &#123;
-      public string Name&#123; get; init; &#125;
-      public string ID&#123; get; init; &#125;
-      public string Sex&#123; get; init; &#125;
-  &#125;
-  public class MainTest//main调试
-  &#123;
-      public static void Main(string[] args)
-      &#123;
-          Student student = new Student
-          &#123;
-              Name = &quot;小小红&quot;,
-              ID = &quot;18151010220&quot;,
-              Sex = &quot;女&quot;
-          &#125;;
-          student.Name = &quot;玛奇玛&quot;;//报错
-      &#125;
-  &#125;
+<li><h3 id="init初始化属性访问器"><a href="#init初始化属性访问器" class="headerlink" title="init初始化属性访问器"></a>init初始化属性访问器</h3>  对于为了给属性初始化而不得不加set访问器的情况，现在在C#9中可以通过<code>init</code>关键字来实现初始化。<br>  <code>init</code>关键字可以在构造函数中进行初始化，一旦初始化完毕就不允许更改。<pre><code class="lang-C#">    public class Student
+    &#123;
+        public string Name&#123; get; init; &#125;
+        public string ID&#123; get; init; &#125;
+        public string Sex&#123; get; init; &#125;
+    &#125;
+    public class MainTest//main调试
+    &#123;
+        public static void Main(string[] args)
+        &#123;
+            Student student = new Student
+            &#123;
+                Name = &quot;小小红&quot;,
+                ID = &quot;18151010220&quot;,
+                Sex = &quot;女&quot;
+            &#125;;
+            student.Name = &quot;玛奇玛&quot;;//报错
+        &#125;
+    &#125;
 </code></pre>
-  </br></li>
-<li><h3 id="record记录"><a href="#record记录" class="headerlink" title="record记录"></a>record记录</h3><pre><code class="C#">  public record Student
-  &#123;
-      public string? Name &#123; get; init; &#125;
-      public string? ID &#123; get; init; &#125;
-      public string? Sex &#123; get; init; &#125;         
-  &#125;
+  &lt;/br&gt;</li>
+<li><h3 id="record记录"><a href="#record记录" class="headerlink" title="record记录"></a>record记录</h3><pre><code class="lang-C#">    public record Student
+    &#123;
+        public string? Name &#123; get; init; &#125;
+        public string? ID &#123; get; init; &#125;
+        public string? Sex &#123; get; init; &#125;         
+    &#125;
 </code></pre>
 <p>  <code>record</code>本质是一种特殊的class，其重写了object中的GetHashCode、Equals等方法</p>
 <p>  应用场景：当希望对象不可变，并且行为像值类型时。</p>
 <ul>
 <li><p>Equals比较记录</p>
 <p>record中重写了<code>Equals</code>方法，现在可以通过<code>Equals</code>逐字段比较两条记录是否相等。</p>
-<pre><code class="C#">var student1 = new  Student()&#123;Name=&quot;玛奇玛&quot;,ID=&quot;010010&quot;,Sex=&quot;女&quot;&#125;;
-var student2 = new  Student()&#123;Name=&quot;玛奇玛&quot;,ID=&quot;010010&quot;,Sex=&quot;女&quot;&#125;;
-if (student1.Equals(student2))
-&#123;
-    Console.WriteLine(&quot;两条记录相等&quot;);
-&#125;
+<pre><code class="lang-C#">  var student1 = new  Student()&#123;Name=&quot;玛奇玛&quot;,ID=&quot;010010&quot;,Sex=&quot;女&quot;&#125;;
+  var student2 = new  Student()&#123;Name=&quot;玛奇玛&quot;,ID=&quot;010010&quot;,Sex=&quot;女&quot;&#125;;
+  if (student1.Equals(student2))
+  &#123;
+      Console.WriteLine(&quot;两条记录相等&quot;);
+  &#125;
 </code></pre>
-<pre><code>输出：两条记录相等
-</code></pre>
-</li>
+<pre><code>  输出：两条记录相等
+</code></pre></li>
 <li><p>with 更新记录</p>
 <p>当希望对一条记录中某个字段进行更新时可以使用<code>with</code>表达式</p>
-<pre><code class="C#">var student1 = new  Student()&#123;Name=&quot;玛奇玛&quot;,ID=&quot;010010&quot;,Sex=&quot;女&quot;&#125;;
-var student2 = student1 with &#123;Name=&quot;小小红&quot;&#125;;
+<pre><code class="lang-C#">  var student1 = new  Student()&#123;Name=&quot;玛奇玛&quot;,ID=&quot;010010&quot;,Sex=&quot;女&quot;&#125;;
+  var student2 = student1 with &#123;Name=&quot;小小红&quot;&#125;;
 
-Console.WriteLine(&quot;student2的记录为：&quot;);
-Console.WriteLine($&quot;Name=&#123;student2.Name&#125;，ID=&#123;student2.ID&#125;Sex=&#123;student2.Sex&#125;&quot;);
+  Console.WriteLine(&quot;student2的记录为：&quot;);
+  Console.WriteLine($&quot;Name=&#123;student2.Name&#125;，ID=&#123;student2.ID&#125;Sex=&#123;student2.Sex&#125;&quot;);
 </code></pre>
-<pre><code>输出：
-student2的记录为：
-Name=小小红，ID=010010，Sex=女
-</code></pre>
-<p>当然也可以利用with做浅拷贝</p>
-<pre><code class="C#">var student1 = new  Student()&#123;Name=&quot;玛奇玛&quot;,ID=&quot;010010&quot;,Sex=&quot;女&quot;&#125;;
-var student2 = student1 with &#123;&#125;;
+<pre><code>  输出：
+  student2的记录为：
+  Name=小小红，ID=010010，Sex=女
+</code></pre><p>当然也可以利用with做浅拷贝</p>
+<pre><code class="lang-C#">  var student1 = new  Student()&#123;Name=&quot;玛奇玛&quot;,ID=&quot;010010&quot;,Sex=&quot;女&quot;&#125;;
+  var student2 = student1 with &#123;&#125;;
 
-Console.WriteLine(&quot;student2的记录为：&quot;);
-Console.WriteLine($&quot;Name=&#123;student2.Name&#125;，ID=&#123;student2.ID&#125;Sex=&#123;student2.Sex&#125;&quot;);
+  Console.WriteLine(&quot;student2的记录为：&quot;);
+  Console.WriteLine($&quot;Name=&#123;student2.Name&#125;，ID=&#123;student2.ID&#125;Sex=&#123;student2.Sex&#125;&quot;);
 
-if (!object.ReferenceEquals(student1,student2))
-&#123;
-    Console.WriteLine(&quot;student1和student2是不同的引用&quot;);
-&#125;
+  if (!object.ReferenceEquals(student1,student2))
+  &#123;
+      Console.WriteLine(&quot;student1和student2是不同的引用&quot;);
+  &#125;
 </code></pre>
-<pre><code>输出：
-student2的记录为：
-Name=玛奇玛，ID=010010，Sex=女
-student1和student2是不同的引用
-</code></pre>
-</li>
+<pre><code>  输出：
+  student2的记录为：
+  Name=玛奇玛，ID=010010，Sex=女
+  student1和student2是不同的引用
+</code></pre></li>
 </ul>
 </li>
 <li><h3 id="顶级程序"><a href="#顶级程序" class="headerlink" title="顶级程序"></a>顶级程序</h3><p>  在C#9中，为了减少缩进，可以直接在顶层中写主程序</p>
-<pre><code class="C#">using System;
-Console.WriteLine(&quot;Hello World!&quot;);
+<pre><code class="lang-C#">  using System;
+  Console.WriteLine(&quot;Hello World!&quot;);
 </code></pre>
 </li>
-<li><h3 id="模式匹配的增强"><a href="#模式匹配的增强" class="headerlink" title="模式匹配的增强"></a>模式匹配的增强</h3><pre><code class="C#">public static string getAge(object obj) =&gt; obj switch
-&#123;
-    Student s when s.age &gt;= 18 =&gt; &quot;成年人&quot;,//-----1
-    Student s when s.age &lt;  18 =&gt; &quot;未成年&quot;,//-----2
-    Student _                  =&gt; &quot;其他&quot;,//-------3
-&#125;;
+<li><h3 id="模式匹配的增强"><a href="#模式匹配的增强" class="headerlink" title="模式匹配的增强"></a>模式匹配的增强</h3><pre><code class="lang-C#">  public static string getAge(object obj) =&gt; obj switch
+  &#123;
+      Student s when s.age &gt;= 18 =&gt; &quot;成年人&quot;,//-----1
+      Student s when s.age &lt;  18 =&gt; &quot;未成年&quot;,//-----2
+      Student _                  =&gt; &quot;其他&quot;,//-------3
+  &#125;;
 </code></pre>
 <ul>
 <li><p>弃元类型的简写</p>
 <p>对于上面的程序<code>3</code>，现在可以不用写弃元而只写类型</p>
-<pre><code class="C#"> Student  =&gt; &quot;其他&quot;,
+<pre><code class="lang-C#"> Student  =&gt; &quot;其他&quot;,
 </code></pre>
 </li>
 <li><p>关系模式</p>
 <p>若switch中存在同一类型的关系，可以简写为</p>
-<pre><code class="C#">  public static string getAge(object obj) =&gt; obj switch
+<pre><code class="lang-C#">  public static string getAge(object obj) =&gt; obj switch
   &#123;
       Student s when s.age switch
       &#123;
@@ -1024,7 +1007,7 @@ Console.WriteLine(&quot;Hello World!&quot;);
 </li>
 <li><p>逻辑模式</p>
 <p>现在在模式匹配中，可以用操作符<code>and</code>,<code>or</code>,<code>not</code>将模式进行组合</p>
-<pre><code class="C#">  public static string getAge(object obj) =&gt; obj switch
+<pre><code class="lang-C#">  public static string getAge(object obj) =&gt; obj switch
   &#123;
       Student s when s.age switch
       &#123;
@@ -1035,10 +1018,10 @@ Console.WriteLine(&quot;Hello World!&quot;);
   &#125;;
 </code></pre>
 <p>其中<code>not</code>可以配合<code>is</code>在if中使用从而达到减少括号的使用</p>
-<pre><code class="C#"> if(student is not null)
+<pre><code class="lang-C#"> if(student is not null)
  &#123;
      Console.WriteLine(&quot;student不为空&quot;);
-     
+
  &#125;
 </code></pre>
 </li>
@@ -1047,7 +1030,7 @@ Console.WriteLine(&quot;Hello World!&quot;);
 <li><h3 id="目标类型的new-表达式"><a href="#目标类型的new-表达式" class="headerlink" title="目标类型的new()表达式"></a>目标类型的new()表达式</h3><p>  现在可以通过<code>new()</code>语法糖来达到简化代码的效果</p>
 <ul>
 <li><p>简化对象声明</p>
-<pre><code class="C#">//声明对象：
+<pre><code class="lang-C#">//声明对象：
 Student student1 = new Student();
 //现在可以简写为：
 Student student1 = new();
@@ -1055,18 +1038,18 @@ Student student1 = new();
 //初始化构造函数：
 Student student2 = new  Student()&#123;Name=&quot;玛奇玛&quot;,ID=&quot;010010&quot;,Sex=&quot;女&quot;&#125;;
 //现在可以简写为：
-Student student2 = new() &#123;Name=&quot;玛奇玛&quot;,ID=&quot;010010&quot;,Sex=&quot;女&quot;&#125;;      
+Student student2 = new() &#123;Name=&quot;玛奇玛&quot;,ID=&quot;010010&quot;,Sex=&quot;女&quot;&#125;;
 </code></pre>
 </li>
 <li><p>作为实参和返回值使用</p>
-<pre><code class="C#">  public static void Main(string[] args)
+<pre><code class="lang-C#">  public static void Main(string[] args)
   &#123;
       Student student = createStudent();
 
       //new()作为实参
       student = updateName(new(),&quot;玛奇玛&quot;);
   &#125;
-  
+
   public static Student createStudent()
   &#123;
       //new()作为返回值
@@ -1083,33 +1066,33 @@ Student student2 = new() &#123;Name=&quot;玛奇玛&quot;,ID=&quot;010010&quot;,
 </ul>
 </li>
 <li><h3 id="协变式返回值"><a href="#协变式返回值" class="headerlink" title="协变式返回值"></a>协变式返回值</h3><p>  在C#9之前，重写父类方法时，必须保证方法类型一致（甚至父子关系也不行）,而在C#9中，可以重写方法类型为父类方法的方法类型的子类型。</p>
-<pre><code class="C#">//假设Meat是Food的子类
-abstract class Animal
-&#123;
-    public abstract Food GetFood();
-&#125;
-class Tiger : Animal
-&#123;
-    //C#9之前只能这样
-    public override Food GetFood()&#123;&#125;
+<pre><code class="lang-C#">  //假设Meat是Food的子类
+  abstract class Animal
+  &#123;
+      public abstract Food GetFood();
+  &#125;
+  class Tiger : Animal
+  &#123;
+      //C#9之前只能这样
+      public override Food GetFood()&#123;&#125;
 
-    //C#9中可以这样
-    public override Meat GetFood()&#123;&#125;
-&#125;
+      //C#9中可以这样
+      public override Meat GetFood()&#123;&#125;
+  &#125;
 </code></pre>
 </li>
 <li><h3 id="静态的匿名方法"><a href="#静态的匿名方法" class="headerlink" title="静态的匿名方法"></a>静态的匿名方法</h3><p>  现在允许在Lambda表达式和匿名方法使用static关键字，用来禁止访问外部变量实例或本地变量。 </p>
-<pre><code class="C#">Func&lt;int&gt; func = static () =&gt; 1;
+<pre><code class="lang-C#">  Func&lt;int&gt; func = static () =&gt; 1;
 </code></pre>
 </li>
 <li><h3 id="原生数字类型nint、nuint、nfloat…"><a href="#原生数字类型nint、nuint、nfloat…" class="headerlink" title="原生数字类型nint、nuint、nfloat…"></a>原生数字类型nint、nuint、nfloat…</h3><p>  引入了一组新的数据类型(nint、nuint、nfloat…),其中<code>n</code>表示原生”native”,该类型允许声明一个32位或64位的数据类型，这取决于操作系统的平台</p>
-<pre><code class="C#">nint a=5;//在32位主机中编译需要4个字节，在64位主机中编译需要8个字节
+<pre><code class="lang-C#">  nint a=5;//在32位主机中编译需要4个字节，在64位主机中编译需要8个字节
 </code></pre>
 </li>
 <li><h3 id="Lambda弃元参数"><a href="#Lambda弃元参数" class="headerlink" title="Lambda弃元参数"></a>Lambda弃元参数</h3><p>  现在允许在Lambda表达式和匿名方法使用弃元参数</p>
-<pre><code class="C#">Func&lt;int, int, int&gt; func1 = (_, _) =&gt; 0;
-Func&lt;int, int, int&gt; func2 = (int _,int _) =&gt; 0;
-Func&lt;int, int, int&gt; func3 = delegate (int _, int _) &#123; return 0; &#125;;
+<pre><code class="lang-C#">  Func&lt;int, int, int&gt; func1 = (_, _) =&gt; 0;
+  Func&lt;int, int, int&gt; func2 = (int _,int _) =&gt; 0;
+  Func&lt;int, int, int&gt; func3 = delegate (int _, int _) &#123; return 0; &#125;;
 </code></pre>
 </li>
 </ul>

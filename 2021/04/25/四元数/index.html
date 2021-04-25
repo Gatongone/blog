@@ -264,14 +264,11 @@
 <p>  所以：</p>
 <p>  QV = $(0,\frac{ \sqrt{2} }{2},0,\frac{ \sqrt{2} }{2})(1,0,1,0)$</p>
 <p>  $= \frac{ \sqrt{2} }{2}ji  + \frac{ \sqrt{2} }{2}jk + \frac{ \sqrt{2} }{2}i + \frac{ \sqrt{2} }{2}k$</p>
-<blockquote>
-<blockquote>
-<p>这里先说右手定则：比如遇见了i <em> j 那么先画一个i-j-k的坐标系，然后四指从i指向j轴，大拇指所指的方向就是i </em> j 的值：<br>  i <em> j = -k，j </em> i = k，k * i = -j …….</p>
-</blockquote>
-</blockquote>
-<p>  所以上面的式子可以变为：</p>
+<pre><code>  这里先说右手定则：比如遇见了i * j 那么先画一个i-j-k的坐标系，然后四指从i指向j轴，大拇指所指的方向就是i * j 的值：
+  i * j = -k，j * i = k，k * i = -j .......
+</code></pre><p>  所以上面的式子可以变为：</p>
 <p>  $QV = \frac{ \sqrt{2} }{2}ji  + \frac{ \sqrt{2} }{2}jk + \frac{ \sqrt{2} }{2}i + \frac{ \sqrt{2} }{2}k$</p>
-<p>  $= \frac{ \sqrt{2} }{2}k - \frac{ \sqrt{2} }{2}i + \frac{ \sqrt{2} }{2}i + \frac{ \sqrt{2} }{2}k\frac{ \sqrt{2} }{2}k b$</p>
+<p>  $= \frac{ \sqrt{2} } {2}k - \frac{ \sqrt{2} } {2}i + \frac{ \sqrt{2} }{2}i + \frac{ \sqrt{2} } {2}k\frac{ \sqrt{2} } {2}k b$</p>
 <p>  $= \sqrt{2}k$</p>
 <p>  $= (0,0,\sqrt{2},0)$</p>
 <p>  所以：</p>
@@ -288,7 +285,7 @@
 </li>
 <li><h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p>静态方法|描述<br>——-|——-<br>Angle(rot1，rot2)|返回两个四元数（旋转）之间的角度<br>Euler|返回一个围绕 Z 轴旋转 z 度、围绕 X 轴旋转 x 度、围绕 Y 轴旋转 y 度的四元数<br>AngleAxis(angle, axis)|返回一个围绕 向量axis 旋转 angle 度的四元数<br>Dot(rot1,rot2)|两个四元数的乘积<br>FromToRotation(rot1,rot2)|返回一个能从rot1旋转到rot2的四元数<br>Inverse(rot)|返回一个四元数的逆（相反的旋转）<br>Lerp(a,b,t)|在 a 到 b 的旋转之间按 t 进行线性插值运算并对结果进行标准化处理，t的范围为[0,1]<br>LerpUnclamped(a,b,t)|线性插值运算，但是t无范围要求<br>LookRotation(forward,upwards)|把z轴与forward对齐，x轴与 forward 和 upwards 之间的差积对齐<br>RotateTowards(from,to,path)|每帧从from旋转 path 个单位到to<br>Slerp(a,b,t)|在 a 到 b 的旋转之间按 t 进行球形插值运算，t 被限制在 [0, 1] 范围内<br>SlerpUnclamped(a,b,t)|在 a 到 b 的旋转之间按 t 进行球形插值运算，但是t无范围要求</p>
 </li>
-<li><h3 id="公共方法"><a href="#公共方法" class="headerlink" title="公共方法"></a>公共方法</h3><p>公共方法|描述<br>——-|——-<br>Set(x,y,z,w)|设置现有四元数的 x、y、z 和 w 分量。<br>SetFromToRotation(from,to)|设置成一个从 from 旋转到 to 的四元数<br>SetLookRotation(forward,upwards)|设置成轴与forward对齐，x轴与 forward 和 upwards 之间的差积的四元数<br>ToAngleAxis(axis,angle)设置成绕axis轴旋转angle角度的四元数</p>
+<li><h3 id="公共方法"><a href="#公共方法" class="headerlink" title="公共方法"></a>公共方法</h3><p>  公共方法|描述<br>  ——-|——-<br>  Set(x,y,z,w)|设置现有四元数的 x、y、z 和 w 分量。<br>  SetFromToRotation(from,to)|设置成一个从 from 旋转到 to 的四元数<br>  SetLookRotation(forward,upwards)|设置成轴与forward对齐，x轴与 forward 和 upwards 之间的差积的四元数<br>  ToAngleAxis(axis,angle)设置成绕axis轴旋转angle角度的四元数</p>
 </li>
 </ul>
 </li>

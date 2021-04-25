@@ -202,21 +202,20 @@
         
         <p>最近在项目中遇到的问题。</p>
 <p>已有以下两个类，一个<code>工厂类</code>负责根据泛型进行生产；一个<code>单例基类</code>。现在的需求是：继承单例基类来实现一个<code>工厂管理器（FactoryMgr）</code>。</p>
-<pre><code class="C#">//泛型工厂
+<pre><code class="lang-C#">//泛型工厂
 public class Factory&lt;T&gt;&#123;&#125;
 //单例
 public class Singleton&lt;T&gt; where T : new()
 &#123;
-    
+
     private static readonly Lazy&lt;T&gt; _instance = new Lazy&lt;T&gt;(() =&gt; new());
     public static T Instance &#123; get &#123; return _instance.Value; &#125; &#125;
     public static string type&#123; get =&gt; typeof(T).ToString(); &#125;
 &#125;
 </code></pre>
-</br>
-
+<p>&lt;/br&gt;</p>
 <p><code>FactoryMgr</code>中需要一个容器用于存储工厂，问题就在于这个容器。因为<code>Factory&lt;T&gt;</code>中T为任意类型，因此首先想到的是用<code>object</code>去装，如下</p>
-<pre><code class="C#">public class  FactoryMgr : Singleton&lt;FactoryMgr&gt;
+<pre><code class="lang-C#">public class  FactoryMgr : Singleton&lt;FactoryMgr&gt;
 &#123;
     //委托列表
     public List&lt;Factory&lt;object&gt;&gt; list = new();
@@ -228,10 +227,9 @@ public class Singleton&lt;T&gt; where T : new()
     &#125; 
 &#125;
 </code></pre>
-</br>
-
+<p>&lt;/br&gt;</p>
 <p>但用object必然避免不了装箱和拆箱带来的问题，因此想到了用泛型，但是由于<code>FactoryMgr</code>是非泛型单例，所以<code>List&lt;T&gt;</code>这种操作肯定是不行的。由此我想到了利用里氏替换原则，用一个接口<code>IPublicFactory</code>代替<code>object</code>，再用一个继承了<code>IPublicFactory</code>接口的<code>PublicFactory&lt;T&gt;</code>类去装<code>Factory&lt;T&gt;</code>就可以达到效果。代码如下：</p>
-<pre><code class="C#">public interface IPublicFactory &#123;&#125;
+<pre><code class="lang-C#">public interface IPublicFactory &#123;&#125;
 public class PublicFactory&lt;T&gt; : IPublicFactory
 &#123;
     public Factory&lt;T&gt; factory;

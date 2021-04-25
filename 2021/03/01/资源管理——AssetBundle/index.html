@@ -204,9 +204,9 @@
 <ul>
 <li><h2 id="AssetBundle常用的资源操作"><a href="#AssetBundle常用的资源操作" class="headerlink" title="AssetBundle常用的资源操作"></a>AssetBundle常用的资源操作</h2><ol>
 <li><h3 id="Asset打包"><a href="#Asset打包" class="headerlink" title="Asset打包"></a>Asset打包</h3><ul>
-<li><h3 id="通过脚本自定义编辑器打包工具"><a href="#通过脚本自定义编辑器打包工具" class="headerlink" title="通过脚本自定义编辑器打包工具"></a>通过脚本自定义编辑器打包工具</h3><pre><code class="C#">public class Build
+<li><h3 id="通过脚本自定义编辑器打包工具"><a href="#通过脚本自定义编辑器打包工具" class="headerlink" title="通过脚本自定义编辑器打包工具"></a>通过脚本自定义编辑器打包工具</h3><pre><code class="lang-C#">public class Build
   &#123;
-      
+
       [MenuItem(&quot;Publish/BuildAssetBundle&quot;)]
       public static void BuildBundle()
       &#123;
@@ -229,70 +229,7 @@
       &#125;
   &#125;
 </code></pre>
-<table>
-<thead>
-<tr>
-<th>打包选项BuildAssetBundleOptions</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>None</td>
-<td>无选项</td>
-</tr>
-<tr>
-<td>UncompressedAssetBundle</td>
-<td>打包assetBundle时，不压缩数据（意味着assetbundle会更大）</td>
-</tr>
-<tr>
-<td>CollectDependencies</td>
-<td>包括所有依赖关系</td>
-</tr>
-<tr>
-<td>CompleteAssets</td>
-<td>强制包含整个资源</td>
-</tr>
-<tr>
-<td>DisableWriteTypeTree</td>
-<td>在AssetBundle中不包含类型信息，发布web平台时，不能使用该项</td>
-</tr>
-<tr>
-<td>DeterministicAssetBundle</td>
-<td>使每个Object具有唯一不变的hash id，可用于增量式发布AssetBoundle</td>
-</tr>
-<tr>
-<td>ForceRebuildAssetBundle</td>
-<td>强制重新build所有的AssetBoundle</td>
-</tr>
-<tr>
-<td>IgnoreTypeTreeChanges</td>
-<td>执行增量检测时，忽略TypeTree的变化。</td>
-</tr>
-<tr>
-<td>AppendHashToAssetBundleName</td>
-<td>将hash加到AssetBoundle名中</td>
-</tr>
-<tr>
-<td>ChunkBasedCompression</td>
-<td>创建AssetBundle时使用LZ4压缩。默认情况是Lzma格式，下载AssetBoundle后立即解压。</td>
-</tr>
-<tr>
-<td>StrictMode</td>
-<td>如果生成过程中报告了任何错误，则不会build成功</td>
-</tr>
-<tr>
-<td>DryRunBuild</td>
-<td>运行时检查</td>
-</tr>
-<tr>
-<td>DisableLoadAssetByFileName</td>
-<td>资源包名禁用LoadAsset</td>
-</tr>
-<tr>
-<td>DisableLoadAssetByFileNameWithExtension</td>
-<td>资源包拓展名禁用LoadAsset</td>
-</tr>
-</tbody></table>
+<p>打包选项BuildAssetBundleOptions|描述<br>——-|——-<br>None|无选项<br>UncompressedAssetBundle|打包assetBundle时，不压缩数据（意味着assetbundle会更大）<br>CollectDependencies|包括所有依赖关系<br>CompleteAssets|强制包含整个资源<br>DisableWriteTypeTree|在AssetBundle中不包含类型信息，发布web平台时，不能使用该项<br>DeterministicAssetBundle|使每个Object具有唯一不变的hash id，可用于增量式发布AssetBoundle<br>ForceRebuildAssetBundle|强制重新build所有的AssetBoundle<br>IgnoreTypeTreeChanges|执行增量检测时，忽略TypeTree的变化。<br>AppendHashToAssetBundleName|将hash加到AssetBoundle名中<br>ChunkBasedCompression|创建AssetBundle时使用LZ4压缩。默认情况是Lzma格式，下载AssetBoundle后立即解压。<br>StrictMode|如果生成过程中报告了任何错误，则不会build成功<br>DryRunBuild|运行时检查<br>DisableLoadAssetByFileName|资源包名禁用LoadAsset<br>DisableLoadAssetByFileNameWithExtension|资源包拓展名禁用LoadAsset</p>
 <p>打包后生成的文件夹：</p>
 <p><img src="BundleFolder.png" alt="img" style="max-width:100%;" ></p>
 <p>发现生成了Bundle和test文件，其中<code>Bundle</code>是一个与目录名一致的自动生成的主包,其记录了AB包直接的依赖关系；而<code>test</code>才是真正打包出来的AB包。</p>
@@ -300,8 +237,7 @@
 <p>.manifest下所记录的信息：</p>
 <p><img src="BundleDetail.png" alt="img" style="max-width:100%;" ></p>
 <p>可以发现记录了上面所写的abb.assetNames和依赖关系，当然因为这个cube无依赖关系所有没有记录。</p>
-</br>
-</br>
+<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
 </li>
 <li><h3 id="官方提供的打包工具Asset-Bundle-Browser"><a href="#官方提供的打包工具Asset-Bundle-Browser" class="headerlink" title="官方提供的打包工具Asset Bundle Browser"></a>官方提供的打包工具Asset Bundle Browser</h3><p>首先需要在GitHub上下载<a target="_blank" rel="noopener" href="https://github.com/Unity-Technologies/AssetBundles-Browser">Asset Bundle Browser</a>到项目。</p>
 <p>导入成功后可以在unity<code>windows</code>菜单下看到<code>Asset Bundle Browser</code>选项。点击后则可以打开打包窗口<code>AssetBundles</code>，其中一共有三个页签<code>Configure</code>（配置）、<code>Build</code>（打包）、<code>Inspect</code>（检视）。</p>
@@ -336,109 +272,109 @@
 </ul>
 </li>
 <li><h3 id="资源加载"><a href="#资源加载" class="headerlink" title="资源加载"></a>资源加载</h3><p> 注意不能重复加载同一个AB包</p>
-<pre><code class="C#">
-//1.同步从本地文件加载（可以直接加载AB包）
-LoadFromFile(string path)
-&#123;
-    //加载 AB包
-    AssetBundle bundle = AssetBundle.LoadFromFile(path);
-    //加载 AB包 中的 资源
-    var obj = bundle.LoadAsset&lt;GameObject&gt;(&quot;MyObject&quot;);
-    Instantiate(obj);
-&#125;
+<pre><code class="lang-C#">
+ //1.同步从本地文件加载（可以直接加载AB包）
+ LoadFromFile(string path)
+ &#123;
+     //加载 AB包
+     AssetBundle bundle = AssetBundle.LoadFromFile(path);
+     //加载 AB包 中的 资源
+     var obj = bundle.LoadAsset&lt;GameObject&gt;(&quot;MyObject&quot;);
+     Instantiate(obj);
+ &#125;
 
-//2.异步从本地文件加载
-LoadFromFileAsync(string path)
-&#123;   
-    //创建一个 AB包请求 从 本地文件 中返回
-    AssetBundleCreateRequest request = AssetBundle.LoadFromFileAsync(path);
-    yield return request;
+ //2.异步从本地文件加载
+ LoadFromFileAsync(string path)
+ &#123;   
+     //创建一个 AB包请求 从 本地文件 中返回
+     AssetBundleCreateRequest request = AssetBundle.LoadFromFileAsync(path);
+     yield return request;
 
-    //从AB包创建请求中 加载 AB包
-    AssetBundle bundle = request.assetBundle;
+     //从AB包创建请求中 加载 AB包
+     AssetBundle bundle = request.assetBundle;
 
-    //异步加载 AB包 中的 资源
-    var obj = bundle.LoadAssetAsync&lt;GameObject&gt;(&quot;MyObject&quot;);
-    Instantiate(obj);
-&#125;
+     //异步加载 AB包 中的 资源
+     var obj = bundle.LoadAssetAsync&lt;GameObject&gt;(&quot;MyObject&quot;);
+     Instantiate(obj);
+ &#125;
 
-//3.异步从内存中加载
-IEnumerator LoadFromMemoryAsync(string path)
-&#123;
-    //创建一个 AB包请求 从 内存 中返回
-    AssetBundleCreateRequest request = AssetBundle.LoadFromMemoryAsync(File.ReadAllBytes(path));
-    yield return request;
+ //3.异步从内存中加载
+ IEnumerator LoadFromMemoryAsync(string path)
+ &#123;
+     //创建一个 AB包请求 从 内存 中返回
+     AssetBundleCreateRequest request = AssetBundle.LoadFromMemoryAsync(File.ReadAllBytes(path));
+     yield return request;
 
-    //从AB包创建请求中 加载 AB包
-    AssetBundle bundle = request.assetBundle;
+     //从AB包创建请求中 加载 AB包
+     AssetBundle bundle = request.assetBundle;
 
-    ////异步加载 AB 包中的 资源
-    var obj = bundle.LoadFromMemoryAsync&lt;GameObject&gt;(&quot;MyObject&quot;);
-    Instantiate(obj);
-&#125;
+     ////异步加载 AB 包中的 资源
+     var obj = bundle.LoadFromMemoryAsync&lt;GameObject&gt;(&quot;MyObject&quot;);
+     Instantiate(obj);
+ &#125;
 
-//4.异步从www中加载
-IEnumerator LoadFromWWWAsync(string path)
-&#123;
-    //获取一个 www
-    //从本地加载：path = @&quot;file:/E:AssetBundleProject\AssetBundleProject\AssetBundles&quot;;
-    //从服务器加载：@&quot;http://localhost/AssetBundles/test.unity3d&quot;;
-    WWW www = new WWW(path);
-    //或 WWW www = WWW.LoadFromCacheOrDownload(path)
-    yield return www;
+ //4.异步从www中加载
+ IEnumerator LoadFromWWWAsync(string path)
+ &#123;
+     //获取一个 www
+     //从本地加载：path = @&quot;file:/E:AssetBundleProject\AssetBundleProject\AssetBundles&quot;;
+     //从服务器加载：@&quot;http://localhost/AssetBundles/test.unity3d&quot;;
+     WWW www = new WWW(path);
+     //或 WWW www = WWW.LoadFromCacheOrDownload(path)
+     yield return www;
 
-    //从 www 中获取 AB 包
-    AssetBundle bundle = www.assetBundle;
+     //从 www 中获取 AB 包
+     AssetBundle bundle = www.assetBundle;
 
-    //异步加载 AB 包中的 资源
-    var prefab = bundle.LoadAssetAsync&lt;GameObject&gt;(&quot;MyObject&quot;);
-    Instance(obj)
-&#125;
+     //异步加载 AB 包中的 资源
+     var prefab = bundle.LoadAssetAsync&lt;GameObject&gt;(&quot;MyObject&quot;);
+     Instance(obj)
+ &#125;
 
-//5.异步从服务器下载
-IEnumerator LoadFromWebAsync(string path)
-&#123;
-    //等待一个服务器请求
-    UnityWebRequest request = UnityWebRequest.GetAssetBundle(path);
-    yield return request.Send();
+ //5.异步从服务器下载
+ IEnumerator LoadFromWebAsync(string path)
+ &#123;
+     //等待一个服务器请求
+     UnityWebRequest request = UnityWebRequest.GetAssetBundle(path);
+     yield return request.Send();
 
-    //从 AssetBundle 下载的句柄 中获取 request 中的内容（AB包）
-    AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
+     //从 AssetBundle 下载的句柄 中获取 request 中的内容（AB包）
+     AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
 
-    //异步加载 AB 包中的 资源
-    var obj = (GameObject) bundle.LoadAssetAsync(&quot;MyObject&quot;);
-    Instantiate(obj);
-&#125;
+     //异步加载 AB 包中的 资源
+     var obj = (GameObject) bundle.LoadAssetAsync(&quot;MyObject&quot;);
+     Instantiate(obj);
+ &#125;
 </code></pre>
 </li>
 <li><h3 id="资源卸载"><a href="#资源卸载" class="headerlink" title="资源卸载"></a>资源卸载</h3><p> public void Unload(bool unloadAllLoadedObjects);<br> AssetBundle.UnloadAllAssetBundles(bool unloadAllLoadedObjects);</p>
-<pre><code class="C#">ab.Unload(true);//将把所有与ab包关联的资源连同ab包一并卸载
-ab.Unload(false);//只卸载ab包，不卸载关联资源
+<pre><code class="lang-C#"> ab.Unload(true);//将把所有与ab包关联的资源连同ab包一并卸载
+ ab.Unload(false);//只卸载ab包，不卸载关联资源
 
-AssetBundle.UnloadAllAssetBundles(true);//卸载所有AB包，bool含义同上
+ AssetBundle.UnloadAllAssetBundles(true);//卸载所有AB包，bool含义同上
 </code></pre>
 </li>
 <li><h3 id="通过主包补全包的依赖信息"><a href="#通过主包补全包的依赖信息" class="headerlink" title="通过主包补全包的依赖信息"></a>通过主包补全包的依赖信息</h3><p> 若<code>依赖资源</code>（材质啥的）和<code>预制资源</code>不在同一个AssetBundle内，如果不同时加载这两种包则会出现资源丢失。可以通过主包中manifest获得某个包的依赖信息，并将其添加到包内。</p>
-<pre><code class="C#">//path 为 包所在文件夹路径
-//mainbundelname 为 主包名
-//bundlename 为 需要添加依赖的 包名
-public void AddDependenciesBundle(string path, string mainbundelname , string bundlename)
-&#123;
-    //加载 主包
-    AssetBundle bundleMain = AssetBundle.LoadFromFile(path+&quot;/&quot;+mainbundelname);
+<pre><code class="lang-C#"> //path 为 包所在文件夹路径
+ //mainbundelname 为 主包名
+ //bundlename 为 需要添加依赖的 包名
+ public void AddDependenciesBundle(string path, string mainbundelname , string bundlename)
+ &#123;
+     //加载 主包
+     AssetBundle bundleMain = AssetBundle.LoadFromFile(path+&quot;/&quot;+mainbundelname);
 
-    //获取 主包描述文件
-    AssetBundleManifest maninfest = bundleMain.LoadAsset&lt;AssetBundleManifest&gt;(&quot;AssetBundleManifest&quot;);
+     //获取 主包描述文件
+     AssetBundleManifest maninfest = bundleMain.LoadAsset&lt;AssetBundleManifest&gt;(&quot;AssetBundleManifest&quot;);
 
-    //获取 主包描述文件 中 所有依赖信息(一般是所依赖的包名)
-    string[] infos = maninfest.GetAllDependencies(bundlename);
+     //获取 主包描述文件 中 所有依赖信息(一般是所依赖的包名)
+     string[] infos = maninfest.GetAllDependencies(bundlename);
 
-    //遍历 依赖信息 加载 依赖包
-    foreach (var item in infos)
-    &#123;
-        AssetBundle.LoadFromFile(path + &quot;/&quot; + item);
-    &#125;
-&#125;
+     //遍历 依赖信息 加载 依赖包
+     foreach (var item in infos)
+     &#123;
+         AssetBundle.LoadFromFile(path + &quot;/&quot; + item);
+     &#125;
+ &#125;
 </code></pre>
 </li>
 </ol>

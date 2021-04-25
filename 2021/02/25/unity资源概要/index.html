@@ -214,13 +214,12 @@
 <li><h3 id="Asset的管理方式"><a href="#Asset的管理方式" class="headerlink" title="Asset的管理方式"></a>Asset的管理方式</h3><ul>
 <li><p><code>编辑器管理(AssetDatabase)</code>：</p>
 <p>只作为开发过程中在编辑器内加载和卸载资源，不能在发布时作为资源管理来使用，需要使用<code>UNITY_EDITOR</code>宏,否则会报错:</p>
-<pre><code class="C#">#if UNITY_EDITOR
+<pre><code class="lang-C#">#if UNITY_EDITOR
 using UnityEditor; //手机上没有UnityEditor文件
 #endif
 </code></pre>
 </li>
-<li><p><code>运行时管理(Resource或AssetBundle)</code>：</p>
-<ul>
+<li><code>运行时管理(Resource或AssetBundle)</code>：<ul>
 <li>Resource:<br>Project视图中任意名为“Resources”文件夹下的资源。</li>
 <li>AssetBundle:<br>一个保存在磁盘上的资源压缩包，包含模型、贴图、预制体、声音、场景等序列化文件和源文件.</li>
 </ul>
@@ -230,11 +229,9 @@ using UnityEditor; //手机上没有UnityEditor文件
 </ul>
 </li>
 </ul>
-</br>
-
+<p>&lt;/br&gt;</p>
 <hr>
-</br>
-
+<p>&lt;/br&gt;</p>
 <ul>
 <li><h2 id="meta-资源的引用"><a href="#meta-资源的引用" class="headerlink" title=".meta: 资源的引用"></a>.meta: 资源的引用</h2><p>  <img src="MetaFile.png" alt="alt" style="max-width:100%;" ></p>
 <p>  当从外部导入或创建资源时将自动生成一个.meta文件。</p>
@@ -243,21 +240,17 @@ using UnityEditor; //手机上没有UnityEditor文件
 <p>  在unity中引用一个游戏资源，并非是通过路径的方式，而是通过一个GUID来指向工程里的该资源文件。因此即使移动、重命名或修改资源内容，资源依旧可以通过GUID来引用。（注意，当资源内有多个子文件，unity将为子文件分配一个FileID来区分每个子文件，其中资源间的依赖关系通过GUID来确定，资源内部的依赖关系通过fileID来确定）</p>
 <p>  在导入资源时unity将会完成以下事情：</p>
 <ol>
-<li><p>分配ID：检测资源列表，并为其分配一个唯一ID</p>
-</li>
-<li><p>创建资源关联文件：创建.meta文件用于保存ID与资源的关联，而资源与资源间（GameObject与脚本）的关系会被保存在场景文件.unity文件中</p>
-</li>
+<li>分配ID：检测资源列表，并为其分配一个唯一ID</li>
+<li>创建资源关联文件：创建.meta文件用于保存ID与资源的关联，而资源与资源间（GameObject与脚本）的关系会被保存在场景文件.unity文件中</li>
 <li><p>打包数据：将资源数据打包成unity运行时能识别的数据，unity将在内部维护一个缓存表，将GUID和fileID转换整数，即实例ID（InstanceID）</p>
 <p>在unity运行时（不是游戏运行时）将根据实例ID所缓存的所有对象（包括Resource文件夹下的）一起被初始化，只有当实例ID失效（比如卸载AssetBundle）时才会从缓存中移出。</p>
 </li>
 </ol>
 </li>
 </ul>
-</br>
-
+<p>&lt;/br&gt;</p>
 <hr>
-</br>
-
+<p>&lt;/br&gt;</p>
 <ul>
 <li><h2 id="unity-场景中资源间的关系："><a href="#unity-场景中资源间的关系：" class="headerlink" title=".unity: 场景中资源间的关系："></a>.unity: 场景中资源间的关系：</h2><p>  利用unity制作游戏本质上就是在一个运行中的软件中制作游戏，而运行中的软件之所以能读取到创建了哪些对象信息是因为引擎对场景的配置文件进行了读取。 当在Inspector面板上拖拽脚本和资源，会被.unity文件视为引用。因此.unity文件保存了场景中资源与资源之间的关系。</p>
 <p>  <img src="ScenesFile.png" alt="alt" style="max-width:100%;" ></p>

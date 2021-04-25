@@ -221,7 +221,7 @@
 <li><p>PopMatrix<br>  将栈顶的矩阵推出，此时原来第二层的的矩阵变成了栈顶矩阵，这就相当于恢复了之前保存的矩阵</p>
 <p>这里之所以要用栈顶操作是因为有可能一些操作可能会改变Camera的参数（比如用了LoadPixeMatrix()方法），所以需要将之前的状态保存下来。</p>
 <p>举个画矩形的栗子</p>
-<pre><code class="C#">public GLTest : MonoBehaviour
+<pre><code class="lang-C#">public GLTest : MonoBehaviour
 &#123;
   //绘制时需要使用的材质
   public Material drawMat;
@@ -229,7 +229,7 @@
   private Vector3 mouseStartPos;
   private Vector3 mouseMovePos;
   private bool isDraw = false;
-  
+
   void Update()
   &#123;
       if(Input.GetMouseButtonDown(0))
@@ -258,7 +258,7 @@
 
               //设置以绘图模式为正交（2D用）
               GL.LoadOrtho();
-              
+
               //矩形的四个顶点
               Vector3 left_top = mouseStartPos;
               Vector3 left_bottom = new Vector3(mouseStartPos.x, mouseMovePos.y);
@@ -272,7 +272,7 @@
 
               //画矩形
               GL.Begin(GL.LINES);
-          
+
                   GL.Color(Color.red);
                   //左
                   GL.Vertex(left_top);
@@ -311,179 +311,17 @@
 <li><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
 <li><h3 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h3><ul>
 <li><p>Begin模式</p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>LINE_STRIP</td>
-<td>连续绘制直线（三个顶点两条直线）</td>
-</tr>
-<tr>
-<td>LINES</td>
-<td>以两两顶点绘制直线（四个顶点两条直线）</td>
-</tr>
-<tr>
-<td>QUADS</td>
-<td>以四个顶点绘制一个四边形</td>
-</tr>
-<tr>
-<td>TRIANGLES</td>
-<td>以三个顶点绘制一个三角形</td>
-</tr>
-<tr>
-<td>TRIANGLE_STRIP</td>
-<td>连续绘制三角形</td>
-</tr>
-</tbody></table>
+<p>变量|描述<br>——-|——-<br>LINE_STRIP|连续绘制直线（三个顶点两条直线）<br>LINES|以两两顶点绘制直线（四个顶点两条直线）<br>QUADS|以四个顶点绘制一个四边形<br>TRIANGLES|以三个顶点绘制一个三角形<br>TRIANGLE_STRIP|连续绘制三角形</p>
 </li>
 <li><p>其他变量</p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>invertCulling</td>
-<td>选择是 (true) 否 (false) 反转背面剔除</td>
-</tr>
-<tr>
-<td>modelview</td>
-<td>获取或设置 modelview 矩阵</td>
-</tr>
-<tr>
-<td>sRGBWrite</td>
-<td>控制是否在进行渲染时执行从线性到 sRGB 的颜色转换</td>
-</tr>
-<tr>
-<td>wireframe</td>
-<td>是否应在线框中进行渲染</td>
-</tr>
-</tbody></table>
+<p>变量|描述<br>——-|——-<br>invertCulling|选择是 (true) 否 (false) 反转背面剔除<br>modelview|获取或设置 modelview 矩阵<br>sRGBWrite|控制是否在进行渲染时执行从线性到 sRGB 的颜色转换<br>wireframe|是否应在线框中进行渲染</p>
 </li>
 </ul>
 </li>
 <li><h3 id="静态函数"><a href="#静态函数" class="headerlink" title="静态函数"></a>静态函数</h3></li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Begin</td>
-<td>开始绘制 3D 图元</td>
-</tr>
-<tr>
-<td>End</td>
-<td>结束绘制 3D 图元</td>
-</tr>
-<tr>
-<td>PopMatrix</td>
-<td>从矩阵堆栈顶部恢复模型、视图和投影矩阵</td>
-</tr>
-<tr>
-<td>PushMatrix</td>
-<td>将模型、视图和投影矩阵保存到矩阵堆栈顶部</td>
-</tr>
-<tr>
-<td>Vertex</td>
-<td>提交一个顶点</td>
-</tr>
-<tr>
-<td>Vertex3</td>
-<td>提交一个顶点，范围是左下角的(0,0,0)到右上角的(1,1,0）</td>
-</tr>
-<tr>
-<td>Clear</td>
-<td>清除当前渲染缓冲区</td>
-</tr>
-<tr>
-<td>ClearWithSkybox</td>
-<td>使用摄像机的天空盒清除当前渲染缓冲区</td>
-</tr>
-<tr>
-<td>Color</td>
-<td>设置当前顶点颜色</td>
-</tr>
-<tr>
-<td>Flush</td>
-<td>将驱动程序命令缓冲区中排队等待的命令发送到 GPU</td>
-</tr>
-<tr>
-<td>GetGPUProjectionMatrix</td>
-<td>从摄像机的投影矩阵计算 GPU 投影矩阵</td>
-</tr>
-<tr>
-<td>InvalidateState</td>
-<td>使内部缓存的渲染状态无效</td>
-</tr>
-<tr>
-<td>IssuePluginEvent</td>
-<td>向本机代码插件发送用户定义的事件</td>
-</tr>
-<tr>
-<td>LoadIdentity</td>
-<td>将标识加载到当前的模型和视图矩阵中</td>
-</tr>
-<tr>
-<td>LoadOrtho</td>
-<td>Helper 函数，用于设置正交投影</td>
-</tr>
-<tr>
-<td>LoadPixelMatrix</td>
-<td>设置一个用于像素校正渲染的矩阵,</td>
-</tr>
-<tr>
-<td>LoadProjectionMatrix</td>
-<td>将任意矩阵加载到当前投影矩阵。</td>
-</tr>
-<tr>
-<td>MultiTexCoord</td>
-<td>对实际纹理 unit 设置当前纹理坐标 (v.x,v.y,v.z)</td>
-</tr>
-<tr>
-<td>MultiTexCoord2</td>
-<td>为实际纹理 unit 设置当前纹理坐标 (x,y)</td>
-</tr>
-<tr>
-<td>MultiTexCoord3</td>
-<td>对实际纹理 unit 设置当前纹理坐标 (x,y,z)</td>
-</tr>
-<tr>
-<td>MultMatrix</td>
-<td>将当前模型矩阵设置为指定的矩阵</td>
-</tr>
-<tr>
-<td>RenderTargetBarrier</td>
-<td>解析渲染目标，以便用于从该目标进行采样的后续运算</td>
-</tr>
-<tr>
-<td>TexCoord</td>
-<td>为所有纹理单位均设置当前纹理坐标 (v.x,v.y,v.z)</td>
-</tr>
-<tr>
-<td>TexCoord2</td>
-<td>为所有纹理单位均设置当前纹理坐标 (x,y)</td>
-</tr>
-<tr>
-<td>TexCoord3</td>
-<td>为所有纹理单位均设置当前纹理坐标 (x,y,z)</td>
-</tr>
-<tr>
-<td>Viewport</td>
-<td>设置渲染视口</td>
-</tr>
-</tbody></table>
-  </br>
-
+<p>函数|描述<br>——|——<br>Begin|开始绘制 3D 图元<br>End|结束绘制 3D 图元<br>PopMatrix|从矩阵堆栈顶部恢复模型、视图和投影矩阵<br>PushMatrix|将模型、视图和投影矩阵保存到矩阵堆栈顶部<br>Vertex|提交一个顶点<br>Vertex3|提交一个顶点，范围是左下角的(0,0,0)到右上角的(1,1,0）<br>Clear|清除当前渲染缓冲区<br>ClearWithSkybox|使用摄像机的天空盒清除当前渲染缓冲区<br>Color|设置当前顶点颜色<br>Flush|将驱动程序命令缓冲区中排队等待的命令发送到 GPU<br>GetGPUProjectionMatrix|从摄像机的投影矩阵计算 GPU 投影矩阵<br>InvalidateState|使内部缓存的渲染状态无效<br>IssuePluginEvent|向本机代码插件发送用户定义的事件<br>LoadIdentity|将标识加载到当前的模型和视图矩阵中<br>LoadOrtho|Helper 函数，用于设置正交投影<br>LoadPixelMatrix|设置一个用于像素校正渲染的矩阵,<br>LoadProjectionMatrix|将任意矩阵加载到当前投影矩阵。<br>MultiTexCoord|对实际纹理 unit 设置当前纹理坐标 (v.x,v.y,v.z)<br>MultiTexCoord2|为实际纹理 unit 设置当前纹理坐标 (x,y)<br>MultiTexCoord3|对实际纹理 unit 设置当前纹理坐标 (x,y,z)<br>MultMatrix|将当前模型矩阵设置为指定的矩阵<br>RenderTargetBarrier|解析渲染目标，以便用于从该目标进行采样的后续运算<br>TexCoord|为所有纹理单位均设置当前纹理坐标 (v.x,v.y,v.z)<br>TexCoord2|为所有纹理单位均设置当前纹理坐标 (x,y)<br>TexCoord3|为所有纹理单位均设置当前纹理坐标 (x,y,z)<br>Viewport|设置渲染视口</p>
+<p>  &lt;/br&gt;</p>
 <p>  关于<code>GL.LoadPixeMatrix()</code>和<code>GL.GL.LoadOrtho()</code>：</p>
 <ul>
 <li><p>GL.LoadPixeMatrix()：</p>

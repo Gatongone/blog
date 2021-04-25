@@ -228,262 +228,262 @@
 <hr>
 <h2 id="关键类"><a href="#关键类" class="headerlink" title="关键类"></a>关键类</h2><ul>
 <li><h3 id="MonoBehaviour"><a href="#MonoBehaviour" class="headerlink" title="MonoBehaviour"></a>MonoBehaviour</h3><p>  为子类提供生命周期函数，需要通知gameobject哪些脚本被启用或销毁了，以此通知MainMono禁用或启用该脚本的生命周期函数</p>
-<pre><code class="C#">public class MonoBehaviour
-&#123;
-    public bool IsEnabled = true;
-    public GameObject gameobject;
-    public virtual void Awake()&#123;&#125;
-    public virtual void Start()&#123;&#125;
-    public virtual void Update()&#123;&#125;
-    public virtual void OnEnable()&#123;&#125;
-    public virtual void OnDisable()&#123;&#125;
-    public virtual void OnDestroy()&#123;&#125;
+<pre><code class="lang-C#">  public class MonoBehaviour
+  &#123;
+      public bool IsEnabled = true;
+      public GameObject gameobject;
+      public virtual void Awake()&#123;&#125;
+      public virtual void Start()&#123;&#125;
+      public virtual void Update()&#123;&#125;
+      public virtual void OnEnable()&#123;&#125;
+      public virtual void OnDisable()&#123;&#125;
+      public virtual void OnDestroy()&#123;&#125;
 
-    //销毁脚本
-    public void Destroy()
-    &#123;
-        OnDestroy();
-        this.gameobject.DestroyComponent(this);
-    &#125;
-    //不启用脚本
-    public void  Disable()
-    &#123;
-        OnDisable();
-        this.gameobject.DisableComponent(this);
-    &#125;
-    //启用脚本
-    public void  Enable()
-    &#123;
-        OnEnable();
-        this.gameobject.EnableComponent(this);
-    &#125;
-&#125;
+      //销毁脚本
+      public void Destroy()
+      &#123;
+          OnDestroy();
+          this.gameobject.DestroyComponent(this);
+      &#125;
+      //不启用脚本
+      public void  Disable()
+      &#123;
+          OnDisable();
+          this.gameobject.DisableComponent(this);
+      &#125;
+      //启用脚本
+      public void  Enable()
+      &#123;
+          OnEnable();
+          this.gameobject.EnableComponent(this);
+      &#125;
+  &#125;
 </code></pre>
 </li>
 <li><h3 id="MainMono"><a href="#MainMono" class="headerlink" title="MainMono"></a>MainMono</h3><p>  通过单例委托接收MainMono发过来的脚本生命周期函数</p>
-<pre><code class="C#">public class MainMono
-&#123;
-    public static readonly Lazy&lt;MainMono&gt; instance = new Lazy&lt;MainMono&gt;(() =&gt; new MainMono());
-    public static MainMono Instance &#123; get =&gt; instance.Value; &#125;
+<pre><code class="lang-C#">  public class MainMono
+  &#123;
+      public static readonly Lazy&lt;MainMono&gt; instance = new Lazy&lt;MainMono&gt;(() =&gt; new MainMono());
+      public static MainMono Instance &#123; get =&gt; instance.Value; &#125;
 
-    public Action Awake;
-    public Action OnEnable;
-    public Action Start;
-    public Action Update;
+      public Action Awake;
+      public Action OnEnable;
+      public Action Start;
+      public Action Update;
 
-    //模拟游戏开始
-    public void GameStart()
-    &#123;
-         Console.WriteLine(&quot;游戏开始！&quot;);
+      //模拟游戏开始
+      public void GameStart()
+      &#123;
+           Console.WriteLine(&quot;游戏开始！&quot;);
 
-        if(Awake!=null)
-            Awake.Invoke();
-        if(OnEnable!=null)
-            OnEnable.Invoke();
-        if(Start!=null)
-            Start.Invoke();
-        
-        while (true)
-        &#123;
-            if(Update!=null)
-                Update.Invoke();
+          if(Awake!=null)
+              Awake.Invoke();
+          if(OnEnable!=null)
+              OnEnable.Invoke();
+          if(Start!=null)
+              Start.Invoke();
 
-            Thread.Sleep(1000);
-        &#125;
-    &#125;
-&#125;
+          while (true)
+          &#123;
+              if(Update!=null)
+                  Update.Invoke();
+
+              Thread.Sleep(1000);
+          &#125;
+      &#125;
+  &#125;
 </code></pre>
 </li>
 <li><h3 id="GameObject"><a href="#GameObject" class="headerlink" title="GameObject"></a>GameObject</h3><p>  以列表存储mono脚本，通过可变长参数在初始化时将脚本加入列表并发布给MainMono</p>
-<pre><code class="C#">public class GameObject
-&#123;
-    public string Name;
+<pre><code class="lang-C#">  public class GameObject
+  &#123;
+      public string Name;
 
-    private List&lt;MonoBehaviour&gt; componentlist = new List&lt;MonoBehaviour&gt;();
+      private List&lt;MonoBehaviour&gt; componentlist = new List&lt;MonoBehaviour&gt;();
 
-    public Action OnDestroy;
-    public Action OnDisable;
+      public Action OnDestroy;
+      public Action OnDisable;
 
-    public GameObject(params MonoBehaviour[] args)
-    &#123;
-        foreach (var component in args)
-        &#123;
-            //加入组件列表
-            componentlist.Add(component);
+      public GameObject(params MonoBehaviour[] args)
+      &#123;
+          foreach (var component in args)
+          &#123;
+              //加入组件列表
+              componentlist.Add(component);
 
-            //设置gameobjct
-            component.gameobject = this;
+              //设置gameobjct
+              component.gameobject = this;
 
-            //初始化到主Mono
-            MainMono.Instance.Awake += component.Awake;
-            MainMono.Instance.OnEnable += component.OnEnable;
-            MainMono.Instance.Start += component.Start;
-            MainMono.Instance.Update += component.Update;
-            this.OnDestroy += component.OnDestroy;
+              //初始化到主Mono
+              MainMono.Instance.Awake += component.Awake;
+              MainMono.Instance.OnEnable += component.OnEnable;
+              MainMono.Instance.Start += component.Start;
+              MainMono.Instance.Update += component.Update;
+              this.OnDestroy += component.OnDestroy;
 
-            //如果不启用则不加入
-            if (!component.IsEnabled)
-            &#123;
-                MainMono.Instance.OnEnable -= component.OnEnable;
-                MainMono.Instance.Start -= component.Start;
-                MainMono.Instance.Update -= component.Update;
-            &#125;
-        &#125;
-    &#125;
-    //添加脚本
-    public void AddComponent&lt;T&gt;(T component)where T : MonoBehaviour
-    &#123;
-        componentlist.Add(component);
-        component.gameobject = this;
+              //如果不启用则不加入
+              if (!component.IsEnabled)
+              &#123;
+                  MainMono.Instance.OnEnable -= component.OnEnable;
+                  MainMono.Instance.Start -= component.Start;
+                  MainMono.Instance.Update -= component.Update;
+              &#125;
+          &#125;
+      &#125;
+      //添加脚本
+      public void AddComponent&lt;T&gt;(T component)where T : MonoBehaviour
+      &#123;
+          componentlist.Add(component);
+          component.gameobject = this;
 
-        //初始化到主Mono
-        MainMono.Instance.Awake += component.Awake;
-        MainMono.Instance.OnEnable += component.OnEnable;
-        MainMono.Instance.Start += component.Start;
-        MainMono.Instance.Update += component.Update;
-        this.OnDestroy += component.OnDestroy;
-        //如果不启用则不加入
-        if (!component.IsEnabled)
-        &#123;
-            MainMono.Instance.OnEnable -= component.OnEnable;
-            MainMono.Instance.Start -= component.Start;
-            MainMono.Instance.Update -= component.Update;
-        &#125;
-    &#125;
-    //获取脚本
-    public T GetComponent&lt;T&gt;()where T : MonoBehaviour
-    &#123;
-       foreach (var item in componentlist)
-       &#123;
-           if(item is T)
-                return item as T;
-       &#125;
-        return null;
-    &#125;
-    //移除脚本
-    public void DestroyComponent(MonoBehaviour component)
-    &#123;            
-        //---------
-        //移除逻辑
-        //---------
-        componentlist.Remove(component);
+          //初始化到主Mono
+          MainMono.Instance.Awake += component.Awake;
+          MainMono.Instance.OnEnable += component.OnEnable;
+          MainMono.Instance.Start += component.Start;
+          MainMono.Instance.Update += component.Update;
+          this.OnDestroy += component.OnDestroy;
+          //如果不启用则不加入
+          if (!component.IsEnabled)
+          &#123;
+              MainMono.Instance.OnEnable -= component.OnEnable;
+              MainMono.Instance.Start -= component.Start;
+              MainMono.Instance.Update -= component.Update;
+          &#125;
+      &#125;
+      //获取脚本
+      public T GetComponent&lt;T&gt;()where T : MonoBehaviour
+      &#123;
+         foreach (var item in componentlist)
+         &#123;
+             if(item is T)
+                  return item as T;
+         &#125;
+          return null;
+      &#125;
+      //移除脚本
+      public void DestroyComponent(MonoBehaviour component)
+      &#123;            
+          //---------
+          //移除逻辑
+          //---------
+          componentlist.Remove(component);
 
-        MainMono.Instance.Awake -= component.Awake;
-        MainMono.Instance.OnEnable -= component.OnEnable;
-        MainMono.Instance.Start -= component.Start;
-        MainMono.Instance.Update -= component.Update;
-        this.OnDestroy -= component.OnDestroy;
-    &#125;
-    //禁用脚本
-    public void DisableComponent(MonoBehaviour component)
-    &#123;
-        MainMono.Instance.OnEnable -= component.OnEnable;
-        MainMono.Instance.Start -= component.Start;
-        MainMono.Instance.Update -= component.Update;
-    &#125;
-    //启用脚本
-    public void EnableComponent(MonoBehaviour component)
-    &#123;
-        MainMono.Instance.OnEnable += component.OnEnable;
-        MainMono.Instance.Start += component.Start;
-        MainMono.Instance.Update += component.Update;
-    &#125;
-&#125;
+          MainMono.Instance.Awake -= component.Awake;
+          MainMono.Instance.OnEnable -= component.OnEnable;
+          MainMono.Instance.Start -= component.Start;
+          MainMono.Instance.Update -= component.Update;
+          this.OnDestroy -= component.OnDestroy;
+      &#125;
+      //禁用脚本
+      public void DisableComponent(MonoBehaviour component)
+      &#123;
+          MainMono.Instance.OnEnable -= component.OnEnable;
+          MainMono.Instance.Start -= component.Start;
+          MainMono.Instance.Update -= component.Update;
+      &#125;
+      //启用脚本
+      public void EnableComponent(MonoBehaviour component)
+      &#123;
+          MainMono.Instance.OnEnable += component.OnEnable;
+          MainMono.Instance.Start += component.Start;
+          MainMono.Instance.Update += component.Update;
+      &#125;
+  &#125;
 </code></pre>
 </li>
 </ul>
 <hr>
 <ul>
-<li><h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h2><pre><code class="C#">//脚本1
-public class LogComponent_1:MonoBehaviour
-&#123;
-    int i = 1;
-    public override void Awake()=&gt;Console.WriteLine(&quot;Logger1 Awake&quot;);
-    public override void Start()=&gt; Console.WriteLine(&quot;Logger1 Start&quot;);
-    public override void Update()
-    &#123;
-       Console.WriteLine(&quot;Logger1 Update&quot;);
-       
-        if (i==3)
-        &#123;
-            //模拟3帧后执行启用脚本2
-            this.gameobject.GetComponent&lt;LogComponent_2&gt;().Enable();
-            this.Destroy();
-        &#125;
-        i++;     
-    &#125;
-    public override void OnEnable()=&gt;Console.WriteLine(&quot;Logger1 Enable&quot;);
-    public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger1 Disable&quot;);
-    public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger1 Destroy&quot;);
-&#125;
+<li><h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h2><pre><code class="lang-C#">  //脚本1
+  public class LogComponent_1:MonoBehaviour
+  &#123;
+      int i = 1;
+      public override void Awake()=&gt;Console.WriteLine(&quot;Logger1 Awake&quot;);
+      public override void Start()=&gt; Console.WriteLine(&quot;Logger1 Start&quot;);
+      public override void Update()
+      &#123;
+         Console.WriteLine(&quot;Logger1 Update&quot;);
 
-//脚本2
-public class LogComponent_2:MonoBehaviour
-&#123;
-    int i = 1;
-    public override void Awake()
-    &#123;
-        //模拟脚本2在Awake时禁用
-        Console.WriteLine(&quot;Logger2 Awake&quot;);
-        this.Disable();
-    &#125;
-    public override void Start()=&gt; Console.WriteLine(&quot;Logger2 Start&quot;);
-    public override void Update()
-    &#123;
-       Console.WriteLine(&quot;Logger2 Update&quot;);
-        //模拟4帧后禁用，并动态地开启一个脚本3
-        if (i==4)
-        &#123;
-            this.gameobject.AddComponent&lt;LogComponent_3&gt;(new LogComponent_3());
-            this.Disable();
-        &#125;
-        i++;
-    &#125;
-    public override void OnEnable()=&gt;Console.WriteLine(&quot;Logger2 Enable&quot;);
-    public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger2 Disable&quot;);
-    public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger2 Destroy&quot;);
-&#125;
+          if (i==3)
+          &#123;
+              //模拟3帧后执行启用脚本2
+              this.gameobject.GetComponent&lt;LogComponent_2&gt;().Enable();
+              this.Destroy();
+          &#125;
+          i++;     
+      &#125;
+      public override void OnEnable()=&gt;Console.WriteLine(&quot;Logger1 Enable&quot;);
+      public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger1 Disable&quot;);
+      public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger1 Destroy&quot;);
+  &#125;
 
-//脚本3
- public class LogComponent_3:MonoBehaviour
-&#123;
-    int i = 1;
-    public override void Awake()
-    &#123;
-        Console.WriteLine(&quot;Logger3 Awake&quot;);
-        this.Disable();
-    &#125;
-    public override void Start()=&gt; Console.WriteLine(&quot;Logger3 Start&quot;);
-    public override void Update()
-    &#123;
-       Console.WriteLine(&quot;Logger3 Update&quot;);
-        //模拟8帧后禁用
-        if (i==2)
-        &#123;
-            this.Disable();
-        &#125;
-        i++;
-    &#125;
-    public override void OnEnable()=&gt;Console.WriteLine(&quot;Logger3 Enable&quot;);
-    public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger3 Disable&quot;);
-    public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger3 Destroy&quot;);
-&#125;
+  //脚本2
+  public class LogComponent_2:MonoBehaviour
+  &#123;
+      int i = 1;
+      public override void Awake()
+      &#123;
+          //模拟脚本2在Awake时禁用
+          Console.WriteLine(&quot;Logger2 Awake&quot;);
+          this.Disable();
+      &#125;
+      public override void Start()=&gt; Console.WriteLine(&quot;Logger2 Start&quot;);
+      public override void Update()
+      &#123;
+         Console.WriteLine(&quot;Logger2 Update&quot;);
+          //模拟4帧后禁用，并动态地开启一个脚本3
+          if (i==4)
+          &#123;
+              this.gameobject.AddComponent&lt;LogComponent_3&gt;(new LogComponent_3());
+              this.Disable();
+          &#125;
+          i++;
+      &#125;
+      public override void OnEnable()=&gt;Console.WriteLine(&quot;Logger2 Enable&quot;);
+      public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger2 Disable&quot;);
+      public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger2 Destroy&quot;);
+  &#125;
+
+  //脚本3
+   public class LogComponent_3:MonoBehaviour
+  &#123;
+      int i = 1;
+      public override void Awake()
+      &#123;
+          Console.WriteLine(&quot;Logger3 Awake&quot;);
+          this.Disable();
+      &#125;
+      public override void Start()=&gt; Console.WriteLine(&quot;Logger3 Start&quot;);
+      public override void Update()
+      &#123;
+         Console.WriteLine(&quot;Logger3 Update&quot;);
+          //模拟8帧后禁用
+          if (i==2)
+          &#123;
+              this.Disable();
+          &#125;
+          i++;
+      &#125;
+      public override void OnEnable()=&gt;Console.WriteLine(&quot;Logger3 Enable&quot;);
+      public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger3 Disable&quot;);
+      public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger3 Destroy&quot;);
+  &#125;
 </code></pre>
 <p>  主函数</p>
-<pre><code class="C#">public class MainTest//main调试
-&#123;
-    public static void Main(string[] args)
-    &#123;
-        //模拟拖拽脚本到场景中的gameobject上
-        GameObject gameobject = new GameObject(new LogComponent_1(),new LogComponent_2());
+<pre><code class="lang-C#">  public class MainTest//main调试
+  &#123;
+      public static void Main(string[] args)
+      &#123;
+          //模拟拖拽脚本到场景中的gameobject上
+          GameObject gameobject = new GameObject(new LogComponent_1(),new LogComponent_2());
 
-        gameobject.Name=&quot;Cube&quot;;
-        Console.WriteLine($&quot;创建了一个GameObject对象：&#123;gameobject.Name&#125;&quot;);
+          gameobject.Name=&quot;Cube&quot;;
+          Console.WriteLine($&quot;创建了一个GameObject对象：&#123;gameobject.Name&#125;&quot;);
 
-        //开始游戏！
-        MainMono.Instance.GameStart();
-    &#125;
-&#125;
+          //开始游戏！
+          MainMono.Instance.GameStart();
+      &#125;
+  &#125;
 </code></pre>
 </li>
 </ul>

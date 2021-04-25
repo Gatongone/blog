@@ -203,11 +203,10 @@
         <p>XML(Extensible Markup Language)即可拓展标记语言，作为互联网传输工具，无关于开发平台，可以实现不同系统之间的数据交互。(Extensible Markup Language)</p>
 <ul>
 <li><h2 id="相关操作"><a href="#相关操作" class="headerlink" title="相关操作"></a>相关操作</h2><ul>
-<li><h3 id="加载xml文件"><a href="#加载xml文件" class="headerlink" title="加载xml文件"></a>加载xml文件</h3><p>  一般有三种方法：</p>
-<ul>
+<li><h3 id="加载xml文件"><a href="#加载xml文件" class="headerlink" title="加载xml文件"></a>加载xml文件</h3>  一般有三种方法：<ul>
 <li>XmlDocument：把数据加载到内存中进行读取</li>
 <li>XmlTextReader：通过流形式读取，能减少内存占用，但是是单向只读的</li>
-<li>LINQ to XML：一种启用了 LINQ 的内存 XML 编程接口<pre><code class="C#">//使用XmlDocument加载
+<li>LINQ to XML：一种启用了 LINQ 的内存 XML 编程接口<pre><code class="lang-C#">//使用XmlDocument加载
 XmlDocument xml = new XmlDocument();
 //方法一：根据xml文件名，通过加载文本文件再翻译成xml对象
 TextAsset asset = Resources.Load&lt;TextAsset&gt;(&quot;TextXml.xml&quot;);
@@ -218,113 +217,113 @@ xml.Load(Application.persistentDataPath + &quot;TextXml.xml&quot; );
 </li>
 </ul>
 </li>
-<li><h3 id="读取xml信息"><a href="#读取xml信息" class="headerlink" title="读取xml信息"></a>读取xml信息</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;Root&gt;
-    &lt;name&gt;关东关&lt;/name&gt;
-    &lt;item id=&quot;1&quot; num=&quot;20&quot;/&gt;
-    &lt;list&gt;
-        &lt;name&gt;小明&lt;/name&gt;
-        &lt;age&gt;18&lt;/age&gt;
-    &lt;/list&gt;
-    &lt;list&gt;
-        &lt;name&gt;小红&lt;/name&gt;
-        &lt;age&gt;17&lt;/age&gt;
-    &lt;/list&gt;
-&lt;/Root&gt;
+<li><h3 id="读取xml信息"><a href="#读取xml信息" class="headerlink" title="读取xml信息"></a>读取xml信息</h3><pre><code class="lang-xml">  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;Root&gt;
+      &lt;name&gt;关东关&lt;/name&gt;
+      &lt;item id=&quot;1&quot; num=&quot;20&quot;/&gt;
+      &lt;list&gt;
+          &lt;name&gt;小明&lt;/name&gt;
+          &lt;age&gt;18&lt;/age&gt;
+      &lt;/list&gt;
+      &lt;list&gt;
+          &lt;name&gt;小红&lt;/name&gt;
+          &lt;age&gt;17&lt;/age&gt;
+      &lt;/list&gt;
+  &lt;/Root&gt;
 </code></pre>
-<pre><code class="C#">//获取节点中的信息：
-//获取根节点
-XmlNode root = xml.SelectSingleNode(&quot;Root&quot;);
-//再获取子节点
-xmlNode nodeName = root.SelectSingleNode(&quot;name&quot;);
-//获取子节点中的信息
-string name = nodeName.InnerText as string;
+<pre><code class="lang-C#">  //获取节点中的信息：
+  //获取根节点
+  XmlNode root = xml.SelectSingleNode(&quot;Root&quot;);
+  //再获取子节点
+  xmlNode nodeName = root.SelectSingleNode(&quot;name&quot;);
+  //获取子节点中的信息
+  string name = nodeName.InnerText as string;
 
-//获取结点中属性的信息：
-xmlNode nodeItem = root.SelectSingleNode(&quot;item&quot;);
-//获取属性
-//方法一：
-string id = nodeItem.Attributes[&quot;id&quot;].Value as string;
-int num = int.Parse(nodeItem.Attributes[&quot;num&quot;].Value);
-//方法二：
-id = nodeItem.Attributes.GetNamedItem(&quot;id&quot;).Value as string;
-num = int.Parse(nodeItem.Attributes.GetNamedItem(&quot;num&quot;).Value);
+  //获取结点中属性的信息：
+  xmlNode nodeItem = root.SelectSingleNode(&quot;item&quot;);
+  //获取属性
+  //方法一：
+  string id = nodeItem.Attributes[&quot;id&quot;].Value as string;
+  int num = int.Parse(nodeItem.Attributes[&quot;num&quot;].Value);
+  //方法二：
+  id = nodeItem.Attributes.GetNamedItem(&quot;id&quot;).Value as string;
+  num = int.Parse(nodeItem.Attributes.GetNamedItem(&quot;num&quot;).Value);
 
-//获取某结点下的所有同名结点
-XmlNodeList list = root.SelectNodes(&quot;list&quot;);
-//遍历获取信息
-foreach (XmlNode item in list)
-&#123;
-    Debug.Log(item.SelectSingleNode(&quot;name&quot;).InnerText);
-    Debug.Log(item.SelectSingleNode(&quot;age&quot;).InnerText);   
-&#125;
+  //获取某结点下的所有同名结点
+  XmlNodeList list = root.SelectNodes(&quot;list&quot;);
+  //遍历获取信息
+  foreach (XmlNode item in list)
+  &#123;
+      Debug.Log(item.SelectSingleNode(&quot;name&quot;).InnerText);
+      Debug.Log(item.SelectSingleNode(&quot;age&quot;).InnerText);   
+  &#125;
 </code></pre>
 </li>
-<li><h3 id="存储xml文件"><a href="#存储xml文件" class="headerlink" title="存储xml文件"></a>存储xml文件</h3><pre><code class="C#">//1.创建xml文档
-XmlDocument xml = new XmlDocument();
+<li><h3 id="存储xml文件"><a href="#存储xml文件" class="headerlink" title="存储xml文件"></a>存储xml文件</h3><pre><code class="lang-C#">  //1.创建xml文档
+  XmlDocument xml = new XmlDocument();
 
-//2.添加版本声明
-//创建版本声明
-//参数：版本号、编码类型、是否依赖于外部定义填&quot;yes&quot;或&quot;no&quot;(可以不填)
-XmlDeclaration xmlDec = xml.CreateXmlDeclaration(&quot;1.0&quot;, &quot;UTF-8&quot;, &quot;&quot;);
-//添加版本声明到xml文档中
-xml.AppendChild(xmlDec);
+  //2.添加版本声明
+  //创建版本声明
+  //参数：版本号、编码类型、是否依赖于外部定义填&quot;yes&quot;或&quot;no&quot;(可以不填)
+  XmlDeclaration xmlDec = xml.CreateXmlDeclaration(&quot;1.0&quot;, &quot;UTF-8&quot;, &quot;&quot;);
+  //添加版本声明到xml文档中
+  xml.AppendChild(xmlDec);
 
-//3.添加一个根节点
-XmlElement root = xml.CreateElement(&quot;root&quot;);
-xml.AppendChild(root);
+  //3.添加一个根节点
+  XmlElement root = xml.CreateElement(&quot;root&quot;);
+  xml.AppendChild(root);
 
-//4.在根节点下添加一个子节点
-XmlElement node = xml.CreateElement(&quot;node&quot;);
-//为节点添加信息
-node.InnerText = &quot;Test info&quot;;
-//加入到根节点下
-root.AppendChild(node);
+  //4.在根节点下添加一个子节点
+  XmlElement node = xml.CreateElement(&quot;node&quot;);
+  //为节点添加信息
+  node.InnerText = &quot;Test info&quot;;
+  //加入到根节点下
+  root.AppendChild(node);
 
-//4.5.添加属性
-XmlElement attribute = xml.CreateElement(&quot;attribute&quot;);
-attribute.SetAttribute(&quot;id&quot;, 1.ToString());
-attribute.SetAttribute(&quot;value&quot;, &quot;属性的值&quot;);
-root.AppendChild(attribute);
+  //4.5.添加属性
+  XmlElement attribute = xml.CreateElement(&quot;attribute&quot;);
+  attribute.SetAttribute(&quot;id&quot;, 1.ToString());
+  attribute.SetAttribute(&quot;value&quot;, &quot;属性的值&quot;);
+  root.AppendChild(attribute);
 
-//5.保存xml到路径
-xml.Save(Application.persistentDataPath + &quot;/Testxml.xml&quot;);
+  //5.保存xml到路径
+  xml.Save(Application.persistentDataPath + &quot;/Testxml.xml&quot;);
 </code></pre>
 <p>  生成的xml：</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;root&gt;
-    &lt;node&gt;Test info&lt;/node&gt;
-    &lt;attribute id=&quot;1&quot; value=&quot;属性的值&quot; /&gt;
-&lt;/root&gt;
+<pre><code class="lang-xml">  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;root&gt;
+      &lt;node&gt;Test info&lt;/node&gt;
+      &lt;attribute id=&quot;1&quot; value=&quot;属性的值&quot; /&gt;
+  &lt;/root&gt;
 </code></pre>
 </li>
-<li><h3 id="修改xml文件"><a href="#修改xml文件" class="headerlink" title="修改xml文件"></a>修改xml文件</h3><pre><code class="C#">//1.判断文件是否存在
-if (File.Exists(path))
-&#123;
-    //2.加载xml文档
-    XmlDocument xml = new XmlDocument();
-    xml.Load(path);
+<li><h3 id="修改xml文件"><a href="#修改xml文件" class="headerlink" title="修改xml文件"></a>修改xml文件</h3><pre><code class="lang-C#">  //1.判断文件是否存在
+  if (File.Exists(path))
+  &#123;
+      //2.加载xml文档
+      XmlDocument xml = new XmlDocument();
+      xml.Load(path);
 
-    XmlNode root = xml.SelectSingleNode(&quot;root&quot;);
-    //3.移除一条节点:找到子节点的父节点再移除
-    XmlNode node = xml.SelectSingleNode(&quot;root/node&quot;);
-    root.RemoveChild(node);
+      XmlNode root = xml.SelectSingleNode(&quot;root&quot;);
+      //3.移除一条节点:找到子节点的父节点再移除
+      XmlNode node = xml.SelectSingleNode(&quot;root/node&quot;);
+      root.RemoveChild(node);
 
-    //4.添加一条节点
-    XmlElement newnode = xml.CreateElement(&quot;newnode&quot;);
-    newnode.InnerText = &quot;一个新的节点&quot;;
-    root.AppendChild(newnode);
+      //4.添加一条节点
+      XmlElement newnode = xml.CreateElement(&quot;newnode&quot;);
+      newnode.InnerText = &quot;一个新的节点&quot;;
+      root.AppendChild(newnode);
 
-    //5.保存xml到路径
-    xml.Save(path);
-&#125;
+      //5.保存xml到路径
+      xml.Save(path);
+  &#125;
 </code></pre>
 <p>  修改后的xml</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;root&gt;
-    &lt;attribute id=&quot;1&quot; value=&quot;属性的值&quot; /&gt;
-    &lt;newnode&gt;一个新的节点&lt;/newnode&gt;
-&lt;/root&gt;
+<pre><code class="lang-xml">  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;root&gt;
+      &lt;attribute id=&quot;1&quot; value=&quot;属性的值&quot; /&gt;
+      &lt;newnode&gt;一个新的节点&lt;/newnode&gt;
+  &lt;/root&gt;
 </code></pre>
 </li>
 </ul>
@@ -342,7 +341,7 @@ if (File.Exists(path))
 <li>只能对public的数据进行序列化</li>
 </ol>
 <p>测试对象</p>
-<pre><code class="C#">public class SerializeTest
+<pre><code class="lang-C#">public class SerializeTest
 &#123;
     public int testPublic = 1;
     private int testPrivate = 2;
@@ -377,11 +376,11 @@ public class TestInfo
 &#125;
 </code></pre>
 <p>序列化过程</p>
-<pre><code class="C#">    //序列化测试对象
+<pre><code class="lang-C#">    //序列化测试对象
     SerializeTest s1 = new SerializeTest();
     //存储路径
     string path = Application.persistentDataPath + &quot;/SerializableXml.xml&quot;;
-    
+
     //1.对xml文件 创建 写入流
     //StreamWriter(string path)：
     //如果路径文件存在，则为文件创建一个写入流
@@ -397,7 +396,7 @@ public class TestInfo
     &#125;
 </code></pre>
 <p>生成的xml</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;SerializeTest xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
 &lt;testPublic&gt;1&lt;/testPublic&gt;
 &lt;testStr&gt;testStr&lt;/testStr&gt;
@@ -411,7 +410,7 @@ public class TestInfo
 &lt;/SerializeTest&gt;
 </code></pre>
 <ul>
-<li>补充：序列化中常用的特性<pre><code class="C#">[XmlRootAttribute(&quot;Root&quot;, Namespace=&quot;Test.SerializeTest&quot;, IsNullable=false)]     // 当该类为Xml根节点时，将根节点命名为Root
+<li>补充：序列化中常用的特性<pre><code class="lang-C#">[XmlRootAttribute(&quot;Root&quot;, Namespace=&quot;Test.SerializeTest&quot;, IsNullable=false)]     // 当该类为Xml根节点时，将根节点命名为Root
 [XmlAttribute()]            //用于将 字段 在xml中标记成 属性
 [XmlElement(&quot;Test&quot;)]        //对 无层次结构节点 重命名为Test
 [XmlArray(&quot;Test&quot;)]          //对 有层次结构节点 重命名为Test
@@ -422,7 +421,7 @@ public class TestInfo
 </ul>
 </li>
 <li><h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><p>通过反序列化将读取xml文件并赋值给类对象实例，相当于实例中的公有字段和属性均反序列化（若字段或属性已实现了IXmlSerializable接口，则调用字段的ReadXml方法）</p>
-<pre><code class="C#">    //读取路径
+<pre><code class="lang-C#">    //读取路径
     string path = Application.persistentDataPath + &quot;/SerializableXml.xml&quot;;
 
     //1.判断路径是否存在
@@ -446,6 +445,7 @@ public class TestInfo
 <ul>
 <li><h2 id="IXmlSerializable接口"><a href="#IXmlSerializable接口" class="headerlink" title="IXmlSerializable接口"></a>IXmlSerializable接口</h2>由于XmlSerializer对于某些对象不能进行处理（比如Dictionary和空数据），因此需要实现IXmlSerializable接口来对这些对象来进行自定义的处理</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -454,7 +454,8 @@ public class TestInfo
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>XmlSchema</td>
 <td>GetSchema()</td>
 <td>保留的方法，不应该被使用，应从此方法返回一个null</td>
@@ -469,12 +470,13 @@ public class TestInfo
 <td>WriteXml(XmlWriter writer)</td>
 <td>序列化（XmlSerializer.Serialize()）时调用该方法</td>
 </tr>
-</tbody></table>
-</br>
-
+</tbody>
+</table>
+</div>
+<p>&lt;/br&gt;</p>
 <ul>
 <li><h3 id="接口成员方法的使用"><a href="#接口成员方法的使用" class="headerlink" title="接口成员方法的使用"></a>接口成员方法的使用</h3><p>序列化后的xml：</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;SerializeTest&gt;
     &lt;strNode&gt;节点字符串&lt;/strNode&gt;
     &lt;numNode&gt;7385&lt;/numNode&gt;
@@ -485,7 +487,7 @@ public class TestInfo
 &lt;/SerializeTest&gt;
 </code></pre>
 <p>实现IXmlSerializable接口的类对象</p>
-<pre><code class="C#">public class SerializeTest : IXmlSerializable
+<pre><code class="lang-C#">public class SerializeTest : IXmlSerializable
 &#123;
     public string strNode;
     public int numNode;
@@ -554,7 +556,7 @@ public class TestInfo
         writer.WriteAttributeString(&quot;strAttribute&quot;, &quot;属性字符串&quot;);
         writer.WriteAttributeString(&quot;numAttribute&quot;, 2333.ToString());
         writer.WriteEndElement();
-        
+
         //写子节点
         XmlSerializer serializer = new XmlSerializer(typeof(int));
         writer.WriteStartElement(&quot;childNode&quot;);
@@ -564,7 +566,7 @@ public class TestInfo
 &#125;
 </code></pre>
 <ul>
-<li><h3 id="示例：自定义序列化字典"><a href="#示例：自定义序列化字典" class="headerlink" title="示例：自定义序列化字典"></a>示例：自定义序列化字典</h3><pre><code class="C#">public class SerializableDictionary&lt;TKey, TValue&gt; : Dictionary&lt;TKey, TValue&gt;, IXmlSerializable
+<li><h3 id="示例：自定义序列化字典"><a href="#示例：自定义序列化字典" class="headerlink" title="示例：自定义序列化字典"></a>示例：自定义序列化字典</h3><pre><code class="lang-C#">public class SerializableDictionary&lt;TKey, TValue&gt; : Dictionary&lt;TKey, TValue&gt;, IXmlSerializable
 &#123;
   public XmlSchema GetSchema()
   &#123;

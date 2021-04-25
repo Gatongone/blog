@@ -209,7 +209,7 @@
 <li>字符型：char</li>
 <li>枚举：enum</li>
 <li>结构体：struct</li>
-<li>指针：int*,float*,……</li>
+<li>指针：int<em>,float</em>,……</li>
 <li>可空类型：int?,float?,……</li>
 </ul>
 </li>
@@ -222,8 +222,7 @@
 </ul>
 </li>
 </ul>
-</br>
-
+<p>&lt;/br&gt;</p>
 <hr>
 <h2 id="值类型和引用类型的在内存上区别"><a href="#值类型和引用类型的在内存上区别" class="headerlink" title="值类型和引用类型的在内存上区别"></a>值类型和引用类型的在内存上区别</h2><ul>
 <li><p>值类型实例一般保存在线程栈中，因此不受GC的控制，缓解了托管堆中的压力。值类型的实例就是自己本身。值类型创建时，runtime会为其分配一个内存空间到栈上。</p>
@@ -233,36 +232,33 @@
 <li><p>ps：值类型不一定都是保存在线程栈中的<br>如果值类型是方法内部创建的，则被保存在线程栈上；<br>如果值类型是引用类型的成员变量，则跟随引用类型被存储在托管堆中。</p>
 </li>
 </ul>
-</br>
-
+<p>&lt;/br&gt;</p>
 <hr>
 <h2 id="值类型和引用类型的转换（装箱与拆箱）"><a href="#值类型和引用类型的转换（装箱与拆箱）" class="headerlink" title="值类型和引用类型的转换（装箱与拆箱）"></a>值类型和引用类型的转换（装箱与拆箱）</h2><ul>
-<li><h3 id="装箱"><a href="#装箱" class="headerlink" title="装箱"></a>装箱</h3>  装箱就是将值类型转换成引用类型，过程为：<ol>
+<li><h3 id="装箱"><a href="#装箱" class="headerlink" title="装箱"></a>装箱</h3><p>  装箱就是将值类型转换成引用类型，过程为：</p>
+<ol>
 <li>在托管堆中分配内存，容量为：实例字段 + 类型指针 + 同步块索引</li>
 <li>Copy字段到刚分配的堆内存中</li>
-<li>返回堆中新分配对象的地址，该地址是指向值对象的引用<pre><code class="C#">int num = 5;
+<li>返回堆中新分配对象的地址，该地址是指向值对象的引用<pre><code class="lang-C#">int num = 5;
 object obj = num;//装箱
 </code></pre>
-<img src="%E8%A3%85%E7%AE%B1.jpg" alt="img" style="max-width:100%;" ></li>
+<img src="装箱.jpg" alt="img" style="max-width:100%;" ></li>
 </ol>
 </li>
 </ul>
-</br>
-</br>   
-
+<p>&lt;/br&gt;<br>&lt;/br&gt;   </p>
 <ul>
 <li><h3 id="拆箱"><a href="#拆箱" class="headerlink" title="拆箱"></a>拆箱</h3><p>  拆箱就是将已装箱的值类型（装箱之后就是引用类型了）转换成值类型，过程为：</p>
 <ol>
 <li>获取托管堆中属于值类型那部分字段的地址，</li>
-<li>将引用对象中的值Copy到位于线程堆栈上的值类型实例中。 <pre><code class="C#">object obj = 5;
+<li>将引用对象中的值Copy到位于线程堆栈上的值类型实例中。 <pre><code class="lang-C#">object obj = 5;
 int i = (int)obj;
 </code></pre>
-<img src="%E6%8B%86%E7%AE%B1.jpg" alt="img" style="max-width:100%;" ></li>
+<img src="拆箱.jpg" alt="img" style="max-width:100%;" ></li>
 </ol>
 </li>
 </ul>
-</br>
-
+<p>&lt;/br&gt;</p>
 <hr>
 <h2 id="语句块与GC"><a href="#语句块与GC" class="headerlink" title="语句块与GC"></a>语句块与GC</h2><ul>
 <li><h3 id="语句块"><a href="#语句块" class="headerlink" title="语句块"></a>语句块</h3><p>   一般可以把C#中语句块分为四个层级：</p>
@@ -282,11 +278,10 @@ int i = (int)obj;
 <ul>
 <li>四层：using语句</li>
 </ul>
-</br> 
-
+<p>&lt;/br&gt; </p>
 <p>变量可以声明在底层和中层语句块中，逻辑代码只能写在底层语句块中。</p>
 <p>变量若写在底层语句块中，则是临时变量，若写在中层语句块中，则是全局变量。</p>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 </ul>
 </li>
@@ -300,51 +295,49 @@ int i = (int)obj;
 </ul>
 </li>
 </ul>
-</br>
-
+<p>&lt;/br&gt;</p>
 <hr>
-<h2 id="结构体和类"><a href="#结构体和类" class="headerlink" title="结构体和类"></a>结构体和类</h2><pre><code class="C#"> public struct StructTest
- &#123;
-     float num1;
-     int num2;;
-     Object obj;
- &#125;
- 
- public class ClassTest
- &#123;
-     float num1;
-     int num2;
-     Object obj;
- &#125;
+<h2 id="结构体和类"><a href="#结构体和类" class="headerlink" title="结构体和类"></a>结构体和类</h2><pre><code class="lang-C#">    public struct StructTest
+    &#123;
+        float num1;
+        int num2;;
+        Object obj;
+    &#125;
+
+    public class ClassTest
+    &#123;
+        float num1;
+        int num2;
+        Object obj;
+    &#125;
 </code></pre>
 <p>   对以上结构体和类分别声明：</p>
-<pre><code class="C#"> static void Main(string[] args)
- &#123;
-     //结构体
-     StructTest st = new StructTest();
+<pre><code class="lang-C#">    static void Main(string[] args)
+    &#123;
+        //结构体
+        StructTest st = new StructTest();
 
-     //类
-     ClassTest ct = new ClassTest();
- &#125;    
+        //类
+        ClassTest ct = new ClassTest();
+    &#125;
 </code></pre>
 <p>   它们在堆栈中的内存分配情况分别为：</p>
 <ul>
 <li><p>Struct结构体：<br>   在栈中，为st分配了一个空间，分别用于存放num1的实例、num2的实例、obj的地址；</p>
 <p>   在声明结构体后（new），在堆中开辟了一个空间用于存放obj的引用，而此时栈中的obj的值为指向堆中新内存的地址;</p>
 <p>   总结：在结构体中，栈存值实例和引用地址，堆存引用实例</p>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><p>Class类：<br>   在栈中，为ct分配了空间，用于存储堆中的地址；在堆中分配了空间，分别用于存放num1的实例、num2的实例、obj的地址；</p>
 <p>   声明类后（new），在堆中为obj额外分配了新的空间，用于存储obj的实例。</p>
 <p>   总结: 在类中，栈存类的引用地址，堆存值实例、引用实例和引用地址</p>
-</br>
-
+<p>&lt;/br&gt;</p>
 <p><img src="struct_and_class.jpg" alt="img" style="max-width:100%;" ></p>
 </li>
 </ul>
-</br>
-
-<h3 id="更多的区别总结："><a href="#更多的区别总结：" class="headerlink" title="更多的区别总结："></a>更多的区别总结：</h3><table>
+<p>&lt;/br&gt;</p>
+<h3 id="更多的区别总结："><a href="#更多的区别总结：" class="headerlink" title="更多的区别总结："></a>更多的区别总结：</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>\</th>
@@ -352,65 +345,64 @@ int i = (int)obj;
 <th>Class类</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>数据类型</td>
+<tbody>
+<tr>
+<td>  数据类型</td>
 <td>值类型</td>
 <td>引用类型</td>
 </tr>
 <tr>
-<td>储存的内存空间位置</td>
+<td>  储存的内存空间位置</td>
 <td>线程栈</td>
 <td>托管堆</td>
 </tr>
 <tr>
-<td>特性</td>
+<td>  特性</td>
 <td>不具有继承和多态的特性（但是可以继承接口），因此不能被protected保护访问符修饰</td>
 <td>继承、封装、多态</td>
 </tr>
 <tr>
-<td>构造函数</td>
+<td>  构造函数</td>
 <td>必须初始化所有成员变量</td>
 <td>随意</td>
 </tr>
 <tr>
-<td>显示的无参构造函数</td>
+<td>  显示的无参构造函数</td>
 <td>不能声明（因为默认自带了一个）</td>
 <td>可以声明（将隐藏隐式的无参构造函数）</td>
 </tr>
 <tr>
-<td>析构函数</td>
+<td>  析构函数</td>
 <td>不能声明</td>
 <td>可以声明</td>
 </tr>
 <tr>
-<td>static修饰符</td>
+<td>  static修饰符</td>
 <td>不存在静态的结构体</td>
 <td>可以被修饰</td>
 </tr>
 <tr>
-<td>内部声明自身</td>
+<td>  内部声明自身</td>
 <td>不能在结构体内部声明自身结构体</td>
 <td>可以在内部声明自身类</td>
 </tr>
-</tbody></table>
-</br>
-
+</tbody>
+</table>
+</div>
+<p>&lt;/br&gt;</p>
 <hr>
-<h2 id="值类型数组和引用类型数组"><a href="#值类型数组和引用类型数组" class="headerlink" title="值类型数组和引用类型数组"></a>值类型数组和引用类型数组</h2><pre><code class="C#"> int[] array = new int[]&#123;1,2,3,4,5,6&#125;;
- object[] objlist = new object[]&#123;1,2,3,4,5,6&#125;;
+<h2 id="值类型数组和引用类型数组"><a href="#值类型数组和引用类型数组" class="headerlink" title="值类型数组和引用类型数组"></a>值类型数组和引用类型数组</h2><pre><code class="lang-C#">    int[] array = new int[]&#123;1,2,3,4,5,6&#125;;
+    object[] objlist = new object[]&#123;1,2,3,4,5,6&#125;;
 </code></pre>
 <p>   对于数组的声明，其实和类与结构体的区别类似：</p>
 <ul>
-<li><p>值类型数组：栈中存数组引用的地址，堆中存数组实例；</p>
-</li>
+<li>值类型数组：栈中存数组引用的地址，堆中存数组实例；</li>
 <li><p>引用类型数组：栈中存数组引用的地址，堆中存数组的实例和引用，其中每个引用分别指向各自的实例。</p>
-</br>
-
+<p>&lt;/br&gt;</p>
 <p><img src="array.jpg" alt="alt" style="max-width:100%;" ></p>
 </li>
 </ul>
-</br>
-
+<p>&lt;/br&gt;</p>
 <hr>
 <h2 id="特殊的引用：string驻留池"><a href="#特殊的引用：string驻留池" class="headerlink" title="特殊的引用：string驻留池"></a>特殊的引用：string驻留池</h2><p>   string作为一种特殊的引用类型却往往表现出值类型的行为，最特别的是它的不变性，当我们同时new两个相同字符串的string时，检查地址会发现指向的是同一个实例对象。</p>
 <pre><code>```C#
@@ -418,8 +410,7 @@ int i = (int)obj;
  string b = &quot;ssss&quot;;
  //a和b均指向同一地址
 ```
-</code></pre>
-<p>   这是由于<code>CLR</code>在初始化时维护了一张<code>哈希表（驻留池）</code>，其中键为字符串，值为指向托管堆中字符串的引用。<code>JIT</code>在编译时，会检查驻留池中的字符串，如果没有找到，则在托管堆中构造一个指向该字符串的对象引用，并将该字符串和引用添加至散列表中。</p>
+</code></pre><p>   这是由于<code>CLR</code>在初始化时维护了一张<code>哈希表（驻留池）</code>，其中键为字符串，值为指向托管堆中字符串的引用。<code>JIT</code>在编译时，会检查驻留池中的字符串，如果没有找到，则在托管堆中构造一个指向该字符串的对象引用，并将该字符串和引用添加至散列表中。</p>
 <pre><code>```C#
  string a = &quot;abc&quot;;
  string b = a;
@@ -427,32 +418,30 @@ int i = (int)obj;
  Console.WriteLine(&quot;b=&quot;+b);
  //输出：b=abc
 ```
-</code></pre>
-<p>   在上面的程序中之所以会表现出值类型的行为，是因为<code>string b = a;</code>并不是b指向了a的引用，而是指向了驻留池中的字符串”abc”。</p>
-</br>
-
+</code></pre><p>   在上面的程序中之所以会表现出值类型的行为，是因为<code>string b = a;</code>并不是b指向了a的引用，而是指向了驻留池中的字符串”abc”。</p>
+<p>&lt;/br&gt;</p>
 <hr>
 <h2 id="is和as-对类型的判断和转换"><a href="#is和as-对类型的判断和转换" class="headerlink" title="is和as:对类型的判断和转换"></a>is和as:对类型的判断和转换</h2><ul>
-<li><h3 id="as"><a href="#as" class="headerlink" title="as"></a>as</h3><pre><code class="C#">    Object obj = new Object();
-    Type type = obj as Type;//用强制转换的方法则需要try-catch保护，因为这是线程不安全的
+<li><h3 id="as"><a href="#as" class="headerlink" title="as"></a>as</h3><pre><code class="lang-C#">      Object obj = new Object();
+      Type type = obj as Type;//用强制转换的方法则需要try-catch保护，因为这是线程不安全的
 </code></pre>
 <p>  as操作符对于 <strong>目标类型属于目标类型或者目标类型的派生类型</strong> 才能转换成功，否则返回null；</p>
 <p>  注意as操作符不能对值类型进行转换。</p>
 </li>
-<li><h3 id="is"><a href="#is" class="headerlink" title="is"></a>is</h3><pre><code class="C#">    Object obj = 1;
+<li><h3 id="is"><a href="#is" class="headerlink" title="is"></a>is</h3><pre><code class="lang-C#">      Object obj = 1;
 
-    if (obj is int)
-    &#123;
-        int value = (int) obj;
-    &#125;
+      if (obj is int)
+      &#123;
+          int value = (int) obj;
+      &#125;
 
-    //或者
-    int value = obj is int ? (int)obj : default(int);
+      //或者
+      int value = obj is int ? (int)obj : default(int);
 
-    //对于非空类型转换成值类型
-    int v;
-    int? r = 5;
-    v = r is int? ?  (int)r : 0;
+      //对于非空类型转换成值类型
+      int v;
+      int? r = 5;
+      v = r is int? ?  (int)r : 0;
 </code></pre>
 <p>  is关键字会对给定类型进行检测其是否兼容(对对象检测是否是is后面类型的类或派生类，因此这是安全的),并返回一个bool类型；</p>
 <p>  注意is的左边不能是匿名方法(lambda表达式除外)。</p>

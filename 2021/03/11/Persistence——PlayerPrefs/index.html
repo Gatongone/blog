@@ -205,41 +205,39 @@
 <li><h2 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h2><ul>
 <li><h3 id="将数据存入内存中"><a href="#将数据存入内存中" class="headerlink" title="将数据存入内存中"></a>将数据存入内存中</h3><p>  当使用Set方法时只会将数据存入内存，而并非磁盘中。也就是说如果游戏在运行时崩溃，将导致数据丢失。</p>
 <p>  PS：使用相同的键名将会导致数据覆盖，即使类型不一样。</p>
-<pre><code class="C#">PlayerPrefs.SetString(&quot;PlayerName&quot;, &quot;关东关&quot;);
-PlayerPrefs.SetInt(&quot;PlayerHP&quot;, 100);
-PlayerPrefs.SetFloat(&quot;PlayerATT&quot;, 73.52f);
-PlayerPrefs.SetInt(&quot;PlayerOCD&quot;, OCD? 1 : 0 );
+<pre><code class="lang-C#">  PlayerPrefs.SetString(&quot;PlayerName&quot;, &quot;关东关&quot;);
+  PlayerPrefs.SetInt(&quot;PlayerHP&quot;, 100);
+  PlayerPrefs.SetFloat(&quot;PlayerATT&quot;, 73.52f);
+  PlayerPrefs.SetInt(&quot;PlayerOCD&quot;, OCD? 1 : 0 );
 </code></pre>
 </li>
-<li><h3 id="将数据保存到磁盘"><a href="#将数据保存到磁盘" class="headerlink" title="将数据保存到磁盘"></a>将数据保存到磁盘</h3><pre><code>PlayerPrefs.Save();
-</code></pre>
-</li>
+<li><h3 id="将数据保存到磁盘"><a href="#将数据保存到磁盘" class="headerlink" title="将数据保存到磁盘"></a>将数据保存到磁盘</h3><pre><code>  PlayerPrefs.Save();
+</code></pre></li>
 <li><h3 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h3><p>  优先从内存中读取，若内存中没有则从磁盘中读取。</p>
 <p>  若读取数据失败（比如无法找到键名），则返回默认值：</p>
 <p>  int:0、float:0、string:null</p>
-<pre><code class="C#">string name = PlayerPrefs.GetString(&quot;PlayerName&quot;);
-int HP = PlayerPrefs.GetInt(&quot;HP&quot;);
-float ATT = PlayerPrefs.GetFloat(&quot;ATT&quot;);
-//参数二为查找失败时返回的默认值
-bool OCD = PlayerPrefs.GetInt(&quot;PlayerOCD&quot;,0) == 0? false : true;
+<pre><code class="lang-C#">  string name = PlayerPrefs.GetString(&quot;PlayerName&quot;);
+  int HP = PlayerPrefs.GetInt(&quot;HP&quot;);
+  float ATT = PlayerPrefs.GetFloat(&quot;ATT&quot;);
+  //参数二为查找失败时返回的默认值
+  bool OCD = PlayerPrefs.GetInt(&quot;PlayerOCD&quot;,0) == 0? false : true;
 </code></pre>
 </li>
-<li><h3 id="判断数据是否存在"><a href="#判断数据是否存在" class="headerlink" title="判断数据是否存在"></a>判断数据是否存在</h3><pre><code class="C#">if( PlayerPrefs.HasKey(&quot;PlayerHP&quot;) )
-&#123;
-    //do something
-&#125;
+<li><h3 id="判断数据是否存在"><a href="#判断数据是否存在" class="headerlink" title="判断数据是否存在"></a>判断数据是否存在</h3><pre><code class="lang-C#">  if( PlayerPrefs.HasKey(&quot;PlayerHP&quot;) )
+  &#123;
+      //do something
+  &#125;
 </code></pre>
 </li>
-<li><h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><pre><code class="C#">//删除某键及数据
-PlayerPrefs.DeleteKey(&quot;PlayerName&quot;);
-//删除所有键及数据
-PlayerPrefs.DeleteAll();
+<li><h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><pre><code class="lang-C#">  //删除某键及数据
+  PlayerPrefs.DeleteKey(&quot;PlayerName&quot;);
+  //删除所有键及数据
+  PlayerPrefs.DeleteAll();
 </code></pre>
 </li>
 </ul>
 </li>
-<li><h2 id="数据存储位置"><a href="#数据存储位置" class="headerlink" title="数据存储位置"></a>数据存储位置</h2><p>  打开Unity中 Edit → Project Settings → Player 得到公司名称和产品名称（一般是项目名称）</p>
-<ul>
+<li><h2 id="数据存储位置"><a href="#数据存储位置" class="headerlink" title="数据存储位置"></a>数据存储位置</h2>  打开Unity中 Edit → Project Settings → Player 得到公司名称和产品名称（一般是项目名称）<ul>
 <li><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><ul>
 <li>打开注册表：regedit 找到 HKEY_CURRENT_USER\Software\Unity\UnityEditor\[公司名称]\[产品名称]</li>
 </ul>

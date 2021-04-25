@@ -213,78 +213,20 @@
 <li><h2 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h2><p>  提供了<code>字节流</code>的读写方法,并且在.net中将自带缓存池</p>
 <ul>
 <li><p>常用的属性</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>bool</td>
-<td>CanRead</td>
-<td>判断流是否可读</td>
-</tr>
-<tr>
-<td>bool</td>
-<td>CanWrite</td>
-<td>判断流是否可写</td>
-</tr>
-<tr>
-<td>bool</td>
-<td>CanSeek</td>
-<td>判断流是否支持跟踪查找</td>
-</tr>
-<tr>
-<td>long</td>
-<td>Length</td>
-<td>流字节长度</td>
-</tr>
-<tr>
-<td>long</td>
-<td>Position</td>
-<td>流的当前位置，根据缓冲池变动，读/写文件时将从这个位置开始，一般用于记录读取/写入了多少</td>
-</tr>
-</tbody></table>
+<p>  类型|属性|描述<br>  ——-|——-|——-<br>  bool|CanRead|判断流是否可读<br>  bool|CanWrite|判断流是否可写<br>  bool|CanSeek|判断流是否支持跟踪查找<br>  long|Length|流字节长度<br>  long|Position|流的当前位置，根据缓冲池变动，读/写文件时将从这个位置开始，一般用于记录读取/写入了多少</p>
 </li>
 <li><p>常用的方法：</p>
 <ul>
-<li><p>void Flush()<br>当使用流写入文件时，并不会直接写入而是先进入到缓冲池中，调用该方法则立即将缓冲池中字节推出</p>
-</li>
+<li>void Flush()<br>当使用流写入文件时，并不会直接写入而是先进入到缓冲池中，调用该方法则立即将缓冲池中字节推出</li>
 <li><p>long Seek(long offset, SeekOrigin origin)<br>由于Position是只读的，若希望重新设置Position的值，则需要调用Seek方法，其中SeekOrigin是一个枚举</p>
-<table>
-<thead>
-<tr>
-<th>枚举</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>SeekOrigin.Begin</td>
-<td>流的开始位置</td>
-</tr>
-<tr>
-<td>SeekOrigin.Current</td>
-<td>流的当前位置</td>
-</tr>
-<tr>
-<td>SeekOrigin.End</td>
-<td>流的结束位置</td>
-</tr>
-</tbody></table>
+<p>枚举|描述<br>——-|——-<br>SeekOrigin.Begin|流的开始位置<br>SeekOrigin.Current|流的当前位置<br>SeekOrigin.End|流的结束位置</p>
 <p><code>stream.Seek(5, SeekOrigin.Begin);</code>的含义就是将Position设置在开始位置后的第五个。</p>
 </li>
-<li><p>void Close()<br>关闭流，但不会立即清理资源</p>
-</li>
-<li><p>void Dispose()<br>关闭流并清理资源</p>
-</li>
-<li><p>void CopyTo(Stream destination)<br>将流拷贝到目标流</p>
-</li>
-<li><p>int Read(byte[] buffer, int offset, int count)<br>从offest(开始位置)读取出count个字节，并将读取的字节赋值给buffer，返回值是总共读取了多少个字节</p>
-</li>
-<li><p>void Write(byte[] buffer,int offset,int count)<br>根据offest和count将buffer中的数据写入流中</p>
-</li>
+<li>void Close()<br>关闭流，但不会立即清理资源</li>
+<li>void Dispose()<br>关闭流并清理资源</li>
+<li>void CopyTo(Stream destination)<br>将流拷贝到目标流</li>
+<li>int Read(byte[] buffer, int offset, int count)<br>从offest(开始位置)读取出count个字节，并将读取的字节赋值给buffer，返回值是总共读取了多少个字节</li>
+<li>void Write(byte[] buffer,int offset,int count)<br>根据offest和count将buffer中的数据写入流中</li>
 </ul>
 </li>
 </ul>
@@ -296,86 +238,13 @@
 <ul>
 <li><h3 id="三个枚举类型"><a href="#三个枚举类型" class="headerlink" title="三个枚举类型"></a>三个枚举类型</h3><ol>
 <li><p>文件访问方式（打开文件后该干嘛）</p>
-<table>
-<thead>
-<tr>
-<th>枚举</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>FileAccess.Read</td>
-<td>只读</td>
-</tr>
-<tr>
-<td>FileAccess.Write</td>
-<td>只写</td>
-</tr>
-<tr>
-<td>FileAccess.ReadWrite</td>
-<td>即可读又可写</td>
-</tr>
-</tbody></table>
+<p> 枚举|描述<br> —-|—-<br> FileAccess.Read|只读<br> FileAccess.Write|只写<br> FileAccess.ReadWrite|即可读又可写</p>
 </li>
 <li><p>文件操作模式</p>
-<table>
-<thead>
-<tr>
-<th>枚举</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>FileMode.Append</td>
-<td>在文件最末尾追加数据，FileAccess必须是可读的</td>
-</tr>
-<tr>
-<td>FileMode.Create</td>
-<td>创建文件，如果已存在则覆盖</td>
-</tr>
-<tr>
-<td>FileMode.CreateNew</td>
-<td>创建文件，如果已存在则引发异常</td>
-</tr>
-<tr>
-<td>FileMode.Open</td>
-<td>打开文件，根据FileAccess打开后该干嘛</td>
-</tr>
-<tr>
-<td>FileMode.OpenOrCreate</td>
-<td>如果文件存在则打开，否则创建并打开</td>
-</tr>
-<tr>
-<td>FileMode.Truncat</td>
-<td>打开文件,并清空内容</td>
-</tr>
-</tbody></table>
+<p> 枚举|描述<br> —-|—-<br> FileMode.Append|在文件最末尾追加数据，FileAccess必须是可读的<br> FileMode.Create|创建文件，如果已存在则覆盖<br> FileMode.CreateNew|创建文件，如果已存在则引发异常<br> FileMode.Open|打开文件，根据FileAccess打开后该干嘛<br> FileMode.OpenOrCreate|如果文件存在则打开，否则创建并打开<br> FileMode.Truncat|打开文件,并清空内容</p>
 </li>
 <li><p>文件共享方式（有其他程序同时访问时怎么处理）</p>
-<table>
-<thead>
-<tr>
-<th>枚举</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>FileShare.None</td>
-<td>禁止其他程序读写文件</td>
-</tr>
-<tr>
-<td>FileShare.Read</td>
-<td>允许其他程序只读文件</td>
-</tr>
-<tr>
-<td>FileShare.Write</td>
-<td>允许其他程序只写文件</td>
-</tr>
-<tr>
-<td>FileShare.ReadWrite</td>
-<td>允许其他程序读写文件</td>
-</tr>
-</tbody></table>
+<p> 枚举|描述<br> —-|—-<br> FileShare.None|禁止其他程序读写文件<br> FileShare.Read|允许其他程序只读文件<br> FileShare.Write|允许其他程序只写文件<br> FileShare.ReadWrite|允许其他程序读写文件</p>
 </li>
 </ol>
 </li>
@@ -385,7 +254,7 @@
 <li>FileStream（String 文件路径，FileMode 文件打开模式，FileAccess 文件访问方式，FileShare 文件共享方式）</li>
 </ul>
 </li>
-<li><h3 id="写文件操作"><a href="#写文件操作" class="headerlink" title="写文件操作"></a>写文件操作</h3><pre><code class="C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
+<li><h3 id="写文件操作"><a href="#写文件操作" class="headerlink" title="写文件操作"></a>写文件操作</h3><pre><code class="lang-C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
 
 using (FileStream writer = File.Open(path, FileMode.OpenOrCreate,FileAccess.Write))
 &#123;
@@ -400,7 +269,7 @@ using (FileStream writer = File.Open(path, FileMode.OpenOrCreate,FileAccess.Writ
 &#125;
 </code></pre>
 </li>
-<li><h3 id="读文件操作"><a href="#读文件操作" class="headerlink" title="读文件操作"></a>读文件操作</h3><pre><code class="C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
+<li><h3 id="读文件操作"><a href="#读文件操作" class="headerlink" title="读文件操作"></a>读文件操作</h3><pre><code class="lang-C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
 using (FileStream reader = File.Open(path, FileMode.Open,FileAccess.Read))
 &#123;
   //得到文件长度
@@ -429,88 +298,26 @@ using (FileStream reader = File.Open(path, FileMode.Open,FileAccess.Read))
 <ul>
 <li><h2 id="StreamWriter"><a href="#StreamWriter" class="headerlink" title="StreamWriter"></a>StreamWriter</h2><p>  继承至TextWriter,提供了以<code>特定编码（默认为UTF-8）</code>对连续<code>字符</code>进行写入的方法</p>
 <ul>
-<li><h3 id="常用构造函数-1"><a href="#常用构造函数-1" class="headerlink" title="常用构造函数"></a>常用构造函数</h3><table>
-<thead>
-<tr>
-<th>构造函数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>StreamWriter(string path)</td>
-<td>根据路径写入</td>
-</tr>
-<tr>
-<td>StreamWriter(string path, bool append)</td>
-<td>append是否在末尾加入</td>
-</tr>
-<tr>
-<td>StreamWriter(string path, bool append, Encoding encoding)</td>
-<td>encoding以何种编码写入</td>
-</tr>
-<tr>
-<td>StreamWriter(string path, bool append, Encoding encoding, int bufferSize)</td>
-<td>bufferSize缓冲区大小</td>
-</tr>
-<tr>
-<td>StreamWriter(string stream)</td>
-<td>根据流写入</td>
-</tr>
-<tr>
-<td>StreamWriter(Stream stream, Encoding encoding)</td>
-<td>encoding以何种编码写入</td>
-</tr>
-<tr>
-<td>StreamWriter(Stream stream, Encoding encoding, int bufferSize)</td>
-<td>bufferSize缓冲区大小</td>
-</tr>
-</tbody></table>
+<li><h3 id="常用构造函数-1"><a href="#常用构造函数-1" class="headerlink" title="常用构造函数"></a>常用构造函数</h3><p>  构造函数|描述<br>  ——-|——-<br>  StreamWriter(string path)|根据路径写入<br>  StreamWriter(string path, bool append)|append是否在末尾加入<br>  StreamWriter(string path, bool append, Encoding encoding)|encoding以何种编码写入<br>  StreamWriter(string path, bool append, Encoding encoding, int bufferSize)|bufferSize缓冲区大小<br>  StreamWriter(string stream)|根据流写入<br>  StreamWriter(Stream stream, Encoding encoding)|encoding以何种编码写入<br>  StreamWriter(Stream stream, Encoding encoding, int bufferSize)|bufferSize缓冲区大小</p>
 </li>
-<li><h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Write(string value)</td>
-<td>将字符串写入流</td>
-</tr>
-<tr>
-<td>Write(string format, params Object[] arg)</td>
-<td>将可变长参数arg进行format格式化并写入流</td>
-</tr>
-<tr>
-<td>WriteLine()</td>
-<td>向当于写入一个换行</td>
-</tr>
-<tr>
-<td>WriteLine(string value)</td>
-<td>写入一行字符串</td>
-</tr>
-<tr>
-<td>WriteLine(string format, params Object[] arg)</td>
-<td>将可变长参数arg进行format格式化并以一行写入流</td>
-</tr>
-</tbody></table>
+<li><h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><p>  方法|描述<br>  ——-|——-<br>  Write(string value)|将字符串写入流<br>  Write(string format, params Object[] arg)|将可变长参数arg进行format格式化并写入流<br>  WriteLine()|向当于写入一个换行<br>  WriteLine(string value)|写入一行字符串<br>  WriteLine(string format, params Object[] arg)|将可变长参数arg进行format格式化并以一行写入流</p>
 </li>
 <li><h3 id="写文件操作-1"><a href="#写文件操作-1" class="headerlink" title="写文件操作"></a>写文件操作</h3><p>  直接根据路径进行写入：一般用在不需要对流进行访问权限、文件操作、文件共享时</p>
-<pre><code class="C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
-using (StreamWriter writer = new StreamWriter(path))
-&#123;
-    writer.WriteLine(&quot;这是一句测试用的话&quot;);
-&#125;
+<pre><code class="lang-C#">  string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
+  using (StreamWriter writer = new StreamWriter(path))
+  &#123;
+      writer.WriteLine(&quot;这是一句测试用的话&quot;);
+  &#125;
 </code></pre>
 <p>  根据流进行写入</p>
-<pre><code class="C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
-using (FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write))
-&#123;
-    using (StreamWriter sw = new StreamWriter(fs))
-    &#123;
-        sw.WriteLine(&quot;这是一条测试信息&quot;);
-    &#125;
-&#125;  
+<pre><code class="lang-C#">  string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
+  using (FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write))
+  &#123;
+      using (StreamWriter sw = new StreamWriter(fs))
+      &#123;
+          sw.WriteLine(&quot;这是一条测试信息&quot;);
+      &#125;
+  &#125;
 </code></pre>
 </li>
 </ul>
@@ -520,93 +327,19 @@ using (FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write))
 <ul>
 <li><h2 id="StreamReader"><a href="#StreamReader" class="headerlink" title="StreamReader"></a>StreamReader</h2><p>  继承至TextReader,提供了以<code>特定编码（默认为UTF-8）</code>对连续<code>字符</code>进行读取并将数据写入缓冲区的方法</p>
 <ul>
-<li><h3 id="常用构造函数-2"><a href="#常用构造函数-2" class="headerlink" title="常用构造函数"></a>常用构造函数</h3><table>
-<thead>
-<tr>
-<th>构造函数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>StreamReader(string path)</td>
-<td>根据路径读取</td>
-</tr>
-<tr>
-<td>StreamReader(string path, Encoding encoding)</td>
-<td>encoding以何种编码读取</td>
-</tr>
-<tr>
-<td>StreamReader(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks)</td>
-<td>detectEncodingFromByteOrderMarks是否自动判断用何种编码读取</td>
-</tr>
-<tr>
-<td>StreamReader(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)</td>
-<td>BufferSize缓冲区大小</td>
-</tr>
-<tr>
-<td>StreamReader(Stream stream)</td>
-<td>根据流读取</td>
-</tr>
-<tr>
-<td>StreamReader(Stream stream, Encoding encoding)</td>
-<td>encoding以何种编码读取</td>
-</tr>
-<tr>
-<td>StreamReader(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks)</td>
-<td>detectEncodingFromByteOrderMarks是否自动判断用何种编码读取</td>
-</tr>
-<tr>
-<td>StreamReader(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)</td>
-<td>BufferSize缓冲区大小</td>
-</tr>
-</tbody></table>
+<li><h3 id="常用构造函数-2"><a href="#常用构造函数-2" class="headerlink" title="常用构造函数"></a>常用构造函数</h3><p>  构造函数|描述<br>  ——-|——-<br>  StreamReader(string path)|根据路径读取<br>  StreamReader(string path, Encoding encoding)|encoding以何种编码读取<br>  StreamReader(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks)|detectEncodingFromByteOrderMarks是否自动判断用何种编码读取<br>  StreamReader(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)|BufferSize缓冲区大小<br>  StreamReader(Stream stream)|根据流读取<br>  StreamReader(Stream stream, Encoding encoding)|encoding以何种编码读取<br>  StreamReader(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks)|detectEncodingFromByteOrderMarks是否自动判断用何种编码读取<br>  StreamReader(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)|BufferSize缓冲区大小</p>
 </li>
-<li><h3 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h3><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Peek()</td>
-<td>寻找当前字符的下个字符,当返回值是-1时，表示是最后一个字符</td>
-</tr>
-<tr>
-<td>Read()</td>
-<td>读取下一个字符, 但是和peek方法不同，Read方法使指针指向下个字符，但是Peek还是指向原来那个字符</td>
-</tr>
-<tr>
-<td>Read(char[] buffer, int index, int count)</td>
-<td>从index处读取count个字符并赋值给buffer</td>
-</tr>
-<tr>
-<td>ReadBlock(char[] buffer, int index, int count)</td>
-<td>与Read的方法一致，效率更高但并非线程安全</td>
-</tr>
-<tr>
-<td>ReadLine()</td>
-<td>从当前流中读取一行字符并将数据作为字符串返回</td>
-</tr>
-<tr>
-<td>ReadLineAsync()</td>
-<td>从当前流中异步读取一行字符并将数据作为字符串返回</td>
-</tr>
-<tr>
-<td>ReadToEnd()</td>
-<td>从流的当前位置到末尾读取所有字符</td>
-</tr>
-</tbody></table>
+<li><h3 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h3><p>  方法|描述<br>  ——-|——-<br>  Peek()|寻找当前字符的下个字符,当返回值是-1时，表示是最后一个字符<br>  Read()|读取下一个字符, 但是和peek方法不同，Read方法使指针指向下个字符，但是Peek还是指向原来那个字符<br>  Read(char[] buffer, int index, int count)|从index处读取count个字符并赋值给buffer<br>  ReadBlock(char[] buffer, int index, int count)|与Read的方法一致，效率更高但并非线程安全<br>  ReadLine()|从当前流中读取一行字符并将数据作为字符串返回<br>  ReadLineAsync()|从当前流中异步读取一行字符并将数据作为字符串返回<br>  ReadToEnd()|从流的当前位置到末尾读取所有字符</p>
 </li>
 <li><h3 id="读文件操作-1"><a href="#读文件操作-1" class="headerlink" title="读文件操作"></a>读文件操作</h3><p>根据路径读取</p>
-<pre><code class="C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
+<pre><code class="lang-C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
 using (StreamReader reader = new StreamReader(path))
 &#123;
   string str = reader.ReadToEnd();
 &#125;
 </code></pre>
 <p>根据流读取</p>
-<pre><code class="C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
+<pre><code class="lang-C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
 using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
 &#123;
   using (StreamReader reader = new StreamReader(fs))
@@ -622,8 +355,7 @@ using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
 <hr>
 <ul>
 <li><h2 id="其他流"><a href="#其他流" class="headerlink" title="其他流"></a>其他流</h2><ul>
-<li><h3 id="BinaryReader-BinaryWriter"><a href="#BinaryReader-BinaryWriter" class="headerlink" title="BinaryReader/BinaryWriter"></a>BinaryReader/BinaryWriter</h3><p>提供了对<code>字节流</code>的读写方法,读写方法和FileStream类似</p>
-<pre><code class="C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
+<li><h3 id="BinaryReader-BinaryWriter"><a href="#BinaryReader-BinaryWriter" class="headerlink" title="BinaryReader/BinaryWriter"></a>BinaryReader/BinaryWriter</h3>提供了对<code>字节流</code>的读写方法,读写方法和FileStream类似<pre><code class="lang-C#">string path = @&quot;E:\khaki\Markdown\test.txt&quot;;
 FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
 using (BinaryReader binaryReader = new BinaryReader(fs))
 &#123;
@@ -634,8 +366,7 @@ using (BinaryReader binaryReader = new BinaryReader(fs))
 &#125;
 </code></pre>
 </li>
-<li><h3 id="NetworkStream"><a href="#NetworkStream" class="headerlink" title="NetworkStream"></a>NetworkStream</h3><p>提供了对<code>Socket</code>中的<code>字节序列</code>进行操作,读写方法和FileStream类似</p>
-<pre><code class="C#">using (NetworkStream fs = new NetworkStream(socket, FileAccess.Read))
+<li><h3 id="NetworkStream"><a href="#NetworkStream" class="headerlink" title="NetworkStream"></a>NetworkStream</h3>提供了对<code>Socket</code>中的<code>字节序列</code>进行操作,读写方法和FileStream类似<pre><code class="lang-C#">using (NetworkStream fs = new NetworkStream(socket, FileAccess.Read))
 &#123;
   using (StreamReader reader = new StreamReader(fs))
   &#123;
@@ -647,10 +378,8 @@ using (BinaryReader binaryReader = new BinaryReader(fs))
 <li><h3 id="MemoryStream"><a href="#MemoryStream" class="headerlink" title="MemoryStream"></a>MemoryStream</h3><p>提供了对<code>保存在内存中</code>的<code>字节序列</code>进行操作,由于内存容量是自动增长的，因此适合在数据加密或对长度不定时使用</p>
 <p>该流对Flush方法无效，应调用FlushFinalBlock将内部缓冲区的数据进行写入并清空缓冲区</p>
 </li>
-<li><h3 id="CryptoStream"><a href="#CryptoStream" class="headerlink" title="CryptoStream"></a>CryptoStream</h3><p>对任意Stream进行加密或解密处理</p>
-</li>
-<li><h3 id="BufferedStream"><a href="#BufferedStream" class="headerlink" title="BufferedStream"></a>BufferedStream</h3><p>将数据存放到内存中的一个字节块内，避免频繁从磁盘中读取数据</p>
-</li>
+<li><h3 id="CryptoStream"><a href="#CryptoStream" class="headerlink" title="CryptoStream"></a>CryptoStream</h3>对任意Stream进行加密或解密处理</li>
+<li><h3 id="BufferedStream"><a href="#BufferedStream" class="headerlink" title="BufferedStream"></a>BufferedStream</h3>将数据存放到内存中的一个字节块内，避免频繁从磁盘中读取数据</li>
 </ul>
 </li>
 </ul>

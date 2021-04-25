@@ -201,8 +201,7 @@
         
         
         <p>全称：即时模式用户交互界面，是一种即见即所得的UI系统，一般用作创建游戏内置工具和脚本检视面板而不作为游戏玩家的UI。</p>
-</br>
-
+<p>&lt;/br&gt;</p>
 <hr>
 <ul>
 <li><h2 id="OnGui"><a href="#OnGui" class="headerlink" title="OnGui()"></a>OnGui()</h2><p>继承了MonoBehaviour的脚本都可以调用OnGui()。OnGui()中的控件绘制函数都是由GUI类提供的静态函数，这些空间的的常见参数类型:</p>
@@ -213,9 +212,7 @@
 <li>组合信息：GUIContent: 支持文本、图片、隐藏文本（鼠标或键盘选中时可获得该文本）</li>
 <li>自定义样式：GUIStyle</li>
 </ul>
-</br>
-</br>
-
+<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
 </li>
 </ul>
 <hr>
@@ -223,104 +220,111 @@
 <li><h2 id="常见的控件："><a href="#常见的控件：" class="headerlink" title="常见的控件："></a>常见的控件：</h2><details>
 <summary><font size= 3>Label 标签</font></summary>
 
-<pre><code class="C#">void OnGUI()
-&#123;
-    GUI.Label(new Rect(0, 0, 100, 20), &quot;Lable&quot;);
-&#125;
-</code></pre>
+```C#
+void OnGUI()
+{
+    GUI.Label(new Rect(0, 0, 100, 20), "Lable");
+}
+```
+
 </details>
 
 <details>
 <summary><font size= 3>Button 按钮</font></summary>
 
-<pre><code class="C#">void OnGUI()
-&#123;
+```C#
+void OnGUI()
+{
     //按钮的事件监听
 
     //普通按钮（在Button范围内按下并抬起才算一次点击）
-    if (GUI.Button(new Rect(0, 0, 100, 20), &quot;button&quot;))
-    &#123;
-        Debug.Log(&quot;点击了按钮&quot;);
-    &#125;
+    if (GUI.Button(new Rect(0, 0, 100, 20), "button"))
+    {
+        Debug.Log("点击了按钮");
+    }
 
     //重复按钮（按下时就会触发，长按时一直触发）
-    if (GUI.RepeatButton(new Rect(0, 0, 100, 20), &quot;button&quot;))
-    &#123;
-        Debug.Log(&quot;点击了重复按钮&quot;);
-    &#125;
-&#125;
-</code></pre>
+    if (GUI.RepeatButton(new Rect(0, 0, 100, 20), "button"))
+    {
+        Debug.Log("点击了重复按钮");
+    }
+}
+```
 </details>
 
 <details>
 <summary><font size= 3>Toggle 状态切换开关</font></summary>
 
-<pre><code class="C#">private bool isClick = false;
+```C#
+private bool isClick = false;
 private int selectIndex = 1;
 void OnGUI()
-&#123;
+{
     //可多选：
     //若isClick是true，则表示已经选择，点击后GUI.Toggle返回false（表示未启用）
-    isClick = GUI.Toggle(new Rect(0, 0, 100, 20), isClick, &quot;多选测试&quot;);
+    isClick = GUI.Toggle(new Rect(0, 0, 100, 20), isClick, "多选测试");
 
     //多选一：
-    if (GUI.Toggle(new Rect(0, 30, 100, 20), selectIndex == 1, &quot;单选测试1&quot;))
-    &#123;
+    if (GUI.Toggle(new Rect(0, 30, 100, 20), selectIndex == 1, "单选测试1"))
+    {
         selectIndex = 1;
-    &#125;
-    if (GUI.Toggle(new Rect(0, 30+20, 100, 20), selectIndex == 2, &quot;单选测试2&quot;))
-    &#123;
+    }
+    if (GUI.Toggle(new Rect(0, 30+20, 100, 20), selectIndex == 2, "单选测试2"))
+    {
         selectIndex = 2;
-    &#125;
-    if (GUI.Toggle(new Rect(0, 30+40, 100, 20), selectIndex == 3, &quot;单选测试3&quot;))
-    &#123;
+    }
+    if (GUI.Toggle(new Rect(0, 30+40, 100, 20), selectIndex == 3, "单选测试3"))
+    {
         selectIndex = 3;
-    &#125;
-&#125;
-</code></pre>
+    }
+}
+```
 </details>
 
 <details>
 <summary><font size= 3>TextField 输入框</font></summary>
 
-<pre><code class="C#">private string inputpwd;
+```C#
+private string inputpwd;
 private string input;
 void OnGUI()
-&#123;
+{
     //参数中的input表示需要嵌入的字符串,GUI.Toggle将返回当前输入框内的字符串
     //常规输入
     input = GUI.TextField(new Rect(0, 0, 100, 20), input);
 
     //加密输入，最后一个参数为替换为密码的符号
-    inputpwd = GUI.PasswordField(new Rect(0, 0, 100, 20), inputpwd, &#39;*&#39;);
-&#125;
-</code></pre>
+    inputpwd = GUI.PasswordField(new Rect(0, 0, 100, 20), inputpwd, '*');
+}
+```
 </details>
 
 <details>
 <summary><font size= 3>Slider 滑块</font></summary>
 
-<pre><code class="C#">private int value = 5;
+```C#
+private int value = 5;
 private int max = 10;
 private int min = 0;
 void OnGUI()
-&#123;
+{
     //水平滑块
     value = GUI.HorizontalSlider(new Rect(0, 0, 100, 20), value, min, max);
     //垂直滑块
     value = GUI.VerticalSlider(new Rect(0, 0, 100, 20), value, min, max);
-&#125;
-</code></pre>
+}
+```
 </details>
 <details>
 <summary><font size= 3>DrawTexture 图片绘制</font></summary>
 
-<pre><code class="C#">private Texture tex;
+```C#
+private Texture tex;
 private ScaleMode  scaleMode;
 public bool alpha;
 public float imageAspect;
 void OnGUI()
-&#123;
+{
     // scaleMode 缩放模式:
     //         Scale To Fill 任意拉伸
     //         Scale And Crop 保持比例，多出的部分裁剪
@@ -328,105 +332,110 @@ void OnGUI()
     //alpha 是否启用alpha通道
     //imageAspect 宽高比，默认0表示图片的原始比例
     GUI.DrawTexture(new Rect(0, 0, 100, 100), tex, scaleMode, alpha, imageAspect);
-&#125;
-</code></pre>
+}
+```
 </details>    
 <details>
 <summary><font size= 3>Box 容器</font></summary>
 
-<pre><code class="C#">void OnGUI()
-&#123;
-    GUI.Box(new Rect(0, 0, 100, 100), &quot; &quot;);
-&#125;
-</code></pre>
+```C#
+void OnGUI()
+{
+    GUI.Box(new Rect(0, 0, 100, 100), " ");
+}
+```
 </details> 
 
 <details>
 <summary><font size= 3>Toolbar 工具栏</font></summary>
 
-<pre><code class="C#">private int toolbarIndex = 0;
-private string[] toolbarInfos = new string[] &#123; &quot;工具一&quot;, &quot;工具二&quot;, &quot;工具三&quot; &#125;;
+```C#
+private int toolbarIndex = 0;
+private string[] toolbarInfos = new string[] { "工具一", "工具二", "工具三" };
 void OnGUI()
-&#123;
+{
     //toolbarIndex:点击哪个toolbarInfos将返回数组下标，表示选择了哪个工具栏
     toolbarIndex = GUI.Toolbar(new Rect(0, 0, 200, 30), toolbarIndex, toolbarInfos);
 
     switch (toolbarIndex)
-    &#123;
-        case 0: Debug.Log(&quot;选择了工具一&quot;); break;
-        case 1: Debug.Log(&quot;选择了工具二&quot;); break;
-        case 2: Debug.Log(&quot;选择了工具三&quot;);break;
-    &#125;
-&#125;
-</code></pre>
+    {
+        case 0: Debug.Log("选择了工具一"); break;
+        case 1: Debug.Log("选择了工具二"); break;
+        case 2: Debug.Log("选择了工具三");break;
+    }
+}
+```
 </details>
 
 <details>
 <summary><font size= 3>SelectionGrid 选择网格</font></summary>
 
-<pre><code class="C#">private int selectionIndex = 0;
-private string[] SelectionInfos = new string[] &#123; &quot;工具一&quot;, &quot;工具二&quot;, &quot;工具三&quot; &#125;;
+```C#
+private int selectionIndex = 0;
+private string[] SelectionInfos = new string[] { "工具一", "工具二", "工具三" };
 void OnGUI()
-&#123;
+{
     //与Toolbar类似，但Toolbar只能支持一行
     //最后一个参数表示每行最多能有几个工具栏，多余的工具栏将置于下一行
     selectionIndex = GUI.SelectionGrid(new Rect(0, 0, 200, 60), selectionIndex, SelectionInfos, 1);
 
     switch (selectionIndex)
-    &#123;
-        case 0: Debug.Log(&quot;选择了工具一&quot;); break;
-        case 1: Debug.Log(&quot;选择了工具二&quot;); break;
-        case 2: Debug.Log(&quot;选择了工具三&quot;);break;
-    &#125;
-&#125;
-</code></pre>
+    {
+        case 0: Debug.Log("选择了工具一"); break;
+        case 1: Debug.Log("选择了工具二"); break;
+        case 2: Debug.Log("选择了工具三");break;
+    }
+}
+```
 </details>
 
 <details>
 <summary><font size= 3>Group 分组</font></summary>
 
-<pre><code class="C#">public Rect groupPos;
+```C#
+public Rect groupPos;
 void OnGUI()
-&#123;
+{
     //可以批量控制控件显示范围和位置
 
     GUI.BeginGroup(groupPos);
 
-    GUI.Label(new Rect(0, 0, 100, 20), &quot;Lable&quot;);
-    GUI.Button(new Rect(0, 20, 100, 20), &quot;Button&quot;);
+    GUI.Label(new Rect(0, 0, 100, 20), "Lable");
+    GUI.Button(new Rect(0, 20, 100, 20), "Button");
 
     GUI.EndGroup();
-&#125;
-</code></pre>
+}
+```
 </details>
 
 <details>
 <summary><font size= 3>ScrollView 滚动视野</font></summary>
 
-<pre><code class="C#">public Rect scrPos;//滚动组位置和范围
+```C#   
+public Rect scrPos;//滚动组位置和范围
 public Rect showPos;//可视范围
 private Vector2 nowPos;//当前滚动视野位置
 
 private int selectionIndex = 0;
-private string[] SelectionInfos = new string[] &#123; &quot;工具一&quot;, &quot;工具二&quot;, &quot;工具三&quot; &#125;;
+private string[] SelectionInfos = new string[] { "工具一", "工具二", "工具三" };
 
 void OnGUI()
-&#123;
-    //showPos &gt; scrPos 时将出现滚动滑块
+{
+    //showPos > scrPos 时将出现滚动滑块
 
     nowPos = GUI.BeginScrollView(scrPos, nowPos, showPos);
 
     selectionIndex = GUI.SelectionGrid(new Rect(0, 0, 200, 60), selectionIndex, SelectionInfos, 1);
 
     GUI.EndScrollView();
-&#125;
-</code></pre>
+}
+```
 </details>
 
-<details>
+<p><details></p>
 <summary><font size= 3>Window 窗口</font></summary>
 
-<pre><code class="C#">private bool isclose1 = true;
+<pre><code class="lang-C#">private bool isclose1 = true;
 private bool isclose2 = true;
 private bool isclose3 = true;
 public Rect dragPos;
@@ -469,16 +478,11 @@ public void DrawWindow(int id)
         //GUI.DragWindow(new Rect(0, 0, 100, 20));
         GUI.DragWindow();
     &#125;
-&#125;    
+&#125;
 </code></pre>
-</details>
-</br>
-每一种控件都有多个重载，但都必须有位置信息和显示信息 
-
+<p>&lt;/details&gt;<br>&lt;/br&gt;<br>每一种控件都有多个重载，但都必须有位置信息和显示信息 </p>
 <p>ps：OnGui()是每帧执行的。</p>
-</br>
-</br>
-
+<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
 </li>
 </ul>
 <hr>
@@ -487,7 +491,7 @@ public void DrawWindow(int id)
 <li><h3 id="全局颜色"><a href="#全局颜色" class="headerlink" title="全局颜色"></a>全局颜色</h3>GUI中提供了全局颜色，将OnGUI中所有的控件进行颜色的叠加：<br>  GUI.color 全局颜色<br>  GUI.contentColor 文本颜色<br>  GUI.backgroundColor 背景颜色</li>
 </ul>
 <p><img src="guicolor.png" alt="alt" style="max-width:100%;" ></p>
-<pre><code class="C#">void OnGUI()
+<pre><code class="lang-C#">void OnGUI()
 &#123;
     GUI.color = Color.red;//设置一个全局颜色
 
@@ -510,7 +514,7 @@ public void DrawWindow(int id)
 </ul>
 <p>GUI.skin 将会与下面的控件相关联，控件将获得GUI SKin里边的样式。</p>
 <p>ps：GUI Skin 将会与 GUI.Style 冲突</p>
-<pre><code class="C#">public GUISkin skin;
+<pre><code class="lang-C#">public GUISkin skin;
 void OnGUI()
 &#123;
     GUI.skin = skin;//下面的button和label将获得skin的皮肤样式
@@ -523,9 +527,7 @@ void OnGUI()
     GUI.Label(new Rect(0, 150, 100, 20), &quot;Lable&quot;);
 &#125;
 </code></pre>
-</br>
-</br>
-
+<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
 </li>
 </ul>
 <hr>
@@ -552,13 +554,12 @@ void OnGUI()
 <li>GUILayout.ExpandWidth(bool);</li>
 <li>GUILayout.ExpandHeight(bool);</li>
 </ul>
-</br>
-
+<p>&lt;/br&gt;</p>
 <p>GUILayout还可以通过下面的方式控制布局</p>
 <ul>
-<li> 批量控制组件（类似于Group）：GUILayout.BeginArea()、GUILayout.EndArea()</li>
-<li> 水平的布局：GUILayout.BeginHorizontal()、GUILayout.EndHorizontal()</li>
-<li> 垂直的布局：GUILayout.BeginVertical()、GUILayout.EndVertical()</li>
+<li>批量控制组件（类似于Group）：GUILayout.BeginArea()、GUILayout.EndArea()</li>
+<li>水平的布局：GUILayout.BeginHorizontal()、GUILayout.EndHorizontal()</li>
+<li>垂直的布局：GUILayout.BeginVertical()、GUILayout.EndVertical()</li>
 </ul>
 </li>
 </ul>

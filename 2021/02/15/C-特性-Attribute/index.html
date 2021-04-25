@@ -205,30 +205,28 @@
 <li><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>  标签的本质其实是构造函数，写在元素的上一行表示他们具有该特性的信息,相当于声明了一个类对象关联到该元素。如果特性类名是XXXAttribute，那么在掉用标签时会自动省略Attribute，比如  [XXX(“it is a string”,5)] 。</p>
 </li>
 </ul>
-</br>
-
+<p>&lt;/br&gt;</p>
 <hr>
 <ul>
 <li><h2 id="常用的方法"><a href="#常用的方法" class="headerlink" title="常用的方法"></a>常用的方法</h2><ol>
-<li><h3 id="判断是否使用了某特性"><a href="#判断是否使用了某特性" class="headerlink" title="判断是否使用了某特性"></a>判断是否使用了某特性</h3><pre><code class="C#">//memberinfo:元素据
-//参数1：是哪一种特性的类型
-//参数2：是否查找继承链（父类有这个特性算不算）
-//返回一个布尔值
-memberinfo.IsDefined(typeof(attribute),false);
+<li><h3 id="判断是否使用了某特性"><a href="#判断是否使用了某特性" class="headerlink" title="判断是否使用了某特性"></a>判断是否使用了某特性</h3><pre><code class="lang-C#"> //memberinfo:元素据
+ //参数1：是哪一种特性的类型
+ //参数2：是否查找继承链（父类有这个特性算不算）
+ //返回一个布尔值
+ memberinfo.IsDefined(typeof(attribute),false);
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
-<li><h3 id="获得特性"><a href="#获得特性" class="headerlink" title="获得特性"></a>获得特性</h3><pre><code class="C#">//获得元素据的全部特性
-//参数：是否查找继承链
-MyCustomAttribute[] mca = memberinfo.GetCustomAtrributes(true);
+<li><h3 id="获得特性"><a href="#获得特性" class="headerlink" title="获得特性"></a>获得特性</h3><pre><code class="lang-C#"> //获得元素据的全部特性
+ //参数：是否查找继承链
+ MyCustomAttribute[] mca = memberinfo.GetCustomAtrributes(true);
 
-//获得元素据的某个特性
-//参数为指定特性类型
-//MyCustomAttribute 为自定义特性
-MyCustomAttribute mca = memberinfo.GetCustomAttribute(typeof(MyCustomAttribute)) as MyCustomAttribute;
+ //获得元素据的某个特性
+ //参数为指定特性类型
+ //MyCustomAttribute 为自定义特性
+ MyCustomAttribute mca = memberinfo.GetCustomAttribute(typeof(MyCustomAttribute)) as MyCustomAttribute;
 </code></pre>
-</br>
-
+<p>&lt;/br&gt;</p>
 </li>
 </ol>
 </li>
@@ -236,112 +234,111 @@ MyCustomAttribute mca = memberinfo.GetCustomAttribute(typeof(MyCustomAttribute))
 <hr>
 <ul>
 <li><h2 id="常用预定义特性"><a href="#常用预定义特性" class="headerlink" title="常用预定义特性"></a>常用预定义特性</h2><ol>
-<li><h3 id="限定特性类的使用范围-该标签只能写在特性类上-："><a href="#限定特性类的使用范围-该标签只能写在特性类上-：" class="headerlink" title="限定特性类的使用范围(该标签只能写在特性类上)："></a>限定特性类的使用范围(该标签只能写在特性类上)：</h3><pre><code class="C#">[AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface,AllowMultiple = true, Inherited = true)]
-//参数1：该特性只能使用在哪些范围
-//参数2：是否允许元数据共有多个特性(默认都是false)
-//参数3：特性是否被派生类和重写函数继承
-//该语句的意思是该只能使用在class和interface上，允许多个特性同时存在，允许特性被子类继承
+<li><h3 id="限定特性类的使用范围-该标签只能写在特性类上-："><a href="#限定特性类的使用范围-该标签只能写在特性类上-：" class="headerlink" title="限定特性类的使用范围(该标签只能写在特性类上)："></a>限定特性类的使用范围(该标签只能写在特性类上)：</h3><pre><code class="lang-C#"> [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface,AllowMultiple = true, Inherited = true)]
+ //参数1：该特性只能使用在哪些范围
+ //参数2：是否允许元数据共有多个特性(默认都是false)
+ //参数3：特性是否被派生类和重写函数继承
+ //该语句的意思是该只能使用在class和interface上，允许多个特性同时存在，允许特性被子类继承
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
-<li><h3 id="成员过时警告"><a href="#成员过时警告" class="headerlink" title="成员过时警告"></a>成员过时警告</h3><pre><code class="C#">[Obsolete(&quot;该类成员已经过时&quot;,true)]
-//参数1：警告信息
-//参数2：使用该类成员时:true时直接报错，false时会发出警告
+<li><h3 id="成员过时警告"><a href="#成员过时警告" class="headerlink" title="成员过时警告"></a>成员过时警告</h3><pre><code class="lang-C#"> [Obsolete(&quot;该类成员已经过时&quot;,true)]
+ //参数1：警告信息
+ //参数2：使用该类成员时:true时直接报错，false时会发出警告
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="调用者信息"><a href="#调用者信息" class="headerlink" title="调用者信息"></a>调用者信息</h3><p>需要引入命名空间：<code>using System.Runtime.ComplierServices</code></p>
-<pre><code class="C#">//调用该对象者所在文件路径
-[CallerFilePath]
+<pre><code class="lang-C#"> //调用该对象者所在文件路径
+ [CallerFilePath]
 
-//调用该对象者所在行数
-[CallerLineNumber]
+ //调用该对象者所在行数
+ [CallerLineNumber]
 
-//调用的该对象者的成员名
-[CallerMemberName]
+ //调用的该对象者的成员名
+ [CallerMemberName]
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 <li><h3 id="外部Dll包函数"><a href="#外部Dll包函数" class="headerlink" title="外部Dll包函数"></a>外部Dll包函数</h3><p>该特性一般用来调用C或C++等dll包中写好的方法；</p>
 <p>需要引入命名空间：<code>using System.Runtime.InteropServices</code></p>
-<pre><code class="C#">[DllImport(@&quot;E:/Codes/c++/test/debug/bin/test.dll&quot;)]
-public static extern int C_plusplus_Method(int a,int b);
-//假设该方法是c++某程序集中的方法
+<pre><code class="lang-C#"> [DllImport(@&quot;E:/Codes/c++/test/debug/bin/test.dll&quot;)]
+ public static extern int C_plusplus_Method(int a,int b);
+ //假设该方法是c++某程序集中的方法
 </code></pre>
-</br>
-
+<p>&lt;/br&gt;</p>
 </li>
 </ol>
 </li>
 </ul>
 <hr>
 <ul>
-<li><h2 id="自定义特性和反射获取特性信息"><a href="#自定义特性和反射获取特性信息" class="headerlink" title="自定义特性和反射获取特性信息"></a>自定义特性和反射获取特性信息</h2><pre><code class="C#">  public class MyCustomAttribute : Attribute//特性类
-  &#123;
-      public string info;
-
-      public MyCustomAttribute(string info) =&gt; this.info = info;
-
-      public void CustomMethod()
-      &#123;
-          Console.WriteLine(&quot;特性的方法&quot;);
-      &#125;
-  &#125;
-
-  [MyCustom(&quot;这是一个类的特性&quot;)]
-  public class Test//测试类
-  &#123;   [MyCustom(&quot;这是一个成员变量的特性&quot;)]
-      public int num;
-
-      [MyCustom(&quot;这是一个方法的特性&quot;)]
-      public void Method([MyCustom(&quot;这是一个方法参数的特性&quot;)] int num)&#123;&#125;
-  &#125;
-
-  
-  public class MainTest//main调试
-  &#123;
-      public static void Main(string[] args)
-      &#123;
-          //通过反射获取Test各个元数据的特性
-
-          //获取元数据f
-          Test test = new Test();
-          Type classType = test.GetType();
-
-          FieldInfo fieldinfo = classType.GetField(&quot;num&quot;);
-          MethodInfo methodinfo = classType.GetMethod(&quot;Method&quot;);
-          ParameterInfo[] parameterinfo = methodinfo.GetParameters();
-
-          //获得特性
-          MyCustomAttribute classAttribute = classType.GetCustomAttribute(typeof(MyCustomAttribute)) as MyCustomAttribute;
-          MyCustomAttribute fieldAttribute = fieldinfo.GetCustomAttribute(typeof(MyCustomAttribute)) as MyCustomAttribute;
-          MyCustomAttribute methodAttribute = methodinfo.GetCustomAttribute(typeof(MyCustomAttribute)) as MyCustomAttribute;
-          MyCustomAttribute[] parameterAttributes = new MyCustomAttribute[1];
-          int i = 0;
-          foreach (ParameterInfo p in parameterinfo)
-          &#123;
-              parameterAttributes[i]= p.GetCustomAttribute(typeof(MyCustomAttribute)) as MyCustomAttribute;
-          &#125;
-
-          //输出自定义特性中的info
-          Console.WriteLine(classAttribute.info);
-          Console.WriteLine(fieldAttribute.info);
-          Console.WriteLine(methodAttribute.info);
-          foreach (MyCustomAttribute c in parameterAttributes)
-          &#123;
-              Console.WriteLine(c.info);
-          &#125;
-
-          // 输出：
-          // 这是一个类的特性
-          // 这是一个成员变量的特性
-          // 这是一个方法的特性
-          // 这是一个方法参数的特性
-      &#125;
-  &#125;
-</code></pre>
-</li>
+<li><h2 id="自定义特性和反射获取特性信息"><a href="#自定义特性和反射获取特性信息" class="headerlink" title="自定义特性和反射获取特性信息"></a>自定义特性和反射获取特性信息</h2></li>
 </ul>
+<pre><code class="lang-C#">    public class MyCustomAttribute : Attribute//特性类
+    &#123;
+        public string info;
+
+        public MyCustomAttribute(string info) =&gt; this.info = info;
+
+        public void CustomMethod()
+        &#123;
+            Console.WriteLine(&quot;特性的方法&quot;);
+        &#125;
+    &#125;
+
+    [MyCustom(&quot;这是一个类的特性&quot;)]
+    public class Test//测试类
+    &#123;   [MyCustom(&quot;这是一个成员变量的特性&quot;)]
+        public int num;
+
+        [MyCustom(&quot;这是一个方法的特性&quot;)]
+        public void Method([MyCustom(&quot;这是一个方法参数的特性&quot;)] int num)&#123;&#125;
+    &#125;
+
+
+    public class MainTest//main调试
+    &#123;
+        public static void Main(string[] args)
+        &#123;
+            //通过反射获取Test各个元数据的特性
+
+            //获取元数据f
+            Test test = new Test();
+            Type classType = test.GetType();
+
+            FieldInfo fieldinfo = classType.GetField(&quot;num&quot;);
+            MethodInfo methodinfo = classType.GetMethod(&quot;Method&quot;);
+            ParameterInfo[] parameterinfo = methodinfo.GetParameters();
+
+            //获得特性
+            MyCustomAttribute classAttribute = classType.GetCustomAttribute(typeof(MyCustomAttribute)) as MyCustomAttribute;
+            MyCustomAttribute fieldAttribute = fieldinfo.GetCustomAttribute(typeof(MyCustomAttribute)) as MyCustomAttribute;
+            MyCustomAttribute methodAttribute = methodinfo.GetCustomAttribute(typeof(MyCustomAttribute)) as MyCustomAttribute;
+            MyCustomAttribute[] parameterAttributes = new MyCustomAttribute[1];
+            int i = 0;
+            foreach (ParameterInfo p in parameterinfo)
+            &#123;
+                parameterAttributes[i]= p.GetCustomAttribute(typeof(MyCustomAttribute)) as MyCustomAttribute;
+            &#125;
+
+            //输出自定义特性中的info
+            Console.WriteLine(classAttribute.info);
+            Console.WriteLine(fieldAttribute.info);
+            Console.WriteLine(methodAttribute.info);
+            foreach (MyCustomAttribute c in parameterAttributes)
+            &#123;
+                Console.WriteLine(c.info);
+            &#125;
+
+            // 输出：
+            // 这是一个类的特性
+            // 这是一个成员变量的特性
+            // 这是一个方法的特性
+            // 这是一个方法参数的特性
+        &#125;
+    &#125;
+</code></pre>
 
     </div>
     
