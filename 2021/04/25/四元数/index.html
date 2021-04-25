@@ -282,13 +282,13 @@
 <p>  因此旋转后向量为V<sub>new</sub> = (1,0,-1)</p>
 </li>
 <li><h2 id="unity中四元数的API"><a href="#unity中四元数的API" class="headerlink" title="unity中四元数的API"></a>unity中四元数的API</h2><ul>
-<li><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>  静态变量|描述<br>  ——-|——-<br>  eulerAngles|返回旋转的欧拉角表示<br>  this[int]|分别使用 [0]、[1]、[2]、[3] 访问 x、y、z、w 分量<br>  w、x、y、z|四元数的四个分量</p>
+<li><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>静态变量|描述<br>——-|——-<br>eulerAngles|返回旋转的欧拉角表示<br>this[int]|分别使用 [0]、[1]、[2]、[3] 访问 x、y、z、w 分量<br>w、x、y、z|四元数的四个分量</p>
 </li>
-<li><h3 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h3><p>  identity：单位四元数</p>
+<li><h3 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h3><p>identity：单位四元数</p>
 </li>
-<li><h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p>  静态方法|描述<br>  ——-|——-<br>  Angle(rot1，rot2)|返回两个四元数（旋转）之间的角度<br>  Euler|返回一个围绕 Z 轴旋转 z 度、围绕 X 轴旋转 x 度、围绕 Y 轴旋转 y 度的四元数<br>  AngleAxis(angle, axis)|返回一个围绕 向量axis 旋转 angle 度的四元数<br>  Dot(rot1,rot2)|两个四元数的乘积<br>  FromToRotation(rot1,rot2)|返回一个能从rot1旋转到rot2的四元数<br>  Inverse(rot)|返回一个四元数的逆（相反的旋转）<br>  Lerp(a,b,t)|在 a 到 b 的旋转之间按 t 进行线性插值运算并对结果进行标准化处理，t的范围为[0,1]<br>  LerpUnclamped(a,b,t)|线性插值运算，但是t无范围要求<br>  LookRotation(forward,upwards)|把z轴与forward对齐，x轴与 forward 和 upwards 之间的差积对齐<br>  RotateTowards(from,to,path)|每帧从from旋转 path 个单位到to<br>  Slerp(a,b,t)|在 a 到 b 的旋转之间按 t 进行球形插值运算，t 被限制在 [0, 1] 范围内<br>  SlerpUnclamped(a,b,t)|在 a 到 b 的旋转之间按 t 进行球形插值运算，但是t无范围要求</p>
+<li><h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p>静态方法|描述<br>——-|——-<br>Angle(rot1，rot2)|返回两个四元数（旋转）之间的角度<br>Euler|返回一个围绕 Z 轴旋转 z 度、围绕 X 轴旋转 x 度、围绕 Y 轴旋转 y 度的四元数<br>AngleAxis(angle, axis)|返回一个围绕 向量axis 旋转 angle 度的四元数<br>Dot(rot1,rot2)|两个四元数的乘积<br>FromToRotation(rot1,rot2)|返回一个能从rot1旋转到rot2的四元数<br>Inverse(rot)|返回一个四元数的逆（相反的旋转）<br>Lerp(a,b,t)|在 a 到 b 的旋转之间按 t 进行线性插值运算并对结果进行标准化处理，t的范围为[0,1]<br>LerpUnclamped(a,b,t)|线性插值运算，但是t无范围要求<br>LookRotation(forward,upwards)|把z轴与forward对齐，x轴与 forward 和 upwards 之间的差积对齐<br>RotateTowards(from,to,path)|每帧从from旋转 path 个单位到to<br>Slerp(a,b,t)|在 a 到 b 的旋转之间按 t 进行球形插值运算，t 被限制在 [0, 1] 范围内<br>SlerpUnclamped(a,b,t)|在 a 到 b 的旋转之间按 t 进行球形插值运算，但是t无范围要求</p>
 </li>
-<li><h3 id="公共方法"><a href="#公共方法" class="headerlink" title="公共方法"></a>公共方法</h3><p>  Set(x,y,z,w)|设置现有四元数的 x、y、z 和 w 分量。<br>  SetFromToRotation(from,to)|设置成一个从 from 旋转到 to 的四元数<br>  SetLookRotation(forward,upwards)|设置成轴与forward对齐，x轴与 forward 和 upwards 之间的差积的四元数<br>  ToAngleAxis(axis,angle)设置成绕axis轴旋转angle角度的四元数</p>
+<li><h3 id="公共方法"><a href="#公共方法" class="headerlink" title="公共方法"></a>公共方法</h3><p>公共方法|描述<br>——-|——-<br>Set(x,y,z,w)|设置现有四元数的 x、y、z 和 w 分量。<br>SetFromToRotation(from,to)|设置成一个从 from 旋转到 to 的四元数<br>SetLookRotation(forward,upwards)|设置成轴与forward对齐，x轴与 forward 和 upwards 之间的差积的四元数<br>ToAngleAxis(axis,angle)设置成绕axis轴旋转angle角度的四元数</p>
 </li>
 </ul>
 </li>
