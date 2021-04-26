@@ -168,7 +168,7 @@
         <div id="tagcloud" class="tagcloud">
             <span> Trending Tags </span>
             <div>
-             <a href="#" class="tag">C# </a><a href="#" class="tag">.net </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">unity </a>
+             <a href="#" class="tag">C# </a><a href="#" class="tag">.net </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">.net, C# </a>
             </div>
         </div>
         
@@ -198,22 +198,8 @@ using UnityEditor; //手机上没有UnityEditor文件
 #endif
 
 
-
- AssetDatabase常用的资源操作
-
-
- 加载资源
-
-
-
-加载类型
-方法
-
-
-
-
-加载单个Asset
-UnityEngine.Ob...
+AssetDatabase常用的资源操作
+加载资源 加载类型|方法 ——-|——- 加载单个Asset|UnityEngine.Object...
     </span>
 
     <div>
@@ -224,7 +210,7 @@ UnityEngine.Ob...
         <span>5 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">6672</span>
+        <span class="words">4520</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -246,17 +232,13 @@ UnityEngine.Ob...
             
             
             
-
- unity资源类型和资源的管理方式
-
-
- 资源类型Asset(资产)：
-
+unity资源类型和资源的管理方式
+资源类型Asset(资产)：
 PureAsset: Texture,Mesh,Animator,shader等纯资源，不能直接拖拽到场景中
 Prefab: 预制体必须Instantiate才能作为GameObject出现在场景中
 Scene：各种场景资源
 ScriptableObject:脚本对象
-TextAsset：后缀标记为.path文件可以被unity读取（比如json标记为.pa...
+TextAsset：后缀标记为.path文件可以被unity读取（比如json标记为.path才能被u...
     </span>
 
     <div>
@@ -267,7 +249,7 @@ TextAsset：后缀标记为.path文件可以被unity读取（比如json标记为
         <span>3 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">2845</span>
+        <span class="words">2756</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -289,24 +271,18 @@ TextAsset：后缀标记为.path文件可以被unity读取（比如json标记为
             
             
             
+C#6
+只读属性或成员函数的方法表达式体  class Person
+  {
+      private string FirstName,LastName;
 
- C#6
+      //属性
+      public string name =&gt; $&amp;quot;{FirstName&amp;#125; —— {LastName&amp;#125;&amp;quot;;
 
+      //方法
 
- 只读属性或成员函数的方法表达式体
-class Person
-{
-    private string FirstName,LastName;
-
-    //属性
-    public string name =&gt; $&#34;{FirstName&amp;#125; —— {LastName&amp;#125;&#34;;
-
-    //方法
-
-    //原来的
-    public string getName()
-    {
-        ...
+      //原来的
+      public string getN...
     </span>
 
     <div>
@@ -317,7 +293,7 @@ class Person
         <span>22 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">67922</span>
+        <span class="words">31068</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -344,13 +320,9 @@ class Person
 
 
 
+场景第一次加载当 场景 开始时会调用这些函数（场景中每个对象执行一次）
 
- 场景第一次加载
-当 场景 开始时会调用这些函数（场景中每个对象执行一次）
-
-
- Awake：
-此函数始终会在任何 Start 函数之前以及预制件（prefab）之后实例化（如果 GameObject 在启动期间处于非活动状态，则在激活之前不会调用 Awak...
+Awake：   此函数始终会在任何 Start 函数之前以及预制件（prefab）之后实例化（如果 GameObject 在启动期间处于非活动状态，则在激活之前不会调用 Awake。）...
     </span>
 
     <div>
@@ -361,7 +333,7 @@ class Person
         <span>5 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">6287</span>
+        <span class="words">6829</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -384,9 +356,8 @@ class Person
             
             基于UGUI的MVC个人用框架，源项目已上传至GitHub,若clone失败请用lfs。
 
-
- Model
-向外部提供修改数据的方法  public sealed class PlayerModel
+Model  向外部提供修改数据的方法
+  public sealed class PlayerModel
   {
 
       //PlayerModel单例
@@ -401,7 +372,7 @@ class Person
         <span>10 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">20965</span>
+        <span class="words">9731</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -422,11 +393,8 @@ class Person
             
             
             
-             常见的值类型和引用类型
-
-
- 值类型：
-
+            常见的值类型和引用类型
+值类型：
 无符号类型：byte,ushort,uint,ulong
 有符号类型：sbyte,short,int,long
 浮点类型：float,double,decimal
@@ -434,17 +402,15 @@ class Person
 字符型：char
 枚举：enum
 结构体：struct
-指针：int*,float*,…
-可空类型：int?,float?,…
+指针：int,float,……
+可空类型：int?,float?,……
 
 
-
- 引用类型：
-
+引用类型：
 类：class
 接口：interface
-数组：xxx[]
-委...
+数组：xxx[] 
+委托：deleg...
     </span>
 
     <div>
@@ -455,7 +421,7 @@ class Person
         <span>11 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">9198</span>
+        <span class="words">7138</span>
 
     </div>
     <hr color=#49495b SIZE=1>
