@@ -800,7 +800,7 @@
 </thead>
 <tbody>
 <tr>
-<td>识符</td>
+<td>符</td>
 </tr>
 </tbody>
 </table>
@@ -819,9 +819,12 @@
 <li>IEEE 的 802.3 标准</li>
 </ul>
 <p>最常用的 MAC 帧是以太网 V2 的格式:</p>
+</li>
+</ul>
 <table>
 <thead>
 <tr>
+<th>it</th>
 <th>6bit</th>
 <th>2bit</th>
 <th>45-1500bit</th>
@@ -830,6 +833,7 @@
 </thead>
 <tbody>
 <tr>
+<td>地址</td>
 <td>源地址</td>
 <td>类型</td>
 <td>数据</td>
@@ -838,7 +842,7 @@
 </tbody>
 </table>
 <p>其中类型字段用来标志上一层使用的是什么协议，以便把收到的 MAC 帧的数据上交给上一层的这个协议。数据字段的正式名称是 <code>MAC客户数据字段</code>，最小长度 64 字节 − 18 字节的首部和尾部 = 数据字段的最小长度（46字节）</p>
-</li>
+<ul>
 <li>
 <p>扩展以太网的方法：</p>
 <ul>
@@ -1183,6 +1187,21 @@ IP协议提供了无连接、不可靠传输的传输功能，确保了联网设
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 
 </html>
