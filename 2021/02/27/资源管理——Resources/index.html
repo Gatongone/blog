@@ -185,7 +185,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#resources%E5%B8%B8%E7%94%A8%E7%9A%84%E8%B5%84%E6%BA%90%E6%93%8D%E4%BD%9C"><span class="toc-text"> Resources常用的资源操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E8%B5%84%E6%BA%90"><span class="toc-text"> 加载资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD%E8%B5%84%E6%BA%90"><span class="toc-text"> 卸载资源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0"><span class="toc-text"> 其他函数</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Resources%E5%B8%B8%E7%94%A8%E7%9A%84%E8%B5%84%E6%BA%90%E6%93%8D%E4%BD%9C"><span class="toc-text">Resources常用的资源操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E8%B5%84%E6%BA%90"><span class="toc-text">加载资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD%E8%B5%84%E6%BA%90"><span class="toc-text">卸载资源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0"><span class="toc-text">其他函数</span></a></li></ol>
                 </div>
                 
              </div>
@@ -203,62 +203,34 @@
         
         <p>可开发人员以将Asset资源放在一个或多个名为<code>Resources</code>的文件夹中，并且在<code>运行时</code>利用<code>Resources API</code>来对这些Asset中的Object进行管理。</p>
 <ul>
-<li>
-<h2 id="resources常用的资源操作"><a class="markdownIt-Anchor" href="#resources常用的资源操作"></a> Resources常用的资源操作</h2>
-<ol>
-<li>
-<h3 id="加载资源"><a class="markdownIt-Anchor" href="#加载资源"></a> 加载资源</h3>
-<table>
-<thead>
-<tr>
-<th>加载类型</th>
-<th>方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Load</td>
-<td>加载单个资源</td>
-</tr>
-<tr>
-<td>LoadAll</td>
-<td>加载多个资源</td>
-</tr>
-<tr>
-<td>LoadAsync</td>
-<td>异步加载单个资源</td>
-</tr>
-</tbody>
-</table>
-<pre class="highlight"><code class="C#">Resources.Load&lt;Material&gt;(<span class="hljs-string">"myMaterial"</span>)<span class="hljs-comment">//Resources下的路径可以不写后缀</span>
+<li><h2 id="Resources常用的资源操作"><a href="#Resources常用的资源操作" class="headerlink" title="Resources常用的资源操作"></a>Resources常用的资源操作</h2><ol>
+<li><h3 id="加载资源"><a href="#加载资源" class="headerlink" title="加载资源"></a>加载资源</h3><p> 加载类型|方法<br> ——-|——-<br> Load|加载单个资源<br> LoadAll|加载多个资源<br> LoadAsync|异步加载单个资源</p>
+<pre><code class="lang-C#"> Resources.Load&lt;Material&gt;(&quot;myMaterial&quot;)//Resources下的路径可以不写后缀
 </code></pre>
 </li>
-<li>
-<h3 id="卸载资源"><a class="markdownIt-Anchor" href="#卸载资源"></a> 卸载资源</h3>
-<p>不同的资源类型对应不同的卸载方案</p>
+<li><h3 id="卸载资源"><a href="#卸载资源" class="headerlink" title="卸载资源"></a>卸载资源</h3><p> 不同的资源类型对应不同的卸载方案</p>
 <ul>
 <li>PureAsset：<code>Resources.UnloadAsset()</code></li>
 <li>Prefab：<code>DestroyImmediate()</code>//只能在非编辑器下使用</li>
-<li>已经被实例化的资源：<code>Destory()</code></li>
-</ul>
-<pre class="highlight"><code class="C#">GameObject obj = Resources.Load&lt;GameObject&gt;(<span class="hljs-string">"cube"</span>);
-Material mat = Resources.Load&lt;Material&gt;(<span class="hljs-string">"myMaterial"</span>);
+<li><p>已经被实例化的资源：<code>Destory()</code></p>
+<pre><code class="lang-C#">GameObject obj = Resources.Load&lt;GameObject&gt;(&quot;cube&quot;);
+Material mat = Resources.Load&lt;Material&gt;(&quot;myMaterial&quot;);
 GameObject obj2 = Object.Instantiate(obj);
 
 Resources.UnloadAsset(mat);
-<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> !UNITY_EDITOR</span>
-    DestroyImmediate(obj);<span class="hljs-comment">//连同实例(即obj2)一并卸载</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+#if !UNITY_EDITOR
+  DestroyImmediate(obj);//连同实例(即obj2)一并卸载
+#endif
 Destory(obj2);
 </code></pre>
 <p>其他的卸载方法：</p>
 <p><code>Resources.UnloadUnsedAssets()</code>:卸载掉当前场景中没被引用的所有资源。相比于上面的情况，虽然不需要关心资源的类型，但是做不到像上面的强制立即卸载的操作，这将导致在资源被一个全局变量引用时，将持续无法卸载该资源。</p>
 </li>
+</ul>
+</li>
 </ol>
 </li>
-<li>
-<h2 id="其他函数"><a class="markdownIt-Anchor" href="#其他函数"></a> 其他函数</h2>
-<ul>
+<li><h2 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h2><ul>
 <li><code>FindObjectsOfTypeAll()</code>：按类型查找并返回资源</li>
 <li><code>GetBuiltinResource()</code>：按类型和路径获得内置资源</li>
 </ul>
