@@ -185,7 +185,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Model"><span class="toc-text">Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#View"><span class="toc-text">View</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3"><span class="toc-text">接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#View%E7%A4%BA%E4%BE%8B1"><span class="toc-text">View示例1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#View%E7%A4%BA%E4%BE%8B2"><span class="toc-text">View示例2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Controller"><span class="toc-text">Controller</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E6%8E%A7%E5%88%B6%E5%99%A8%E5%9F%BA%E7%B1%BB"><span class="toc-text">抽象控制器基类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E5%AE%9E%E4%BE%8B1"><span class="toc-text">控制器实例1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E5%AE%9E%E4%BE%8B2"><span class="toc-text">控制器实例2</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#model"><span class="toc-text"> Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#view"><span class="toc-text"> View</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3"><span class="toc-text"> 接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#view%E7%A4%BA%E4%BE%8B1"><span class="toc-text"> View示例1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#view%E7%A4%BA%E4%BE%8B2"><span class="toc-text"> View示例2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#controller"><span class="toc-text"> Controller</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E6%8E%A7%E5%88%B6%E5%99%A8%E5%9F%BA%E7%B1%BB"><span class="toc-text"> 抽象控制器基类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E5%AE%9E%E4%BE%8B1"><span class="toc-text"> 控制器实例1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E5%AE%9E%E4%BE%8B2"><span class="toc-text"> 控制器实例2</span></a></li></ol></li></ol>
                 </div>
                 
              </div>
@@ -203,112 +203,117 @@
         
         <p>基于UGUI的MVC个人用框架，源项目已上传至<a target="_blank" rel="noopener" href="https://github.com/Gatongone/UnityMVC.git">GitHub</a>,若clone失败请用lfs。</p>
 <ul>
-<li><h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>  向外部提供修改数据的方法</p>
-<pre><code class="lang-C#">  public sealed class PlayerModel
+<li>
+<h2 id="model"><a class="markdownIt-Anchor" href="#model"></a> Model</h2>
+向外部提供修改数据的方法<pre class="highlight"><code class="C#">  <span class="hljs-keyword">public</span> <span class="hljs-keyword">sealed</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PlayerModel</span>
   &#123;
 
-      //PlayerModel单例
-      private static readonly Lazy&lt;PlayerModel&gt; _instance = new Lazy&lt;PlayerModel&gt;(() =&gt; new PlayerModel());
+      <span class="hljs-comment">//PlayerModel单例</span>
+      <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">readonly</span> Lazy&lt;PlayerModel&gt; _instance = <span class="hljs-keyword">new</span> Lazy&lt;PlayerModel&gt;(() =&gt; <span class="hljs-keyword">new</span> PlayerModel());
 
-      public static PlayerModel Instance &#123; get &#123; return _instance.Value; &#125; &#125;
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> PlayerModel Instance &#123; <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _instance.Value; &#125; &#125;
 
-      private PlayerModel()
+      <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">PlayerModel</span>(<span class="hljs-params"></span>)</span>
       &#123;
-          this.name = PlayerPrefs.GetString(&quot;PlayerName&quot;, &quot;未命名&quot;);
-          this.level = PlayerPrefs.GetInt(&quot;PlayerLevel&quot;, 1);
-          this.diamondNum = PlayerPrefs.GetInt(&quot;PlayerDiamondNum&quot;, 10);
-          this.goldNum = PlayerPrefs.GetInt(&quot;PlayerGoldNum&quot;, 5000);
-          this.power = PlayerPrefs.GetInt(&quot;PlayerPower&quot;, 110);
-          this.att = PlayerPrefs.GetInt(&quot;PlayerAtt&quot;, 120);
-          this.def = PlayerPrefs.GetInt(&quot;PlayerDef&quot;, 30);
-          this.spd = PlayerPrefs.GetInt(&quot;PlayerSpd&quot;, 60);
-          this.hp = PlayerPrefs.GetInt(&quot;PlayerHp&quot;, 1200);
+          <span class="hljs-keyword">this</span>.name = PlayerPrefs.GetString(<span class="hljs-string">"PlayerName"</span>, <span class="hljs-string">"未命名"</span>);
+          <span class="hljs-keyword">this</span>.level = PlayerPrefs.GetInt(<span class="hljs-string">"PlayerLevel"</span>, <span class="hljs-number">1</span>);
+          <span class="hljs-keyword">this</span>.diamondNum = PlayerPrefs.GetInt(<span class="hljs-string">"PlayerDiamondNum"</span>, <span class="hljs-number">10</span>);
+          <span class="hljs-keyword">this</span>.goldNum = PlayerPrefs.GetInt(<span class="hljs-string">"PlayerGoldNum"</span>, <span class="hljs-number">5000</span>);
+          <span class="hljs-keyword">this</span>.power = PlayerPrefs.GetInt(<span class="hljs-string">"PlayerPower"</span>, <span class="hljs-number">110</span>);
+          <span class="hljs-keyword">this</span>.att = PlayerPrefs.GetInt(<span class="hljs-string">"PlayerAtt"</span>, <span class="hljs-number">120</span>);
+          <span class="hljs-keyword">this</span>.def = PlayerPrefs.GetInt(<span class="hljs-string">"PlayerDef"</span>, <span class="hljs-number">30</span>);
+          <span class="hljs-keyword">this</span>.spd = PlayerPrefs.GetInt(<span class="hljs-string">"PlayerSpd"</span>, <span class="hljs-number">60</span>);
+          <span class="hljs-keyword">this</span>.hp = PlayerPrefs.GetInt(<span class="hljs-string">"PlayerHp"</span>, <span class="hljs-number">1200</span>);
 
-          EventManager.Instance.AddEventListener(&quot;update_playerData&quot;, saveData);
-          EventManager.Instance.AddEventListener(&quot;LevelUp&quot;, LevelUp);
+          EventManager.Instance.AddEventListener(<span class="hljs-string">"update_playerData"</span>, saveData);
+          EventManager.Instance.AddEventListener(<span class="hljs-string">"LevelUp"</span>, LevelUp);
       &#125;
 
-      //字段数据
-      private string name;
-      private int level;
-      private int diamondNum;
-      private int goldNum;
-      private int power;
-      private int att;
-      private int def;
-      private int spd;
-      private int hp;
+      <span class="hljs-comment">//字段数据</span>
+      <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> name;
+      <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> level;
+      <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> diamondNum;
+      <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> goldNum;
+      <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> power;
+      <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> att;
+      <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> def;
+      <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> spd;
+      <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> hp;
 
-      //属性
-      public string Name &#123; get =&gt; name; set =&gt; name = value; &#125;
-      public int Level &#123; get =&gt; level; set =&gt; level = level &gt; 0 ? 0 : value; &#125;
-      public int DiamondNum &#123; get =&gt; diamondNum; set =&gt; diamondNum = diamondNum &gt; 0 ? 0 : value; &#125;
-      public int GoldNum &#123; get =&gt; goldNum; set =&gt; goldNum = goldNum &gt; 0 ? 0 : value; &#125;
-      public int Power &#123; get =&gt; power; set =&gt; power = power &gt; 0 ? 0 : value; &#125;
-      public int Att &#123; get =&gt; att; set =&gt; att = att &gt; 0 ? 0 : value; &#125;
-      public int Def &#123; get =&gt; def; set =&gt; def = def &gt; 0 ? 0 : value; &#125;
-      public int Spd &#123; get =&gt; spd; set =&gt; spd = spd &gt; 0 ? 0 : value; &#125;
-      public int Hp &#123; get =&gt; hp; set =&gt; hp = hp &gt; 0 ? 0 : value; &#125;
+      <span class="hljs-comment">//属性</span>
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Name &#123; <span class="hljs-keyword">get</span> =&gt; name; <span class="hljs-keyword">set</span> =&gt; name = <span class="hljs-keyword">value</span>; &#125;
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Level &#123; <span class="hljs-keyword">get</span> =&gt; level; <span class="hljs-keyword">set</span> =&gt; level = level &gt; <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : <span class="hljs-keyword">value</span>; &#125;
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> DiamondNum &#123; <span class="hljs-keyword">get</span> =&gt; diamondNum; <span class="hljs-keyword">set</span> =&gt; diamondNum = diamondNum &gt; <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : <span class="hljs-keyword">value</span>; &#125;
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> GoldNum &#123; <span class="hljs-keyword">get</span> =&gt; goldNum; <span class="hljs-keyword">set</span> =&gt; goldNum = goldNum &gt; <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : <span class="hljs-keyword">value</span>; &#125;
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Power &#123; <span class="hljs-keyword">get</span> =&gt; power; <span class="hljs-keyword">set</span> =&gt; power = power &gt; <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : <span class="hljs-keyword">value</span>; &#125;
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Att &#123; <span class="hljs-keyword">get</span> =&gt; att; <span class="hljs-keyword">set</span> =&gt; att = att &gt; <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : <span class="hljs-keyword">value</span>; &#125;
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Def &#123; <span class="hljs-keyword">get</span> =&gt; def; <span class="hljs-keyword">set</span> =&gt; def = def &gt; <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : <span class="hljs-keyword">value</span>; &#125;
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Spd &#123; <span class="hljs-keyword">get</span> =&gt; spd; <span class="hljs-keyword">set</span> =&gt; spd = spd &gt; <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : <span class="hljs-keyword">value</span>; &#125;
+      <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Hp &#123; <span class="hljs-keyword">get</span> =&gt; hp; <span class="hljs-keyword">set</span> =&gt; hp = hp &gt; <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : <span class="hljs-keyword">value</span>; &#125;
 
-      //保存数据
-      public void saveData()
+      <span class="hljs-comment">//保存数据</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">saveData</span>(<span class="hljs-params"></span>)</span>
       &#123;
-          PlayerPrefs.SetString(&quot;PlayerName&quot;, this.name);
-          PlayerPrefs.SetInt(&quot;PlayerLevel&quot;, this.level);
-          PlayerPrefs.SetInt(&quot;PlayerDiamondNum&quot;, this.diamondNum);
-          PlayerPrefs.SetInt(&quot;PlayerGoldNum&quot;, this.goldNum);
-          PlayerPrefs.SetInt(&quot;PlayerPower&quot;, this.power);
-          PlayerPrefs.SetInt(&quot;PlayerAtt&quot;, this.att);
-          PlayerPrefs.SetInt(&quot;PlayerDef&quot;, this.def);
-          PlayerPrefs.SetInt(&quot;PlayerSpd&quot;, this.spd);
-          PlayerPrefs.SetInt(&quot;PlayerHp&quot;, this.hp);
+          PlayerPrefs.SetString(<span class="hljs-string">"PlayerName"</span>, <span class="hljs-keyword">this</span>.name);
+          PlayerPrefs.SetInt(<span class="hljs-string">"PlayerLevel"</span>, <span class="hljs-keyword">this</span>.level);
+          PlayerPrefs.SetInt(<span class="hljs-string">"PlayerDiamondNum"</span>, <span class="hljs-keyword">this</span>.diamondNum);
+          PlayerPrefs.SetInt(<span class="hljs-string">"PlayerGoldNum"</span>, <span class="hljs-keyword">this</span>.goldNum);
+          PlayerPrefs.SetInt(<span class="hljs-string">"PlayerPower"</span>, <span class="hljs-keyword">this</span>.power);
+          PlayerPrefs.SetInt(<span class="hljs-string">"PlayerAtt"</span>, <span class="hljs-keyword">this</span>.att);
+          PlayerPrefs.SetInt(<span class="hljs-string">"PlayerDef"</span>, <span class="hljs-keyword">this</span>.def);
+          PlayerPrefs.SetInt(<span class="hljs-string">"PlayerSpd"</span>, <span class="hljs-keyword">this</span>.spd);
+          PlayerPrefs.SetInt(<span class="hljs-string">"PlayerHp"</span>, <span class="hljs-keyword">this</span>.hp);
 
       &#125;
-      private void LevelUp()
+      <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LevelUp</span>(<span class="hljs-params"></span>)</span>
       &#123;
-          Debug.Log(&quot;升级了&quot;);
+          Debug.Log(<span class="hljs-string">"升级了"</span>);
 
-          this.level += 1;
-          this.power = 100;
-          this.att += level * 7;
-          this.def += level * 3;
-          this.spd += level * 2;
-          this.hp += level * level;
+          <span class="hljs-keyword">this</span>.level += <span class="hljs-number">1</span>;
+          <span class="hljs-keyword">this</span>.power = <span class="hljs-number">100</span>;
+          <span class="hljs-keyword">this</span>.att += level * <span class="hljs-number">7</span>;
+          <span class="hljs-keyword">this</span>.def += level * <span class="hljs-number">3</span>;
+          <span class="hljs-keyword">this</span>.spd += level * <span class="hljs-number">2</span>;
+          <span class="hljs-keyword">this</span>.hp += level * level;
 
-          EventManager.Instance.InvokeEvent(&quot;update_playerData&quot;);
+          EventManager.Instance.InvokeEvent(<span class="hljs-string">"update_playerData"</span>);
       &#125;
-
+      
   &#125;
+
 </code></pre>
-<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
 </li>
 </ul>
-<hr>
+</br>
+</br>
+<hr />
 <ul>
-<li><h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><p>  向外部提供修改UI的方法</p>
+<li>
+<h2 id="view"><a class="markdownIt-Anchor" href="#view"></a> View</h2>
+<p>向外部提供修改UI的方法</p>
 <ul>
-<li><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><pre><code class="lang-C#">    public interface IView
+<li>
+<h3 id="接口"><a class="markdownIt-Anchor" href="#接口"></a> 接口</h3>
+<pre class="highlight"><code class="C#">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">IView</span>
     &#123;
-        void UpdateInfo(PlayerModel data);
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">UpdateInfo</span>(<span class="hljs-params">PlayerModel data</span>)</span>;
     &#125;
 </code></pre>
 </li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><h3 id="View示例1"><a href="#View示例1" class="headerlink" title="View示例1"></a>View示例1</h3><pre><code class="lang-C#">    public class MainView : MonoBehaviour,IView
+<li>
+<h3 id="view示例1"><a class="markdownIt-Anchor" href="#view示例1"></a> View示例1</h3>
+<pre class="highlight"><code class="C#">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MainView</span> : <span class="hljs-title">MonoBehaviour</span>,<span class="hljs-title">IView</span>
     &#123;
-        public Button skill_btn;
-        public Button roll_btn;
+        <span class="hljs-keyword">public</span> Button skill_btn;
+        <span class="hljs-keyword">public</span> Button roll_btn;
 
-        public Text playerName_txt;
-        public Text playerLevel_txt;
-        public Text playerDiamond_txt;
-        public Text playerGold_txt;
-        public Text playerPower_txt;
+        <span class="hljs-keyword">public</span> Text playerName_txt;
+        <span class="hljs-keyword">public</span> Text playerLevel_txt;
+        <span class="hljs-keyword">public</span> Text playerDiamond_txt;
+        <span class="hljs-keyword">public</span> Text playerGold_txt;
+        <span class="hljs-keyword">public</span> Text playerPower_txt;
 
-        public void UpdateInfo(PlayerModel data)
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">UpdateInfo</span>(<span class="hljs-params">PlayerModel data</span>)</span>
         &#123;
             playerName_txt.text = data.Name.ToString();
             playerLevel_txt.text = data.Level.ToString();
@@ -319,17 +324,19 @@
     &#125;
 </code></pre>
 </li>
-<li><h3 id="View示例2"><a href="#View示例2" class="headerlink" title="View示例2"></a>View示例2</h3><pre><code class="lang-C#">public class RoleView : MonoBehaviour,IView
+<li>
+<h3 id="view示例2"><a class="markdownIt-Anchor" href="#view示例2"></a> View示例2</h3>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">RoleView</span> : <span class="hljs-title">MonoBehaviour</span>,<span class="hljs-title">IView</span>
   &#123;
-      public Button close_btn;
-      public Button levelUp_btn;
-      public Text playerLevel_txt;
-      public Text playerAtt_txt;
-      public Text playerDef_txt;
-      public Text playerSpd_txt;
-      public Text playerHp_txt;
+      <span class="hljs-keyword">public</span> Button close_btn;
+      <span class="hljs-keyword">public</span> Button levelUp_btn;
+      <span class="hljs-keyword">public</span> Text playerLevel_txt;
+      <span class="hljs-keyword">public</span> Text playerAtt_txt;
+      <span class="hljs-keyword">public</span> Text playerDef_txt;
+      <span class="hljs-keyword">public</span> Text playerSpd_txt;
+      <span class="hljs-keyword">public</span> Text playerHp_txt;
 
-      public void UpdateInfo(PlayerModel data)
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">UpdateInfo</span>(<span class="hljs-params">PlayerModel data</span>)</span>
       &#123;
           playerLevel_txt.text = data.Level.ToString();
           playerAtt_txt.text = data.Att.ToString();
@@ -341,122 +348,133 @@
 </code></pre>
 </li>
 </ul>
-<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
-<hr>
+</li>
+</ul>
+</br>
+</br>
+<hr />
 <ul>
-<li><h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><p>  控制View和Model</p>
+<li>
+<h2 id="controller"><a class="markdownIt-Anchor" href="#controller"></a> Controller</h2>
+<p>控制View和Model</p>
 <ul>
-<li><h3 id="抽象控制器基类"><a href="#抽象控制器基类" class="headerlink" title="抽象控制器基类"></a>抽象控制器基类</h3><pre><code class="lang-C#">    public abstract class BaseController&lt;Controller, View&gt; : MonoBehaviour
-    where Controller : BaseController&lt;Controller, View&gt;,new()
-    where View : IView, new()
+<li>
+<h3 id="抽象控制器基类"><a class="markdownIt-Anchor" href="#抽象控制器基类"></a> 抽象控制器基类</h3>
+<pre class="highlight"><code class="C#">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">BaseController</span>&lt;<span class="hljs-title">Controller</span>, <span class="hljs-title">View</span>&gt; : <span class="hljs-title">MonoBehaviour</span>
+    <span class="hljs-title">where</span> <span class="hljs-title">Controller</span> : <span class="hljs-title">BaseController</span>&lt;<span class="hljs-title">Controller</span>, <span class="hljs-title">View</span>&gt;,<span class="hljs-title">new</span>()
+    <span class="hljs-title">where</span> <span class="hljs-title">View</span> : <span class="hljs-title">IView</span>, <span class="hljs-title">new</span>()
     &#123;
-        //单例
-        private static volatile Controller instance;
-        private static object initLock = new object();
+        <span class="hljs-comment">//单例</span>
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">volatile</span> Controller instance;
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">object</span> initLock = <span class="hljs-keyword">new</span> <span class="hljs-keyword">object</span>();
 
-        public static Controller Instance
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Controller Instance
         &#123;
-            get
+            <span class="hljs-keyword">get</span>
             &#123;
-                if (instance == null)
+                <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>)
                 &#123;
-                    throw new ArgumentNullException($&quot;未初始化&#123;nameof(Controller)&#125;控制器&quot;);
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ArgumentNullException(<span class="hljs-string">$"未初始化<span class="hljs-subst">&#123;<span class="hljs-keyword">nameof</span>(Controller)&#125;</span>控制器"</span>);
                 &#125;
-                else
-                    return instance;
+                <span class="hljs-keyword">else</span>
+                    <span class="hljs-keyword">return</span> instance;
             &#125;
         &#125;
 
-        public static void Init(string ResourcePath, string CanvasName)
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Init</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> ResourcePath, <span class="hljs-keyword">string</span> CanvasName</span>)</span>
         &#123;
-            if (instance == null)
+            <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>)
             &#123;
-                lock (initLock)
+                <span class="hljs-keyword">lock</span> (initLock)
                 &#123;
-                    if (instance == null)
+                    <span class="hljs-keyword">if</span> (instance == <span class="hljs-literal">null</span>)
                     &#123;
-                        //从预制体中加载
-                        GameObject res = Resources.Load(ResourcePath) as GameObject;
+                        <span class="hljs-comment">//从预制体中加载</span>
+                        GameObject res = Resources.Load(ResourcePath) <span class="hljs-keyword">as</span> GameObject;
                         GameObject obj = Instantiate(res);
 
-                        //设置画布为父对象
-                        obj.transform.SetParent(GameObject.Find(CanvasName).transform, false);
+                        <span class="hljs-comment">//设置画布为父对象</span>
+                        obj.transform.SetParent(GameObject.Find(CanvasName).transform, <span class="hljs-literal">false</span>);
 
-                        //加载到场景中的资源生成控制器
+                        <span class="hljs-comment">//加载到场景中的资源生成控制器</span>
                         instance = obj.GetComponent&lt;Controller&gt;();
                     &#125;
                 &#125;
             &#125;
         &#125;
 
-        protected View view;//需要被匹配的View
+        <span class="hljs-keyword">protected</span> View view;<span class="hljs-comment">//需要被匹配的View</span>
 
-        //匹配View
-        protected virtual void Start()
+        <span class="hljs-comment">//匹配View</span>
+        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
         &#123;
-            //视图更新监听玩家数据更新事件
-            EventManager.Instance.AddEventListener(&quot;update_playerData&quot;, UpdateView);
-
+            <span class="hljs-comment">//视图更新监听玩家数据更新事件</span>
+            EventManager.Instance.AddEventListener(<span class="hljs-string">"update_playerData"</span>, UpdateView);
+            
             view = transform.gameObject.GetComponent&lt;View&gt;();
             view?.UpdateInfo(PlayerModel.Instance);
         &#125;
 
-        //视图显示否
-        public static void ShowView()
+        <span class="hljs-comment">//视图显示否</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ShowView</span>(<span class="hljs-params"></span>)</span>
         &#123;
-            instance?.gameObject.SetActive(true);
+            instance?.gameObject.SetActive(<span class="hljs-literal">true</span>);
         &#125;
-        public static void HideView()
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">HideView</span>(<span class="hljs-params"></span>)</span>
         &#123;
-            instance?.gameObject.SetActive(false);
+            instance?.gameObject.SetActive(<span class="hljs-literal">false</span>);
         &#125;
-        //销毁UI
-        public static void Destroy()
+        <span class="hljs-comment">//销毁UI</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Destroy</span>(<span class="hljs-params"></span>)</span>
         &#123;
-            EventManager.Instance.RemoveEventListener(&quot;update_playerData&quot;, instance.UpdateView);
+            EventManager.Instance.RemoveEventListener(<span class="hljs-string">"update_playerData"</span>, instance.UpdateView);
             Destroy(instance?.gameObject);
         &#125;
-        //更新视图——根据玩家数据
-        protected virtual void UpdateView()
+        <span class="hljs-comment">//更新视图——根据玩家数据</span>
+        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">UpdateView</span>(<span class="hljs-params"></span>)</span>
         &#123;
             instance?.view.UpdateInfo(PlayerModel.Instance);
         &#125;
     &#125;
 </code></pre>
 </li>
-<li><h3 id="控制器实例1"><a href="#控制器实例1" class="headerlink" title="控制器实例1"></a>控制器实例1</h3><pre><code class="lang-C#">    public class MainController : BaseController&lt;MainController, MainView&gt;
+<li>
+<h3 id="控制器实例1"><a class="markdownIt-Anchor" href="#控制器实例1"></a> 控制器实例1</h3>
+<pre class="highlight"><code class="C#">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MainController</span> : <span class="hljs-title">BaseController</span>&lt;<span class="hljs-title">MainController</span>, <span class="hljs-title">MainView</span>&gt;
     &#123;
-        void Start()
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
         &#123;
-            base.Start();
-            //技能按钮
+            <span class="hljs-keyword">base</span>.Start();
+            <span class="hljs-comment">//技能按钮</span>
             view.skill_btn.onClick.AddListener(() =&gt; &#123; &#125;);
-
-            //视图按钮
+            
+            <span class="hljs-comment">//视图按钮</span>
             view.roll_btn.onClick.AddListener(ShowRoll);
         &#125;
-        private void ShowRoll()
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ShowRoll</span>(<span class="hljs-params"></span>)</span>
         &#123;
-            RoleController.Init(&quot;UI/RolePanel&quot;,&quot;Canvas&quot;);
+            RoleController.Init(<span class="hljs-string">"UI/RolePanel"</span>,<span class="hljs-string">"Canvas"</span>);
             RoleController.ShowView();
         &#125;
     &#125;
 </code></pre>
 </li>
-<li><h3 id="控制器实例2"><a href="#控制器实例2" class="headerlink" title="控制器实例2"></a>控制器实例2</h3><pre><code class="lang-C#">public class RoleController : BaseController&lt;RoleController, RoleView&gt;
+<li>
+<h3 id="控制器实例2"><a class="markdownIt-Anchor" href="#控制器实例2"></a> 控制器实例2</h3>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">RoleController</span> : <span class="hljs-title">BaseController</span>&lt;<span class="hljs-title">RoleController</span>, <span class="hljs-title">RoleView</span>&gt;
     &#123;
-        private void Start()
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
         &#123;
-            base.Start();
-            //关闭按钮事件
+            <span class="hljs-keyword">base</span>.Start();
+            <span class="hljs-comment">//关闭按钮事件</span>
             view.close_btn.onClick.AddListener(() =&gt;
             &#123;
                 RoleController.Destroy();
             &#125;);
-            //升级按钮事件
+            <span class="hljs-comment">//升级按钮事件</span>
             view.levelUp_btn.onClick.AddListener(() =&gt;
             &#123;
-                EventManager.Instance.InvokeEvent(&quot;LevelUp&quot;);
+                EventManager.Instance.InvokeEvent(<span class="hljs-string">"LevelUp"</span>);
             &#125;);
         &#125;
     &#125;
