@@ -168,7 +168,7 @@
         <div id="tagcloud" class="tagcloud">
             <span> Trending Tags </span>
             <div>
-             <a href="#" class="tag">C# </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">.net </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">.net, C# </a>
+             <a href="#" class="tag">C# </a><a href="#" class="tag">.net </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">.net, C# </a>
             </div>
         </div>
         
@@ -209,7 +209,7 @@
         <span>15 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">14280</span>
+        <span class="words">10154</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -232,16 +232,11 @@
             
             XML(Extensible Markup Language)即可拓展标记语言，作为互联网传输工具，无关于开发平台，可以实现不同系统之间的数据交互。(Extensible Markup Language)
 
-
- 相关操作
-
-
- 加载xml文件
-一般有三种方法：
-
+相关操作
+加载xml文件  一般有三种方法：
 XmlDocument：把数据加载到内存中进行读取
 XmlTextReader：通过流形式读取，能减少内存占用，但是是单向只读的
-LINQ to XML：一种启用了 LINQ ...
+LINQ to XML：一种启用了 LINQ 的内存 X...
     </span>
 
     <div>
@@ -252,7 +247,7 @@ LINQ to XML：一种启用了 LINQ ...
         <span>12 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">28281</span>
+        <span class="words">13815</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -275,15 +270,10 @@ LINQ to XML：一种启用了 LINQ ...
             
             Unity中提供了PlayerPrefs公共类用于存储玩家数据，支持int、float、string三种类型数据的存储，这类似于以键值对的形式进行的存储。
 
-
- 相关函数
-
-
- 将数据存入内存中
-当使用Set方法时只会将数据存入内存，而并非磁盘中。也就是说如果游戏在运行时崩溃，将导致数据丢失。
-PS：使用相同的键名将会导致数据覆盖，即使类型不一样。
-PlayerPrefs.SetString(&#34;PlayerName&#34;, &#34;关东关&#34;);
-...
+相关函数
+将数据存入内存中  当使用Set方法时只会将数据存入内存，而并非磁盘中。也就是说如果游戏在运行时崩溃，将导致数据丢失。
+  PS：使用相同的键名将会导致数据覆盖，即使类型不一样。
+  PlayerPrefs.SetString(&amp;quot;PlayerName&amp;quot;...
     </span>
 
     <div>
@@ -294,7 +284,7 @@ PlayerPrefs.SetString(&#34;PlayerName&#34;, &#34;关东关&#34;);
         <span>4 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">3509</span>
+        <span class="words">2709</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -322,8 +312,8 @@ public class Factory&lt;T&gt;{&amp;#125;
 //单例
 public class Singleton&lt;T&gt; where T : new()
 {
-    
-    private static readonly Lazy&lt;T&gt; _instance =...
+
+    private static readonly Lazy&lt;T&gt; _instance = new...
     </span>
 
     <div>
@@ -334,7 +324,7 @@ public class Singleton&lt;T&gt; where T : new()
         <span>2 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">4043</span>
+        <span class="words">1886</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -357,11 +347,8 @@ public class Singleton&lt;T&gt; where T : new()
             
             开发人员可以通过AssetBundle将一个资源分到多个包或者将多个资源打到一个包内，并且可以实时地从任意位置加载资源包。Asset在打包时维护一个指向它所依赖包的id。相较于Resources,AssetBundle能自己控制资源的精确管理，包括资源的引用计数。更重要的一点，在游戏发布后，可以从服务器或本地中动态地加载资源包对资源进行更新（热更新），这是Resources所不能做到的。
 
-
- AssetBundle常用的资源操作
-
-
-...
+AssetBundle常用的资源操作
+Asse...
     </span>
 
     <div>
@@ -372,7 +359,7 @@ public class Singleton&lt;T&gt; where T : new()
         <span>6 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">12451</span>
+        <span class="words">8523</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -395,34 +382,9 @@ public class Singleton&lt;T&gt; where T : new()
             
             可开发人员以将Asset资源放在一个或多个名为Resources的文件夹中，并且在运行时利用Resources API来对这些Asset中的Object进行管理。
 
-
- Resources常用的资源操作
-
-
- 加载资源
-
-
-
-加载类型
-方法
-
-
-
-
-Load
-加载单个资源
-
-
-LoadAll
-加载多个资源
-
-
-LoadAsync
-异步加载单个资源
-
-
-
-Resources.Load&lt;Material&gt;(&#34;myMaterial&#34;)//Re...
+Resources常用的资源操作
+加载资源 加载类型|方法 ——-|——- Load|加载单个资源 LoadAll|加载多个资源 LoadAsync|异步加载单个资源
+ Resources.Load&lt;Material&gt;(&amp;quot;myMaterial&amp;quot;)//Re...
     </span>
 
     <div>
@@ -433,7 +395,7 @@ Resources.Load&lt;Material&gt;(&#34;myMaterial&#34;)//Re...
         <span>3 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">1963</span>
+        <span class="words">1557</span>
 
     </div>
     <hr color=#49495b SIZE=1>
