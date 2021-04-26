@@ -185,7 +185,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%B1%BB"><span class="toc-text">关键类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MonoBehaviour"><span class="toc-text">MonoBehaviour</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MainMono"><span class="toc-text">MainMono</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GameObject"><span class="toc-text">GameObject</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%B1%BB"><span class="toc-text">测试类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-text">测试结果分析</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%B1%BB"><span class="toc-text"> 关键类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#monobehaviour"><span class="toc-text"> MonoBehaviour</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mainmono"><span class="toc-text"> MainMono</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gameobject"><span class="toc-text"> GameObject</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%B1%BB"><span class="toc-text"> 测试类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-text"> 测试结果分析</span></a></li></ol>
                 </div>
                 
              </div>
@@ -204,307 +204,328 @@
         <p>为了加深对Mono生命周期和GameObject的印象，特地尝试了模拟Mono工作原理。</p>
 <p>分析思路如下：</p>
 <ol>
-<li><p>unity是如何组织场景中的对象的————————————场景管理每一个gameobject,gameobject挂载各个脚本</p>
+<li>
+<p>unity是如何组织场景中的对象的————————————场景管理每一个gameobject,gameobject挂载各个脚本</p>
 </li>
-<li><p>继承了mono的脚本可以实现start、update等生命周期的函数——————————————mono基类应该以virtual声明的生命周期函数</p>
+<li>
+<p>继承了mono的脚本可以实现start、update等生命周期的函数——————————————mono基类应该以virtual声明的生命周期函数</p>
 </li>
-<li><p>mono是挂载在gameobject身上的组件，并且可以挂载多个————————————gameobject中应该存在一个mono容器</p>
+<li>
+<p>mono是挂载在gameobject身上的组件，并且可以挂载多个————————————gameobject中应该存在一个mono容器</p>
 </li>
-<li><p>可以从挂载的脚本获得被挂载的gameobject——————————————mono中应该有gameobject字段</p>
+<li>
+<p>可以从挂载的脚本获得被挂载的gameobject——————————————mono中应该有gameobject字段</p>
 </li>
-<li><p>每个脚本的每个生命周期似乎都是同时执行的——————————————unity中应该有并发处理每个生命周期函数的方法</p>
+<li>
+<p>每个脚本的每个生命周期似乎都是同时执行的——————————————unity中应该有并发处理每个生命周期函数的方法</p>
 </li>
-<li><p>unity不支持多线程————————————那么或许有一个专门负责执行每个脚本的生命周期的大mono</p>
+<li>
+<p>unity不支持多线程————————————那么或许有一个专门负责执行每个脚本的生命周期的大mono</p>
 </li>
 </ol>
 <p>综上可大概获得几个关键类：</p>
 <ul>
-<li><p>GameObject：负责管理Mono，并将所管理的mono发布到MainMono上</p>
+<li>
+<p>GameObject：负责管理Mono，并将所管理的mono发布到MainMono上</p>
 </li>
-<li><p>MonoBehaviour：一个基类，有各种各样的生命周期函数和一个gameobject字段</p>
+<li>
+<p>MonoBehaviour：一个基类，有各种各样的生命周期函数和一个gameobject字段</p>
 </li>
-<li><p>MainMono：接收能进入生命周期脚本的mono，并按生命周期顺序执行他们的生命周期</p>
-</li>
-</ul>
-<hr>
-<h2 id="关键类"><a href="#关键类" class="headerlink" title="关键类"></a>关键类</h2><ul>
-<li><h3 id="MonoBehaviour"><a href="#MonoBehaviour" class="headerlink" title="MonoBehaviour"></a>MonoBehaviour</h3><p>  为子类提供生命周期函数，需要通知gameobject哪些脚本被启用或销毁了，以此通知MainMono禁用或启用该脚本的生命周期函数</p>
-<pre><code class="lang-C#">  public class MonoBehaviour
-  &#123;
-      public bool IsEnabled = true;
-      public GameObject gameobject;
-      public virtual void Awake()&#123;&#125;
-      public virtual void Start()&#123;&#125;
-      public virtual void Update()&#123;&#125;
-      public virtual void OnEnable()&#123;&#125;
-      public virtual void OnDisable()&#123;&#125;
-      public virtual void OnDestroy()&#123;&#125;
-
-      //销毁脚本
-      public void Destroy()
-      &#123;
-          OnDestroy();
-          this.gameobject.DestroyComponent(this);
-      &#125;
-      //不启用脚本
-      public void  Disable()
-      &#123;
-          OnDisable();
-          this.gameobject.DisableComponent(this);
-      &#125;
-      //启用脚本
-      public void  Enable()
-      &#123;
-          OnEnable();
-          this.gameobject.EnableComponent(this);
-      &#125;
-  &#125;
-</code></pre>
-</li>
-<li><h3 id="MainMono"><a href="#MainMono" class="headerlink" title="MainMono"></a>MainMono</h3><p>  通过单例委托接收MainMono发过来的脚本生命周期函数</p>
-<pre><code class="lang-C#">  public class MainMono
-  &#123;
-      public static readonly Lazy&lt;MainMono&gt; instance = new Lazy&lt;MainMono&gt;(() =&gt; new MainMono());
-      public static MainMono Instance &#123; get =&gt; instance.Value; &#125;
-
-      public Action Awake;
-      public Action OnEnable;
-      public Action Start;
-      public Action Update;
-
-      //模拟游戏开始
-      public void GameStart()
-      &#123;
-           Console.WriteLine(&quot;游戏开始！&quot;);
-
-          if(Awake!=null)
-              Awake.Invoke();
-          if(OnEnable!=null)
-              OnEnable.Invoke();
-          if(Start!=null)
-              Start.Invoke();
-
-          while (true)
-          &#123;
-              if(Update!=null)
-                  Update.Invoke();
-
-              Thread.Sleep(1000);
-          &#125;
-      &#125;
-  &#125;
-</code></pre>
-</li>
-<li><h3 id="GameObject"><a href="#GameObject" class="headerlink" title="GameObject"></a>GameObject</h3><p>  以列表存储mono脚本，通过可变长参数在初始化时将脚本加入列表并发布给MainMono</p>
-<pre><code class="lang-C#">  public class GameObject
-  &#123;
-      public string Name;
-
-      private List&lt;MonoBehaviour&gt; componentlist = new List&lt;MonoBehaviour&gt;();
-
-      public Action OnDestroy;
-      public Action OnDisable;
-
-      public GameObject(params MonoBehaviour[] args)
-      &#123;
-          foreach (var component in args)
-          &#123;
-              //加入组件列表
-              componentlist.Add(component);
-
-              //设置gameobjct
-              component.gameobject = this;
-
-              //初始化到主Mono
-              MainMono.Instance.Awake += component.Awake;
-              MainMono.Instance.OnEnable += component.OnEnable;
-              MainMono.Instance.Start += component.Start;
-              MainMono.Instance.Update += component.Update;
-              this.OnDestroy += component.OnDestroy;
-
-              //如果不启用则不加入
-              if (!component.IsEnabled)
-              &#123;
-                  MainMono.Instance.OnEnable -= component.OnEnable;
-                  MainMono.Instance.Start -= component.Start;
-                  MainMono.Instance.Update -= component.Update;
-              &#125;
-          &#125;
-      &#125;
-      //添加脚本
-      public void AddComponent&lt;T&gt;(T component)where T : MonoBehaviour
-      &#123;
-          componentlist.Add(component);
-          component.gameobject = this;
-
-          //初始化到主Mono
-          MainMono.Instance.Awake += component.Awake;
-          MainMono.Instance.OnEnable += component.OnEnable;
-          MainMono.Instance.Start += component.Start;
-          MainMono.Instance.Update += component.Update;
-          this.OnDestroy += component.OnDestroy;
-          //如果不启用则不加入
-          if (!component.IsEnabled)
-          &#123;
-              MainMono.Instance.OnEnable -= component.OnEnable;
-              MainMono.Instance.Start -= component.Start;
-              MainMono.Instance.Update -= component.Update;
-          &#125;
-      &#125;
-      //获取脚本
-      public T GetComponent&lt;T&gt;()where T : MonoBehaviour
-      &#123;
-         foreach (var item in componentlist)
-         &#123;
-             if(item is T)
-                  return item as T;
-         &#125;
-          return null;
-      &#125;
-      //移除脚本
-      public void DestroyComponent(MonoBehaviour component)
-      &#123;            
-          //---------
-          //移除逻辑
-          //---------
-          componentlist.Remove(component);
-
-          MainMono.Instance.Awake -= component.Awake;
-          MainMono.Instance.OnEnable -= component.OnEnable;
-          MainMono.Instance.Start -= component.Start;
-          MainMono.Instance.Update -= component.Update;
-          this.OnDestroy -= component.OnDestroy;
-      &#125;
-      //禁用脚本
-      public void DisableComponent(MonoBehaviour component)
-      &#123;
-          MainMono.Instance.OnEnable -= component.OnEnable;
-          MainMono.Instance.Start -= component.Start;
-          MainMono.Instance.Update -= component.Update;
-      &#125;
-      //启用脚本
-      public void EnableComponent(MonoBehaviour component)
-      &#123;
-          MainMono.Instance.OnEnable += component.OnEnable;
-          MainMono.Instance.Start += component.Start;
-          MainMono.Instance.Update += component.Update;
-      &#125;
-  &#125;
-</code></pre>
+<li>
+<p>MainMono：接收能进入生命周期脚本的mono，并按生命周期顺序执行他们的生命周期</p>
 </li>
 </ul>
-<hr>
+<hr />
+<h2 id="关键类"><a class="markdownIt-Anchor" href="#关键类"></a> 关键类</h2>
 <ul>
-<li><h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h2><pre><code class="lang-C#">  //脚本1
-  public class LogComponent_1:MonoBehaviour
-  &#123;
-      int i = 1;
-      public override void Awake()=&gt;Console.WriteLine(&quot;Logger1 Awake&quot;);
-      public override void Start()=&gt; Console.WriteLine(&quot;Logger1 Start&quot;);
-      public override void Update()
-      &#123;
-         Console.WriteLine(&quot;Logger1 Update&quot;);
+<li>
+<h3 id="monobehaviour"><a class="markdownIt-Anchor" href="#monobehaviour"></a> MonoBehaviour</h3>
+为子类提供生命周期函数，需要通知gameobject哪些脚本被启用或销毁了，以此通知MainMono禁用或启用该脚本的生命周期函数<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MonoBehaviour</span>
+&#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">bool</span> IsEnabled = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">public</span> GameObject gameobject;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Awake</span>(<span class="hljs-params"></span>)</span>&#123;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>&#123;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>&#123;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnEnable</span>(<span class="hljs-params"></span>)</span>&#123;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnDisable</span>(<span class="hljs-params"></span>)</span>&#123;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnDestroy</span>(<span class="hljs-params"></span>)</span>&#123;&#125;
 
-          if (i==3)
-          &#123;
-              //模拟3帧后执行启用脚本2
-              this.gameobject.GetComponent&lt;LogComponent_2&gt;().Enable();
-              this.Destroy();
-          &#125;
-          i++;     
-      &#125;
-      public override void OnEnable()=&gt;Console.WriteLine(&quot;Logger1 Enable&quot;);
-      public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger1 Disable&quot;);
-      public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger1 Destroy&quot;);
-  &#125;
-
-  //脚本2
-  public class LogComponent_2:MonoBehaviour
-  &#123;
-      int i = 1;
-      public override void Awake()
-      &#123;
-          //模拟脚本2在Awake时禁用
-          Console.WriteLine(&quot;Logger2 Awake&quot;);
-          this.Disable();
-      &#125;
-      public override void Start()=&gt; Console.WriteLine(&quot;Logger2 Start&quot;);
-      public override void Update()
-      &#123;
-         Console.WriteLine(&quot;Logger2 Update&quot;);
-          //模拟4帧后禁用，并动态地开启一个脚本3
-          if (i==4)
-          &#123;
-              this.gameobject.AddComponent&lt;LogComponent_3&gt;(new LogComponent_3());
-              this.Disable();
-          &#125;
-          i++;
-      &#125;
-      public override void OnEnable()=&gt;Console.WriteLine(&quot;Logger2 Enable&quot;);
-      public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger2 Disable&quot;);
-      public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger2 Destroy&quot;);
-  &#125;
-
-  //脚本3
-   public class LogComponent_3:MonoBehaviour
-  &#123;
-      int i = 1;
-      public override void Awake()
-      &#123;
-          Console.WriteLine(&quot;Logger3 Awake&quot;);
-          this.Disable();
-      &#125;
-      public override void Start()=&gt; Console.WriteLine(&quot;Logger3 Start&quot;);
-      public override void Update()
-      &#123;
-         Console.WriteLine(&quot;Logger3 Update&quot;);
-          //模拟8帧后禁用
-          if (i==2)
-          &#123;
-              this.Disable();
-          &#125;
-          i++;
-      &#125;
-      public override void OnEnable()=&gt;Console.WriteLine(&quot;Logger3 Enable&quot;);
-      public override void OnDisable()=&gt;Console.WriteLine(&quot;Logger3 Disable&quot;);
-      public override void OnDestroy()=&gt;Console.WriteLine(&quot;Logger3 Destroy&quot;);
-  &#125;
+    <span class="hljs-comment">//销毁脚本</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Destroy</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+        OnDestroy();
+        <span class="hljs-keyword">this</span>.gameobject.DestroyComponent(<span class="hljs-keyword">this</span>);
+    &#125;
+    <span class="hljs-comment">//不启用脚本</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span>  <span class="hljs-title">Disable</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+        OnDisable();
+        <span class="hljs-keyword">this</span>.gameobject.DisableComponent(<span class="hljs-keyword">this</span>);
+    &#125;
+    <span class="hljs-comment">//启用脚本</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span>  <span class="hljs-title">Enable</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+        OnEnable();
+        <span class="hljs-keyword">this</span>.gameobject.EnableComponent(<span class="hljs-keyword">this</span>);
+    &#125;
+&#125;
 </code></pre>
-<p>  主函数</p>
-<pre><code class="lang-C#">  public class MainTest//main调试
-  &#123;
-      public static void Main(string[] args)
-      &#123;
-          //模拟拖拽脚本到场景中的gameobject上
-          GameObject gameobject = new GameObject(new LogComponent_1(),new LogComponent_2());
+</li>
+<li>
+<h3 id="mainmono"><a class="markdownIt-Anchor" href="#mainmono"></a> MainMono</h3>
+通过单例委托接收MainMono发过来的脚本生命周期函数<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MainMono</span>
+&#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">readonly</span> Lazy&lt;MainMono&gt; instance = <span class="hljs-keyword">new</span> Lazy&lt;MainMono&gt;(() =&gt; <span class="hljs-keyword">new</span> MainMono());
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> MainMono Instance &#123; <span class="hljs-keyword">get</span> =&gt; instance.Value; &#125;
 
-          gameobject.Name=&quot;Cube&quot;;
-          Console.WriteLine($&quot;创建了一个GameObject对象：&#123;gameobject.Name&#125;&quot;);
+    <span class="hljs-keyword">public</span> Action Awake;
+    <span class="hljs-keyword">public</span> Action OnEnable;
+    <span class="hljs-keyword">public</span> Action Start;
+    <span class="hljs-keyword">public</span> Action Update;
 
-          //开始游戏！
-          MainMono.Instance.GameStart();
-      &#125;
-  &#125;
+    <span class="hljs-comment">//模拟游戏开始</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GameStart</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+         Console.WriteLine(<span class="hljs-string">"游戏开始！"</span>);
+
+        <span class="hljs-keyword">if</span>(Awake!=<span class="hljs-literal">null</span>)
+            Awake.Invoke();
+        <span class="hljs-keyword">if</span>(OnEnable!=<span class="hljs-literal">null</span>)
+            OnEnable.Invoke();
+        <span class="hljs-keyword">if</span>(Start!=<span class="hljs-literal">null</span>)
+            Start.Invoke();
+        
+        <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)
+        &#123;
+            <span class="hljs-keyword">if</span>(Update!=<span class="hljs-literal">null</span>)
+                Update.Invoke();
+
+            Thread.Sleep(<span class="hljs-number">1000</span>);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<h3 id="gameobject"><a class="markdownIt-Anchor" href="#gameobject"></a> GameObject</h3>
+以列表存储mono脚本，通过可变长参数在初始化时将脚本加入列表并发布给MainMono<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">GameObject</span>
+&#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Name;
+
+    <span class="hljs-keyword">private</span> List&lt;MonoBehaviour&gt; componentlist = <span class="hljs-keyword">new</span> List&lt;MonoBehaviour&gt;();
+
+    <span class="hljs-keyword">public</span> Action OnDestroy;
+    <span class="hljs-keyword">public</span> Action OnDisable;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">GameObject</span>(<span class="hljs-params"><span class="hljs-keyword">params</span> MonoBehaviour[] args</span>)</span>
+    &#123;
+        <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> component <span class="hljs-keyword">in</span> args)
+        &#123;
+            <span class="hljs-comment">//加入组件列表</span>
+            componentlist.Add(component);
+
+            <span class="hljs-comment">//设置gameobjct</span>
+            component.gameobject = <span class="hljs-keyword">this</span>;
+
+            <span class="hljs-comment">//初始化到主Mono</span>
+            MainMono.Instance.Awake += component.Awake;
+            MainMono.Instance.OnEnable += component.OnEnable;
+            MainMono.Instance.Start += component.Start;
+            MainMono.Instance.Update += component.Update;
+            <span class="hljs-keyword">this</span>.OnDestroy += component.OnDestroy;
+
+            <span class="hljs-comment">//如果不启用则不加入</span>
+            <span class="hljs-keyword">if</span> (!component.IsEnabled)
+            &#123;
+                MainMono.Instance.OnEnable -= component.OnEnable;
+                MainMono.Instance.Start -= component.Start;
+                MainMono.Instance.Update -= component.Update;
+            &#125;
+        &#125;
+    &#125;
+    <span class="hljs-comment">//添加脚本</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> AddComponent&lt;T&gt;(T component)<span class="hljs-keyword">where</span> T : MonoBehaviour
+    &#123;
+        componentlist.Add(component);
+        component.gameobject = <span class="hljs-keyword">this</span>;
+
+        <span class="hljs-comment">//初始化到主Mono</span>
+        MainMono.Instance.Awake += component.Awake;
+        MainMono.Instance.OnEnable += component.OnEnable;
+        MainMono.Instance.Start += component.Start;
+        MainMono.Instance.Update += component.Update;
+        <span class="hljs-keyword">this</span>.OnDestroy += component.OnDestroy;
+        <span class="hljs-comment">//如果不启用则不加入</span>
+        <span class="hljs-keyword">if</span> (!component.IsEnabled)
+        &#123;
+            MainMono.Instance.OnEnable -= component.OnEnable;
+            MainMono.Instance.Start -= component.Start;
+            MainMono.Instance.Update -= component.Update;
+        &#125;
+    &#125;
+    <span class="hljs-comment">//获取脚本</span>
+    <span class="hljs-keyword">public</span> T GetComponent&lt;T&gt;()<span class="hljs-keyword">where</span> T : MonoBehaviour
+    &#123;
+       <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> item <span class="hljs-keyword">in</span> componentlist)
+       &#123;
+           <span class="hljs-keyword">if</span>(item <span class="hljs-keyword">is</span> T)
+                <span class="hljs-keyword">return</span> item <span class="hljs-keyword">as</span> T;
+       &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+    &#125;
+    <span class="hljs-comment">//移除脚本</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DestroyComponent</span>(<span class="hljs-params">MonoBehaviour component</span>)</span>
+    &#123;            
+        <span class="hljs-comment">//---------</span>
+        <span class="hljs-comment">//移除逻辑</span>
+        <span class="hljs-comment">//---------</span>
+        componentlist.Remove(component);
+
+        MainMono.Instance.Awake -= component.Awake;
+        MainMono.Instance.OnEnable -= component.OnEnable;
+        MainMono.Instance.Start -= component.Start;
+        MainMono.Instance.Update -= component.Update;
+        <span class="hljs-keyword">this</span>.OnDestroy -= component.OnDestroy;
+    &#125;
+    <span class="hljs-comment">//禁用脚本</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DisableComponent</span>(<span class="hljs-params">MonoBehaviour component</span>)</span>
+    &#123;
+        MainMono.Instance.OnEnable -= component.OnEnable;
+        MainMono.Instance.Start -= component.Start;
+        MainMono.Instance.Update -= component.Update;
+    &#125;
+    <span class="hljs-comment">//启用脚本</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">EnableComponent</span>(<span class="hljs-params">MonoBehaviour component</span>)</span>
+    &#123;
+        MainMono.Instance.OnEnable += component.OnEnable;
+        MainMono.Instance.Start += component.Start;
+        MainMono.Instance.Update += component.Update;
+    &#125;
+&#125;
 </code></pre>
 </li>
 </ul>
-<hr>
+<hr />
 <ul>
-<li><h2 id="测试结果分析"><a href="#测试结果分析" class="headerlink" title="测试结果分析"></a>测试结果分析</h2><p>  <img src="Test.jpg" alt="alt" style="max-width:100%;" ></p>
+<li>
+<h2 id="测试类"><a class="markdownIt-Anchor" href="#测试类"></a> 测试类</h2>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">//脚本1</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">LogComponent_1</span>:<span class="hljs-title">MonoBehaviour</span>
+&#123;
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Awake</span>(<span class="hljs-params"></span>)</span>=&gt;Console.WriteLine(<span class="hljs-string">"Logger1 Awake"</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>=&gt; Console.WriteLine(<span class="hljs-string">"Logger1 Start"</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+       Console.WriteLine(<span class="hljs-string">"Logger1 Update"</span>);
+       
+        <span class="hljs-keyword">if</span> (i==<span class="hljs-number">3</span>)
+        &#123;
+            <span class="hljs-comment">//模拟3帧后执行启用脚本2</span>
+            <span class="hljs-keyword">this</span>.gameobject.GetComponent&lt;LogComponent_2&gt;().Enable();
+            <span class="hljs-keyword">this</span>.Destroy();
+        &#125;
+        i++;     
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnEnable</span>(<span class="hljs-params"></span>)</span>=&gt;Console.WriteLine(<span class="hljs-string">"Logger1 Enable"</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnDisable</span>(<span class="hljs-params"></span>)</span>=&gt;Console.WriteLine(<span class="hljs-string">"Logger1 Disable"</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnDestroy</span>(<span class="hljs-params"></span>)</span>=&gt;Console.WriteLine(<span class="hljs-string">"Logger1 Destroy"</span>);
+&#125;
+
+<span class="hljs-comment">//脚本2</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">LogComponent_2</span>:<span class="hljs-title">MonoBehaviour</span>
+&#123;
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Awake</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+        <span class="hljs-comment">//模拟脚本2在Awake时禁用</span>
+        Console.WriteLine(<span class="hljs-string">"Logger2 Awake"</span>);
+        <span class="hljs-keyword">this</span>.Disable();
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>=&gt; Console.WriteLine(<span class="hljs-string">"Logger2 Start"</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+       Console.WriteLine(<span class="hljs-string">"Logger2 Update"</span>);
+        <span class="hljs-comment">//模拟4帧后禁用，并动态地开启一个脚本3</span>
+        <span class="hljs-keyword">if</span> (i==<span class="hljs-number">4</span>)
+        &#123;
+            <span class="hljs-keyword">this</span>.gameobject.AddComponent&lt;LogComponent_3&gt;(<span class="hljs-keyword">new</span> LogComponent_3());
+            <span class="hljs-keyword">this</span>.Disable();
+        &#125;
+        i++;
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnEnable</span>(<span class="hljs-params"></span>)</span>=&gt;Console.WriteLine(<span class="hljs-string">"Logger2 Enable"</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnDisable</span>(<span class="hljs-params"></span>)</span>=&gt;Console.WriteLine(<span class="hljs-string">"Logger2 Disable"</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnDestroy</span>(<span class="hljs-params"></span>)</span>=&gt;Console.WriteLine(<span class="hljs-string">"Logger2 Destroy"</span>);
+&#125;
+
+<span class="hljs-comment">//脚本3</span>
+ <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">LogComponent_3</span>:<span class="hljs-title">MonoBehaviour</span>
+&#123;
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Awake</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+        Console.WriteLine(<span class="hljs-string">"Logger3 Awake"</span>);
+        <span class="hljs-keyword">this</span>.Disable();
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>=&gt; Console.WriteLine(<span class="hljs-string">"Logger3 Start"</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+       Console.WriteLine(<span class="hljs-string">"Logger3 Update"</span>);
+        <span class="hljs-comment">//模拟8帧后禁用</span>
+        <span class="hljs-keyword">if</span> (i==<span class="hljs-number">2</span>)
+        &#123;
+            <span class="hljs-keyword">this</span>.Disable();
+        &#125;
+        i++;
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnEnable</span>(<span class="hljs-params"></span>)</span>=&gt;Console.WriteLine(<span class="hljs-string">"Logger3 Enable"</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnDisable</span>(<span class="hljs-params"></span>)</span>=&gt;Console.WriteLine(<span class="hljs-string">"Logger3 Disable"</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnDestroy</span>(<span class="hljs-params"></span>)</span>=&gt;Console.WriteLine(<span class="hljs-string">"Logger3 Destroy"</span>);
+&#125;
+</code></pre>
+主函数<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MainTest</span><span class="hljs-comment">//main调试</span>
+&#123;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span>
+    &#123;
+        <span class="hljs-comment">//模拟拖拽脚本到场景中的gameobject上</span>
+        GameObject gameobject = <span class="hljs-keyword">new</span> GameObject(<span class="hljs-keyword">new</span> LogComponent_1(),<span class="hljs-keyword">new</span> LogComponent_2());
+
+        gameobject.Name=<span class="hljs-string">"Cube"</span>;
+        Console.WriteLine(<span class="hljs-string">$"创建了一个GameObject对象：<span class="hljs-subst">&#123;gameobject.Name&#125;</span>"</span>);
+
+        <span class="hljs-comment">//开始游戏！</span>
+        MainMono.Instance.GameStart();
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<hr />
 <ul>
-<li><p>主函数创建一个GameObject,并为其添加了脚本1<code>LogComponent_1</code>和脚本2<code>LogComponent_2</code>;</p>
+<li>
+<h2 id="测试结果分析"><a class="markdownIt-Anchor" href="#测试结果分析"></a> 测试结果分析</h2>
+<p><img src="Test.jpg" alt="alt" style="max-width:100%;"  /></p>
+<ul>
+<li>
+<p>主函数创建一个GameObject,并为其添加了脚本1<code>LogComponent_1</code>和脚本2<code>LogComponent_2</code>;</p>
 </li>
-<li><p>脚本2在awake中禁用自身，将不会执行接下来的生命周期函数;</p>
+<li>
+<p>脚本2在awake中禁用自身，将不会执行接下来的生命周期函数;</p>
 </li>
-<li><p>脚本1在执行了3帧后摧毁自身并启用脚本2;</p>
+<li>
+<p>脚本1在执行了3帧后摧毁自身并启用脚本2;</p>
 </li>
-<li><p>脚本2在4帧后禁用自身，并动态地开启一个脚本3<code>LogComponent_3</code>;</p>
+<li>
+<p>脚本2在4帧后禁用自身，并动态地开启一个脚本3<code>LogComponent_3</code>;</p>
 </li>
-<li><p>脚本3在8帧后禁用自身;</p>
+<li>
+<p>脚本3在8帧后禁用自身;</p>
+</li>
+</ul>
 <p>虽然由于update是放在for循环中，导致动态添加的脚本3不能执行Awake、OnEnable、Start</p>
 <p>但是还是到达预期效果，嗯，开心。</p>
-</li>
-</ul>
 </li>
 </ul>
 
@@ -608,6 +629,21 @@
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 
 </html>

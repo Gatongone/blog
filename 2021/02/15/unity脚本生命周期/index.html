@@ -185,7 +185,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%8A%A0%E8%BD%BD"><span class="toc-text">场景第一次加载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Awake%EF%BC%9A"><span class="toc-text">Awake：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OnEnable%EF%BC%9A"><span class="toc-text">OnEnable：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OnLevelWasLoaded"><span class="toc-text">OnLevelWasLoaded</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B3%A8%E6%84%8F%EF%BC%8C%E5%AF%B9%E4%BA%8E%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%9C%BA%E6%99%AF%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%EF%BC%8C%E6%89%80%E6%9C%89-%E8%84%9A%E6%9C%AC-%E7%9A%84-Awake-%E5%92%8C-OnEnable-%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E4%BB%BB%E4%BD%95%E4%B8%80%E4%B8%AA%EF%BC%8C%E5%9C%A8%E8%B0%83%E7%94%A8Start%EF%BC%8CUpdate%E7%AD%89%E4%B9%8B%E5%89%8D%E8%B0%83%E7%94%A8%E3%80%82%E5%BD%93%E7%84%B6%EF%BC%8C%E5%9C%A8%E6%B8%B8%E6%88%8F%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%8C%E4%B8%8D%E8%83%BD%E5%BC%BA%E5%88%B6%E6%89%A7%E8%A1%8C%E6%AD%A4%E6%93%8D%E4%BD%9C%E3%80%82"><span class="toc-text">请注意，对于添加到场景中的对象，所有 脚本 的 Awake 和 OnEnable 函数中的任何一个，在调用Start，Update等之前调用。当然，在游戏过程中实例化对象时，不能强制执行此操作。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-text">编辑器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reset%EF%BC%9A"><span class="toc-text">Reset：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E7%AC%AC%E4%B8%80%E5%B8%A7%E6%9B%B4%E6%96%B0%E4%B9%8B%E5%89%8D"><span class="toc-text">在第一帧更新之前</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Start%EF%BC%9A"><span class="toc-text">Start：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E5%B8%A7%E4%B9%8B%E9%97%B4"><span class="toc-text">在帧之间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OnApplicationPause%EF%BC%9A"><span class="toc-text">OnApplicationPause：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E9%A1%BA%E5%BA%8F"><span class="toc-text">更新顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FixedUpdate%EF%BC%9A"><span class="toc-text">FixedUpdate：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update%EF%BC%9A"><span class="toc-text">Update：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LateUpdate%EF%BC%9A"><span class="toc-text">LateUpdate：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93"><span class="toc-text">渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OnPreCull%EF%BC%9A"><span class="toc-text">OnPreCull：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OnBecameVisible-OnBecameInvisible%EF%BC%9A"><span class="toc-text">OnBecameVisible &#x2F; OnBecameInvisible：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OnWillRenderObject%EF%BC%9A"><span class="toc-text">OnWillRenderObject：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OnPreRender%EF%BC%9A"><span class="toc-text">OnPreRender：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OnRenderObject%EF%BC%9A"><span class="toc-text">OnRenderObject：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OnPostRender%EF%BC%9A"><span class="toc-text">OnPostRender：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OnRenderImage%EF%BC%9A"><span class="toc-text">OnRenderImage：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OnGUI%EF%BC%9A"><span class="toc-text">OnGUI：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OnDrawGizmos%EF%BC%9A"><span class="toc-text">OnDrawGizmos：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E7%A8%8B"><span class="toc-text">协程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Update%EF%BC%9A-1"><span class="toc-text">Update：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield%EF%BC%9A"><span class="toc-text">yield：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield-WaitForSeconds%EF%BC%9A"><span class="toc-text">yield WaitForSeconds：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield-WaitForFixedUpdate%EF%BC%9A"><span class="toc-text">yield WaitForFixedUpdate：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield-WWW%EF%BC%9A"><span class="toc-text">yield WWW：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield-StartCoroutine%EF%BC%9A"><span class="toc-text">yield StartCoroutine：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E5%AF%B9%E8%B1%A1%E8%A2%AB%E9%94%80%E6%AF%81"><span class="toc-text">当对象被销毁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OnDestroy%EF%BC%9A"><span class="toc-text">OnDestroy：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%80%E5%87%BA%E6%97%B6"><span class="toc-text">退出时</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OnApplicationQuit%EF%BC%9A"><span class="toc-text">OnApplicationQuit：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OnDisable%EF%BC%9A"><span class="toc-text">OnDisable：</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%8A%A0%E8%BD%BD"><span class="toc-text"> 场景第一次加载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#awake"><span class="toc-text"> Awake：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onenable"><span class="toc-text"> OnEnable：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onlevelwasloaded"><span class="toc-text"> OnLevelWasLoaded</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B3%A8%E6%84%8F%E5%AF%B9%E4%BA%8E%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%9C%BA%E6%99%AF%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%89%80%E6%9C%89-%E8%84%9A%E6%9C%AC-%E7%9A%84-awake-%E5%92%8C-onenable-%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E4%BB%BB%E4%BD%95%E4%B8%80%E4%B8%AA%E5%9C%A8%E8%B0%83%E7%94%A8startupdate%E7%AD%89%E4%B9%8B%E5%89%8D%E8%B0%83%E7%94%A8-%E5%BD%93%E7%84%B6%E5%9C%A8%E6%B8%B8%E6%88%8F%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%AF%B9%E8%B1%A1%E6%97%B6%E4%B8%8D%E8%83%BD%E5%BC%BA%E5%88%B6%E6%89%A7%E8%A1%8C%E6%AD%A4%E6%93%8D%E4%BD%9C"><span class="toc-text"> 请注意，对于添加到场景中的对象，所有 脚本 的 Awake 和 OnEnable 函数中的任何一个，在调用Start，Update等之前调用。当然，在游戏过程中实例化对象时，不能强制执行此操作。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-text"> 编辑器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reset"><span class="toc-text"> Reset：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E7%AC%AC%E4%B8%80%E5%B8%A7%E6%9B%B4%E6%96%B0%E4%B9%8B%E5%89%8D"><span class="toc-text"> 在第一帧更新之前</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#start"><span class="toc-text"> Start：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E5%B8%A7%E4%B9%8B%E9%97%B4"><span class="toc-text"> 在帧之间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#onapplicationpause"><span class="toc-text"> OnApplicationPause：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E9%A1%BA%E5%BA%8F"><span class="toc-text"> 更新顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fixedupdate"><span class="toc-text"> FixedUpdate：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#update"><span class="toc-text"> Update：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lateupdate"><span class="toc-text"> LateUpdate：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93"><span class="toc-text"> 渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#onprecull"><span class="toc-text"> OnPreCull：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onbecamevisible-onbecameinvisible"><span class="toc-text"> OnBecameVisible &#x2F; OnBecameInvisible：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onwillrenderobject"><span class="toc-text"> OnWillRenderObject：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onprerender"><span class="toc-text"> OnPreRender：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onrenderobject"><span class="toc-text"> OnRenderObject：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onpostrender"><span class="toc-text"> OnPostRender：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onrenderimage"><span class="toc-text"> OnRenderImage：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ongui"><span class="toc-text"> OnGUI：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ondrawgizmos"><span class="toc-text"> OnDrawGizmos：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E7%A8%8B"><span class="toc-text"> 协程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#update-2"><span class="toc-text"> Update：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield"><span class="toc-text"> yield：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield-waitforseconds"><span class="toc-text"> yield WaitForSeconds：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield-waitforfixedupdate"><span class="toc-text"> yield WaitForFixedUpdate：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield-www"><span class="toc-text"> yield WWW：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield-startcoroutine"><span class="toc-text"> yield StartCoroutine：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E5%AF%B9%E8%B1%A1%E8%A2%AB%E9%94%80%E6%AF%81"><span class="toc-text"> 当对象被销毁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ondestroy"><span class="toc-text"> OnDestroy：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%80%E5%87%BA%E6%97%B6"><span class="toc-text"> 退出时</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#onapplicationquit"><span class="toc-text"> OnApplicationQuit：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ondisable"><span class="toc-text"> OnDisable：</span></a></li></ol></li></ol>
                 </div>
                 
              </div>
@@ -204,107 +204,181 @@
         <blockquote>
 <p>摘自unity官方手册：<a target="_blank" rel="noopener" href="https://docs.unity3d.com/2019.3/Documentation/Manual/ExecutionOrder.html">https://docs.unity3d.com/2019.3/Documentation/Manual/ExecutionOrder.html</a></p>
 </blockquote>
-<p><img src="unity脚本生命周期.png" alt="alt" style="max-width:100%;" ></p>
-<hr>
+<p><img src="unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="alt" style="max-width:100%;"  /></p>
+<hr />
 <ul>
-<li><h2 id="场景第一次加载"><a href="#场景第一次加载" class="headerlink" title="场景第一次加载"></a>场景第一次加载</h2><p>当 场景 开始时会调用这些函数（场景中每个对象执行一次）</p>
+<li>
+<h2 id="场景第一次加载"><a class="markdownIt-Anchor" href="#场景第一次加载"></a> 场景第一次加载</h2>
+<p>当 场景 开始时会调用这些函数（场景中每个对象执行一次）</p>
 <ul>
-<li><h3 id="Awake："><a href="#Awake：" class="headerlink" title="Awake："></a>Awake：</h3>   此函数始终会在任何 Start 函数之前以及预制件（prefab）之后实例化（如果 GameObject 在启动期间处于非活动状态，则在激活之前不会调用 Awake。）</li>
-<li><h3 id="OnEnable："><a href="#OnEnable：" class="headerlink" title="OnEnable："></a>OnEnable：</h3>  （仅在 Object 处于活动状态时调用）在启用对象后立即调用此函数。在创建 MonoBehaviour 实例时会发生这种情况，例如加载关卡时或者 游戏 中的脚本组件实例化。</li>
-<li><h3 id="OnLevelWasLoaded"><a href="#OnLevelWasLoaded" class="headerlink" title="OnLevelWasLoaded"></a>OnLevelWasLoaded</h3>   执行此函数以通知游戏已加载新关卡。</li>
-<li><h3 id="请注意，对于添加到场景中的对象，所有-脚本-的-Awake-和-OnEnable-函数中的任何一个，在调用Start，Update等之前调用。当然，在游戏过程中实例化对象时，不能强制执行此操作。"><a href="#请注意，对于添加到场景中的对象，所有-脚本-的-Awake-和-OnEnable-函数中的任何一个，在调用Start，Update等之前调用。当然，在游戏过程中实例化对象时，不能强制执行此操作。" class="headerlink" title="请注意，对于添加到场景中的对象，所有 脚本 的 Awake 和 OnEnable 函数中的任何一个，在调用Start，Update等之前调用。当然，在游戏过程中实例化对象时，不能强制执行此操作。"></a>请注意，对于添加到场景中的对象，所有 脚本 的 Awake 和 OnEnable 函数中的任何一个，在调用Start，Update等之前调用。当然，在游戏过程中实例化对象时，不能强制执行此操作。</h3></li>
+<li>
+<h3 id="awake"><a class="markdownIt-Anchor" href="#awake"></a> Awake：</h3>
+此函数始终会在任何 Start 函数之前以及预制件（prefab）之后实例化（如果 GameObject 在启动期间处于非活动状态，则在激活之前不会调用 Awake。）</li>
+<li>
+<h3 id="onenable"><a class="markdownIt-Anchor" href="#onenable"></a> OnEnable：</h3>
+（仅在 Object 处于活动状态时调用）在启用对象后立即调用此函数。在创建 MonoBehaviour 实例时会发生这种情况，例如加载关卡时或者 游戏 中的脚本组件实例化。</li>
+<li>
+<h3 id="onlevelwasloaded"><a class="markdownIt-Anchor" href="#onlevelwasloaded"></a> OnLevelWasLoaded</h3>
+执行此函数以通知游戏已加载新关卡。</li>
+<li>
+<h3 id="请注意对于添加到场景中的对象所有-脚本-的-awake-和-onenable-函数中的任何一个在调用startupdate等之前调用-当然在游戏过程中实例化对象时不能强制执行此操作"><a class="markdownIt-Anchor" href="#请注意对于添加到场景中的对象所有-脚本-的-awake-和-onenable-函数中的任何一个在调用startupdate等之前调用-当然在游戏过程中实例化对象时不能强制执行此操作"></a> 请注意，对于添加到场景中的对象，所有 脚本 的 Awake 和 OnEnable 函数中的任何一个，在调用Start，Update等之前调用。当然，在游戏过程中实例化对象时，不能强制执行此操作。</h3>
+</li>
 </ul>
 </li>
 </ul>
-<hr>
+<hr />
 <ul>
-<li><h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><ul>
-<li><h3 id="Reset："><a href="#Reset：" class="headerlink" title="Reset："></a>Reset：</h3>   调用 Reset 以在脚本首次附加到对象时以及使用重置命令时初始化脚本的属性。</li>
-</ul>
-</li>
-</ul>
-<hr>
+<li>
+<h2 id="编辑器"><a class="markdownIt-Anchor" href="#编辑器"></a> 编辑器</h2>
 <ul>
-<li><h2 id="在第一帧更新之前"><a href="#在第一帧更新之前" class="headerlink" title="在第一帧更新之前"></a>在第一帧更新之前</h2><ul>
-<li><h3 id="Start："><a href="#Start：" class="headerlink" title="Start："></a>Start：</h3><p>   仅在启用脚本实例时才在第一帧更新之前调用 Start。</p>
-<p>   对于添加到场景中的对象，将在所有脚本上调用 Start 函数，然后为其中任何脚本调用 Update 等。当然，在游戏过程中实例化对象时，不能强制执行此操作。</p>
-</li>
+<li>
+<h3 id="reset"><a class="markdownIt-Anchor" href="#reset"></a> Reset：</h3>
+调用 Reset 以在脚本首次附加到对象时以及使用重置命令时初始化脚本的属性。</li>
 </ul>
 </li>
 </ul>
-<hr>
+<hr />
 <ul>
-<li><h2 id="在帧之间"><a href="#在帧之间" class="headerlink" title="在帧之间"></a>在帧之间</h2><ul>
-<li><h3 id="OnApplicationPause："><a href="#OnApplicationPause：" class="headerlink" title="OnApplicationPause："></a>OnApplicationPause：</h3>   在检测到暂停的帧的末尾调用，有效地在正常帧更新之间调用。调用 OnApplicationPause 后，将发出一个额外的帧，以允许游戏显示指示暂停状态的图形。</li>
-</ul>
-</li>
-</ul>
-<hr>
+<li>
+<h2 id="在第一帧更新之前"><a class="markdownIt-Anchor" href="#在第一帧更新之前"></a> 在第一帧更新之前</h2>
 <ul>
-<li><h2 id="更新顺序"><a href="#更新顺序" class="headerlink" title="更新顺序"></a>更新顺序</h2><p>  当你跟踪游戏逻辑和交互、动画、相机和位置等，您可以使用一些不同的事件。常见模式是在 Update 函数中执行大多数任务，但也可以使用其他函数。</p>
+<li>
+<h3 id="start"><a class="markdownIt-Anchor" href="#start"></a> Start：</h3>
+<p>仅在启用脚本实例时才在第一帧更新之前调用 Start。</p>
+<p>对于添加到场景中的对象，将在所有脚本上调用 Start 函数，然后为其中任何脚本调用 Update 等。当然，在游戏过程中实例化对象时，不能强制执行此操作。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
 <ul>
-<li><h3 id="FixedUpdate："><a href="#FixedUpdate：" class="headerlink" title="FixedUpdate："></a>FixedUpdate：</h3>   通常比 Update 更频繁地调用 FixedUpdate。如果帧速率低，则可以每帧调用多次，如果帧速率高，则可以不在帧之间调用。所有物理计算和更新在 FixedUpdate 之后立即发生。在 FixedUpdate 中应用移动计算时，您不需要将您的值乘以 Time.deltaTime。这是因为在可靠的定时器上调用 FixedUpdate，与帧速率无关。</li>
-<li><h3 id="Update："><a href="#Update：" class="headerlink" title="Update："></a>Update：</h3>   每帧调用一次 Update。它是帧更新的主要函数。</li>
-<li><h3 id="LateUpdate："><a href="#LateUpdate：" class="headerlink" title="LateUpdate："></a>LateUpdate：</h3>   在 Update 完成后，每帧调用一次 LateUpdate。在 LateUpdate 开始时，将在 Update 中执行的任何计算都已完成。LateUpdate 的一个常见用途是使用以下第三人称相机。如果您使角色移动并在 Update 内转向，您可以在 LateUpdate 中执行所有相机移动和旋转计算。这将确保角色在摄像机跟踪其位置之前完全移动。</li>
-</ul>
-</li>
-</ul>
-<hr>
+<li>
+<h2 id="在帧之间"><a class="markdownIt-Anchor" href="#在帧之间"></a> 在帧之间</h2>
 <ul>
-<li><h2 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h2><ul>
-<li><h3 id="OnPreCull："><a href="#OnPreCull：" class="headerlink" title="OnPreCull："></a>OnPreCull：</h3><p>   在相机剔除场景之前调用。剔除决定哪些对象对相机可见。在剔除之前调用 OnPreCull。</p>
-</li>
-<li><h3 id="OnBecameVisible-OnBecameInvisible："><a href="#OnBecameVisible-OnBecameInvisible：" class="headerlink" title="OnBecameVisible / OnBecameInvisible："></a>OnBecameVisible / OnBecameInvisible：</h3><p>   当对象对任何摄像机可见 / 不可见时调用。</p>
-</li>
-<li><h3 id="OnWillRenderObject："><a href="#OnWillRenderObject：" class="headerlink" title="OnWillRenderObject："></a>OnWillRenderObject：</h3><p>   如果对象可见，则为每个摄像机调用一次。</p>
-</li>
-<li><h3 id="OnPreRender："><a href="#OnPreRender：" class="headerlink" title="OnPreRender："></a>OnPreRender：</h3><p>   在相机开始 渲染 之前调用场景。</p>
-</li>
-<li><h3 id="OnRenderObject："><a href="#OnRenderObject：" class="headerlink" title="OnRenderObject："></a>OnRenderObject：</h3><p>   在完成所有常规场景渲染后调用。您可以使用 GL 类或 Graphics.DrawMeshNow 来绘制自定义几何体。</p>
-</li>
-<li><h3 id="OnPostRender："><a href="#OnPostRender：" class="headerlink" title="OnPostRender："></a>OnPostRender：</h3><p>   在相机完成场景渲染后调用。</p>
-</li>
-<li><h3 id="OnRenderImage："><a href="#OnRenderImage：" class="headerlink" title="OnRenderImage："></a>OnRenderImage：</h3><p>   在场景渲染完成后调用以允许对图像进行后处理，请参阅 后处理效果。</p>
-</li>
-<li><h3 id="OnGUI："><a href="#OnGUI：" class="headerlink" title="OnGUI："></a>OnGUI：</h3><p>   响应GUI事件，每帧调用多次。首先处理 Layout 和 Repaint 事件，然后为每个输入事件处理 Layout 和 keyboard / mouse 事件。</p>
-</li>
-<li><h3 id="OnDrawGizmos："><a href="#OnDrawGizmos：" class="headerlink" title="OnDrawGizmos："></a>OnDrawGizmos：</h3><p>   用于绘制 Gizmos 在 场景视图 中用于可视化目的。</p>
-</li>
+<li>
+<h3 id="onapplicationpause"><a class="markdownIt-Anchor" href="#onapplicationpause"></a> OnApplicationPause：</h3>
+在检测到暂停的帧的末尾调用，有效地在正常帧更新之间调用。调用 OnApplicationPause 后，将发出一个额外的帧，以允许游戏显示指示暂停状态的图形。</li>
 </ul>
 </li>
 </ul>
-<hr>
+<hr />
 <ul>
-<li><h2 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h2><ul>
-<li><h3 id="Update：-1"><a href="#Update：-1" class="headerlink" title="Update："></a>Update：</h3><p>   函数返回后运行正常的协同程序更新。协程是一个可以暂停执行（yield）直到给定的 YieldInstruction 完成的函数。协程的不同用途：</p>
-</li>
-<li><h3 id="yield："><a href="#yield：" class="headerlink" title="yield："></a>yield：</h3><p>   在下一帧调用所有 Update 函数后，协程将继续运行。</p>
-</li>
-<li><h3 id="yield-WaitForSeconds："><a href="#yield-WaitForSeconds：" class="headerlink" title="yield WaitForSeconds："></a>yield WaitForSeconds：</h3><p>   在为帧调用所有 Update 函数后，在指定的时间延迟后继续。</p>
-</li>
-<li><h3 id="yield-WaitForFixedUpdate："><a href="#yield-WaitForFixedUpdate：" class="headerlink" title="yield WaitForFixedUpdate："></a>yield WaitForFixedUpdate：</h3><p>   在所有脚本上调用所有 FixedUpdate 后继续。</p>
-</li>
-<li><h3 id="yield-WWW："><a href="#yield-WWW：" class="headerlink" title="yield WWW："></a>yield WWW：</h3><p>   在 WWW 下载完成后继续。</p>
-</li>
-<li><h3 id="yield-StartCoroutine："><a href="#yield-StartCoroutine：" class="headerlink" title="yield StartCoroutine："></a>yield StartCoroutine：</h3><p>   链接协程，并将等待 MyFunc 协程首先完成。</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
+<li>
+<h2 id="更新顺序"><a class="markdownIt-Anchor" href="#更新顺序"></a> 更新顺序</h2>
+<p>当你跟踪游戏逻辑和交互、动画、相机和位置等，您可以使用一些不同的事件。常见模式是在 Update 函数中执行大多数任务，但也可以使用其他函数。</p>
 <ul>
-<li><h2 id="当对象被销毁"><a href="#当对象被销毁" class="headerlink" title="当对象被销毁"></a>当对象被销毁</h2><ul>
-<li><h3 id="OnDestroy："><a href="#OnDestroy：" class="headerlink" title="OnDestroy："></a>OnDestroy：</h3>   在对象存在的最后一帧的所有帧更新之后调用此函数（该对象可能会在响应 Object.Destroy 或场景关闭时被销毁）。</li>
+<li>
+<h3 id="fixedupdate"><a class="markdownIt-Anchor" href="#fixedupdate"></a> FixedUpdate：</h3>
+通常比 Update 更频繁地调用 FixedUpdate。如果帧速率低，则可以每帧调用多次，如果帧速率高，则可以不在帧之间调用。所有物理计算和更新在 FixedUpdate 之后立即发生。在 FixedUpdate 中应用移动计算时，您不需要将您的值乘以 Time.deltaTime。这是因为在可靠的定时器上调用 FixedUpdate，与帧速率无关。</li>
+<li>
+<h3 id="update"><a class="markdownIt-Anchor" href="#update"></a> Update：</h3>
+每帧调用一次 Update。它是帧更新的主要函数。</li>
+<li>
+<h3 id="lateupdate"><a class="markdownIt-Anchor" href="#lateupdate"></a> LateUpdate：</h3>
+在 Update 完成后，每帧调用一次 LateUpdate。在 LateUpdate 开始时，将在 Update 中执行的任何计算都已完成。LateUpdate 的一个常见用途是使用以下第三人称相机。如果您使角色移动并在 Update 内转向，您可以在 LateUpdate 中执行所有相机移动和旋转计算。这将确保角色在摄像机跟踪其位置之前完全移动。</li>
 </ul>
 </li>
 </ul>
-<hr>
+<hr />
 <ul>
-<li><h2 id="退出时"><a href="#退出时" class="headerlink" title="退出时"></a>退出时</h2><p>  在场景中的所有活动对象上调用这些函数：</p>
+<li>
+<h2 id="渲染"><a class="markdownIt-Anchor" href="#渲染"></a> 渲染</h2>
 <ul>
-<li><h3 id="OnApplicationQuit："><a href="#OnApplicationQuit：" class="headerlink" title="OnApplicationQuit："></a>OnApplicationQuit：</h3><p>   在退出应用程序之前，在所有游戏对象上调用此函数。在编辑器中，当用户停止播放模式时调用它。</p>
+<li>
+<h3 id="onprecull"><a class="markdownIt-Anchor" href="#onprecull"></a> OnPreCull：</h3>
+<p>在相机剔除场景之前调用。剔除决定哪些对象对相机可见。在剔除之前调用 OnPreCull。</p>
 </li>
-<li><h3 id="OnDisable："><a href="#OnDisable：" class="headerlink" title="OnDisable："></a>OnDisable：</h3><p>   当行为被禁用或处于非活动状态时，将调用此函数。</p>
+<li>
+<h3 id="onbecamevisible-onbecameinvisible"><a class="markdownIt-Anchor" href="#onbecamevisible-onbecameinvisible"></a> OnBecameVisible / OnBecameInvisible：</h3>
+<p>当对象对任何摄像机可见 / 不可见时调用。</p>
+</li>
+<li>
+<h3 id="onwillrenderobject"><a class="markdownIt-Anchor" href="#onwillrenderobject"></a> OnWillRenderObject：</h3>
+<p>如果对象可见，则为每个摄像机调用一次。</p>
+</li>
+<li>
+<h3 id="onprerender"><a class="markdownIt-Anchor" href="#onprerender"></a> OnPreRender：</h3>
+<p>在相机开始 渲染 之前调用场景。</p>
+</li>
+<li>
+<h3 id="onrenderobject"><a class="markdownIt-Anchor" href="#onrenderobject"></a> OnRenderObject：</h3>
+<p>在完成所有常规场景渲染后调用。您可以使用 GL 类或 Graphics.DrawMeshNow 来绘制自定义几何体。</p>
+</li>
+<li>
+<h3 id="onpostrender"><a class="markdownIt-Anchor" href="#onpostrender"></a> OnPostRender：</h3>
+<p>在相机完成场景渲染后调用。</p>
+</li>
+<li>
+<h3 id="onrenderimage"><a class="markdownIt-Anchor" href="#onrenderimage"></a> OnRenderImage：</h3>
+<p>在场景渲染完成后调用以允许对图像进行后处理，请参阅 后处理效果。</p>
+</li>
+<li>
+<h3 id="ongui"><a class="markdownIt-Anchor" href="#ongui"></a> OnGUI：</h3>
+<p>响应GUI事件，每帧调用多次。首先处理 Layout 和 Repaint 事件，然后为每个输入事件处理 Layout 和 keyboard / mouse 事件。</p>
+</li>
+<li>
+<h3 id="ondrawgizmos"><a class="markdownIt-Anchor" href="#ondrawgizmos"></a> OnDrawGizmos：</h3>
+<p>用于绘制 Gizmos 在 场景视图 中用于可视化目的。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<h2 id="协程"><a class="markdownIt-Anchor" href="#协程"></a> 协程</h2>
+<ul>
+<li>
+<h3 id="update-2"><a class="markdownIt-Anchor" href="#update-2"></a> Update：</h3>
+<p>函数返回后运行正常的协同程序更新。协程是一个可以暂停执行（yield）直到给定的 YieldInstruction 完成的函数。协程的不同用途：</p>
+</li>
+<li>
+<h3 id="yield"><a class="markdownIt-Anchor" href="#yield"></a> yield：</h3>
+<p>在下一帧调用所有 Update 函数后，协程将继续运行。</p>
+</li>
+<li>
+<h3 id="yield-waitforseconds"><a class="markdownIt-Anchor" href="#yield-waitforseconds"></a> yield WaitForSeconds：</h3>
+<p>在为帧调用所有 Update 函数后，在指定的时间延迟后继续。</p>
+</li>
+<li>
+<h3 id="yield-waitforfixedupdate"><a class="markdownIt-Anchor" href="#yield-waitforfixedupdate"></a> yield WaitForFixedUpdate：</h3>
+<p>在所有脚本上调用所有 FixedUpdate 后继续。</p>
+</li>
+<li>
+<h3 id="yield-www"><a class="markdownIt-Anchor" href="#yield-www"></a> yield WWW：</h3>
+<p>在 WWW 下载完成后继续。</p>
+</li>
+<li>
+<h3 id="yield-startcoroutine"><a class="markdownIt-Anchor" href="#yield-startcoroutine"></a> yield StartCoroutine：</h3>
+<p>链接协程，并将等待 MyFunc 协程首先完成。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<h2 id="当对象被销毁"><a class="markdownIt-Anchor" href="#当对象被销毁"></a> 当对象被销毁</h2>
+<ul>
+<li>
+<h3 id="ondestroy"><a class="markdownIt-Anchor" href="#ondestroy"></a> OnDestroy：</h3>
+在对象存在的最后一帧的所有帧更新之后调用此函数（该对象可能会在响应 Object.Destroy 或场景关闭时被销毁）。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<h2 id="退出时"><a class="markdownIt-Anchor" href="#退出时"></a> 退出时</h2>
+<p>在场景中的所有活动对象上调用这些函数：</p>
+<ul>
+<li>
+<h3 id="onapplicationquit"><a class="markdownIt-Anchor" href="#onapplicationquit"></a> OnApplicationQuit：</h3>
+<p>在退出应用程序之前，在所有游戏对象上调用此函数。在编辑器中，当用户停止播放模式时调用它。</p>
+</li>
+<li>
+<h3 id="ondisable"><a class="markdownIt-Anchor" href="#ondisable"></a> OnDisable：</h3>
+<p>当行为被禁用或处于非活动状态时，将调用此函数。</p>
 </li>
 </ul>
 </li>
@@ -410,6 +484,21 @@
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 
 </html>
