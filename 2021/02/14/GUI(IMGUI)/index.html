@@ -185,7 +185,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ongui"><span class="toc-text"> OnGui()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%A7%E4%BB%B6"><span class="toc-text"> 常见的控件：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%A2%9C%E8%89%B2%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%AE%E8%82%A4%E6%A0%B7%E5%BC%8F"><span class="toc-text"> 全局颜色和自定义皮肤样式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%A2%9C%E8%89%B2"><span class="toc-text"> 全局颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%AE%E8%82%A4%E6%A0%B7%E5%BC%8F"><span class="toc-text"> 自定义皮肤样式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#guilayout-%E8%87%AA%E5%8A%A8%E5%B8%83%E5%B1%80"><span class="toc-text"> GUILayout 自动布局</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#OnGui"><span class="toc-text">OnGui()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%A7%E4%BB%B6%EF%BC%9A"><span class="toc-text">常见的控件：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%A2%9C%E8%89%B2%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%AE%E8%82%A4%E6%A0%B7%E5%BC%8F"><span class="toc-text">全局颜色和自定义皮肤样式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%A2%9C%E8%89%B2"><span class="toc-text">全局颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%AE%E8%82%A4%E6%A0%B7%E5%BC%8F"><span class="toc-text">自定义皮肤样式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUILayout-%E8%87%AA%E5%8A%A8%E5%B8%83%E5%B1%80"><span class="toc-text">GUILayout 自动布局</span></a></li></ol>
                 </div>
                 
              </div>
@@ -202,12 +202,10 @@
         
         
         <p>全称：即时模式用户交互界面，是一种即见即所得的UI系统，一般用作创建游戏内置工具和脚本检视面板而不作为游戏玩家的UI。</p>
-</br>
-<hr />
+<p>&lt;/br&gt;</p>
+<hr>
 <ul>
-<li>
-<h2 id="ongui"><a class="markdownIt-Anchor" href="#ongui"></a> OnGui()</h2>
-<p>继承了MonoBehaviour的脚本都可以调用OnGui()。OnGui()中的控件绘制函数都是由GUI类提供的静态函数，这些空间的的常见参数类型:</p>
+<li><h2 id="OnGui"><a href="#OnGui" class="headerlink" title="OnGui()"></a>OnGui()</h2><p>继承了MonoBehaviour的脚本都可以调用OnGui()。OnGui()中的控件绘制函数都是由GUI类提供的静态函数，这些空间的的常见参数类型:</p>
 <ul>
 <li>位置参数：Rect(x ,y ,w ,h);（x，y位置信息；w，h尺寸信息）</li>
 <li>显示文本：string</li>
@@ -215,314 +213,327 @@
 <li>组合信息：GUIContent: 支持文本、图片、隐藏文本（鼠标或键盘选中时可获得该文本）</li>
 <li>自定义样式：GUIStyle</li>
 </ul>
-</br>
-</br>
+<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
 </li>
 </ul>
-<hr />
+<hr>
 <ul>
-<li>
-<h2 id="常见的控件"><a class="markdownIt-Anchor" href="#常见的控件"></a> 常见的控件：</h2>
-<details>
+<li><h2 id="常见的控件："><a href="#常见的控件：" class="headerlink" title="常见的控件："></a>常见的控件：</h2><details>
 <summary><font size= 3>Label 标签</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    GUI.Label(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"Lable"</span>);
-&#125;
-</code></pre>
+
+```C#
+void OnGUI()
+{
+    GUI.Label(new Rect(0, 0, 100, 20), "Lable");
+}
+```
+
 </details>
+
 <details>
 <summary><font size= 3>Button 按钮</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    <span class="hljs-comment">//按钮的事件监听</span>
 
-    <span class="hljs-comment">//普通按钮（在Button范围内按下并抬起才算一次点击）</span>
-    <span class="hljs-keyword">if</span> (GUI.Button(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"button"</span>))
-    &#123;
-        Debug.Log(<span class="hljs-string">"点击了按钮"</span>);
-    &#125;
+```C#
+void OnGUI()
+{
+    //按钮的事件监听
 
-    <span class="hljs-comment">//重复按钮（按下时就会触发，长按时一直触发）</span>
-    <span class="hljs-keyword">if</span> (GUI.RepeatButton(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"button"</span>))
-    &#123;
-        Debug.Log(<span class="hljs-string">"点击了重复按钮"</span>);
-    &#125;
-&#125;
-</code></pre>
+    //普通按钮（在Button范围内按下并抬起才算一次点击）
+    if (GUI.Button(new Rect(0, 0, 100, 20), "button"))
+    {
+        Debug.Log("点击了按钮");
+    }
+
+    //重复按钮（按下时就会触发，长按时一直触发）
+    if (GUI.RepeatButton(new Rect(0, 0, 100, 20), "button"))
+    {
+        Debug.Log("点击了重复按钮");
+    }
+}
+```
 </details>
+
 <details>
 <summary><font size= 3>Toggle 状态切换开关</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">private</span> <span class="hljs-keyword">bool</span> isClick = <span class="hljs-literal">false</span>;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> selectIndex = <span class="hljs-number">1</span>;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    <span class="hljs-comment">//可多选：</span>
-    <span class="hljs-comment">//若isClick是true，则表示已经选择，点击后GUI.Toggle返回false（表示未启用）</span>
-    isClick = GUI.Toggle(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), isClick, <span class="hljs-string">"多选测试"</span>);
 
-    <span class="hljs-comment">//多选一：</span>
-    <span class="hljs-keyword">if</span> (GUI.Toggle(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">30</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), selectIndex == <span class="hljs-number">1</span>, <span class="hljs-string">"单选测试1"</span>))
-    &#123;
-        selectIndex = <span class="hljs-number">1</span>;
-    &#125;
-    <span class="hljs-keyword">if</span> (GUI.Toggle(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">30</span>+<span class="hljs-number">20</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), selectIndex == <span class="hljs-number">2</span>, <span class="hljs-string">"单选测试2"</span>))
-    &#123;
-        selectIndex = <span class="hljs-number">2</span>;
-    &#125;
-    <span class="hljs-keyword">if</span> (GUI.Toggle(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">30</span>+<span class="hljs-number">40</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), selectIndex == <span class="hljs-number">3</span>, <span class="hljs-string">"单选测试3"</span>))
-    &#123;
-        selectIndex = <span class="hljs-number">3</span>;
-    &#125;
-&#125;
-</code></pre>
+```C#
+private bool isClick = false;
+private int selectIndex = 1;
+void OnGUI()
+{
+    //可多选：
+    //若isClick是true，则表示已经选择，点击后GUI.Toggle返回false（表示未启用）
+    isClick = GUI.Toggle(new Rect(0, 0, 100, 20), isClick, "多选测试");
+
+    //多选一：
+    if (GUI.Toggle(new Rect(0, 30, 100, 20), selectIndex == 1, "单选测试1"))
+    {
+        selectIndex = 1;
+    }
+    if (GUI.Toggle(new Rect(0, 30+20, 100, 20), selectIndex == 2, "单选测试2"))
+    {
+        selectIndex = 2;
+    }
+    if (GUI.Toggle(new Rect(0, 30+40, 100, 20), selectIndex == 3, "单选测试3"))
+    {
+        selectIndex = 3;
+    }
+}
+```
 </details>
+
 <details>
 <summary><font size= 3>TextField 输入框</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> inputpwd;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> input;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    <span class="hljs-comment">//参数中的input表示需要嵌入的字符串,GUI.Toggle将返回当前输入框内的字符串</span>
-    <span class="hljs-comment">//常规输入</span>
-    input = GUI.TextField(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), input);
 
-    <span class="hljs-comment">//加密输入，最后一个参数为替换为密码的符号</span>
-    inputpwd = GUI.PasswordField(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), inputpwd, <span class="hljs-string">'*'</span>);
-&#125;
-</code></pre>
+```C#
+private string inputpwd;
+private string input;
+void OnGUI()
+{
+    //参数中的input表示需要嵌入的字符串,GUI.Toggle将返回当前输入框内的字符串
+    //常规输入
+    input = GUI.TextField(new Rect(0, 0, 100, 20), input);
+
+    //加密输入，最后一个参数为替换为密码的符号
+    inputpwd = GUI.PasswordField(new Rect(0, 0, 100, 20), inputpwd, '*');
+}
+```
 </details>
+
 <details>
 <summary><font size= 3>Slider 滑块</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-keyword">value</span> = <span class="hljs-number">5</span>;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> max = <span class="hljs-number">10</span>;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> min = <span class="hljs-number">0</span>;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    <span class="hljs-comment">//水平滑块</span>
-    <span class="hljs-keyword">value</span> = GUI.HorizontalSlider(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-keyword">value</span>, min, max);
-    <span class="hljs-comment">//垂直滑块</span>
-    <span class="hljs-keyword">value</span> = GUI.VerticalSlider(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-keyword">value</span>, min, max);
-&#125;
-</code></pre>
+
+```C#
+private int value = 5;
+private int max = 10;
+private int min = 0;
+void OnGUI()
+{
+    //水平滑块
+    value = GUI.HorizontalSlider(new Rect(0, 0, 100, 20), value, min, max);
+    //垂直滑块
+    value = GUI.VerticalSlider(new Rect(0, 0, 100, 20), value, min, max);
+}
+```
 </details>
 <details>
 <summary><font size= 3>DrawTexture 图片绘制</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">private</span> Texture tex;
-<span class="hljs-keyword">private</span> ScaleMode  scaleMode;
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">bool</span> alpha;
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> imageAspect;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    <span class="hljs-comment">// scaleMode 缩放模式:</span>
-    <span class="hljs-comment">//         Scale To Fill 任意拉伸</span>
-    <span class="hljs-comment">//         Scale And Crop 保持比例，多出的部分裁剪</span>
-    <span class="hljs-comment">//         Scal To Fit 保持比例</span>
-    <span class="hljs-comment">//alpha 是否启用alpha通道</span>
-    <span class="hljs-comment">//imageAspect 宽高比，默认0表示图片的原始比例</span>
-    GUI.DrawTexture(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>), tex, scaleMode, alpha, imageAspect);
-&#125;
-</code></pre>
+
+```C#
+private Texture tex;
+private ScaleMode  scaleMode;
+public bool alpha;
+public float imageAspect;
+void OnGUI()
+{
+    // scaleMode 缩放模式:
+    //         Scale To Fill 任意拉伸
+    //         Scale And Crop 保持比例，多出的部分裁剪
+    //         Scal To Fit 保持比例
+    //alpha 是否启用alpha通道
+    //imageAspect 宽高比，默认0表示图片的原始比例
+    GUI.DrawTexture(new Rect(0, 0, 100, 100), tex, scaleMode, alpha, imageAspect);
+}
+```
 </details>    
 <details>
 <summary><font size= 3>Box 容器</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    GUI.Box(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>), <span class="hljs-string">" "</span>);
-&#125;
-</code></pre>
+
+```C#
+void OnGUI()
+{
+    GUI.Box(new Rect(0, 0, 100, 100), " ");
+}
+```
 </details> 
+
 <details>
 <summary><font size= 3>Toolbar 工具栏</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> toolbarIndex = <span class="hljs-number">0</span>;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span>[] toolbarInfos = <span class="hljs-keyword">new</span> <span class="hljs-keyword">string</span>[] &#123; <span class="hljs-string">"工具一"</span>, <span class="hljs-string">"工具二"</span>, <span class="hljs-string">"工具三"</span> &#125;;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    <span class="hljs-comment">//toolbarIndex:点击哪个toolbarInfos将返回数组下标，表示选择了哪个工具栏</span>
-    toolbarIndex = GUI.Toolbar(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">200</span>, <span class="hljs-number">30</span>), toolbarIndex, toolbarInfos);
 
-    <span class="hljs-keyword">switch</span> (toolbarIndex)
-    &#123;
-        <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>: Debug.Log(<span class="hljs-string">"选择了工具一"</span>); <span class="hljs-keyword">break</span>;
-        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>: Debug.Log(<span class="hljs-string">"选择了工具二"</span>); <span class="hljs-keyword">break</span>;
-        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>: Debug.Log(<span class="hljs-string">"选择了工具三"</span>);<span class="hljs-keyword">break</span>;
-    &#125;
-&#125;
-</code></pre>
+```C#
+private int toolbarIndex = 0;
+private string[] toolbarInfos = new string[] { "工具一", "工具二", "工具三" };
+void OnGUI()
+{
+    //toolbarIndex:点击哪个toolbarInfos将返回数组下标，表示选择了哪个工具栏
+    toolbarIndex = GUI.Toolbar(new Rect(0, 0, 200, 30), toolbarIndex, toolbarInfos);
+
+    switch (toolbarIndex)
+    {
+        case 0: Debug.Log("选择了工具一"); break;
+        case 1: Debug.Log("选择了工具二"); break;
+        case 2: Debug.Log("选择了工具三");break;
+    }
+}
+```
 </details>
+
 <details>
 <summary><font size= 3>SelectionGrid 选择网格</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> selectionIndex = <span class="hljs-number">0</span>;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span>[] SelectionInfos = <span class="hljs-keyword">new</span> <span class="hljs-keyword">string</span>[] &#123; <span class="hljs-string">"工具一"</span>, <span class="hljs-string">"工具二"</span>, <span class="hljs-string">"工具三"</span> &#125;;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    <span class="hljs-comment">//与Toolbar类似，但Toolbar只能支持一行</span>
-    <span class="hljs-comment">//最后一个参数表示每行最多能有几个工具栏，多余的工具栏将置于下一行</span>
-    selectionIndex = GUI.SelectionGrid(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">200</span>, <span class="hljs-number">60</span>), selectionIndex, SelectionInfos, <span class="hljs-number">1</span>);
 
-    <span class="hljs-keyword">switch</span> (selectionIndex)
-    &#123;
-        <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>: Debug.Log(<span class="hljs-string">"选择了工具一"</span>); <span class="hljs-keyword">break</span>;
-        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>: Debug.Log(<span class="hljs-string">"选择了工具二"</span>); <span class="hljs-keyword">break</span>;
-        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>: Debug.Log(<span class="hljs-string">"选择了工具三"</span>);<span class="hljs-keyword">break</span>;
-    &#125;
-&#125;
-</code></pre>
+```C#
+private int selectionIndex = 0;
+private string[] SelectionInfos = new string[] { "工具一", "工具二", "工具三" };
+void OnGUI()
+{
+    //与Toolbar类似，但Toolbar只能支持一行
+    //最后一个参数表示每行最多能有几个工具栏，多余的工具栏将置于下一行
+    selectionIndex = GUI.SelectionGrid(new Rect(0, 0, 200, 60), selectionIndex, SelectionInfos, 1);
+
+    switch (selectionIndex)
+    {
+        case 0: Debug.Log("选择了工具一"); break;
+        case 1: Debug.Log("选择了工具二"); break;
+        case 2: Debug.Log("选择了工具三");break;
+    }
+}
+```
 </details>
+
 <details>
 <summary><font size= 3>Group 分组</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> Rect groupPos;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    <span class="hljs-comment">//可以批量控制控件显示范围和位置</span>
+
+```C#
+public Rect groupPos;
+void OnGUI()
+{
+    //可以批量控制控件显示范围和位置
 
     GUI.BeginGroup(groupPos);
 
-    GUI.Label(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"Lable"</span>);
-    GUI.Button(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">20</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"Button"</span>);
+    GUI.Label(new Rect(0, 0, 100, 20), "Lable");
+    GUI.Button(new Rect(0, 20, 100, 20), "Button");
 
     GUI.EndGroup();
-&#125;
-</code></pre>
+}
+```
 </details>
+
 <details>
 <summary><font size= 3>ScrollView 滚动视野</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> Rect scrPos;<span class="hljs-comment">//滚动组位置和范围</span>
-<span class="hljs-keyword">public</span> Rect showPos;<span class="hljs-comment">//可视范围</span>
-<span class="hljs-keyword">private</span> Vector2 nowPos;<span class="hljs-comment">//当前滚动视野位置</span>
 
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> selectionIndex = <span class="hljs-number">0</span>;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span>[] SelectionInfos = <span class="hljs-keyword">new</span> <span class="hljs-keyword">string</span>[] &#123; <span class="hljs-string">"工具一"</span>, <span class="hljs-string">"工具二"</span>, <span class="hljs-string">"工具三"</span> &#125;;
+```C#   
+public Rect scrPos;//滚动组位置和范围
+public Rect showPos;//可视范围
+private Vector2 nowPos;//当前滚动视野位置
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    <span class="hljs-comment">//showPos &gt; scrPos 时将出现滚动滑块</span>
+private int selectionIndex = 0;
+private string[] SelectionInfos = new string[] { "工具一", "工具二", "工具三" };
+
+void OnGUI()
+{
+    //showPos > scrPos 时将出现滚动滑块
 
     nowPos = GUI.BeginScrollView(scrPos, nowPos, showPos);
 
-    selectionIndex = GUI.SelectionGrid(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">200</span>, <span class="hljs-number">60</span>), selectionIndex, SelectionInfos, <span class="hljs-number">1</span>);
+    selectionIndex = GUI.SelectionGrid(new Rect(0, 0, 200, 60), selectionIndex, SelectionInfos, 1);
 
     GUI.EndScrollView();
-&#125;
-</code></pre>
+}
+```
 </details>
-<details>
+
+<p><details></p>
 <summary><font size= 3>Window 窗口</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">private</span> <span class="hljs-keyword">bool</span> isclose1 = <span class="hljs-literal">true</span>;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">bool</span> isclose2 = <span class="hljs-literal">true</span>;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">bool</span> isclose3 = <span class="hljs-literal">true</span>;
-<span class="hljs-keyword">public</span> Rect dragPos;
-<span class="hljs-keyword">public</span> GUIStyle style;
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
+<pre><code class="lang-C#">private bool isclose1 = true;
+private bool isclose2 = true;
+private bool isclose3 = true;
+public Rect dragPos;
+public GUIStyle style;
+
+void OnGUI()
 &#123;
-    <span class="hljs-comment">//第三个参数均为委托函数，用于处理窗口内的逻辑</span>
+    //第三个参数均为委托函数，用于处理窗口内的逻辑
 
-    <span class="hljs-comment">//普通窗口</span>
-    <span class="hljs-keyword">if</span>(isclose1)
-        GUI.Window(<span class="hljs-number">1</span>, <span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">200</span>, <span class="hljs-number">60</span>), DrawWindow, <span class="hljs-string">"普通窗口"</span>);
+    //普通窗口
+    if(isclose1)
+        GUI.Window(1, new Rect(0, 0, 200, 60), DrawWindow, &quot;普通窗口&quot;);
 
-    <span class="hljs-comment">//模态窗口，必须优先处理模态窗口的逻辑，模态窗口启用时，其他所有GUI控件失效</span>
-    <span class="hljs-keyword">if</span>(isclose2)
-        GUI.ModalWindow(<span class="hljs-number">2</span>, <span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">60</span>), DrawWindow, <span class="hljs-string">"模态窗口"</span>);
+    //模态窗口，必须优先处理模态窗口的逻辑，模态窗口启用时，其他所有GUI控件失效
+    if(isclose2)
+        GUI.ModalWindow(2, new Rect(0, 200, 200, 60), DrawWindow, &quot;模态窗口&quot;);
 
-    <span class="hljs-comment">//可拖动窗口</span>
-    <span class="hljs-keyword">if</span>(isclose3)
-        dragPos = GUI.Window(<span class="hljs-number">3</span>, dragPos, DrawWindow, <span class="hljs-string">"可拖动窗口"</span>);
+    //可拖动窗口
+    if(isclose3)
+        dragPos = GUI.Window(3, dragPos, DrawWindow, &quot;可拖动窗口&quot;);
 
 &#125;
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DrawWindow</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span>
+public void DrawWindow(int id)
 &#123;
-    <span class="hljs-comment">//按钮关闭窗口</span>
-    <span class="hljs-keyword">if</span> (GUI.Button(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">180</span>, <span class="hljs-number">0</span>, <span class="hljs-number">20</span>, <span class="hljs-number">20</span>),<span class="hljs-string">"X"</span>,style))
+    //按钮关闭窗口
+    if (GUI.Button(new Rect(180, 0, 20, 20),&quot;X&quot;,style))
     &#123;
-        <span class="hljs-keyword">switch</span> (id)
+        switch (id)
         &#123;
-            <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>: isclose1 = !isclose1; <span class="hljs-keyword">break</span>;
-            <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>: isclose2 = !isclose2; <span class="hljs-keyword">break</span>;
-            <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>: isclose3 = !isclose3; <span class="hljs-keyword">break</span>; 
+            case 1: isclose1 = !isclose1; break;
+            case 2: isclose2 = !isclose2; break;
+            case 3: isclose3 = !isclose3; break; 
         &#125;
     &#125;
 
-    <span class="hljs-comment">//可拖动窗口必须在委托函数内部调用GUI.GragWindow()</span>
-    <span class="hljs-keyword">if</span> (id == <span class="hljs-number">3</span>)
+    //可拖动窗口必须在委托函数内部调用GUI.GragWindow()
+    if (id == 3)
     &#123;
-        <span class="hljs-comment">//参数表示能拖拽的范围，无参则窗口内范围均可拖拽</span>
-        <span class="hljs-comment">//GUI.DragWindow(new Rect(0, 0, 100, 20));</span>
+        //参数表示能拖拽的范围，无参则窗口内范围均可拖拽
+        //GUI.DragWindow(new Rect(0, 0, 100, 20));
         GUI.DragWindow();
     &#125;
-&#125;    
+&#125;
 </code></pre>
-</details>
-</br>
-每一种控件都有多个重载，但都必须有位置信息和显示信息 
+<p>&lt;/details&gt;<br>&lt;/br&gt;<br>每一种控件都有多个重载，但都必须有位置信息和显示信息 </p>
 <p>ps：OnGui()是每帧执行的。</p>
-</br>
-</br>
+<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
 </li>
 </ul>
-<hr />
+<hr>
 <ul>
-<li>
-<h2 id="全局颜色和自定义皮肤样式"><a class="markdownIt-Anchor" href="#全局颜色和自定义皮肤样式"></a> 全局颜色和自定义皮肤样式</h2>
-<ul>
-<li>
-<h3 id="全局颜色"><a class="markdownIt-Anchor" href="#全局颜色"></a> 全局颜色</h3>
-</li>
+<li><h2 id="全局颜色和自定义皮肤样式"><a href="#全局颜色和自定义皮肤样式" class="headerlink" title="全局颜色和自定义皮肤样式"></a>全局颜色和自定义皮肤样式</h2><ul>
+<li><h3 id="全局颜色"><a href="#全局颜色" class="headerlink" title="全局颜色"></a>全局颜色</h3>GUI中提供了全局颜色，将OnGUI中所有的控件进行颜色的叠加：<br>  GUI.color 全局颜色<br>  GUI.contentColor 文本颜色<br>  GUI.backgroundColor 背景颜色</li>
 </ul>
-<p>GUI中提供了全局颜色，将OnGUI中所有的控件进行颜色的叠加：<br />
-GUI.color 全局颜色<br />
-GUI.contentColor 文本颜色<br />
-GUI.backgroundColor 背景颜色</p>
-<p><img src="guicolor.png" alt="alt" style="max-width:100%;"  /></p>
-<pre class="highlight"><code class="C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
+<p><img src="guicolor.png" alt="alt" style="max-width:100%;" ></p>
+<pre><code class="lang-C#">void OnGUI()
 &#123;
-    GUI.color = Color.red;<span class="hljs-comment">//设置一个全局颜色</span>
+    GUI.color = Color.red;//设置一个全局颜色
 
-    GUI.Button(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"Button"</span>);
-    GUI.Label(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">30</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"Lable"</span>);
+    GUI.Button(new Rect(0, 0, 100, 20), &quot;Button&quot;);
+    GUI.Label(new Rect(0, 30, 100, 20), &quot;Lable&quot;);
 
-    GUI.contentColor = Color.blue;<span class="hljs-comment">//与红色叠加文本呈黑色</span>
-    GUI.backgroundColor = Color.blue;<span class="hljs-comment">//与红色叠加背景呈黑色</span>
-    GUI.Button(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">60</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"Button"</span>);
-    GUI.Label(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">90</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"Lable"</span>);
+    GUI.contentColor = Color.blue;//与红色叠加文本呈黑色
+    GUI.backgroundColor = Color.blue;//与红色叠加背景呈黑色
+    GUI.Button(new Rect(0, 60, 100, 20), &quot;Button&quot;);
+    GUI.Label(new Rect(0, 90, 100, 20), &quot;Lable&quot;);
 
-    GUI.color = Color.white;<span class="hljs-comment">//清空全局颜色，但是文本和背景颜色未清空</span>
-    GUI.Button(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">120</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"Button"</span>);
-    GUI.Label(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">150</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"Lable"</span>);
+    GUI.color = Color.white;//清空全局颜色，但是文本和背景颜色未清空
+    GUI.Button(new Rect(0, 120, 100, 20), &quot;Button&quot;);
+    GUI.Label(new Rect(0, 150, 100, 20), &quot;Lable&quot;);
 
 &#125;
 </code></pre>
 <ul>
-<li>
-<h3 id="自定义皮肤样式"><a class="markdownIt-Anchor" href="#自定义皮肤样式"></a> 自定义皮肤样式</h3>
-</li>
+<li><h3 id="自定义皮肤样式"><a href="#自定义皮肤样式" class="headerlink" title="自定义皮肤样式"></a>自定义皮肤样式</h3>可以在project面板下创建GUI Skin,GUI Skin其实是各个组件的综合体，相较于GUIStyle一般作为一整套的皮肤应用于各个控件，可以声明为public对象并将其拖拽至脚本上。</li>
 </ul>
-<p>可以在project面板下创建GUI Skin,GUI Skin其实是各个组件的综合体，相较于GUIStyle一般作为一整套的皮肤应用于各个控件，可以声明为public对象并将其拖拽至脚本上。</p>
 <p>GUI.skin 将会与下面的控件相关联，控件将获得GUI SKin里边的样式。</p>
 <p>ps：GUI Skin 将会与 GUI.Style 冲突</p>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> GUISkin skin;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params"></span>)</span>
+<pre><code class="lang-C#">public GUISkin skin;
+void OnGUI()
 &#123;
-    GUI.skin = skin;<span class="hljs-comment">//下面的button和label将获得skin的皮肤样式</span>
+    GUI.skin = skin;//下面的button和label将获得skin的皮肤样式
 
-    GUI.Button(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"Button"</span>);
-    GUI.Label(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">30</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"Lable"</span>);
+    GUI.Button(new Rect(0, 0, 100, 20), &quot;Button&quot;);
+    GUI.Label(new Rect(0, 30, 100, 20), &quot;Lable&quot;);
 
-    GUI.skin = <span class="hljs-literal">null</span>;<span class="hljs-comment">//skin被清空，lebel变为默认的样式</span>
+    GUI.skin = null;//skin被清空，lebel变为默认的样式
 
-    GUI.Label(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0</span>, <span class="hljs-number">150</span>, <span class="hljs-number">100</span>, <span class="hljs-number">20</span>), <span class="hljs-string">"Lable"</span>);
+    GUI.Label(new Rect(0, 150, 100, 20), &quot;Lable&quot;);
 &#125;
 </code></pre>
-</br>
-</br>
+<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
 </li>
 </ul>
-<hr />
+<hr>
 <ul>
-<li>
-<h2 id="guilayout-自动布局"><a class="markdownIt-Anchor" href="#guilayout-自动布局"></a> GUILayout 自动布局</h2>
-<p>GUILayout同样拥有Label、Button等GUI控件，不同的是，GUILayout不需要去声明控件的大小和位置，它将会根据内容进行自适应填充，并根据控件组中最长的那个控件进行长宽的扩展。</p>
+<li><h2 id="GUILayout-自动布局"><a href="#GUILayout-自动布局" class="headerlink" title="GUILayout 自动布局"></a>GUILayout 自动布局</h2><p>GUILayout同样拥有Label、Button等GUI控件，不同的是，GUILayout不需要去声明控件的大小和位置，它将会根据内容进行自适应填充，并根据控件组中最长的那个控件进行长宽的扩展。</p>
 <p>GUILayout独有的参数类型：GUILayoutOption。返回类型为GUILayoutOption的GUILayout方法有以下：</p>
 <p>固定长宽</p>
 <ul>
@@ -544,13 +555,15 @@ GUI.backgroundColor 背景颜色</p>
 <li>GUILayout.ExpandWidth(bool);</li>
 <li>GUILayout.ExpandHeight(bool);</li>
 </ul>
+<p>&lt;/br&gt;</p>
+<p>GUILayout还可以通过下面的方式控制布局</p>
+<ul>
+<li>批量控制组件（类似于Group）：GUILayout.BeginArea()、GUILayout.EndArea()</li>
+<li>水平的布局：GUILayout.BeginHorizontal()、GUILayout.EndHorizontal()</li>
+<li>垂直的布局：GUILayout.BeginVertical()、GUILayout.EndVertical()</li>
+</ul>
 </li>
 </ul>
-  </br>
-<pre><code>GUILayout还可以通过下面的方式控制布局
-  *  批量控制组件（类似于Group）：GUILayout.BeginArea()、GUILayout.EndArea()
-  *  水平的布局：GUILayout.BeginHorizontal()、GUILayout.EndHorizontal()
-  *  垂直的布局：GUILayout.BeginVertical()、GUILayout.EndVertical()</code></pre>
 
     </div>
     
@@ -652,21 +665,6 @@ GUI.backgroundColor 背景颜色</p>
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+    </body>
 
 </html>

@@ -185,7 +185,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E5%8F%98out"><span class="toc-text"> 协变——out</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A7%94%E6%89%98%E7%9A%84%E5%8D%8F%E5%8F%98"><span class="toc-text"> 委托的协变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%8D%8F%E5%8F%98"><span class="toc-text"> 接口的协变</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%86%E5%8F%98in"><span class="toc-text"> 逆变——in</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A7%94%E6%89%98%E7%9A%84%E9%80%86%E5%8F%98"><span class="toc-text"> 委托的逆变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E9%80%86%E5%8F%98"><span class="toc-text"> 接口的逆变</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text"> 总结：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E5%8F%98%E2%80%94%E2%80%94out"><span class="toc-text">协变——out</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A7%94%E6%89%98%E7%9A%84%E5%8D%8F%E5%8F%98"><span class="toc-text">委托的协变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%8D%8F%E5%8F%98"><span class="toc-text">接口的协变</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%86%E5%8F%98%E2%80%94%E2%80%94in"><span class="toc-text">逆变——in</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A7%94%E6%89%98%E7%9A%84%E9%80%86%E5%8F%98"><span class="toc-text">委托的逆变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E9%80%86%E5%8F%98"><span class="toc-text">接口的逆变</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-text">总结：</span></a></li></ol>
                 </div>
                 
              </div>
@@ -204,172 +204,146 @@
         <p>逆变（contravariant）与协变（covariant）是C#4新增的概念，只能用修饰泛型委托和泛型接口中的泛型字符。</p>
 <p>根据里氏替换原则：父类可以装子类，而子类不能装父类。可以这样理解：</p>
 <ul>
-<li>
-<p>“协变”-&gt;“和谐的变”-&gt;“父类装子类，感受是和谐的”-&gt;string-&gt;object :协变</p>
+<li><p>“协变”-&gt;”和谐的变”-&gt;”父类装子类，感受是和谐的”-&gt;string-&gt;object :协变</p>
 </li>
-<li>
-<p>“逆变”-&gt;“逆常的变”-&gt;“子类装父类，感受不和谐的”-&gt;object-&gt;string :逆变</p>
+<li><p>“逆变”-&gt;”逆常的变”-&gt;”子类装父类，感受不和谐的”-&gt;object-&gt;string :逆变</p>
 </li>
 </ul>
 <p>假设，有两个父子关系类，Human类和Chinese类，其中Chinese类继承与Human类，那么可以得到这样一段程序：</p>
-<pre class="highlight"><code class="csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test</span>
+<pre><code class="lang-csharp">public class Test
 &#123;
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span>
+    static void Main(string[] args)
     &#123;
-        <span class="hljs-comment">/*Chinese是Human的子类，所以声明不会有问题*/</span>
-        Human chinese = <span class="hljs-keyword">new</span> Chinese();<span class="hljs-comment">//不会报错</span>
+        /*Chinese是Human的子类，所以声明不会有问题*/
+        Human chinese = new Chinese();//不会报错
 
-    <span class="hljs-comment">/*如果将Human，和Chinese当做List类型来用，那么这里的2个List就不再有继承关系。没有继承关系在声明的时候就会出错。*/</span>
-        List&lt;Human&gt; chineselist = <span class="hljs-keyword">new</span> List&lt;Chinese&gt;();<span class="hljs-comment">//会报错，无法进行隐式转换</span>
-        List&lt;Human&gt; chineselist2 = <span class="hljs-keyword">new</span> List&lt;Chinese&gt;().Select(d =&gt; (Human)d).ToList();<span class="hljs-comment">//否则需要这样进行转换</span>
+    /*如果将Human，和Chinese当做List类型来用，那么这里的2个List就不再有继承关系。没有继承关系在声明的时候就会出错。*/
+        List&lt;Human&gt; chineselist = new List&lt;Chinese&gt;();//会报错，无法进行隐式转换
+        List&lt;Human&gt; chineselist2 = new List&lt;Chinese&gt;().Select(d =&gt; (Human)d).ToList();//否则需要这样进行转换
     &#125;
 &#125;
 </code></pre>
-</pre>
-</br>
-<hr />
-<h2 id="协变out"><a class="markdownIt-Anchor" href="#协变out"></a> 协变——out</h2>
-</br>
+<p>&lt;/pre&gt;</p>
+<p>&lt;/br&gt;</p>
+<hr>
+<h2 id="协变——out"><a href="#协变——out" class="headerlink" title="协变——out"></a>协变——out</h2><p>&lt;/br&gt;</p>
 <ul>
-<li>
-<h3 id="委托的协变"><a class="markdownIt-Anchor" href="#委托的协变"></a> 委托的协变</h3>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">delegate</span> T outTest&lt;<span class="hljs-keyword">out</span> T&gt;();<span class="hljs-comment">//协变泛型</span>
+<li><h3 id="委托的协变"><a href="#委托的协变" class="headerlink" title="委托的协变"></a>委托的协变</h3><pre><code class="lang-C#">delegate T outTest&lt;out T&gt;();//协变泛型
 
-<span class="hljs-keyword">class</span> <span class="hljs-title">Father</span> &#123; &#125;;
-<span class="hljs-keyword">class</span> <span class="hljs-title">Son</span>:<span class="hljs-title">Father</span> &#123; &#125;;
+class Father &#123; &#125;;
+class Son:Father &#123; &#125;;
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test</span>
+public class Test
 &#123;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span>
+    public static void Main(string[] args)
     &#123;
-        outTest&lt;Son&gt; os = () =&gt; &#123; <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Son(); &#125;;
-        outTest&lt;Father&gt; of = os;<span class="hljs-comment">//如果不写out会报错</span>
-        Father father = of();<span class="hljs-comment">//返回的是Son</span>
+        outTest&lt;Son&gt; os = () =&gt; &#123; return new Son(); &#125;;
+        outTest&lt;Father&gt; of = os;//如果不写out会报错
+        Father father = of();//返回的是Son
     &#125;
 &#125;
 </code></pre>
-协变的感觉是符合里氏替换原则的，of( ) 中其实返回的是os中的new Son( );因此out关键字所修饰的泛型中会自动判断其返回值类型所对应的父子关系是否满足，如果不满足则无法进行隐式转换。<br />
-</br><br />
-</br></li>
-<li>
-<h3 id="接口的协变"><a class="markdownIt-Anchor" href="#接口的协变"></a> 接口的协变</h3>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">outTest</span>&lt;<span class="hljs-title">out</span> <span class="hljs-title">T</span>&gt;<span class="hljs-comment">//协变的接口</span>
+<p>协变的感觉是符合里氏替换原则的，of( ) 中其实返回的是os中的new Son( );因此out关键字所修饰的泛型中会自动判断其返回值类型所对应的父子关系是否满足，如果不满足则无法进行隐式转换。<br>&lt;/br&gt;<br>&lt;/br&gt;</p>
+</li>
+<li><h3 id="接口的协变"><a href="#接口的协变" class="headerlink" title="接口的协变"></a>接口的协变</h3><pre><code class="lang-C#">public interface outTest&lt;out T&gt;//协变的接口
 &#123;
-    <span class="hljs-function">T <span class="hljs-title">Method</span>(<span class="hljs-params"></span>)</span>;
-    <span class="hljs-comment">//void Method2(T param); //使用out时会报错，不能作为参数使用</span>
+    T Method();
+    //void Method2(T param); //使用out时会报错，不能作为参数使用
 &#125;
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">InTestImpl</span>: <span class="hljs-title">inTest</span>&lt;<span class="hljs-title">Father</span>&gt; <span class="hljs-comment">//接口的实例</span>
+public class InTestImpl: inTest&lt;Father&gt; //接口的实例
 &#123;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Method</span>(<span class="hljs-params">Father father</span>)</span>
+    public void Method(Father father)
     &#123;
-        <span class="hljs-comment">//do something.....</span>
+        //do something.....
     &#125;
 &#125;
 
-<span class="hljs-comment">//定义一对父子类</span>
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Father</span> &#123; &#125;
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Son</span>:<span class="hljs-title">Father</span> &#123; &#125;
+//定义一对父子类
+public class Father &#123; &#125;
+public class Son:Father &#123; &#125;
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test</span><span class="hljs-comment">//测试类</span>
+public class Test//测试类
 &#123;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span>
+    public static void Main(string[] args)
     &#123;
-        inTest&lt;Son&gt; Is = <span class="hljs-keyword">new</span> InTestImpl();
-        inTest&lt;Father&gt; If = <span class="hljs-keyword">new</span> InTestImpl();
-        Is = If;<span class="hljs-comment">//不写out则无法隐式转换</span>
-        Is.Method(<span class="hljs-keyword">new</span> Father());<span class="hljs-comment">//错误，无法隐式转换</span>
-        Is.Method(<span class="hljs-keyword">new</span> Son());<span class="hljs-comment">//正确</span>
+        inTest&lt;Son&gt; Is = new InTestImpl();
+        inTest&lt;Father&gt; If = new InTestImpl();
+        Is = If;//不写out则无法隐式转换
+        Is.Method(new Father());//错误，无法隐式转换
+        Is.Method(new Son());//正确
     &#125;
 &#125;
 </code></pre>
 </li>
 </ul>
-</br>
-<hr />
-<h2 id="逆变in"><a class="markdownIt-Anchor" href="#逆变in"></a> 逆变——in</h2>
-</br>
+<p>&lt;/br&gt;</p>
+<hr>
+<h2 id="逆变——in"><a href="#逆变——in" class="headerlink" title="逆变——in"></a>逆变——in</h2><p>&lt;/br&gt;</p>
 <ul>
-<li>
-<h3 id="委托的逆变"><a class="markdownIt-Anchor" href="#委托的逆变"></a> 委托的逆变</h3>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">delegate</span> <span class="hljs-keyword">void</span> inTest&lt;<span class="hljs-keyword">in</span> T&gt;(T t);<span class="hljs-comment">//逆变泛型</span>
+<li><h3 id="委托的逆变"><a href="#委托的逆变" class="headerlink" title="委托的逆变"></a>委托的逆变</h3><pre><code class="lang-C#">delegate void inTest&lt;in T&gt;(T t);//逆变泛型
 
-<span class="hljs-keyword">class</span> <span class="hljs-title">Father</span> &#123; &#125;;
-<span class="hljs-keyword">class</span> <span class="hljs-title">Son</span>:<span class="hljs-title">Father</span> &#123; &#125;;
+class Father &#123; &#125;;
+class Son:Father &#123; &#125;;
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test</span>
+public class Test
 &#123;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span>
+    public static void Main(string[] args)
     &#123;
         inTest&lt;Father&gt; If = (Father father) =&gt; &#123;&#125;;
-        inTest&lt;Son&gt; Is = If;<span class="hljs-comment">//如果不写in会报错</span>
-        Is(<span class="hljs-keyword">new</span> Father());<span class="hljs-comment">//会报错</span>
+        inTest&lt;Son&gt; Is = If;//如果不写in会报错
+        Is(new Father());//会报错
     &#125;
 &#125;
 </code></pre>
 <p>逆变的感觉是不符合符合里氏替换原则的；</p>
 <p>in关键字所修饰的泛型中会自动判断其参数类型所对应的父子关系是否满足，如果不满足则无法进行隐式转换。</p>
-<p>Is(new son())其实执行的时If，但是因为If的形参是Father类型,而Is所传的参数是Son类型，所以本质上是满足里氏替换原则的；而Is不能使用Father类型作为参数，是因为此时的泛型被认为是Son类型的，而Son不能装Father，这同样符合里氏替换原则。<br />
-</br><br />
-</br></p>
+<p>Is(new son())其实执行的时If，但是因为If的形参是Father类型,而Is所传的参数是Son类型，所以本质上是满足里氏替换原则的；而Is不能使用Father类型作为参数，是因为此时的泛型被认为是Son类型的，而Son不能装Father，这同样符合里氏替换原则。<br>&lt;/br&gt;<br>&lt;/br&gt;</p>
 </li>
-<li>
-<h3 id="接口的逆变"><a class="markdownIt-Anchor" href="#接口的逆变"></a> 接口的逆变</h3>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">inTest</span>&lt;<span class="hljs-title">in</span> <span class="hljs-title">T</span>&gt;<span class="hljs-comment">//逆变的接口</span>
+<li><h3 id="接口的逆变"><a href="#接口的逆变" class="headerlink" title="接口的逆变"></a>接口的逆变</h3><pre><code class="lang-C#">public interface inTest&lt;in T&gt;//逆变的接口
 &#123;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Method</span>(<span class="hljs-params">T t</span>)</span>;
-    <span class="hljs-comment">//void Method2(); //使用in时会报错，不能作为返回类型使用</span>
+    public void Method(T t);
+    //void Method2(); //使用in时会报错，不能作为返回类型使用
 &#125;
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">InTestImpl</span>: <span class="hljs-title">inTest</span>&lt;<span class="hljs-title">Father</span>&gt; <span class="hljs-comment">//接口的实例</span>
+public class InTestImpl: inTest&lt;Father&gt; //接口的实例
 &#123;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Method</span>(<span class="hljs-params">Father father</span>)</span>
+    public void Method(Father father)
     &#123;
-        <span class="hljs-comment">//do something.....</span>
+        //do something.....
     &#125;
 &#125;
 
-<span class="hljs-comment">//定义一对父子类</span>
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Father</span> &#123; &#125;
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Son</span>:<span class="hljs-title">Father</span> &#123; &#125;
+//定义一对父子类
+public class Father &#123; &#125;
+public class Son:Father &#123; &#125;
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test</span><span class="hljs-comment">//测试类</span>
+public class Test//测试类
 &#123;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span>
+    public static void Main(string[] args)
     &#123;
-        inTest&lt;Son&gt; Is = <span class="hljs-keyword">new</span> InTestImpl();
-        inTest&lt;Father&gt; If = <span class="hljs-keyword">new</span> InTestImpl();
-        Is = If;<span class="hljs-comment">//不写in则无法隐式转换</span>
-        Is.Method(<span class="hljs-keyword">new</span> Father());<span class="hljs-comment">//错误，无法进行隐式转换</span>
-        Is.Method(<span class="hljs-keyword">new</span> Son());<span class="hljs-comment">//正确</span>
+        inTest&lt;Son&gt; Is = new InTestImpl();
+        inTest&lt;Father&gt; If = new InTestImpl();
+        Is = If;//不写in则无法隐式转换
+        Is.Method(new Father());//错误，无法进行隐式转换
+        Is.Method(new Son());//正确
     &#125;
 &#125;
 </code></pre>
-<p>Is.Method(new Father())之所以会报错，是因为该接口的Method方法被规定为其泛型类型一致。<br />
-</br></p>
+<p>Is.Method(new Father())之所以会报错，是因为该接口的Method方法被规定为其泛型类型一致。<br>&lt;/br&gt;</p>
 </li>
 </ul>
-<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结：</h2>
-<ul>
-<li>
-<p>协变就是支持泛型子类自动转泛型父类，逆变就是支持泛型父类自动转泛型子类。但这些转换只是针对编译器，其引用地址并没有改变。</p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ul>
+<li>协变就是支持泛型子类自动转泛型父类，逆变就是支持泛型父类自动转泛型子类。但这些转换只是针对编译器，其引用地址并没有改变。</li>
+<li>T 用 out 修饰，所以T代表了输出，也就是只能作为结果返回。</li>
+<li>T 用 in 修饰，所以T代表了输入，也就是只能接受参数。</li>
+<li><p>in和out只能用于修饰泛型接口和泛型委托，不能用于修饰泛型类和泛型结构体。</p>
 </li>
-<li>
-<p>T 用 out 修饰，所以T代表了输出，也就是只能作为结果返回。</p>
-</li>
-<li>
-<p>T 用 in 修饰，所以T代表了输入，也就是只能接受参数。</p>
-</li>
-<li>
-<p>in和out只能用于修饰泛型接口和泛型委托，不能用于修饰泛型类和泛型结构体。</p>
-</li>
-<li>
-<p>用out修饰的泛型，只能作为方法的返回值</p>
+<li><p>用out修饰的泛型，只能作为方法的返回值</p>
 <ul>
 <li>如：delegate T TestOut &lt; out T &gt;( );</li>
 <li>而不能是：delegate T TestOut&lt; out T &gt;( T t );</li>
 </ul>
 </li>
-<li>
-<p>用in修饰的泛型，只能作为方法的参数</p>
+<li><p>用in修饰的泛型，只能作为方法的参数</p>
 <ul>
 <li>如：delegate void TestIn&lt; in T &gt;( T t );</li>
 <li>而不能是：delegate T TestIn&lt; in T &gt;( T t );</li>
@@ -477,21 +451,6 @@
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+    </body>
 
 </html>
