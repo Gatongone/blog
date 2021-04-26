@@ -185,7 +185,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AssetDatabase%E5%B8%B8%E7%94%A8%E7%9A%84%E8%B5%84%E6%BA%90%E6%93%8D%E4%BD%9C"><span class="toc-text">AssetDatabase常用的资源操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E8%B5%84%E6%BA%90"><span class="toc-text">加载资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD%E8%B5%84%E6%BA%90"><span class="toc-text">卸载资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E8%B5%84%E6%BA%90"><span class="toc-text">导入资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%B5%84%E6%BA%90"><span class="toc-text">创建资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%B9%B6%E4%BF%9D%E5%AD%98%E4%B8%80%E4%B8%AA%E5%B7%B2%E6%9C%89%E7%9A%84Asset"><span class="toc-text">修改并保存一个已有的Asset</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB"><span class="toc-text">其他函数汇总</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#assetdatabase%E5%B8%B8%E7%94%A8%E7%9A%84%E8%B5%84%E6%BA%90%E6%93%8D%E4%BD%9C"><span class="toc-text"> AssetDatabase常用的资源操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E8%B5%84%E6%BA%90"><span class="toc-text"> 加载资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD%E8%B5%84%E6%BA%90"><span class="toc-text"> 卸载资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E8%B5%84%E6%BA%90"><span class="toc-text"> 导入资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%B5%84%E6%BA%90"><span class="toc-text"> 创建资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%B9%B6%E4%BF%9D%E5%AD%98%E4%B8%80%E4%B8%AA%E5%B7%B2%E6%9C%89%E7%9A%84asset"><span class="toc-text"> 修改并保存一个已有的Asset</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB"><span class="toc-text"> 其他函数汇总</span></a></li></ol>
                 </div>
                 
              </div>
@@ -202,46 +202,323 @@
         
         
         <p>AssetDatabase是一个对资源进行读写等操作的编辑器类接口，位于工程目录的Assets/Editor文件夹下，需要引入<code>UnityEditor</code>命名空间和宏管理。</p>
-<pre><code class="lang-C#">#if UNITY_EDITOR
-using UnityEditor; //手机上没有UnityEditor文件
-#endif
+<pre class="highlight"><code class="C#"><span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> UNITY_EDITOR</span>
+<span class="hljs-keyword">using</span> UnityEditor; <span class="hljs-comment">//手机上没有UnityEditor文件</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 </code></pre>
 <ul>
-<li><h2 id="AssetDatabase常用的资源操作"><a href="#AssetDatabase常用的资源操作" class="headerlink" title="AssetDatabase常用的资源操作"></a>AssetDatabase常用的资源操作</h2><ol>
-<li><h3 id="加载资源"><a href="#加载资源" class="headerlink" title="加载资源"></a>加载资源</h3><p> 加载类型|方法<br> ——-|——-<br> 加载单个Asset|UnityEngine.Object LoadAssetAtPath(string assetPath, Type type);<br> 加载路径下优先级最高Asset(一般是第一个)|LoadMainAssetAtPath(string assetPath);<br> 加载路径下所有Asset|LoadAllAssetsAtPath(string assetPath);<br> 加载路径下所有sub Asset|LoadAllAssetRepresentationsAtPath(string assetPath);</p>
-<pre><code class="lang-C#"> Material mat = AssetDatabase.LoadAssetAtPath(&quot;Assets/red.mat&quot;, typeof(Material)) as Material;
- //或者
- Material mat = AssetDatabase.LoadAssetAtPath&lt;Material&gt;(&quot;Assets/red.mat&quot;);
+<li>
+<h2 id="assetdatabase常用的资源操作"><a class="markdownIt-Anchor" href="#assetdatabase常用的资源操作"></a> AssetDatabase常用的资源操作</h2>
+<ol>
+<li>
+<h3 id="加载资源"><a class="markdownIt-Anchor" href="#加载资源"></a> 加载资源</h3>
+<table>
+<thead>
+<tr>
+<th>加载类型</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>加载单个Asset</td>
+<td>UnityEngine.Object LoadAssetAtPath(string assetPath, Type type);</td>
+</tr>
+<tr>
+<td>加载路径下优先级最高Asset(一般是第一个)</td>
+<td>LoadMainAssetAtPath(string assetPath);</td>
+</tr>
+<tr>
+<td>加载路径下所有Asset</td>
+<td>LoadAllAssetsAtPath(string assetPath);</td>
+</tr>
+<tr>
+<td>加载路径下所有sub Asset</td>
+<td>LoadAllAssetRepresentationsAtPath(string assetPath);</td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight"><code class="C#">Material mat = AssetDatabase.LoadAssetAtPath(<span class="hljs-string">"Assets/red.mat"</span>, <span class="hljs-keyword">typeof</span>(Material)) <span class="hljs-keyword">as</span> Material;
+<span class="hljs-comment">//或者</span>
+Material mat = AssetDatabase.LoadAssetAtPath&lt;Material&gt;(<span class="hljs-string">"Assets/red.mat"</span>);
 </code></pre>
 </li>
-<li><h3 id="卸载资源"><a href="#卸载资源" class="headerlink" title="卸载资源"></a>卸载资源</h3><p> Resources.UnloadAsset(Object asset);</p>
-<pre><code class="lang-C#"> Resources.UnloadAsset(mat);//居然不是AssetDatabase下的方法
+<li>
+<h3 id="卸载资源"><a class="markdownIt-Anchor" href="#卸载资源"></a> 卸载资源</h3>
+<p>Resources.UnloadAsset(Object asset);</p>
+<pre class="highlight"><code class="C#">Resources.UnloadAsset(mat);<span class="hljs-comment">//居然不是AssetDatabase下的方法</span>
 </code></pre>
 </li>
-<li><h3 id="导入资源"><a href="#导入资源" class="headerlink" title="导入资源"></a>导入资源</h3><p> ImportAsset(string path, ImportAssetOptions options);</p>
-<p> 通常Unity只在需要时自动导入已拖放至该工程的资源，但也可以通过脚本的方式下导入这些资源</p>
-<p> ImportAssetOptions导入资源选项|描述<br> ——-|——-<br> Default|默认导入选项。<br> ForceUpdate|用户启动资源导入。<br> ForceSynchronousImport|同步导入所有资源。<br> TryFastReimportFromMetaData|允许快速从元数据重新导入。<br> ImportRecursive|当一个文件夹被导入，导入所有内容。</p>
-<pre><code class="lang-C#"> AssetDatabase.ImportAsset(&quot;Assets/Textures/texture.jpg&quot;, ImportAssetOptions.Default);
+<li>
+<h3 id="导入资源"><a class="markdownIt-Anchor" href="#导入资源"></a> 导入资源</h3>
+<p>ImportAsset(string path, ImportAssetOptions options);</p>
+<p>通常Unity只在需要时自动导入已拖放至该工程的资源，但也可以通过脚本的方式下导入这些资源</p>
+<table>
+<thead>
+<tr>
+<th>ImportAssetOptions导入资源选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default</td>
+<td>默认导入选项。</td>
+</tr>
+<tr>
+<td>ForceUpdate</td>
+<td>用户启动资源导入。</td>
+</tr>
+<tr>
+<td>ForceSynchronousImport</td>
+<td>同步导入所有资源。</td>
+</tr>
+<tr>
+<td>TryFastReimportFromMetaData</td>
+<td>允许快速从元数据重新导入。</td>
+</tr>
+<tr>
+<td>ImportRecursive</td>
+<td>当一个文件夹被导入，导入所有内容。</td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight"><code class="C#">AssetDatabase.ImportAsset(<span class="hljs-string">"Assets/Textures/texture.jpg"</span>, ImportAssetOptions.Default);
 </code></pre>
 </li>
-<li><h3 id="创建资源"><a href="#创建资源" class="headerlink" title="创建资源"></a>创建资源</h3><p> CreateAsset(UnityEngine.Object asset, string path);</p>
-<p> 注意Unity中不允许对单个资源同时创建两份，因此CreateAsset前必须保证资源是一个新的实例。创建结束后刷新则可以在path下看到新创建的Asset。</p>
-<pre><code class="lang-C#"> Material mat2 = Object.Instantiate&lt;Material&gt;(mat);
- AssetDatabase.CreateAsset(mat2, &quot;Assets/red2.mat&quot;);
- AssetDatabase.Refresh();
+<li>
+<h3 id="创建资源"><a class="markdownIt-Anchor" href="#创建资源"></a> 创建资源</h3>
+<p>CreateAsset(UnityEngine.Object asset, string path);</p>
+<p>注意Unity中不允许对单个资源同时创建两份，因此CreateAsset前必须保证资源是一个新的实例。创建结束后刷新则可以在path下看到新创建的Asset。</p>
+<pre class="highlight"><code class="C#">Material mat2 = Object.Instantiate&lt;Material&gt;(mat);
+AssetDatabase.CreateAsset(mat2, <span class="hljs-string">"Assets/red2.mat"</span>);
+AssetDatabase.Refresh();
 </code></pre>
 </li>
-<li><h3 id="修改并保存一个已有的Asset"><a href="#修改并保存一个已有的Asset" class="headerlink" title="修改并保存一个已有的Asset"></a>修改并保存一个已有的Asset</h3><pre><code class="lang-C#"> //修改了mat的颜色
- mat.color = Color.white;
- //标记为已更改的资源,但不会立即保存到磁盘
- EditorUtility.SetDirty(mat);
- //保存到磁盘
- AssetDatabase.SaveAssets();
+<li>
+<h3 id="修改并保存一个已有的asset"><a class="markdownIt-Anchor" href="#修改并保存一个已有的asset"></a> 修改并保存一个已有的Asset</h3>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">//修改了mat的颜色</span>
+mat.color = Color.white;
+<span class="hljs-comment">//标记为已更改的资源,但不会立即保存到磁盘</span>
+EditorUtility.SetDirty(mat);
+<span class="hljs-comment">//保存到磁盘</span>
+AssetDatabase.SaveAssets();
 </code></pre>
 </li>
 </ol>
 </li>
-<li><h2 id="其他函数汇总"><a href="#其他函数汇总" class="headerlink" title="其他函数汇总"></a>其他函数汇总</h2><p>  静态函数|描述<br>  ——|——<br>  AddObjectToAsset|添加对象到Asset<br>  AssetPathToGUID|获得Asset的GUID<br>  ClearLabels|删除所有Asset标签<br>  Contains|当对象是一个资源(在资源文件夹中的文件)时返回true，否则返回false(例如场景中的对象或者在运行时生成的对象)。<br>  CopyAsset|复制Asset<br>  CreateAsset|创建Asset<br>  CreateFolder|创建文件夹。<br>  DeleteAsset|删除Asset<br>  ExportPackage|导出包<br>  FindAssets|查找Asset<br>  GenerateUniqueAssetPath|创建唯一Asset路径<br>  GetAllAssetBundleNames|获得Asset数据库的所有资源包名称<br>  GetAssetDependencyHash|获得Asset所有依赖关系的哈希值<br>  GetAssetOrScenePath|获得资源或场景路径<br>  GetAssetPath|获得Asset路径<br>  GetAssetPathFromTextMetaFilePath|获得根据“.meta”文件获得Asset路径<br>  GetAssetPathsFromAssetBundle|获得从给定assetBundle名获得路径<br>  GetAssetPathsFromAssetBundleAndAssetName|获得从给定assetBundle名和Asset名获得路径<br>  GetCachedIcon|获得Asset图标<br>  GetDependencies|获得依赖关系的路径列表<br>  GetLabels|获得资源标签<br>  GetSubFolders|获得子文件夹<br>  GetTextMetaFilePathFromAssetPath|获取与Asset关联的“.meta”文件<br>  GetUnusedAssetBundleNames|获得所有未使用的资源包的名字<br>  GUIDToAssetPath|通过GUID返回Asset路径<br>  ImportAsset|导入Asset。<br>  ImportPackage|导入包<br>  IsForeignAsset|是否是外部Asset<br>  IsMainAsset|是否是主要Asset吗<br>  IsNativeAsset|是否是本地Asset吗<br>  IsOpenForEdit|用来进行编辑模式的版本控制，为真则Asset可以编辑，否则不能编辑<br>  IsSubAsset|Asset是另一种Asset的子对象么？<br>  IsValidFolder|给定一个文件夹的绝对路径，如果它存在，返回真，否则为假<br>  LoadAllAssetRepresentationsAtPath|返回指定路径下所有Asset的陈述<br>  LoadAllAssetsAtPath|获得Asset包含的所有对象<br>  LoadAssetAtPath|获得Asset内指定类型的子对象<br>  LoadMainAssetAtPath|返回Asset对象组中第一个对象<br>  MoveAsset|移动Asset<br>  MoveAssetToTrash|将Asset移动到垃圾桶<br>  OpenAsset|用相关应用程序打开Asset<br>  Refresh|刷新<br>  RemoveAssetBundleName|从Asset数据库删除assetBundle名字<br>  RemoveUnusedAssetBundleNames|在Asset数据库中删除未使用的assetBundle名字<br>  RenameAsset|重命名Asset<br>  SaveAssets|保存所有改变的Asset到磁盘<br>  SetLabels|替换Asset上的标签列表<br>  StartAssetEditing|开始Asset导入<br>  StopAssetEditing|停止Asset导入<br>  ValidateMoveAsset|检查一个Asset文件是否可以从一个文件夹移动到另一个文件夹。（不实际移动文件）<br>  WriteImportSettingsIfDirty|将导入设置写入磁盘</p>
+<li>
+<h2 id="其他函数汇总"><a class="markdownIt-Anchor" href="#其他函数汇总"></a> 其他函数汇总</h2>
+<table>
+<thead>
+<tr>
+<th>静态函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AddObjectToAsset</td>
+<td>添加对象到Asset</td>
+</tr>
+<tr>
+<td>AssetPathToGUID</td>
+<td>获得Asset的GUID</td>
+</tr>
+<tr>
+<td>ClearLabels</td>
+<td>删除所有Asset标签</td>
+</tr>
+<tr>
+<td>Contains</td>
+<td>当对象是一个资源(在资源文件夹中的文件)时返回true，否则返回false(例如场景中的对象或者在运行时生成的对象)。</td>
+</tr>
+<tr>
+<td>CopyAsset</td>
+<td>复制Asset</td>
+</tr>
+<tr>
+<td>CreateAsset</td>
+<td>创建Asset</td>
+</tr>
+<tr>
+<td>CreateFolder</td>
+<td>创建文件夹。</td>
+</tr>
+<tr>
+<td>DeleteAsset</td>
+<td>删除Asset</td>
+</tr>
+<tr>
+<td>ExportPackage</td>
+<td>导出包</td>
+</tr>
+<tr>
+<td>FindAssets</td>
+<td>查找Asset</td>
+</tr>
+<tr>
+<td>GenerateUniqueAssetPath</td>
+<td>创建唯一Asset路径</td>
+</tr>
+<tr>
+<td>GetAllAssetBundleNames</td>
+<td>获得Asset数据库的所有资源包名称</td>
+</tr>
+<tr>
+<td>GetAssetDependencyHash</td>
+<td>获得Asset所有依赖关系的哈希值</td>
+</tr>
+<tr>
+<td>GetAssetOrScenePath</td>
+<td>获得资源或场景路径</td>
+</tr>
+<tr>
+<td>GetAssetPath</td>
+<td>获得Asset路径</td>
+</tr>
+<tr>
+<td>GetAssetPathFromTextMetaFilePath</td>
+<td>获得根据“.meta”文件获得Asset路径</td>
+</tr>
+<tr>
+<td>GetAssetPathsFromAssetBundle</td>
+<td>获得从给定assetBundle名获得路径</td>
+</tr>
+<tr>
+<td>GetAssetPathsFromAssetBundleAndAssetName</td>
+<td>获得从给定assetBundle名和Asset名获得路径</td>
+</tr>
+<tr>
+<td>GetCachedIcon</td>
+<td>获得Asset图标</td>
+</tr>
+<tr>
+<td>GetDependencies</td>
+<td>获得依赖关系的路径列表</td>
+</tr>
+<tr>
+<td>GetLabels</td>
+<td>获得资源标签</td>
+</tr>
+<tr>
+<td>GetSubFolders</td>
+<td>获得子文件夹</td>
+</tr>
+<tr>
+<td>GetTextMetaFilePathFromAssetPath</td>
+<td>获取与Asset关联的“.meta”文件</td>
+</tr>
+<tr>
+<td>GetUnusedAssetBundleNames</td>
+<td>获得所有未使用的资源包的名字</td>
+</tr>
+<tr>
+<td>GUIDToAssetPath</td>
+<td>通过GUID返回Asset路径</td>
+</tr>
+<tr>
+<td>ImportAsset</td>
+<td>导入Asset。</td>
+</tr>
+<tr>
+<td>ImportPackage</td>
+<td>导入包</td>
+</tr>
+<tr>
+<td>IsForeignAsset</td>
+<td>是否是外部Asset</td>
+</tr>
+<tr>
+<td>IsMainAsset</td>
+<td>是否是主要Asset吗</td>
+</tr>
+<tr>
+<td>IsNativeAsset</td>
+<td>是否是本地Asset吗</td>
+</tr>
+<tr>
+<td>IsOpenForEdit</td>
+<td>用来进行编辑模式的版本控制，为真则Asset可以编辑，否则不能编辑</td>
+</tr>
+<tr>
+<td>IsSubAsset</td>
+<td>Asset是另一种Asset的子对象么？</td>
+</tr>
+<tr>
+<td>IsValidFolder</td>
+<td>给定一个文件夹的绝对路径，如果它存在，返回真，否则为假</td>
+</tr>
+<tr>
+<td>LoadAllAssetRepresentationsAtPath</td>
+<td>返回指定路径下所有Asset的陈述</td>
+</tr>
+<tr>
+<td>LoadAllAssetsAtPath</td>
+<td>获得Asset包含的所有对象</td>
+</tr>
+<tr>
+<td>LoadAssetAtPath</td>
+<td>获得Asset内指定类型的子对象</td>
+</tr>
+<tr>
+<td>LoadMainAssetAtPath</td>
+<td>返回Asset对象组中第一个对象</td>
+</tr>
+<tr>
+<td>MoveAsset</td>
+<td>移动Asset</td>
+</tr>
+<tr>
+<td>MoveAssetToTrash</td>
+<td>将Asset移动到垃圾桶</td>
+</tr>
+<tr>
+<td>OpenAsset</td>
+<td>用相关应用程序打开Asset</td>
+</tr>
+<tr>
+<td>Refresh</td>
+<td>刷新</td>
+</tr>
+<tr>
+<td>RemoveAssetBundleName</td>
+<td>从Asset数据库删除assetBundle名字</td>
+</tr>
+<tr>
+<td>RemoveUnusedAssetBundleNames</td>
+<td>在Asset数据库中删除未使用的assetBundle名字</td>
+</tr>
+<tr>
+<td>RenameAsset</td>
+<td>重命名Asset</td>
+</tr>
+<tr>
+<td>SaveAssets</td>
+<td>保存所有改变的Asset到磁盘</td>
+</tr>
+<tr>
+<td>SetLabels</td>
+<td>替换Asset上的标签列表</td>
+</tr>
+<tr>
+<td>StartAssetEditing</td>
+<td>开始Asset导入</td>
+</tr>
+<tr>
+<td>StopAssetEditing</td>
+<td>停止Asset导入</td>
+</tr>
+<tr>
+<td>ValidateMoveAsset</td>
+<td>检查一个Asset文件是否可以从一个文件夹移动到另一个文件夹。（不实际移动文件）</td>
+</tr>
+<tr>
+<td>WriteImportSettingsIfDirty</td>
+<td>将导入设置写入磁盘</td>
+</tr>
+</tbody>
+</table>
 </li>
 </ul>
 
@@ -345,21 +622,6 @@ using UnityEditor; //手机上没有UnityEditor文件
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+    </body>
 
 </html>

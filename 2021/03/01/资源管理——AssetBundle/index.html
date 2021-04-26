@@ -185,7 +185,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AssetBundle%E5%B8%B8%E7%94%A8%E7%9A%84%E8%B5%84%E6%BA%90%E6%93%8D%E4%BD%9C"><span class="toc-text">AssetBundle常用的资源操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Asset%E6%89%93%E5%8C%85"><span class="toc-text">Asset打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E8%84%9A%E6%9C%AC%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BC%96%E8%BE%91%E5%99%A8%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7"><span class="toc-text">通过脚本自定义编辑器打包工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E6%8F%90%E4%BE%9B%E7%9A%84%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7Asset-Bundle-Browser"><span class="toc-text">官方提供的打包工具Asset Bundle Browser</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E5%8A%A0%E8%BD%BD"><span class="toc-text">资源加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E5%8D%B8%E8%BD%BD"><span class="toc-text">资源卸载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%B8%BB%E5%8C%85%E8%A1%A5%E5%85%A8%E5%8C%85%E7%9A%84%E4%BE%9D%E8%B5%96%E4%BF%A1%E6%81%AF"><span class="toc-text">通过主包补全包的依赖信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E4%BC%98%E5%8C%96%E7%9A%84%E5%BB%BA%E8%AE%AE"><span class="toc-text">资源优化的建议</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#assetbundle%E5%B8%B8%E7%94%A8%E7%9A%84%E8%B5%84%E6%BA%90%E6%93%8D%E4%BD%9C"><span class="toc-text"> AssetBundle常用的资源操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#asset%E6%89%93%E5%8C%85"><span class="toc-text"> Asset打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E8%84%9A%E6%9C%AC%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BC%96%E8%BE%91%E5%99%A8%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7"><span class="toc-text"> 通过脚本自定义编辑器打包工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E6%8F%90%E4%BE%9B%E7%9A%84%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7asset-bundle-browser"><span class="toc-text"> 官方提供的打包工具Asset Bundle Browser</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E5%8A%A0%E8%BD%BD"><span class="toc-text"> 资源加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E5%8D%B8%E8%BD%BD"><span class="toc-text"> 资源卸载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%B8%BB%E5%8C%85%E8%A1%A5%E5%85%A8%E5%8C%85%E7%9A%84%E4%BE%9D%E8%B5%96%E4%BF%A1%E6%81%AF"><span class="toc-text"> 通过主包补全包的依赖信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E4%BC%98%E5%8C%96%E7%9A%84%E5%BB%BA%E8%AE%AE"><span class="toc-text"> 资源优化的建议</span></a></li></ol>
                 </div>
                 
              </div>
@@ -203,63 +203,141 @@
         
         <p>开发人员可以通过AssetBundle将一个资源分到多个包或者将多个资源打到一个包内，并且可以实时地从任意位置加载资源包。Asset在打包时维护一个指向它所依赖包的id。相较于Resources,AssetBundle能自己控制资源的精确管理，包括资源的引用计数。更重要的一点，在游戏发布后，可以从服务器或本地中动态地加载资源包对资源进行更新（热更新），这是Resources所不能做到的。</p>
 <ul>
-<li><h2 id="AssetBundle常用的资源操作"><a href="#AssetBundle常用的资源操作" class="headerlink" title="AssetBundle常用的资源操作"></a>AssetBundle常用的资源操作</h2><ol>
-<li><h3 id="Asset打包"><a href="#Asset打包" class="headerlink" title="Asset打包"></a>Asset打包</h3><ul>
-<li><h3 id="通过脚本自定义编辑器打包工具"><a href="#通过脚本自定义编辑器打包工具" class="headerlink" title="通过脚本自定义编辑器打包工具"></a>通过脚本自定义编辑器打包工具</h3><pre><code class="lang-C#">public class Build
+<li>
+<h2 id="assetbundle常用的资源操作"><a class="markdownIt-Anchor" href="#assetbundle常用的资源操作"></a> AssetBundle常用的资源操作</h2>
+<ol>
+<li>
+<h3 id="asset打包"><a class="markdownIt-Anchor" href="#asset打包"></a> Asset打包</h3>
+<ul>
+<li>
+<h3 id="通过脚本自定义编辑器打包工具"><a class="markdownIt-Anchor" href="#通过脚本自定义编辑器打包工具"></a> 通过脚本自定义编辑器打包工具</h3>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Build</span>
   &#123;
-
-      [MenuItem(&quot;Publish/BuildAssetBundle&quot;)]
-      public static void BuildBundle()
+      
+      [<span class="hljs-meta">MenuItem(<span class="hljs-meta-string">"Publish/BuildAssetBundle"</span>)</span>]
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">BuildBundle</span>(<span class="hljs-params"></span>)</span>
       &#123;
-          //新建一个包
-          AssetBundleBuild abb= new AssetBundleBuild();
-          abb.assetBundleName = &quot;Test.unity3d&quot;;//包名
-          abb.assetNames = new string[] &#123; &quot;Assets/cube.prefab&quot; &#125;;//要打包的Asset路径（项目目录下）
+          <span class="hljs-comment">//新建一个包</span>
+          AssetBundleBuild abb= <span class="hljs-keyword">new</span> AssetBundleBuild();
+          abb.assetBundleName = <span class="hljs-string">"Test.unity3d"</span>;<span class="hljs-comment">//包名</span>
+          abb.assetNames = <span class="hljs-keyword">new</span> <span class="hljs-keyword">string</span>[] &#123; <span class="hljs-string">"Assets/cube.prefab"</span> &#125;;<span class="hljs-comment">//要打包的Asset路径（项目目录下）</span>
 
-          //把包放到一个包组,因为BuildPipeline可以一次打多个包
-          List&lt;AssetBundleBuild&gt; builds = new List&lt;AssetBundleBuild&gt;();
+          <span class="hljs-comment">//把包放到一个包组,因为BuildPipeline可以一次打多个包</span>
+          List&lt;AssetBundleBuild&gt; builds = <span class="hljs-keyword">new</span> List&lt;AssetBundleBuild&gt;();
           builds.Add(abb);
 
-          //开始打包
+          <span class="hljs-comment">//开始打包</span>
           BuildPipeline.BuildAssetBundles(
-              &quot;Assets/Bundle&quot;,//打包后生成的路径，可以是任意路径不一定在工程目录下
-              builds.ToArray(),//要打的包组
-              BuildAssetBundleOptions.CollectDependencies,//打包的选项
-              BuildTarget.StandaloneWindows//打包的目标平台
+              <span class="hljs-string">"Assets/Bundle"</span>,<span class="hljs-comment">//打包后生成的路径，可以是任意路径不一定在工程目录下</span>
+              builds.ToArray(),<span class="hljs-comment">//要打的包组</span>
+              BuildAssetBundleOptions.CollectDependencies,<span class="hljs-comment">//打包的选项</span>
+              BuildTarget.StandaloneWindows<span class="hljs-comment">//打包的目标平台</span>
           );
       &#125;
   &#125;
 </code></pre>
-<p>打包选项BuildAssetBundleOptions|描述<br>——-|——-<br>None|无选项<br>UncompressedAssetBundle|打包assetBundle时，不压缩数据（意味着assetbundle会更大）<br>CollectDependencies|包括所有依赖关系<br>CompleteAssets|强制包含整个资源<br>DisableWriteTypeTree|在AssetBundle中不包含类型信息，发布web平台时，不能使用该项<br>DeterministicAssetBundle|使每个Object具有唯一不变的hash id，可用于增量式发布AssetBoundle<br>ForceRebuildAssetBundle|强制重新build所有的AssetBoundle<br>IgnoreTypeTreeChanges|执行增量检测时，忽略TypeTree的变化。<br>AppendHashToAssetBundleName|将hash加到AssetBoundle名中<br>ChunkBasedCompression|创建AssetBundle时使用LZ4压缩。默认情况是Lzma格式，下载AssetBoundle后立即解压。<br>StrictMode|如果生成过程中报告了任何错误，则不会build成功<br>DryRunBuild|运行时检查<br>DisableLoadAssetByFileName|资源包名禁用LoadAsset<br>DisableLoadAssetByFileNameWithExtension|资源包拓展名禁用LoadAsset</p>
+<table>
+<thead>
+<tr>
+<th>打包选项BuildAssetBundleOptions</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>无选项</td>
+</tr>
+<tr>
+<td>UncompressedAssetBundle</td>
+<td>打包assetBundle时，不压缩数据（意味着assetbundle会更大）</td>
+</tr>
+<tr>
+<td>CollectDependencies</td>
+<td>包括所有依赖关系</td>
+</tr>
+<tr>
+<td>CompleteAssets</td>
+<td>强制包含整个资源</td>
+</tr>
+<tr>
+<td>DisableWriteTypeTree</td>
+<td>在AssetBundle中不包含类型信息，发布web平台时，不能使用该项</td>
+</tr>
+<tr>
+<td>DeterministicAssetBundle</td>
+<td>使每个Object具有唯一不变的hash id，可用于增量式发布AssetBoundle</td>
+</tr>
+<tr>
+<td>ForceRebuildAssetBundle</td>
+<td>强制重新build所有的AssetBoundle</td>
+</tr>
+<tr>
+<td>IgnoreTypeTreeChanges</td>
+<td>执行增量检测时，忽略TypeTree的变化。</td>
+</tr>
+<tr>
+<td>AppendHashToAssetBundleName</td>
+<td>将hash加到AssetBoundle名中</td>
+</tr>
+<tr>
+<td>ChunkBasedCompression</td>
+<td>创建AssetBundle时使用LZ4压缩。默认情况是Lzma格式，下载AssetBoundle后立即解压。</td>
+</tr>
+<tr>
+<td>StrictMode</td>
+<td>如果生成过程中报告了任何错误，则不会build成功</td>
+</tr>
+<tr>
+<td>DryRunBuild</td>
+<td>运行时检查</td>
+</tr>
+<tr>
+<td>DisableLoadAssetByFileName</td>
+<td>资源包名禁用LoadAsset</td>
+</tr>
+<tr>
+<td>DisableLoadAssetByFileNameWithExtension</td>
+<td>资源包拓展名禁用LoadAsset</td>
+</tr>
+</tbody>
+</table>
 <p>打包后生成的文件夹：</p>
-<p><img src="BundleFolder.png" alt="img" style="max-width:100%;" ></p>
+<p><img src="BundleFolder.png" alt="img" style="max-width:100%;"  /></p>
 <p>发现生成了Bundle和test文件，其中<code>Bundle</code>是一个与目录名一致的自动生成的主包,其记录了AB包直接的依赖关系；而<code>test</code>才是真正打包出来的AB包。</p>
 <p>其中<code>.unity3d</code>为后缀（或无后缀的）的是真正的二进制资源文件，而<code>.manifest</code>为后缀的文件为描述文件，记录了资源信息、依赖关系、版本信息等。</p>
 <p>.manifest下所记录的信息：</p>
-<p><img src="BundleDetail.png" alt="img" style="max-width:100%;" ></p>
+<p><img src="BundleDetail.png" alt="img" style="max-width:100%;"  /></p>
 <p>可以发现记录了上面所写的abb.assetNames和依赖关系，当然因为这个cube无依赖关系所有没有记录。</p>
-<p>&lt;/br&gt;<br>&lt;/br&gt;</p>
 </li>
-<li><h3 id="官方提供的打包工具Asset-Bundle-Browser"><a href="#官方提供的打包工具Asset-Bundle-Browser" class="headerlink" title="官方提供的打包工具Asset Bundle Browser"></a>官方提供的打包工具Asset Bundle Browser</h3><p>首先需要在GitHub上下载<a target="_blank" rel="noopener" href="https://github.com/Unity-Technologies/AssetBundles-Browser">Asset Bundle Browser</a>到项目。</p>
+</ul>
+ </br>
+ </br>
+<ul>
+<li>
+<h3 id="官方提供的打包工具asset-bundle-browser"><a class="markdownIt-Anchor" href="#官方提供的打包工具asset-bundle-browser"></a> 官方提供的打包工具Asset Bundle Browser</h3>
+<p>首先需要在GitHub上下载<a target="_blank" rel="noopener" href="https://github.com/Unity-Technologies/AssetBundles-Browser">Asset Bundle Browser</a>到项目。</p>
 <p>导入成功后可以在unity<code>windows</code>菜单下看到<code>Asset Bundle Browser</code>选项。点击后则可以打开打包窗口<code>AssetBundles</code>，其中一共有三个页签<code>Configure</code>（配置）、<code>Build</code>（打包）、<code>Inspect</code>（检视）。</p>
-<p><img src="Inspector.png" alt="img" style="max-width:100%;" ></p>
+<p><img src="Inspector.png" alt="img" style="max-width:100%;"  /></p>
 <p>打开一个Asset，在<code>Inspector</code>面板最下方可以看到<code>AssetBundle</code>其中左边的菜单是包名，右边的菜单是包名二级引用（可以不填）</p>
 <p>在<code>AssetBundle</code>选择<code>new</code>并起名以此声明为需要被打包的资源，回到<code>AssetBundles</code>窗口,可以在<code>Configure</code>页签中看到需要被打包的资源。</p>
 <p>进入<code>Build</code>页签，点击Build则根据<code>Output Path</code>生成AB包到路径。</p>
-<p><img src="AssetBundles_Build.png" alt="img" style="max-width:100%;" ></p>
+<p><img src="AssetBundles_Build.png" alt="img" style="max-width:100%;"  /></p>
 <p>这里重点说一下<code>Build</code>页签下的参数</p>
 <ul>
 <li><code>BuildTarget</code>：要打包的目标平台</li>
 <li><code>OutPut Path</code>：打包后生成的路径</li>
 <li><code>Clear Folders</code>：是否清空文件夹，重新打包（删除不存在的包）,资源较大时打包较久</li>
 <li><code>Copy To StreamingAssets</code>：是否拷贝到StreamingAssets文件夹（该文件夹生成到Asset文件夹下，可以在project面板中看到，在某些平台上是只读文件夹）</li>
-<li>Compression压缩选项：<ul>
+<li>Compression压缩选项：
+<ul>
 <li><code>NoCompression</code>：不压缩，解压快，但包比较大</li>
 <li><code>LZMA</code>：压缩最小，但是解压最慢，不支持选择性解压（即使只加载一个资源也要解压全部）</li>
 <li><code>LZ4</code>：相对于LZMA来说要大一些，可以选择性解压（推荐）</li>
 </ul>
 </li>
-<li>打包选项： <ul>
+<li>打包选项：
+<ul>
 <li><code>Exclude Type Information</code>：在资源包中不包含资源的类型信息</li>
 <li><code>Force Rebuild</code>：重新打包时需要重新构建包，但不会删除不存在的包</li>
 <li><code>Ignore Type Tree Changes</code>：执行增量检测时，忽略TypeTree的变化。</li>
@@ -272,115 +350,125 @@
 </li>
 </ul>
 </li>
-<li><h3 id="资源加载"><a href="#资源加载" class="headerlink" title="资源加载"></a>资源加载</h3><p> 注意不能重复加载同一个AB包</p>
-<pre><code class="lang-C#">
- //1.同步从本地文件加载（可以直接加载AB包）
- LoadFromFile(string path)
- &#123;
-     //加载 AB包
-     AssetBundle bundle = AssetBundle.LoadFromFile(path);
-     //加载 AB包 中的 资源
-     var obj = bundle.LoadAsset&lt;GameObject&gt;(&quot;MyObject&quot;);
-     Instantiate(obj);
- &#125;
+<li>
+<h3 id="资源加载"><a class="markdownIt-Anchor" href="#资源加载"></a> 资源加载</h3>
+<p>注意不能重复加载同一个AB包</p>
+<pre class="highlight"><code class="C#">
+<span class="hljs-comment">//1.同步从本地文件加载（可以直接加载AB包）</span>
+LoadFromFile(<span class="hljs-keyword">string</span> path)
+&#123;
+    <span class="hljs-comment">//加载 AB包</span>
+    AssetBundle bundle = AssetBundle.LoadFromFile(path);
+    <span class="hljs-comment">//加载 AB包 中的 资源</span>
+    <span class="hljs-keyword">var</span> obj = bundle.LoadAsset&lt;GameObject&gt;(<span class="hljs-string">"MyObject"</span>);
+    Instantiate(obj);
+&#125;
 
- //2.异步从本地文件加载
- LoadFromFileAsync(string path)
- &#123;   
-     //创建一个 AB包请求 从 本地文件 中返回
-     AssetBundleCreateRequest request = AssetBundle.LoadFromFileAsync(path);
-     yield return request;
+<span class="hljs-comment">//2.异步从本地文件加载</span>
+LoadFromFileAsync(<span class="hljs-keyword">string</span> path)
+&#123;   
+    <span class="hljs-comment">//创建一个 AB包请求 从 本地文件 中返回</span>
+    AssetBundleCreateRequest request = AssetBundle.LoadFromFileAsync(path);
+    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> request;
 
-     //从AB包创建请求中 加载 AB包
-     AssetBundle bundle = request.assetBundle;
+    <span class="hljs-comment">//从AB包创建请求中 加载 AB包</span>
+    AssetBundle bundle = request.assetBundle;
 
-     //异步加载 AB包 中的 资源
-     var obj = bundle.LoadAssetAsync&lt;GameObject&gt;(&quot;MyObject&quot;);
-     Instantiate(obj);
- &#125;
+    <span class="hljs-comment">//异步加载 AB包 中的 资源</span>
+    <span class="hljs-keyword">var</span> obj = bundle.LoadAssetAsync&lt;GameObject&gt;(<span class="hljs-string">"MyObject"</span>);
+    Instantiate(obj);
+&#125;
 
- //3.异步从内存中加载
- IEnumerator LoadFromMemoryAsync(string path)
- &#123;
-     //创建一个 AB包请求 从 内存 中返回
-     AssetBundleCreateRequest request = AssetBundle.LoadFromMemoryAsync(File.ReadAllBytes(path));
-     yield return request;
+<span class="hljs-comment">//3.异步从内存中加载</span>
+<span class="hljs-function">IEnumerator <span class="hljs-title">LoadFromMemoryAsync</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> path</span>)</span>
+&#123;
+    <span class="hljs-comment">//创建一个 AB包请求 从 内存 中返回</span>
+    AssetBundleCreateRequest request = AssetBundle.LoadFromMemoryAsync(File.ReadAllBytes(path));
+    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> request;
 
-     //从AB包创建请求中 加载 AB包
-     AssetBundle bundle = request.assetBundle;
+    <span class="hljs-comment">//从AB包创建请求中 加载 AB包</span>
+    AssetBundle bundle = request.assetBundle;
 
-     ////异步加载 AB 包中的 资源
-     var obj = bundle.LoadFromMemoryAsync&lt;GameObject&gt;(&quot;MyObject&quot;);
-     Instantiate(obj);
- &#125;
+    <span class="hljs-comment"><span class="hljs-doctag">///</span>/异步加载 AB 包中的 资源</span>
+    <span class="hljs-keyword">var</span> obj = bundle.LoadFromMemoryAsync&lt;GameObject&gt;(<span class="hljs-string">"MyObject"</span>);
+    Instantiate(obj);
+&#125;
 
- //4.异步从www中加载
- IEnumerator LoadFromWWWAsync(string path)
- &#123;
-     //获取一个 www
-     //从本地加载：path = @&quot;file:/E:AssetBundleProject\AssetBundleProject\AssetBundles&quot;;
-     //从服务器加载：@&quot;http://localhost/AssetBundles/test.unity3d&quot;;
-     WWW www = new WWW(path);
-     //或 WWW www = WWW.LoadFromCacheOrDownload(path)
-     yield return www;
+<span class="hljs-comment">//4.异步从www中加载</span>
+<span class="hljs-function">IEnumerator <span class="hljs-title">LoadFromWWWAsync</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> path</span>)</span>
+&#123;
+    <span class="hljs-comment">//获取一个 www</span>
+    <span class="hljs-comment">//从本地加载：path = @"file:/E:AssetBundleProject\AssetBundleProject\AssetBundles";</span>
+    <span class="hljs-comment">//从服务器加载：@"http://localhost/AssetBundles/test.unity3d";</span>
+    WWW www = <span class="hljs-keyword">new</span> WWW(path);
+    <span class="hljs-comment">//或 WWW www = WWW.LoadFromCacheOrDownload(path)</span>
+    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> www;
 
-     //从 www 中获取 AB 包
-     AssetBundle bundle = www.assetBundle;
+    <span class="hljs-comment">//从 www 中获取 AB 包</span>
+    AssetBundle bundle = www.assetBundle;
 
-     //异步加载 AB 包中的 资源
-     var prefab = bundle.LoadAssetAsync&lt;GameObject&gt;(&quot;MyObject&quot;);
-     Instance(obj)
- &#125;
+    <span class="hljs-comment">//异步加载 AB 包中的 资源</span>
+    <span class="hljs-keyword">var</span> prefab = bundle.LoadAssetAsync&lt;GameObject&gt;(<span class="hljs-string">"MyObject"</span>);
+    Instance(obj)
+&#125;
 
- //5.异步从服务器下载
- IEnumerator LoadFromWebAsync(string path)
- &#123;
-     //等待一个服务器请求
-     UnityWebRequest request = UnityWebRequest.GetAssetBundle(path);
-     yield return request.Send();
+<span class="hljs-comment">//5.异步从服务器下载</span>
+<span class="hljs-function">IEnumerator <span class="hljs-title">LoadFromWebAsync</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> path</span>)</span>
+&#123;
+    <span class="hljs-comment">//等待一个服务器请求</span>
+    UnityWebRequest request = UnityWebRequest.GetAssetBundle(path);
+    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> request.Send();
 
-     //从 AssetBundle 下载的句柄 中获取 request 中的内容（AB包）
-     AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
+    <span class="hljs-comment">//从 AssetBundle 下载的句柄 中获取 request 中的内容（AB包）</span>
+    AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
 
-     //异步加载 AB 包中的 资源
-     var obj = (GameObject) bundle.LoadAssetAsync(&quot;MyObject&quot;);
-     Instantiate(obj);
- &#125;
+    <span class="hljs-comment">//异步加载 AB 包中的 资源</span>
+    <span class="hljs-keyword">var</span> obj = (GameObject) bundle.LoadAssetAsync(<span class="hljs-string">"MyObject"</span>);
+    Instantiate(obj);
+&#125;
+
 </code></pre>
 </li>
-<li><h3 id="资源卸载"><a href="#资源卸载" class="headerlink" title="资源卸载"></a>资源卸载</h3><p> public void Unload(bool unloadAllLoadedObjects);<br> AssetBundle.UnloadAllAssetBundles(bool unloadAllLoadedObjects);</p>
-<pre><code class="lang-C#"> ab.Unload(true);//将把所有与ab包关联的资源连同ab包一并卸载
- ab.Unload(false);//只卸载ab包，不卸载关联资源
+<li>
+<h3 id="资源卸载"><a class="markdownIt-Anchor" href="#资源卸载"></a> 资源卸载</h3>
+<p>public void Unload(bool unloadAllLoadedObjects);<br />
+AssetBundle.UnloadAllAssetBundles(bool unloadAllLoadedObjects);</p>
+<pre class="highlight"><code class="C#">ab.Unload(<span class="hljs-literal">true</span>);<span class="hljs-comment">//将把所有与ab包关联的资源连同ab包一并卸载</span>
+ab.Unload(<span class="hljs-literal">false</span>);<span class="hljs-comment">//只卸载ab包，不卸载关联资源</span>
 
- AssetBundle.UnloadAllAssetBundles(true);//卸载所有AB包，bool含义同上
+AssetBundle.UnloadAllAssetBundles(<span class="hljs-literal">true</span>);<span class="hljs-comment">//卸载所有AB包，bool含义同上</span>
 </code></pre>
 </li>
-<li><h3 id="通过主包补全包的依赖信息"><a href="#通过主包补全包的依赖信息" class="headerlink" title="通过主包补全包的依赖信息"></a>通过主包补全包的依赖信息</h3><p> 若<code>依赖资源</code>（材质啥的）和<code>预制资源</code>不在同一个AssetBundle内，如果不同时加载这两种包则会出现资源丢失。可以通过主包中manifest获得某个包的依赖信息，并将其添加到包内。</p>
-<pre><code class="lang-C#"> //path 为 包所在文件夹路径
- //mainbundelname 为 主包名
- //bundlename 为 需要添加依赖的 包名
- public void AddDependenciesBundle(string path, string mainbundelname , string bundlename)
- &#123;
-     //加载 主包
-     AssetBundle bundleMain = AssetBundle.LoadFromFile(path+&quot;/&quot;+mainbundelname);
+<li>
+<h3 id="通过主包补全包的依赖信息"><a class="markdownIt-Anchor" href="#通过主包补全包的依赖信息"></a> 通过主包补全包的依赖信息</h3>
+<p>若<code>依赖资源</code>（材质啥的）和<code>预制资源</code>不在同一个AssetBundle内，如果不同时加载这两种包则会出现资源丢失。可以通过主包中manifest获得某个包的依赖信息，并将其添加到包内。</p>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">//path 为 包所在文件夹路径</span>
+<span class="hljs-comment">//mainbundelname 为 主包名</span>
+<span class="hljs-comment">//bundlename 为 需要添加依赖的 包名</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddDependenciesBundle</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> path, <span class="hljs-keyword">string</span> mainbundelname , <span class="hljs-keyword">string</span> bundlename</span>)</span>
+&#123;
+    <span class="hljs-comment">//加载 主包</span>
+    AssetBundle bundleMain = AssetBundle.LoadFromFile(path+<span class="hljs-string">"/"</span>+mainbundelname);
 
-     //获取 主包描述文件
-     AssetBundleManifest maninfest = bundleMain.LoadAsset&lt;AssetBundleManifest&gt;(&quot;AssetBundleManifest&quot;);
+    <span class="hljs-comment">//获取 主包描述文件</span>
+    AssetBundleManifest maninfest = bundleMain.LoadAsset&lt;AssetBundleManifest&gt;(<span class="hljs-string">"AssetBundleManifest"</span>);
 
-     //获取 主包描述文件 中 所有依赖信息(一般是所依赖的包名)
-     string[] infos = maninfest.GetAllDependencies(bundlename);
+    <span class="hljs-comment">//获取 主包描述文件 中 所有依赖信息(一般是所依赖的包名)</span>
+    <span class="hljs-keyword">string</span>[] infos = maninfest.GetAllDependencies(bundlename);
 
-     //遍历 依赖信息 加载 依赖包
-     foreach (var item in infos)
-     &#123;
-         AssetBundle.LoadFromFile(path + &quot;/&quot; + item);
-     &#125;
- &#125;
+    <span class="hljs-comment">//遍历 依赖信息 加载 依赖包</span>
+    <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> item <span class="hljs-keyword">in</span> infos)
+    &#123;
+        AssetBundle.LoadFromFile(path + <span class="hljs-string">"/"</span> + item);
+    &#125;
+&#125;
 </code></pre>
 </li>
 </ol>
 </li>
-<li><h2 id="资源优化的建议"><a href="#资源优化的建议" class="headerlink" title="资源优化的建议"></a>资源优化的建议</h2><ul>
+<li>
+<h2 id="资源优化的建议"><a class="markdownIt-Anchor" href="#资源优化的建议"></a> 资源优化的建议</h2>
+<ul>
 <li>预先制定详细合理的美术规划：目标机型什么样的，根据目标机型的配置，规定内存上限来制定场景、特效、UI等方案；</li>
 <li>最好在打包AssetBundle时就管理资源间的依赖；</li>
 <li>加载Asset时通过引用计数等方式管理资源的卸载；</li>
@@ -388,10 +476,11 @@
 <li>在切换场景或定时地进行GC</li>
 <li>尽量防止资源被长期占用</li>
 <li>注意代码造成频繁触发的C#GC（比如在update中new一些比较大的Object，或多次在堆栈中分配资源）</li>
-<li>擅于利用分析工具：<ul>
+<li>擅于利用分析工具：
+<ul>
 <li>PC：profilor</li>
 <li>Android：adb</li>
-<li>IOS：instruments </li>
+<li>IOS：instruments</li>
 </ul>
 </li>
 </ul>
@@ -498,21 +587,6 @@
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+    </body>
 
 </html>
