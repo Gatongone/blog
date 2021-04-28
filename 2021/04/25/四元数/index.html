@@ -391,7 +391,7 @@ ij = -k，ji = k，ki = -j .......
 </tr>
 <tr>
 <td>LookRotation(forward,upwards)</td>
-<td>把z轴与forward对齐，x轴与 forward 和 upwards 之间的差积对齐</td>
+<td>返回一个能让Z轴对齐forward，让y轴对齐upward 所需要的旋转四元数</td>
 </tr>
 <tr>
 <td>RotateTowards(from,to,path)</td>
@@ -430,7 +430,7 @@ ij = -k，ji = k，ki = -j .......
 </tr>
 <tr>
 <td>SetLookRotation(forward,upwards)</td>
-<td>设置成轴与forward对齐，x轴与 forward 和 upwards 之间的差积的四元数</td>
+<td>把旋转设置成Z轴与forward对齐，让y轴与upward对齐所需要的旋转四元数</td>
 </tr>
 </tbody>
 </table>
