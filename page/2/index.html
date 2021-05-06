@@ -168,7 +168,7 @@
         <div id="tagcloud" class="tagcloud">
             <span> Trending Tags </span>
             <div>
-             <a href="#" class="tag">C# </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">.net </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">.net, C# </a>
+             <a href="#" class="tag">C# </a><a href="#" class="tag">.net </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">.net, C# </a>
             </div>
         </div>
         
@@ -195,14 +195,11 @@
             为了加深对Mono生命周期和GameObject的印象，特地尝试了模拟Mono工作原理。
 分析思路如下：
 
-
 unity是如何组织场景中的对象的————————————场景管理每一个gameobject,gameobject挂载各个脚本
-
 
 继承了mono的脚本可以实现start、update等生命周期的函数——————————————mono基类应该以virtual声明的生命周期函数
 
-
-mono是挂载在gameobject身上的组件...
+mono是挂载在gameobject身上的组件，并且...
     </span>
 
     <div>
@@ -213,7 +210,7 @@ mono是挂载在gameobject身上的组件...
         <span>10 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">21293</span>
+        <span class="words">10111</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -251,7 +248,7 @@ mono是挂载在gameobject身上的组件...
         <span>15 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">14280</span>
+        <span class="words">10154</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -274,16 +271,11 @@ mono是挂载在gameobject身上的组件...
             
             XML(Extensible Markup Language)即可拓展标记语言，作为互联网传输工具，无关于开发平台，可以实现不同系统之间的数据交互。(Extensible Markup Language)
 
-
- 相关操作
-
-
- 加载xml文件
-一般有三种方法：
-
+相关操作
+加载xml文件  一般有三种方法：
 XmlDocument：把数据加载到内存中进行读取
 XmlTextReader：通过流形式读取，能减少内存占用，但是是单向只读的
-LINQ to XML：一种启用了 LINQ ...
+LINQ to XML：一种启用了 LINQ 的内存 X...
     </span>
 
     <div>
@@ -294,7 +286,7 @@ LINQ to XML：一种启用了 LINQ ...
         <span>12 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">28281</span>
+        <span class="words">13815</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -317,15 +309,10 @@ LINQ to XML：一种启用了 LINQ ...
             
             Unity中提供了PlayerPrefs公共类用于存储玩家数据，支持int、float、string三种类型数据的存储，这类似于以键值对的形式进行的存储。
 
-
- 相关函数
-
-
- 将数据存入内存中
-当使用Set方法时只会将数据存入内存，而并非磁盘中。也就是说如果游戏在运行时崩溃，将导致数据丢失。
-PS：使用相同的键名将会导致数据覆盖，即使类型不一样。
-PlayerPrefs.SetString(&#34;PlayerName&#34;, &#34;关东关&#34;);
-...
+相关函数
+将数据存入内存中  当使用Set方法时只会将数据存入内存，而并非磁盘中。也就是说如果游戏在运行时崩溃，将导致数据丢失。
+  PS：使用相同的键名将会导致数据覆盖，即使类型不一样。
+  PlayerPrefs.SetString(&amp;quot;PlayerName&amp;quot;...
     </span>
 
     <div>
@@ -336,7 +323,7 @@ PlayerPrefs.SetString(&#34;PlayerName&#34;, &#34;关东关&#34;);
         <span>4 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">3509</span>
+        <span class="words">2709</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -364,8 +351,8 @@ public class Factory&lt;T&gt;{&amp;#125;
 //单例
 public class Singleton&lt;T&gt; where T : new()
 {
-    
-    private static readonly Lazy&lt;T&gt; _instance =...
+
+    private static readonly Lazy&lt;T&gt; _instance = new...
     </span>
 
     <div>
@@ -376,7 +363,7 @@ public class Singleton&lt;T&gt; where T : new()
         <span>2 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">4043</span>
+        <span class="words">1886</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -399,11 +386,8 @@ public class Singleton&lt;T&gt; where T : new()
             
             开发人员可以通过AssetBundle将一个资源分到多个包或者将多个资源打到一个包内，并且可以实时地从任意位置加载资源包。Asset在打包时维护一个指向它所依赖包的id。相较于Resources,AssetBundle能自己控制资源的精确管理，包括资源的引用计数。更重要的一点，在游戏发布后，可以从服务器或本地中动态地加载资源包对资源进行更新（热更新），这是Resources所不能做到的。
 
-
- AssetBundle常用的资源操作
-
-
-...
+AssetBundle常用的资源操作
+Asse...
     </span>
 
     <div>
@@ -414,7 +398,7 @@ public class Singleton&lt;T&gt; where T : new()
         <span>6 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">12451</span>
+        <span class="words">8523</span>
 
     </div>
     <hr color=#49495b SIZE=1>
