@@ -161,7 +161,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/04/25/四元数/" class="post">四元数 </a><a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a><a href="/blog/2021/04/24/Unity-GL/" class="post">Unity.GL </a><a href="/blog/2021/04/06/计网笔记/" class="post">计网笔记 </a><a href="/blog/2021/03/21/渲染流水线（渲染管线）/" class="post">渲染流水线（渲染管线） </a>
+             <a href="/blog/2021/05/06/DOTween/" class="post">DOTween </a><a href="/blog/2021/04/25/四元数/" class="post">四元数 </a><a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a><a href="/blog/2021/04/24/Unity-GL/" class="post">Unity.GL </a><a href="/blog/2021/04/06/计网笔记/" class="post">计网笔记 </a>
             </div>
         </div>
 
@@ -177,6 +177,48 @@
              
 </div>
 
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/03/16/模拟Mono脚本生命周期/"  target="_self">模拟Mono脚本生命周期 </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            为了加深对Mono生命周期和GameObject的印象，特地尝试了模拟Mono工作原理。
+分析思路如下：
+
+
+unity是如何组织场景中的对象的————————————场景管理每一个gameobject,gameobject挂载各个脚本
+
+
+继承了mono的脚本可以实现start、update等生命周期的函数——————————————mono基类应该以virtual声明的生命周期函数
+
+
+mono是挂载在gameobject身上的组件...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Mar 16th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>10 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">21293</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
             
@@ -380,67 +422,6 @@ public class Singleton&lt;T&gt; where T : new()
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/27/资源管理——Resources/"  target="_self">资源管理——Resources </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            可开发人员以将Asset资源放在一个或多个名为Resources的文件夹中，并且在运行时利用Resources API来对这些Asset中的Object进行管理。
-
-
- Resources常用的资源操作
-
-
- 加载资源
-
-
-
-加载类型
-方法
-
-
-
-
-Load
-加载单个资源
-
-
-LoadAll
-加载多个资源
-
-
-LoadAsync
-异步加载单个资源
-
-
-
-Resources.Load&lt;Material&gt;(&#34;myMaterial&#34;)//Re...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 27th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>3 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">1963</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
         
         <div class="paginator">
              <a class="extend prev" rel="prev" href="/blog/"><</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/3/">></a>
@@ -551,21 +532,6 @@ Resources.Load&lt;Material&gt;(&#34;myMaterial&#34;)//Re...
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+    </body>
 
 </html>

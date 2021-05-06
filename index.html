@@ -161,7 +161,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/04/25/四元数/" class="post">四元数 </a><a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a><a href="/blog/2021/04/24/Unity-GL/" class="post">Unity.GL </a><a href="/blog/2021/04/06/计网笔记/" class="post">计网笔记 </a><a href="/blog/2021/03/21/渲染流水线（渲染管线）/" class="post">渲染流水线（渲染管线） </a>
+             <a href="/blog/2021/05/06/DOTween/" class="post">DOTween </a><a href="/blog/2021/04/25/四元数/" class="post">四元数 </a><a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a><a href="/blog/2021/04/24/Unity-GL/" class="post">Unity.GL </a><a href="/blog/2021/04/06/计网笔记/" class="post">计网笔记 </a>
             </div>
         </div>
 
@@ -177,6 +177,49 @@
              
 </div>
 
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/05/06/DOTween/"  target="_self">DOTween </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            DOTWeen官网使用手册
+使用DOTween前应先引用命名空间
+using DG.Tweening;
+
+
+
+ 一些基本概念
+DOTween是基于Tweener 或 TweenerCore（继承至Tweener）（可以理解为补间动画）来实现一些变量的缓动变换效果的。
+
+Tweener：补间动画
+Sequence：补间动画序列，相当于一个Tweener的链表，可以通过执行一个Sequence来执行一连串的Tweener
+Tween：泛指T...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> May 6th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span></span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">34611</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
             
@@ -434,48 +477,6 @@ DataAdapter就是连接数据源和DataSet之间的桥梁,如果把，数据比�
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/03/16/模拟Mono脚本生命周期/"  target="_self">模拟Mono脚本生命周期 </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            为了加深对Mono生命周期和GameObject的印象，特地尝试了模拟Mono工作原理。
-分析思路如下：
-
-
-unity是如何组织场景中的对象的————————————场景管理每一个gameobject,gameobject挂载各个脚本
-
-
-继承了mono的脚本可以实现start、update等生命周期的函数——————————————mono基类应该以virtual声明的生命周期函数
-
-
-mono是挂载在gameobject身上的组件...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Mar 16th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>10 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">21293</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
         
         <div class="paginator">
              <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/2/">></a>
@@ -586,21 +587,6 @@ mono是挂载在gameobject身上的组件...
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+    </body>
 
 </html>
