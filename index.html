@@ -197,13 +197,11 @@
 using DG.Tweening;
 
 
-
- 一些基本概念
-DOTween是基于Tweener 或 TweenerCore（继承至Tweener）（可以理解为补间动画）来实现一些变量的缓动变换效果的。
+一些基本概念  DOTween是基于Tweener 或 TweenerCore（继承至Tweener）（可以理解为补间动画）来实现一些变量的缓动变换效果的。
 
 Tweener：补间动画
 Sequence：补间动画序列，相当于一个Tweener的链表，可以通过执行一个Sequence来执行一连串的Tweener
-Tween：泛指T...
+Tween：泛指Tw...
     </span>
 
     <div>
@@ -211,10 +209,10 @@ Tween：泛指T...
         <span> May 6th,   2021</span>
 
         <img src="/blog/images/icon/time.png" alt="">
-        <span></span>
+        <span>15 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">34611</span>
+        <span class="words">20878</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -587,6 +585,21 @@ DataAdapter就是连接数据源和DataSet之间的桥梁,如果把，数据比�
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 
 </html>
