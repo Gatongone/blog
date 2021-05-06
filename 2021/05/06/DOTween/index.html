@@ -1022,13 +1022,27 @@ sequence.AppendCallback(CallBack);
 <li>
 <h2 id="一些注意事项"><a class="markdownIt-Anchor" href="#一些注意事项"></a> 一些注意事项</h2>
 <ol>
-<li>每执行一个DOXXX方法就会创建一个动画，并且动画默认是<code>自动销毁</code>的</li>
-<li>在第一个动画创建后会在Hierarchy面板中创建一个<code>[DOTween]</code>的GameObject，记录了动画相关信息</li>
-<li>动画的初始化应该尽量放在Start或者Awake，而<code>不要放在Update中</code>，避免多次创建动画</li>
-<li>在Start或Awake中初始化的动画，如果不希望一开始就使用，应该调用<code>Pause()</code>暂停该动画，到使用的时候再<code>Play()</code></li>
-<li>在Update中创建的动画，应该使用布尔去判断该动画是否已经存在，如果已经存在则不应该再次被创建</li>
-<li>关闭动画的自动销毁后，再次使用该动画时应该避免重新创建动画</li>
-<li>DOPlay()、DOPlayBackwards()、DOPlayForwards()等播放动画方法<code>会播放transform身上挂载的所有动画</code></li>
+<li>
+<p>每执行一个DOXXX方法就会创建一个动画，并且动画默认是 <code>自动销毁</code> 的</p>
+</li>
+<li>
+<p>在第一个动画创建后会在Hierarchy面板中创建一个 <code>[DOTween]</code> 的GameObject，记录了动画相关信息</p>
+</li>
+<li>
+<p>动画的初始化应该尽量放在Start或者Awake，而 <code>不要放在Update中</code> ，避免多次创建动画</p>
+</li>
+<li>
+<p>在Start或Awake中初始化的动画，如果不希望一开始就使用，应该调用 <code>Pause()</code> 暂停该动画，到使用的时候再 <code>Play()</code></p>
+</li>
+<li>
+<p>在Update中创建的动画，应该使用布尔去判断该动画是否已经存在，如果已经存在则不应该再次被创建</p>
+</li>
+<li>
+<p>关闭动画的自动销毁后，再次使用该动画时应该避免重新创建动画</p>
+</li>
+<li>
+<p>DOPlay()、DOPlayBackwards()、DOPlayForwards()等播放动画方法 <code>会播放transform身上挂载的所有动画</code></p>
+</li>
 </ol>
 </li>
 </ul>
