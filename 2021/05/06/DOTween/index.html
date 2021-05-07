@@ -185,7 +185,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text"> 一些基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dotween%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91"><span class="toc-text"> DOTWeen的可视化编辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tween%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text"> Tween的生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tweener%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-text"> Tweener的生命周期回调函数:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E5%88%86api%E7%94%A8%E6%B3%95"><span class="toc-text"> 部分API用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text"> 一些注意事项</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">一些基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOTWeen%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BC%96%E8%BE%91"><span class="toc-text">DOTWeen的可视化编辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tween%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">Tween的生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tweener%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-text">Tweener的生命周期回调函数:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E5%88%86API%E7%94%A8%E6%B3%95"><span class="toc-text">部分API用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">一些注意事项</span></a></li></ol>
                 </div>
                 
              </div>
@@ -203,12 +203,10 @@
         
         <p><a target="_blank" rel="noopener" href="http://dotween.demigiant.com/getstarted.php">DOTWeen官网使用手册</a></p>
 <p>使用DOTween前应先引用命名空间</p>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">using</span> DG.Tweening;
+<pre><code class="lang-C#">using DG.Tweening;
 </code></pre>
 <ul>
-<li>
-<h2 id="一些基本概念"><a class="markdownIt-Anchor" href="#一些基本概念"></a> 一些基本概念</h2>
-<p>DOTween是基于Tweener 或 TweenerCore（继承至Tweener）（可以理解为补间动画）来实现一些变量的缓动变换效果的。</p>
+<li><h2 id="一些基本概念"><a href="#一些基本概念" class="headerlink" title="一些基本概念"></a>一些基本概念</h2><p>  DOTween是基于Tweener 或 TweenerCore（继承至Tweener）（可以理解为补间动画）来实现一些变量的缓动变换效果的。</p>
 <ul>
 <li>Tweener：补间动画</li>
 <li>Sequence：补间动画序列，相当于一个Tweener的链表，可以通过执行一个Sequence来执行一连串的Tweener</li>
@@ -216,832 +214,867 @@
 <li>Nested tween：Sequence中的一个Tweener称为一个Nested tween</li>
 </ul>
 </li>
-<li>
-<h2 id="dotween的可视化编辑"><a class="markdownIt-Anchor" href="#dotween的可视化编辑"></a> DOTWeen的可视化编辑</h2>
-<p>可以在Inspectors面板添加DOTween的Component只有两个：<code>DOTween Animation</code> 和 <code>DOTween Path</code>用法很简单，操作一下就会了，这里就不细说。</p>
-<p><img src="DOTweenComponent.png" alt="IMG" style="max-width:100%;"  /></p>
+<li><h2 id="DOTWeen的可视化编辑"><a href="#DOTWeen的可视化编辑" class="headerlink" title="DOTWeen的可视化编辑"></a>DOTWeen的可视化编辑</h2><p>  可以在Inspectors面板添加DOTween的Component只有两个：<code>DOTween Animation</code> 和 <code>DOTween Path</code>用法很简单，操作一下就会了，这里就不细说。</p>
+<p>  <img src="DOTweenComponent.png" alt="IMG" style="max-width:100%;" ></p>
 </li>
-<li>
-<h2 id="tween的生命周期"><a class="markdownIt-Anchor" href="#tween的生命周期"></a> Tween的生命周期</h2>
-<ul>
+<li><h2 id="Tween的生命周期"><a href="#Tween的生命周期" class="headerlink" title="Tween的生命周期"></a>Tween的生命周期</h2><ul>
 <li>当创建一个动画时将会自动播放（除非修改全局<a target="_blank" rel="noopener" href="http://dotween.demigiant.com/documentation.php?api=defaultAutoPlay">defaultAutoPlay</a>行为）</li>
 <li>当一个动画播放完毕后将会被自动销毁（除非修改全局<a target="_blank" rel="noopener" href="http://dotween.demigiant.com/documentation.php?api=defaultAutoKill">defaultAutoKill</a>行为）</li>
 <li>如果希望重复使用动画，应该将Tweener设置为<a target="_blank" rel="noopener" href="http://dotween.demigiant.com/documentation.php?api=SetAutoKill">SetAutoKill(false)</a></li>
-<li>当动画目标为空时，将可能会抛出一个<code>playing errow</code>错误，如果不希望此错误抛出可以选择激活<a target="_blank" rel="noopener" href="http://dotween.demigiant.com/documentation.php?api=useSafeMode">safe mode</a></li>
-</ul>
-<h3 id="tweener的生命周期回调函数"><a class="markdownIt-Anchor" href="#tweener的生命周期回调函数"></a> Tweener的生命周期回调函数:</h3>
-<pre class="highlight"><code class="C#">OnStart (TweenCallback callback);<span class="hljs-comment">//动画开始时执行</span>
-OnPlay (TweenCallback callback);<span class="hljs-comment">//动画播放时执行</span>
-OnUpdate (TweenCallback callback);<span class="hljs-comment">//动画帧更新时执行</span>
-OnPause (TweenCallback callback);<span class="hljs-comment">//动画暂停时执行</span>
-OnComplete (TweenCallback callback);<span class="hljs-comment">//动画播放结束时执行，倒放不执行</span>
-OnSetComplete (TweenCallback callback)<span class="hljs-comment">//在动画完成一个循环时执行，并且前放和倒放都会执行</span>
-OnKill (TweenCallback callback);<span class="hljs-comment">//动画销毁时执行</span>
-OnRewind (TweenCallback callback);<span class="hljs-comment">//动画重播时执行</span>
-OnWaypointChange (TweenCallback&lt;<span class="hljs-keyword">int</span>&gt; callback);<span class="hljs-comment">//动画在路径点变化时执行</span>
+<li><p>当动画目标为空时，将可能会抛出一个<code>playing errow</code>错误，如果不希望此错误抛出可以选择激活<a target="_blank" rel="noopener" href="http://dotween.demigiant.com/documentation.php?api=useSafeMode">safe mode</a></p>
+<h3 id="Tweener的生命周期回调函数"><a href="#Tweener的生命周期回调函数" class="headerlink" title="Tweener的生命周期回调函数:"></a>Tweener的生命周期回调函数:</h3><pre><code class="lang-C#">OnStart (TweenCallback callback);//动画开始时执行
+OnPlay (TweenCallback callback);//动画播放时执行
+OnUpdate (TweenCallback callback);//动画帧更新时执行
+OnPause (TweenCallback callback);//动画暂停时执行
+OnComplete (TweenCallback callback);//动画播放结束时执行，倒放不执行
+OnSetComplete (TweenCallback callback)//在动画完成一个循环时执行，并且前放和倒放都会执行
+OnKill (TweenCallback callback);//动画销毁时执行
+OnRewind (TweenCallback callback);//动画重播时执行
+OnWaypointChange (TweenCallback&lt;int&gt; callback);//动画在路径点变化时执行
 </code></pre>
 </li>
-<li>
-<h2 id="部分api用法"><a class="markdownIt-Anchor" href="#部分api用法"></a> 部分API用法</h2>
-<p>部分参考了<a target="_blank" rel="noopener" href="https://blog.csdn.net/zcaixzy5211314/article/details/84886663">Andy老师的文章</a></p>
+</ul>
+</li>
+<li><h2 id="部分API用法"><a href="#部分API用法" class="headerlink" title="部分API用法"></a>部分API用法</h2><p>  部分参考了<a target="_blank" rel="noopener" href="https://blog.csdn.net/zcaixzy5211314/article/details/84886663">Andy老师的文章</a></p>
 <details>
 <summary><font size= 3>DOTween全局设置</font></summary>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">static</span> LogBehaviour DOTween.logBehaviour
-<span class="hljs-comment">//根据选择的模式，DOTween将仅记录错误，错误和警告或所有其他信息。</span>
-<span class="hljs-comment">//LogBehaviour.ErrorsOnly:记录错误，仅此而已。</span>
-<span class="hljs-comment">//LogBehaviour.Default:记录错误和警告。</span>
-<span class="hljs-comment">//LogBehaviour.Verbose:记录错误，警告和其他信息。</span>
 
-<span class="hljs-keyword">static</span> <span class="hljs-keyword">bool</span> DOTween.showUnityEditorReport<span class="hljs-comment">//若为TRUE，则退出播放模式时（仅在编辑器中）您将获得DOTween报告</span>
-<span class="hljs-keyword">static</span> <span class="hljs-keyword">float</span> DOTween.timeScale<span class="hljs-comment">//全局的时间膨胀</span>
-<span class="hljs-keyword">static</span> <span class="hljs-keyword">bool</span> DOTween.useSafeMode<span class="hljs-comment">//使用安全模式</span>
-<span class="hljs-keyword">static</span> DOTween.SetTweensCapacity(<span class="hljs-keyword">int</span> maxTweeners, <span class="hljs-keyword">int</span> maxSequences)<span class="hljs-comment">//设置Tweens容量</span>
+  ```C#
+  static LogBehaviour DOTween.logBehaviour
+  //根据选择的模式，DOTween将仅记录错误，错误和警告或所有其他信息。
+  //LogBehaviour.ErrorsOnly:记录错误，仅此而已。
+  //LogBehaviour.Default:记录错误和警告。
+  //LogBehaviour.Verbose:记录错误，警告和其他信息。
 
-<span class="hljs-keyword">static</span> <span class="hljs-keyword">bool</span> DOTween.defaultAutoKill<span class="hljs-comment">//是否自动销毁</span>
-<span class="hljs-keyword">static</span> AutoPlay DOTween.defaultAutoPlay<span class="hljs-comment">//是否自动播放</span>
-<span class="hljs-keyword">static</span> <span class="hljs-keyword">float</span> DOTween.defaultEaseOvershootOrAmplitude<span class="hljs-comment">//应用于Eases的缓存幅度,默认1.70158f</span>
-<span class="hljs-keyword">static</span> <span class="hljs-keyword">float</span> DOTween.defaultEasePeriod<span class="hljs-comment">//默认的数据段</span>
-<span class="hljs-keyword">static</span> Ease DOTween.defaultEaseType<span class="hljs-comment">//默认的Ease类型，默认为OutQuad</span>
-<span class="hljs-keyword">static</span> LoopType DOTween.defaultLoopType<span class="hljs-comment">//默认的循环类型，默认为Restart</span>
-<span class="hljs-keyword">static</span> <span class="hljs-keyword">bool</span> DOTween.defaultRecyclable<span class="hljs-comment">//如果为true，则当Tween完成时就会被回收，否则就会被destroy</span>
-<span class="hljs-keyword">static</span> <span class="hljs-keyword">bool</span> DOTween.defaultTimeScaleIndependent<span class="hljs-comment">//是否使用unity的timeScale</span>
-<span class="hljs-keyword">static</span> UpdateType DOTween.defaultUpdateType<span class="hljs-comment">//默认的帧更新函数</span>
-</code></pre>
+  static bool DOTween.showUnityEditorReport//若为TRUE，则退出播放模式时（仅在编辑器中）您将获得DOTween报告
+  static float DOTween.timeScale//全局的时间膨胀
+  static bool DOTween.useSafeMode//使用安全模式
+  static DOTween.SetTweensCapacity(int maxTweeners, int maxSequences)//设置Tweens容量
+
+  static bool DOTween.defaultAutoKill//是否自动销毁
+  static AutoPlay DOTween.defaultAutoPlay//是否自动播放
+  static float DOTween.defaultEaseOvershootOrAmplitude//应用于Eases的缓存幅度,默认1.70158f
+  static float DOTween.defaultEasePeriod//默认的数据段
+  static Ease DOTween.defaultEaseType//默认的Ease类型，默认为OutQuad
+  static LoopType DOTween.defaultLoopType//默认的循环类型，默认为Restart
+  static bool DOTween.defaultRecyclable//如果为true，则当Tween完成时就会被回收，否则就会被destroy
+  static bool DOTween.defaultTimeScaleIndependent//是否使用unity的timeScale
+  static UpdateType DOTween.defaultUpdateType//默认的帧更新函数
+  ```
 </details>
+
 <details>
 <summary><font size= 3>DOTween创建补间</font></summary>
-<ul>
-<li>
-<p><code>DOTween.To()</code></p>
-<p>API：</p>
-<pre class="highlight"><code class="C#">To(DOGetter&lt;RectOffset&gt; getter, DOSetter&lt;RectOffset&gt; setter, RectOffset endValue, <span class="hljs-keyword">float</span> duration);
 
-<span class="hljs-comment">//getter:一个回调委托，指明要缓动的变量</span>
-<span class="hljs-comment">//setter:一个回调委托,返回通过setter和endValue进行插值计算的结果</span>
-<span class="hljs-comment">//endValue:缓动的目标结果</span>
-<span class="hljs-comment">//duration:时间间隔，指明该缓动动画将在duration秒内完成</span>
-</code></pre>
-<p>可以理解为开了一个&quot;协程&quot;去反复计算插值</p>
-<p>比如通过以下的代码来将obj的位置在2s内移动到(10,10,10)</p>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">private</span> Vector3 before;
-<span class="hljs-keyword">public</span> GameObject obj;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    before = obj.transform.position;
-    Vector3 after = <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>);
-    <span class="hljs-keyword">float</span> time=<span class="hljs-number">2f</span>;
+  * `DOTween.To()`
 
-    <span class="hljs-comment">//每帧按插值更新before的值，直到before等于after</span>
-    DOTween.To(()=&gt;before, lerp=&gt;before=lerp, after, time); 
-&#125;
-<span class="hljs-comment">//需要在Update中去同步更新的值</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    obj.position = before;
-&#125;
-</code></pre>
-</li>
-</ul>
-<p><code>DOTween.ToAxis()</code></p>
-<pre><code>  将a的单轴Vector3从其当前值补间到给定轴，用法和TO类似
+      API：
+      ```C#
+      To(DOGetter<RectOffset> getter, DOSetter<RectOffset> setter, RectOffset endValue, float duration);
 
-  ```C#
-  // 在1秒内将称为myVector的Vector3的X补间到3
-  DOTween.ToAxis(()=&gt; myVector, x=&gt; myVector = x, 3, 1);
-  // 与上面相同，但在Y轴之间进行补间
-  DOTween.ToAxis(()=&gt; myVector, x=&gt; myVector = x, 3, 1, AxisConstraint.Y);
-  ```
-</code></pre>
-<p><code>DOTween.ToArray()</code></p>
-<pre><code>  创建一组补间动画，将Vector3补间到给定的最终值。在每个段之间而不是整体上应用缓动，用法和TO类似
+      //getter:一个回调委托，指明要缓动的变量
+      //setter:一个回调委托,返回通过setter和endValue进行插值计算的结果
+      //endValue:缓动的目标结果
+      //duration:时间间隔，指明该缓动动画将在duration秒内完成
+      ```
+      可以理解为开了一个"协程"去反复计算插值
 
-  ```C#
-  Vector3[] endValues = new[] &#123; new Vector3(1,0,1), new Vector3(2,0,2), new Vector3(1,4,1) &#125;;
-  float[] durations = new[] &#123; 1, 1, 1 &#125;;
-  DOTween.ToArray(()=&gt; myVector, x=&gt; myVector = x, endValues, durations);
-  ```
-</code></pre>
-<p><code>DOTween.ToAlpha()</code></p>
-<pre><code>  创建一个透明度变化的补间动画，用法和TO类似
+      比如通过以下的代码来将obj的位置在2s内移动到(10,10,10)
+      ```C#
+      private Vector3 before;
+      public GameObject obj;
+      void Start()
+      {
+          before = obj.transform.position;
+          Vector3 after = new Vector3(10,10,10);
+          float time=2f;
 
-  ```C#
-  DOTween.ToAlpha(()=&gt; myColor, x=&gt; myColor = x, 0, 1);
-  ```
-</code></pre>
-<p><code>DOTween.Punch()</code></p>
-<pre><code>  创建一个振动的补间动画，用法和TO类似
+          //每帧按插值更新before的值，直到before等于after
+          DOTween.To(()=>before, lerp=>before=lerp, after, time); 
+      }
+      //需要在Update中去同步更新的值
+      void Update()
+      {
+          obj.position = before;
+      }
+      ```
 
-  ```C#
-  DOTween.Punch(()=&gt; myVector, x=&gt; myVector = x, Vector3.up, 1);
-  ```
-</code></pre>
-<p><code>DOTween.Shake()</code></p>
-<pre><code>  ```C#
-  DOTween.Shake(()=&gt; myVector, x=&gt; myVector = x, 1, 5, 10, 45, false);
-  ```
+  `DOTween.ToAxis()`
 
-  创建一个震动的补间动画，用法和TO类似
-</code></pre>
+      将a的单轴Vector3从其当前值补间到给定轴，用法和TO类似
+
+      ```C#
+      // 在1秒内将称为myVector的Vector3的X补间到3
+      DOTween.ToAxis(()=> myVector, x=> myVector = x, 3, 1);
+      // 与上面相同，但在Y轴之间进行补间
+      DOTween.ToAxis(()=> myVector, x=> myVector = x, 3, 1, AxisConstraint.Y);
+      ```
+
+  `DOTween.ToArray()`
+
+      创建一组补间动画，将Vector3补间到给定的最终值。在每个段之间而不是整体上应用缓动，用法和TO类似
+
+      ```C#
+      Vector3[] endValues = new[] { new Vector3(1,0,1), new Vector3(2,0,2), new Vector3(1,4,1) };
+      float[] durations = new[] { 1, 1, 1 };
+      DOTween.ToArray(()=> myVector, x=> myVector = x, endValues, durations);
+      ```
+
+  `DOTween.ToAlpha()`
+
+      创建一个透明度变化的补间动画，用法和TO类似
+
+      ```C#
+      DOTween.ToAlpha(()=> myColor, x=> myColor = x, 0, 1);
+      ```
+
+  `DOTween.Punch()`
+
+      创建一个振动的补间动画，用法和TO类似
+
+      ```C#
+      DOTween.Punch(()=> myVector, x=> myVector = x, Vector3.up, 1);
+      ```
+
+  `DOTween.Shake()`
+
+      ```C#
+      DOTween.Shake(()=> myVector, x=> myVector = x, 1, 5, 10, 45, false);
+      ```
+
+      创建一个震动的补间动画，用法和TO类似
 </details>
-<details>
+
+<p><details></p>
 <summary><font size= 3>DOTween获取数据</font></summary>
-<ul>
-<li>
-<p><code>DOTween.PausedTweens()</code></p>
-<p>返回所有被暂停的动画</p>
-</li>
-<li>
-<p><code>DOTween.PlayingTweens()</code></p>
-<p>返回所有正在播放的动画</p>
-</li>
-<li>
-<p><code>DOTween.TweensById()</code></p>
-<p>返回目标ID的所有动画</p>
-<pre class="highlight"><code class="C#"><span class="hljs-comment">//true表示只收集正在播放的动画</span>
-DOTween.TweensById(<span class="hljs-string">"id"</span>, <span class="hljs-literal">true</span>);
-</code></pre>
-</li>
-<li>
-<p><code>DOTween.TweensByTarget()</code></p>
-<p>返回目标transform的动画数组</p>
-<pre class="highlight"><code class="C#"><span class="hljs-comment">//true表示只收集正在播放的动画</span>
-DOTween.TweensByTarget(<span class="hljs-keyword">this</span>.transform, <span class="hljs-literal">true</span>);
-</code></pre>
-</li>
-<li>
-<p><code>DOTWeen.IsTweening()</code></p>
-<p>返回目标transform是否右动画在活动</p>
-<pre class="highlight"><code class="C#"><span class="hljs-comment">//true表示只检测正在播放的动画</span>
-DOTween.IsTweening(transform,<span class="hljs-literal">true</span>);
-</code></pre>
-</li>
-<li>
-<p><code>DOTween.TotalPlayingTweens()</code></p>
-<p>返回正在播放的动画的总数，目前处于延迟播放状态的动画也算</p>
-</li>
-</ul>
-</details>
-<details>
-<summary><font size= 3>Tweener设置</font></summary>
-<ul>
-<li>
-<p><code>Tweener.SetEase()</code></p>
-<p>设置动画的过渡曲线</p>
-<p><strong>API：</strong></p>
-<pre class="highlight"><code class="C#">SetEase(Ease ease);
-<span class="hljs-comment">//ease：枚举类型，使用某种动画的变化曲线</span>
-</code></pre>
-<pre class="highlight"><code class="C#"><span class="hljs-comment">//设置一个InBack曲线</span>
-transform.DOLocalMoveX(<span class="hljs-number">5</span>, <span class="hljs-number">5f</span>).SetEase(Ease.InBack);
-</code></pre>
-<p>常用的Ease曲线可以看<a target="_blank" rel="noopener" href="https://www.xuanfengge.com/easeing/easeing/">缓动函数详解</a>和<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44119541/article/details/107397494">Ease效果示例</a></p>
-</li>
-<li>
-<p><code>Tweener.SetDelay()</code></p>
-<p>设置动画延迟播放</p>
-<pre class="highlight"><code class="C#"><span class="hljs-comment">//0.5s后向右移动</span>
-transform.DOLocalMoveX(<span class="hljs-number">5</span>, <span class="hljs-number">5f</span>).SetDelay(<span class="hljs-number">0.5f</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Tweener.SetLoops()</code></p>
-<p>设置循环播放（当参数为-1的时候无限循环播放；当参数&gt;=0的时候则表示循环的次数；0的时候表示循环一次）</p>
-<p><strong>API：</strong></p>
-<pre class="highlight"><code class="C#">SetLoops(<span class="hljs-keyword">int</span> loops)
-SetLoops(<span class="hljs-keyword">int</span> loops, LoopType loopType)
 
-<span class="hljs-comment">//loops：循环次数</span>
-<span class="hljs-comment">//loopType：循环类型</span>
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>LoopType</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Yoyo</td>
-<td>类似NGUI动画的PingPang，正放播完然后倒放</td>
-</tr>
-<tr>
-<td>Restart</td>
-<td>正向播放完毕，从头开始重新播放</td>
-</tr>
-<tr>
-<td>Incremental</td>
-<td>增量，动画目标状态越来越强</td>
-</tr>
-</tbody>
-</table>
-<pre class="highlight"><code class="C#">transform.DOScale (<span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>),<span class="hljs-number">1f</span>);
+<ul>
+<li><p><code>DOTween.PausedTweens()</code></p>
+<p>  返回所有被暂停的动画</p>
+</li>
+<li><p><code>DOTween.PlayingTweens()</code></p>
+<p>  返回所有正在播放的动画</p>
+</li>
+<li><p><code>DOTween.TweensById()</code></p>
+<p>  返回目标ID的所有动画</p>
+<pre><code class="lang-C#">  //true表示只收集正在播放的动画
+  DOTween.TweensById(&quot;id&quot;, true);
 </code></pre>
 </li>
-<li>
-<p><code>Tweener.SetSpeedBased()</code></p>
-<p>动画的播放以速度为基准，这样做的好处是不用再关心时间</p>
-<pre class="highlight"><code class="C#"><span class="hljs-comment">//原本表示持续时间的第二个参数，就变成表示速度的参数，每秒移动的单位数</span>
-<span class="hljs-comment">//直到到达目的地动画才播放结束</span>
-transform.DOMove(Vector3.one, <span class="hljs-number">2</span>).SetSpeedBased();
+<li><p><code>DOTween.TweensByTarget()</code></p>
+<p>  返回目标transform的动画数组</p>
+<pre><code class="lang-C#">  //true表示只收集正在播放的动画
+  DOTween.TweensByTarget(this.transform, true);
 </code></pre>
 </li>
-<li>
-<p><code>Tweener.SetRelative()</code></p>
-<p>设置动画目标向量为相对向量(相对于自身transform，如果transform的位移旋转都是0，缩放是1，那么效果都一样)</p>
-<pre class="highlight"><code class="C#">transform.DOMove(Vector3.one, <span class="hljs-number">2</span>).SetRelative(<span class="hljs-literal">true</span>);
+<li><p><code>DOTWeen.IsTweening()</code></p>
+<p>  返回目标transform是否右动画在活动</p>
+<pre><code class="lang-C#">  //true表示只检测正在播放的动画
+  DOTween.IsTweening(transform,true);
 </code></pre>
-</li>
-<li>
-<p><code>Tweener.SetRecyclable()</code></p>
-<p>是否可回收，若为true则动画播放完毕后不会立即销毁，而是被缓存下来</p>
-<pre class="highlight"><code class="C#">transform.DOMove(Vector3.one, <span class="hljs-number">2</span>).SetRecyclable(<span class="hljs-literal">true</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Tweener.SetAutoKill()</code></p>
-<p>是否自动销毁动画，默认为true</p>
-<pre class="highlight"><code class="C#">transform.DOMove(Vector3.one, <span class="hljs-number">1</span>).SetAutoKill(<span class="hljs-literal">false</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Tweener.SetId()</code></p>
-<p>给动画打tag，方便查找到该动画</p>
-<pre class="highlight"><code class="C#">transform.DOMove(Vector3.one, <span class="hljs-number">2</span>).SetId(<span class="hljs-string">"Move"</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Tweener.SetAs()</code></p>
-<pre class="highlight"><code class="C#">TweenParams <span class="hljs-keyword">params</span> = <span class="hljs-keyword">new</span> TweenParams();
-transform.DOMove(Vector3.one, <span class="hljs-number">2</span>).SetAs(<span class="hljs-keyword">params</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Tweener.SetUpdate()</code></p>
-<p>设置动画的帧函数</p>
-<pre class="highlight"><code class="C#"><span class="hljs-comment">//参数1：在哪个帧更新方法中播放动画</span>
-<span class="hljs-comment">//参数2：是否忽略Time.timeScale</span>
-transform.DOMove(Vector3.one, <span class="hljs-number">2</span>).SetUpdate(UpdateType.Normal, <span class="hljs-literal">true</span>);
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>UpdateType</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UpdateType.Normal</td>
-<td>Update中更新</td>
-</tr>
-<tr>
-<td>UpdateType.Late</td>
-<td>LateUpdate中更新</td>
-</tr>
-<tr>
-<td>UpdateType.Fixed</td>
-<td>FixedUpdate中更新</td>
-</tr>
-<tr>
-<td>UpdateType.Manual</td>
-<td>DOTween.ManualUpdate中</td>
-</tr>
-</tbody>
-</table>
 </li>
 </ul>
-</details>
-<details>
-<summary><font size= 3>Tweener播放</font></summary>
-<ul>
-<li>
-<p><code>Tweener.From()</code></p>
-<p>从目标动画过渡到当前动画</p>
-<p><strong>API：</strong></p>
-<pre class="highlight"><code class="C#">From(<span class="hljs-keyword">bool</span> isRelative);
-<span class="hljs-comment">//isRelative:是否是相对位置（局部坐标），默认是false</span>
-</code></pre>
-<pre class="highlight"><code class="C#"><span class="hljs-comment">//从10,10,10的位置移动到当前坐标</span>
-transform.DOMoveZ(<span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>),<span class="hljs-number">0.5f</span>).Form();
-</code></pre>
-</li>
-<li>
-<p><code>Tweener.Play()</code>、<code>Tweener.Pause()</code></p>
-<p>动画的播放和暂停</p>
-</li>
-<li>
-<p><code>Tweener.Restart()</code></p>
-<p>动画重播</p>
-</li>
-<li>
-<p><code>Tweener.Rewind()</code></p>
-<p>动画倒播</p>
-</li>
-<li>
-<p><code>Tweener.SmoothRewind()</code></p>
-<p>动画循环倒播</p>
-</li>
-<li>
-<p><code>Tweener.PlayForward()</code>、<code>Tweener.PlayBackwards()</code></p>
-<p>动画的前放和倒放，在动画播放到一半时执行</p>
-</li>
-<li>
-<p><code>Tweener.Kill()</code></p>
-<p>动画销毁</p>
-</li>
-<li>
-<p><code>Tweener.Flips()</code></p>
-<p>翻转此动画的方向（如果向前，则向后翻转，反之亦然）</p>
-</li>
-<li>
-<p><code>Tweener.TogglePause()</code></p>
-<p>当暂停时，执行就继续播放，播放时，执行就暂停</p>
 </li>
 </ul>
-</details>
-<details>
-<summary><font size= 3>Tweener获取数据</font></summary>
-<ul>
-<li>
-<p><code>Tweener.fullPosition</code></p>
-<p>获得属性，动画执行的时间</p>
-</li>
-<li>
-<p><code>Tweener.CompletedLoops()</code></p>
-<p>获得动画循环完成的次数</p>
-</li>
-<li>
-<p><code>Tweener.Loops()</code></p>
-<p>返回动画循环次数，无限循环返回Infinity</p>
-</li>
-<li>
-<p><code>Tweener.Delay()</code></p>
-<p>获得动画的延迟时间</p>
-</li>
-<li>
-<p><code>Tweener.Dration()</code></p>
-<p>true时获得动画的持续时间,false时返回Infinity</p>
-</li>
-<li>
-<p><code>Tweener.Elapsed()</code></p>
-<p>获得动画已经播放的时间</p>
-</li>
-<li>
-<p><code>Tweener.ElapsedDirectionalPercentage()</code></p>
-<p>获得动画进度的百分比</p>
-</li>
-<li>
-<p><code>Tweener.IsActive()</code></p>
-<p>动画是否在活动</p>
-</li>
-<li>
-<p><code>Tweener.IsComplete()</code></p>
-<p>动画是否播放完毕</p>
-</li>
-<li>
-<p><code>Tweener.IsBackwards()</code></p>
-<p>是否是倒放动画</p>
-</li>
-<li>
-<p><code>Tweener.IsPlaying()</code></p>
-<p>动画是否在播放</p>
-</li>
-</ul>
-</details>
-<details>
-<summary><font size= 3>transform拓展方法</font></summary>
-<ul>
-<li>
-<p><code>transform.DOMove()</code>、<code>transform.DOLocalMove()</code></p>
-<p>transform的拓展方法，在时间内将一个向量变化到另一个向量，相对于To方法要更简单一些，但仅对向量支持。对于UI的控制应该使用DOLocalMove方法</p>
-<p>此外还有沿坐标轴变化的方法DOMoveX()，DOMoveY()，DOMoveZ()以及旋转DORotate()和缩放DOScal()等都是一个用法这里不再展示</p>
-<p><strong>API：</strong></p>
-<pre class="highlight"><code class="C#">DOMove(Vector3 endValue, <span class="hljs-keyword">float</span> duration, <span class="hljs-keyword">bool</span> snapping = <span class="hljs-literal">false</span>);
-DOLocalMove(Vector3 endValue, <span class="hljs-keyword">float</span> duration, <span class="hljs-keyword">bool</span> snapping = <span class="hljs-literal">false</span>);
+<pre><code>* `DOTween.TotalPlayingTweens()`
 
-<span class="hljs-comment">//endValue：目标值</span>
-<span class="hljs-comment">//dration：时间间隔</span>
-<span class="hljs-comment">//snapping：如果为true，补间动画将平稳地将所有值捕捉为整数</span>
-</code></pre>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> GameObject obj;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    <span class="hljs-comment">//2s内沿着世界z坐标移动5个单位</span>
-    obj.transform.DOMove(Vector3.forward * <span class="hljs-number">5f</span>, <span class="hljs-number">2f</span>);
-    <span class="hljs-comment">//2s内沿着自身z坐标移动5个单位</span>
-    obj.transform.DOLocalMove(Vector3.forward * <span class="hljs-number">5f</span>, <span class="hljs-number">2f</span>);
-&#125;
-</code></pre>
-</li>
-<li>
-<p><code>transform.DOPlayBackwards()</code>、<code>transform.DOPlayForwardwards()</code></p>
-<p>动画的倒放和前放，注意DOPlayBackwards()需要配合DOPlayForwardwards()使用，即倒放后想要再接着前方应该使用DOPlayForwardwards()，而不用Play()方法，</p>
-<p>倒放和前放是对动画的复用，因此使用前应该先SetAutoKill(false)，否则将导致失效。</p>
-<p>下面举了一个通过按钮控制Panel进出的例子</p>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> RectTransform panel;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">bool</span> isIn = <span class="hljs-literal">false</span>;
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    <span class="hljs-comment">//关闭自动销毁</span>
-    Tweener tweener = panel.DOLocalMove(<span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>),<span class="hljs-number">0.5f</span>).SetAutoKill(<span class="hljs-literal">false</span>);
-    <span class="hljs-comment">//在Start中初始化动画不要忘了暂停掉</span>
-    tweener.Pause();
-&#125;
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnClick</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    <span class="hljs-comment">//如果panel还没进来则前放动画</span>
-    <span class="hljs-keyword">if</span>(!isIn)
-    &#123;
-        panel.DOPlayerForward();
-        isIn = <span class="hljs-literal">true</span>;
-    &#125;
-    <span class="hljs-comment">//否则倒放动画</span>
-    <span class="hljs-keyword">else</span>
-    &#123;
-        panel.DOPlayerBackward();
-        isIn = <span class="hljs-literal">false</span>;
-    &#125;
-&#125;
-</code></pre>
-</li>
-<li>
-<p><code>transform.DOShakeRotation()</code>、<code>transform.DOShakePosition()</code>、<code>DOShakeScale()</code></p>
-<p>震动效果</p>
-<p><strong>API：</strong></p>
-<pre class="highlight"><code class="C#">DOShakeRotation(<span class="hljs-keyword">float</span> duration, <span class="hljs-keyword">float</span> strength, <span class="hljs-keyword">int</span> vibrato, <span class="hljs-keyword">float</span> randomness)
-DOShakeRotation(<span class="hljs-keyword">float</span> duration, Vector3 strength, <span class="hljs-keyword">int</span> vibrato, <span class="hljs-keyword">float</span> randomness)
+    返回正在播放的动画的总数，目前处于延迟播放状态的动画也算
+</code></pre><p>  &lt;/details&gt;</p>
+  <details>
+  <summary><font size= 3>Tweener设置</font></summary>
 
-<span class="hljs-comment">//duration：时间间隔</span>
-<span class="hljs-comment">//strength：震动强度，如果用Vector3则分别表示x，y，z方向上的震动强度</span>
-<span class="hljs-comment">//vibrato：震动次数</span>
-<span class="hljs-comment">//randomness：改变震动方向的随机值（大小：0~180）</span>
-</code></pre>
-</li>
-<li>
-<p><code>transform.DOPunchPosition()</code>、<code>transform.DOPunchRotation()</code>、<code>transform.DOPunchScale()</code></p>
-<p>Punch意思就是振动（高中的那种曲线），朝着给定的方向变化，然后再变化到开始的位置，就好像它是弹簧一样的效果</p>
-<p><strong>API：</strong></p>
-<pre class="highlight"><code class="C#">DOPunchPosition(Vector3 punch, <span class="hljs-keyword">float</span> duration, <span class="hljs-keyword">int</span> vibrato, <span class="hljs-keyword">float</span> elasticity, <span class="hljs-keyword">bool</span> snapping)
+    * `Tweener.SetEase()`
 
-<span class="hljs-comment">//punch的方向，模长表示强度</span>
-<span class="hljs-comment">//duration：时间间隔</span>
-<span class="hljs-comment">//vibrato：punch的次数</span>
-<span class="hljs-comment">//elasticity：弹性表示向后弹跳时向量将超出起始位置多少（0到1），1在Punch方向和相反方向之间振动，而0仅在Punch方向和开始位置之间振动</span>
-<span class="hljs-comment">//snapping：如果为true，补间动画将平稳地将所有值捕捉为整数</span>
-</code></pre>
-<p>这里直接用Andy老师的图了：</p>
-<p><img src="punch.png" alt="img" style="max-width:100%;"  /></p>
+        设置动画的过渡曲线
+
+        **API：**
+
+        ```C#
+        SetEase(Ease ease);
+        //ease：枚举类型，使用某种动画的变化曲线
+        ```
+        ```C#
+        //设置一个InBack曲线
+        transform.DOLocalMoveX(5, 5f).SetEase(Ease.InBack);
+        ```
+
+        常用的Ease曲线可以看[缓动函数详解](https://www.xuanfengge.com/easeing/easeing/)和[Ease效果示例](https://blog.csdn.net/qq_44119541/article/details/107397494)
+
+    * `Tweener.SetDelay()`
+
+        设置动画延迟播放
+        ```C#
+        //0.5s后向右移动
+        transform.DOLocalMoveX(5, 5f).SetDelay(0.5f);
+        ```
+    * `Tweener.SetLoops()`
+
+        设置循环播放（当参数为-1的时候无限循环播放；当参数>=0的时候则表示循环的次数；0的时候表示循环一次）
+
+        **API：**
+
+        ```C#
+        SetLoops(int loops)
+        SetLoops(int loops, LoopType loopType)
+
+        //loops：循环次数
+        //loopType：循环类型
+        ```
+
+        LoopType | 描述
+        ----- | -----
+        Yoyo | 类似NGUI动画的PingPang，正放播完然后倒放
+        Restart | 正向播放完毕，从头开始重新播放
+        Incremental | 增量，动画目标状态越来越强
+
+        ```C#
+        transform.DOScale (new Vector3(2,2,1),1f);
+        ```
+
+    * `Tweener.SetSpeedBased()`
+
+        动画的播放以速度为基准，这样做的好处是不用再关心时间
+
+        ```C#
+        //原本表示持续时间的第二个参数，就变成表示速度的参数，每秒移动的单位数
+        //直到到达目的地动画才播放结束
+        transform.DOMove(Vector3.one, 2).SetSpeedBased();
+        ```
+    * `Tweener.SetRelative()`
+
+        设置动画目标向量为相对向量(相对于自身transform，如果transform的位移旋转都是0，缩放是1，那么效果都一样)
+
+        ```C#
+        transform.DOMove(Vector3.one, 2).SetRelative(true);
+        ```
+    * `Tweener.SetRecyclable()`
+
+        是否可回收，若为true则动画播放完毕后不会立即销毁，而是被缓存下来
+
+        ```C#
+        transform.DOMove(Vector3.one, 2).SetRecyclable(true);
+        ```
+
+    * `Tweener.SetAutoKill()`
+
+        是否自动销毁动画，默认为true
+
+        ```C#
+        transform.DOMove(Vector3.one, 1).SetAutoKill(false);
+        ```
+
+    * `Tweener.SetId()`
+
+        给动画打tag，方便查找到该动画
+
+        ```C#
+        transform.DOMove(Vector3.one, 2).SetId("Move");
+        ```
+
+    * `Tweener.SetAs()`
+
+        ```C#
+        TweenParams params = new TweenParams();
+        transform.DOMove(Vector3.one, 2).SetAs(params);
+        ```
+
+    * `Tweener.SetUpdate()`
+
+        设置动画的帧函数
+
+        ```C#
+        //参数1：在哪个帧更新方法中播放动画
+        //参数2：是否忽略Time.timeScale
+        transform.DOMove(Vector3.one, 2).SetUpdate(UpdateType.Normal, true);
+        ```
+
+        UpdateType|描述
+        -----|-----
+        UpdateType.Normal|Update中更新
+        UpdateType.Late|LateUpdate中更新
+        UpdateType.Fixed|FixedUpdate中更新
+        UpdateType.Manual|DOTween.ManualUpdate中
+  </details>
+
+  <details>
+  <summary><font size= 3>Tweener播放</font></summary>
+
+    * `Tweener.From()`
+
+        从目标动画过渡到当前动画
+
+        **API：**
+        ```C#
+        From(bool isRelative);
+        //isRelative:是否是相对位置（局部坐标），默认是false
+        ```
+
+
+        ```C#
+        //从10,10,10的位置移动到当前坐标
+        transform.DOMoveZ(new Vector3(10,10,10),0.5f).Form();
+        ```
+
+    * `Tweener.Play()`、`Tweener.Pause()`
+
+        动画的播放和暂停
+
+    * `Tweener.Restart()`
+
+        动画重播
+
+    * `Tweener.Rewind()`
+
+        动画倒播
+
+    * `Tweener.SmoothRewind()`
+
+        动画循环倒播
+
+    * `Tweener.PlayForward()`、`Tweener.PlayBackwards()`
+
+        动画的前放和倒放，在动画播放到一半时执行
+
+    * `Tweener.Kill()`
+
+        动画销毁
+
+    * `Tweener.Flips()`
+
+        翻转此动画的方向（如果向前，则向后翻转，反之亦然）
+
+    * `Tweener.TogglePause()`
+
+         当暂停时，执行就继续播放，播放时，执行就暂停
+  </details>
+
+  <details>
+  <summary><font size= 3>Tweener获取数据</font></summary>
+
+    * `Tweener.fullPosition`
+
+        获得属性，动画执行的时间
+
+    * `Tweener.CompletedLoops()`
+
+        获得动画循环完成的次数
+
+    * `Tweener.Loops()`
+
+        返回动画循环次数，无限循环返回Infinity
+
+    * `Tweener.Delay()`
+
+        获得动画的延迟时间
+
+    * `Tweener.Dration()`
+
+        true时获得动画的持续时间,false时返回Infinity
+
+    * `Tweener.Elapsed()`
+
+        获得动画已经播放的时间
+
+    * `Tweener.ElapsedDirectionalPercentage()`
+
+        获得动画进度的百分比
+
+    * `Tweener.IsActive()`
+
+        动画是否在活动
+
+    * `Tweener.IsComplete()`
+
+        动画是否播放完毕
+
+    * `Tweener.IsBackwards()`
+
+        是否是倒放动画
+
+    * `Tweener.IsPlaying()`
+
+        动画是否在播放
+  </details>
+
+  <details>
+  <summary><font size= 3>transform拓展方法</font></summary>
+
+    * `transform.DOMove()`、`transform.DOLocalMove()`
+
+        transform的拓展方法，在时间内将一个向量变化到另一个向量，相对于To方法要更简单一些，但仅对向量支持。对于UI的控制应该使用DOLocalMove方法
+
+        此外还有沿坐标轴变化的方法DOMoveX()，DOMoveY()，DOMoveZ()以及旋转DORotate()和缩放DOScal()等都是一个用法这里不再展示
+
+        **API：**
+        ```C#
+        DOMove(Vector3 endValue, float duration, bool snapping = false);
+        DOLocalMove(Vector3 endValue, float duration, bool snapping = false);
+
+        //endValue：目标值
+        //dration：时间间隔
+        //snapping：如果为true，补间动画将平稳地将所有值捕捉为整数
+        ```
+        ```C#
+        public GameObject obj;
+        void Start()
+        {
+            //2s内沿着世界z坐标移动5个单位
+            obj.transform.DOMove(Vector3.forward * 5f, 2f);
+            //2s内沿着自身z坐标移动5个单位
+            obj.transform.DOLocalMove(Vector3.forward * 5f, 2f);
+        }
+        ```
+    * `transform.DOPlayBackwards()`、`transform.DOPlayForwardwards()`
+
+        动画的倒放和前放，注意DOPlayBackwards()需要配合DOPlayForwardwards()使用，即倒放后想要再接着前方应该使用DOPlayForwardwards()，而不用Play()方法，
+
+        倒放和前放是对动画的复用，因此使用前应该先SetAutoKill(false)，否则将导致失效。
+
+        下面举了一个通过按钮控制Panel进出的例子
+        ```C#
+        public RectTransform panel;
+        private bool isIn = false;
+        void Start()
+        {
+            //关闭自动销毁
+            Tweener tweener = panel.DOLocalMove(new Vector3(0,0,0),0.5f).SetAutoKill(false);
+            //在Start中初始化动画不要忘了暂停掉
+            tweener.Pause();
+        }
+        public void OnClick()
+        {
+            //如果panel还没进来则前放动画
+            if(!isIn)
+            {
+                panel.DOPlayerForward();
+                isIn = true;
+            }
+            //否则倒放动画
+            else
+            {
+                panel.DOPlayerBackward();
+                isIn = false;
+            }
+        }
+        ```
+
+    * `transform.DOShakeRotation()`、`transform.DOShakePosition()`、`DOShakeScale()`
+
+        震动效果
+
+        **API：**
+        ```C#
+        DOShakeRotation(float duration, float strength, int vibrato, float randomness)
+        DOShakeRotation(float duration, Vector3 strength, int vibrato, float randomness)
+
+        //duration：时间间隔
+        //strength：震动强度，如果用Vector3则分别表示x，y，z方向上的震动强度
+        //vibrato：震动次数
+        //randomness：改变震动方向的随机值（大小：0~180）
+        ```
+
+    * `transform.DOPunchPosition()`、`transform.DOPunchRotation()`、`transform.DOPunchScale()`
+
+        Punch意思就是振动（高中的那种曲线），朝着给定的方向变化，然后再变化到开始的位置，就好像它是弹簧一样的效果
+
+        **API：**
+
+        ```C#
+        DOPunchPosition(Vector3 punch, float duration, int vibrato, float elasticity, bool snapping)
+
+        //punch的方向，模长表示强度
+        //duration：时间间隔
+        //vibrato：punch的次数
+        //elasticity：弹性表示向后弹跳时向量将超出起始位置多少（0到1），1在Punch方向和相反方向之间振动，而0仅在Punch方向和开始位置之间振动
+        //snapping：如果为true，补间动画将平稳地将所有值捕捉为整数
+        ```
+        这里直接用Andy老师的图了：
+
+        ![img](punch.png)
+
+        * `Tweener.Play()`、`Tweener.Pause()`
+
+        此transform上所有动画的播放和暂停
+
+    * `transform.DORestart()`
+
+        此transform上所有动画重播
+
+    * `transform.DORewind()`
+
+        此transform上所有动画倒播
+
+    * `transform.DOSmoothRewind()`
+
+        此transform上所有动画循环倒播
+
+    * `transform.DOPlayForward()`、`transform.DOPlayBackwards()`
+
+        此transform上所有动画的前放和倒放，在动画播放到一半时执行
+
+    * `transform.DOKill()`
+
+        此transform上所有动画销毁
+
+    * `transform.DOFlips()`
+
+        翻转此transform上所有动画的方向（如果向前，则向后翻转，反之亦然）
+  </details>
+
+  <details>
+  <summary><font size= 3>Text拓展方法</font></summary>
+
+    * `Text.DOText()`
+
+        设置文字在时间内逐个显示，注意如果原本已经存在文字将不会立即清除，而是逐个替换
+        ```C#
+        text.DOText("这是一段逐帧显示的文字", 2f);
+        ```
+    * `Text.DOColor()`
+
+        时间内改变颜色
+        ```C#
+        text.DOColor(Color.red, 2);
+        ```
+    * `Text.DOFade()`
+
+        时间内透明度渐变
+        ```C#
+        text.DOFade(0,2);
+        ```
+  </details>
+
+  <details>
+  <summary><font size= 3>Camera拓展方法</font></summary>
+
+    * `Camera.DOAspect()`
+
+        调整屏幕视角的宽高比 第一个参数是宽高的比值
+
+        ```C#
+        camera.DOAspect(0.6f, 2);
+        ```
+    * `Camera.DOColor()`
+
+        改变相机background参数的颜色
+
+        ```C#
+        camera.DOColor(Color.blue, 2);
+        ```
+
+    * `Camera.DONearClipPlane()`、`Camera.DOFarClipPlane()`
+
+        改变相机改变相机近切面、远切面的值
+
+        ```C#
+        camera.DONearClipPlane(100, 2);
+        camera.DOFarClipPlane(1000, 2);
+        ```
+
+    * `Camera.DOFieldOfView()`
+
+        改变相机FOV的值
+
+        ```C#
+        camera.DOFieldOfView(30, 2);
+        ```
+
+    * `Camera.camera.DOOrthoSize()`
+
+        改变相机正交大小
+
+        ```C#
+        camera.DOOrthoSize(10, 2);
+        ```
+
+    * `Camera.DOPixelRect()`、`Camera.DORect()`
+
+        按照屏幕像素计算、百分比计算显示范围
+
+        ```C#
+        camera.DOPixelRect(new Rect(0f, 0f, 500f, 500f), 2);
+        camera.DORect(new Rect(0.5f, 0.5f, 0.5f, 0.5f), 2);
+        ```
+  </details>
+
+  <details>
+  <summary><font size= 3>Material拓展方法</font></summary>
+
+    * `Material.DOColor()`
+
+        改变颜色
+
+        ```C#
+        material.DOColor(Color.black, 2);
+        material.DOColor(Color.black, "Color" , 2);//按照shader的属性修改颜色
+        ```
+
+    * `Material.DOFade()`
+
+        修改透明度
+
+        ```C#
+        material.DOFade(0, 2);
+        ```
+
+    * `Material.DOGradientColor()`
+
+        颜色的渐变
+
+        ```C#
+        public Gradient gradient;
+        //....
+        //....
+        //Gradient是暴露在Inspector下的渐变编辑器
+        material.DOGradientColor(gradient, "Color", 3);
+        ```
+        ![img](Gradient.png)
+
+    * `Material.DOOffset()`、`Material.DOTiling()`
+
+        修改材质的Offset和Tiling
+        ```C#
+        material.DOOffset(new Vector2(1, 1), 2f);
+        material.DOTiling(new Vector2(1, 1), 2f);
+        ```
+    * `Material.DOVector`
+
+        修改Vector4的值
+
+        ```C#
+         material.DOVector(new Vector4(0, 0, 0, 1), "Color", 3f);
+        ```
+  </details>
+
+  <details>
+  <summary><font size= 3>AudioSource拓展方法</font></summary>
+
+    * `AudioSource.DOFade()`
+
+        音量渐变
+
+        ```C#
+        audioSource.DOFade(0.5f,3f);
+        ```
+
+    * `AudioSource.DOPitch()`
+
+        设置音调
+
+        ```C#
+        audioSource.DOPitch(0.5f,3f);
+        ```
+  </details>
+
+  <details>
+  <summary><font size= 3>Light拓展方法</font></summary>
+
+    * `Light.DOColor()`
+
+        灯光颜色渐变
+
+        ```C#
+        light.DOColor(Color.red,5f);
+        ```
+
+    * `Light.DOIntensity()`
+
+        灯光强度渐变
+
+        ```C#
+        light.DOIntensity(1.2f,5f);
+        ```
+
+    * `Light.DOShadowStrength()`
+
+        阴影强度渐变
+
+        ```C#
+        light.DOShadowStrength(1.2f,5f);
+        ```
+  </details>
+
+  <details>
+  <summary><font size= 3>Rigidbody/Rigidbody2D拓展方法</font></summary>
+
+    * `Rigidbody.DOMove() /DOMoveX/DOMoveY/DOMoveZ`
+
+        将目标位置移动到给定值
+
+    * `Rigidbody.DORotate()`
+
+        将目标旋转到给定值
+
+    * `Rigidbody.LookAt()`
+
+        旋转，使其朝向目标位置
+
+    * `Rigidbody.Jump()`
+
+        将目标位置补间到给定值，同时还沿Y轴应用跳跃效果
+
+        ```C#
+        //向前跳跃，跳跃距离为5，跳跃高度为7，2s内完成跳跃
+        rigidbody.Jump(this.transform.forward*5,7f,2f);
+        ```
+
+    * `Rigidbody.Path()`、`Rigidbody.LocalPath()`
+
+        position使用选定的路径算法，在给定路径航路点之间补间刚体，其他选项可通过SetOptions和SetLookAt获得
+  </details>
+
+  <details>
+  <summary><font size= 3>Blend混合动画</font></summary>
+
+    带Blend的方法，将允许混合动画,将多个个动画效果混合执行
+
+    * `Light.DOBlendableColor()`
+
+        灯光颜色混合
+
+    * `Material.DOBlendableColor()`
+
+        材质颜色混合
+
+        ```C#
+        material.DOBlendableColor(Color.red, "Color", 3f);
+        ```
+    * `transform.DOBlendableMoveBy()`、`transform.DOBlendableLocalMoveBy()`
+
+        移动混合
+        ```C#
+        //将可以看到一个蛇形前进的效果
+        transform.DOBlendableMoveBy(new Vector3(3, 3, 0), 3);
+        transform.DOBlendableMoveBy(new Vector3(-3, 0, 0), 1f).SetLoops(3, LoopType.Yoyo);
+        ```
+
+    * `transform.DOBlendableRotateBy()`、`transform.DOBlendableLocalRotateBy()`
+
+        混合旋转
+
+    * `transform.DOBlendableScaleBy()`
+
+        混合缩放
+  </details>
+
+  <details>
+  <summary><font size= 3>Sequence补间动画序列</font></summary>
+
+    **Sequence的声明：**
+    ```C#
+    Sequence sequence = DOTween.Sequence();
+    ```
+
+    * `Sequence.Append()`
+
+        添加动画到序列
+
+        ```C#
+        sequence.Append(transform.DOMove(Vector3.forward*5f, 2f));
+        ```
+    * `Sequence.AppendInterval()`
+
+        添加序列时间间隔
+
+        ```C#
+        sequence.AppendInterval(0.5f);
+        ```
+
+    * `Sequence.Insert()`
+
+        在某时间点内插入动画（执行该动画）
+
+        ```C#
+        //把DOMoveX动画添加到此队列的0秒时执行，虽然它不是最先添加进队列的
+        sequence.Insert(0, transform.DOMoveX(5f,1f));
+        ```
+
+    * `Sequence.Join()`
+
+        将给定动画插入到添加到Sequence中的最后一个补间或回调的相同时间位置（与当前正在执行的动画一起执行）
+
+        ```C#
+        //DORotate将与DOMoveX一起播放
+        sequence.Append(transform.DOMoveX(45, 1));
+        sequence.Join(transform.DORotate(new Vector3(0,180,0), 1));
+        ```
+
+    * `Sequence.Prepend()`
+
+        预添加，将给定的动画添加到Sequence的开头，注意预添加的动画永远会在Append的动画前面，不管是先Append还是预添加后再Append
+
+        ```C#
+        Sequence.Prepend(transform.DORotate(new Vector3(0,180,0), 1));
+        ```
+    * `Sequence.PrependInterval()`
+
+        预添加时间间隔
+
+        ```C#
+        sequence.PrependInterval(1f);
+        ```
+
+    * `Sequence.PrependCallback()`、`Sequence.InsertCallback()`、`Sequence.AppendCallback()`
+
+        预添加回调、插入回调、添加回调
+
+        ```C#
+        sequence.PrependCallback(PreCallBack);
+        sequence.InsertCallback(0, InsertCallBack);
+        sequence.AppendCallback(CallBack);
+        ```
+  </details>
+
+  <details>
+  <summary><font size= 3>协程返回值</font></summary>
+
+    ```C#
+       private IEnumerator Wait()
+    {
+        tweener = transform.DOMove(Vector3.one, 2);
+
+      //等待动画执行完毕
+        yield return tweener.WaitForCompletion();
+
+      //等待指定的循环次数
+        yield return tweener.WaitForElapsedLoops(2);
+
+      //等待动画被杀死
+        yield return tweener.WaitForKill();
+
+       //等待动画执行指定时间
+       //参数为时间，动画执行传入的时间之后或动画执行完毕，继续执行
+        yield return tweener.WaitForPosition(0.5f);
+
+       //等待动画回退
+       //以下情况会继续执行函数
+        //1.使用DORestart重新播放时
+        //2.使用Rewind倒播动画完成时
+        //3.使用DOFlip翻转动画完成时
+        //4.使用DOPlayBackwards反向播放动画完成时
+        yield return tweener.WaitForRewind();
+
+        //等待Start执行后继续执行
+        yield return tweener.WaitForStart();
+    }
+    ```
+  </details>
+
 <ul>
-<li><code>Tweener.Play()</code>、<code>Tweener.Pause()</code></li>
-</ul>
-<p>此transform上所有动画的播放和暂停</p>
+<li><h2 id="一些注意事项"><a href="#一些注意事项" class="headerlink" title="一些注意事项"></a>一些注意事项</h2><ol>
+<li><p>每执行一个DOXXX方法就会创建一个动画，并且动画默认是 <code>自动销毁</code> 的</p>
 </li>
-<li>
-<p><code>transform.DORestart()</code></p>
-<p>此transform上所有动画重播</p>
+<li><p>在第一个动画创建后会在Hierarchy面板中创建一个 <code>[DOTween]</code> 的GameObject，记录了动画相关信息</p>
 </li>
-<li>
-<p><code>transform.DORewind()</code></p>
-<p>此transform上所有动画倒播</p>
+<li><p>动画的初始化应该尽量放在Start或者Awake，而 <code>不要放在Update中</code> ，避免多次创建动画</p>
 </li>
-<li>
-<p><code>transform.DOSmoothRewind()</code></p>
-<p>此transform上所有动画循环倒播</p>
+<li><p>在Start或Awake中初始化的动画，如果不希望一开始就使用，应该调用 <code>Pause()</code> 暂停该动画，到使用的时候再 <code>Play()</code></p>
 </li>
-<li>
-<p><code>transform.DOPlayForward()</code>、<code>transform.DOPlayBackwards()</code></p>
-<p>此transform上所有动画的前放和倒放，在动画播放到一半时执行</p>
+<li><p>在Update中创建的动画，可以使用布尔去判断该动画是否已经存在，如果已经存在则不应该再次被创建</p>
 </li>
-<li>
-<p><code>transform.DOKill()</code></p>
-<p>此transform上所有动画销毁</p>
+<li><p>关闭动画的自动销毁后，再次使用该动画时应该避免重新创建动画</p>
 </li>
-<li>
-<p><code>transform.DOFlips()</code></p>
-<p>翻转此transform上所有动画的方向（如果向前，则向后翻转，反之亦然）</p>
-</li>
-</ul>
-</details>
-<details>
-<summary><font size= 3>Text拓展方法</font></summary>
-<ul>
-<li>
-<p><code>Text.DOText()</code></p>
-<p>设置文字在时间内逐个显示，注意如果原本已经存在文字将不会立即清除，而是逐个替换</p>
-<pre class="highlight"><code class="C#">text.DOText(<span class="hljs-string">"这是一段逐帧显示的文字"</span>, <span class="hljs-number">2f</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Text.DOColor()</code></p>
-<p>时间内改变颜色</p>
-<pre class="highlight"><code class="C#">text.DOColor(Color.red, <span class="hljs-number">2</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Text.DOFade()</code></p>
-<p>时间内透明度渐变</p>
-<pre class="highlight"><code class="C#">text.DOFade(<span class="hljs-number">0</span>,<span class="hljs-number">2</span>);
-</code></pre>
-</li>
-</ul>
-</details>
-<details>
-<summary><font size= 3>Camera拓展方法</font></summary>
-<ul>
-<li>
-<p><code>Camera.DOAspect()</code></p>
-<p>调整屏幕视角的宽高比 第一个参数是宽高的比值</p>
-<pre class="highlight"><code class="C#">camera.DOAspect(<span class="hljs-number">0.6f</span>, <span class="hljs-number">2</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Camera.DOColor()</code></p>
-<p>改变相机background参数的颜色</p>
-<pre class="highlight"><code class="C#">camera.DOColor(Color.blue, <span class="hljs-number">2</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Camera.DONearClipPlane()</code>、<code>Camera.DOFarClipPlane()</code></p>
-<p>改变相机改变相机近切面、远切面的值</p>
-<pre class="highlight"><code class="C#">camera.DONearClipPlane(<span class="hljs-number">100</span>, <span class="hljs-number">2</span>);
-camera.DOFarClipPlane(<span class="hljs-number">1000</span>, <span class="hljs-number">2</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Camera.DOFieldOfView()</code></p>
-<p>改变相机FOV的值</p>
-<pre class="highlight"><code class="C#">camera.DOFieldOfView(<span class="hljs-number">30</span>, <span class="hljs-number">2</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Camera.camera.DOOrthoSize()</code></p>
-<p>改变相机正交大小</p>
-<pre class="highlight"><code class="C#">camera.DOOrthoSize(<span class="hljs-number">10</span>, <span class="hljs-number">2</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Camera.DOPixelRect()</code>、<code>Camera.DORect()</code></p>
-<p>按照屏幕像素计算、百分比计算显示范围</p>
-<pre class="highlight"><code class="C#">camera.DOPixelRect(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0f</span>, <span class="hljs-number">0f</span>, <span class="hljs-number">500f</span>, <span class="hljs-number">500f</span>), <span class="hljs-number">2</span>);
-camera.DORect(<span class="hljs-keyword">new</span> Rect(<span class="hljs-number">0.5f</span>, <span class="hljs-number">0.5f</span>, <span class="hljs-number">0.5f</span>, <span class="hljs-number">0.5f</span>), <span class="hljs-number">2</span>);
-</code></pre>
-</li>
-</ul>
-</details>
-<details>
-<summary><font size= 3>Material拓展方法</font></summary>
-<ul>
-<li>
-<p><code>Material.DOColor()</code></p>
-<p>改变颜色</p>
-<pre class="highlight"><code class="C#">material.DOColor(Color.black, <span class="hljs-number">2</span>);
-material.DOColor(Color.black, <span class="hljs-string">"Color"</span> , <span class="hljs-number">2</span>);<span class="hljs-comment">//按照shader的属性修改颜色</span>
-</code></pre>
-</li>
-<li>
-<p><code>Material.DOFade()</code></p>
-<p>修改透明度</p>
-<pre class="highlight"><code class="C#">material.DOFade(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Material.DOGradientColor()</code></p>
-<p>颜色的渐变</p>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> Gradient gradient;
-<span class="hljs-comment">//....</span>
-<span class="hljs-comment">//....</span>
-<span class="hljs-comment">//Gradient是暴露在Inspector下的渐变编辑器</span>
-material.DOGradientColor(gradient, <span class="hljs-string">"Color"</span>, <span class="hljs-number">3</span>);
-</code></pre>
-<p><img src="Gradient.png" alt="img" style="max-width:100%;"  /></p>
-</li>
-<li>
-<p><code>Material.DOOffset()</code>、<code>Material.DOTiling()</code></p>
-<p>修改材质的Offset和Tiling</p>
-<pre class="highlight"><code class="C#">material.DOOffset(<span class="hljs-keyword">new</span> Vector2(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), <span class="hljs-number">2f</span>);
-material.DOTiling(<span class="hljs-keyword">new</span> Vector2(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), <span class="hljs-number">2f</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Material.DOVector</code></p>
-<p>修改Vector4的值</p>
-<pre class="highlight"><code class="C#"> material.DOVector(<span class="hljs-keyword">new</span> Vector4(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>), <span class="hljs-string">"Color"</span>, <span class="hljs-number">3f</span>);
-</code></pre>
-</li>
-</ul>
-</details>
-<details>
-<summary><font size= 3>AudioSource拓展方法</font></summary>
-<ul>
-<li>
-<p><code>AudioSource.DOFade()</code></p>
-<p>音量渐变</p>
-<pre class="highlight"><code class="C#">audioSource.DOFade(<span class="hljs-number">0.5f</span>,<span class="hljs-number">3f</span>);
-</code></pre>
-</li>
-<li>
-<p><code>AudioSource.DOPitch()</code></p>
-<p>设置音调</p>
-<pre class="highlight"><code class="C#">audioSource.DOPitch(<span class="hljs-number">0.5f</span>,<span class="hljs-number">3f</span>);
-</code></pre>
-</li>
-</ul>
-</details>
-<details>
-<summary><font size= 3>Light拓展方法</font></summary>
-<ul>
-<li>
-<p><code>Light.DOColor()</code></p>
-<p>灯光颜色渐变</p>
-<pre class="highlight"><code class="C#">light.DOColor(Color.red,<span class="hljs-number">5f</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Light.DOIntensity()</code></p>
-<p>灯光强度渐变</p>
-<pre class="highlight"><code class="C#">light.DOIntensity(<span class="hljs-number">1.2f</span>,<span class="hljs-number">5f</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Light.DOShadowStrength()</code></p>
-<p>阴影强度渐变</p>
-<pre class="highlight"><code class="C#">light.DOShadowStrength(<span class="hljs-number">1.2f</span>,<span class="hljs-number">5f</span>);
-</code></pre>
-</li>
-</ul>
-</details>
-<details>
-<summary><font size= 3>Rigidbody/Rigidbody2D拓展方法</font></summary>
-<ul>
-<li>
-<p><code>Rigidbody.DOMove() /DOMoveX/DOMoveY/DOMoveZ</code></p>
-<p>将目标位置移动到给定值</p>
-</li>
-<li>
-<p><code>Rigidbody.DORotate()</code></p>
-<p>将目标旋转到给定值</p>
-</li>
-<li>
-<p><code>Rigidbody.LookAt()</code></p>
-<p>旋转，使其朝向目标位置</p>
-</li>
-<li>
-<p><code>Rigidbody.Jump()</code></p>
-<p>将目标位置补间到给定值，同时还沿Y轴应用跳跃效果</p>
-<pre class="highlight"><code class="C#"><span class="hljs-comment">//向前跳跃，跳跃距离为5，跳跃高度为7，2s内完成跳跃</span>
-rigidbody.Jump(<span class="hljs-keyword">this</span>.transform.forward*<span class="hljs-number">5</span>,<span class="hljs-number">7f</span>,<span class="hljs-number">2f</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Rigidbody.Path()</code>、<code>Rigidbody.LocalPath()</code></p>
-<p>position使用选定的路径算法，在给定路径航路点之间补间刚体，其他选项可通过SetOptions和SetLookAt获得</p>
-</li>
-</ul>
-</details>
-<details>
-<summary><font size= 3>Blend混合动画</font></summary>
-<p>带Blend的方法，将允许混合动画,将多个个动画效果混合执行</p>
-<ul>
-<li>
-<p><code>Light.DOBlendableColor()</code></p>
-<p>灯光颜色混合</p>
-</li>
-<li>
-<p><code>Material.DOBlendableColor()</code></p>
-<p>材质颜色混合</p>
-<pre class="highlight"><code class="C#">material.DOBlendableColor(Color.red, <span class="hljs-string">"Color"</span>, <span class="hljs-number">3f</span>);
-</code></pre>
-</li>
-<li>
-<p><code>transform.DOBlendableMoveBy()</code>、<code>transform.DOBlendableLocalMoveBy()</code></p>
-<p>移动混合</p>
-<pre class="highlight"><code class="C#"><span class="hljs-comment">//将可以看到一个蛇形前进的效果</span>
-transform.DOBlendableMoveBy(<span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>), <span class="hljs-number">3</span>);
-transform.DOBlendableMoveBy(<span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">-3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">1f</span>).SetLoops(<span class="hljs-number">3</span>, LoopType.Yoyo);
-</code></pre>
-</li>
-<li>
-<p><code>transform.DOBlendableRotateBy()</code>、<code>transform.DOBlendableLocalRotateBy()</code></p>
-<p>混合旋转</p>
-</li>
-<li>
-<p><code>transform.DOBlendableScaleBy()</code></p>
-<p>混合缩放</p>
-</li>
-</ul>
-</details>
-<details>
-<summary><font size= 3>Sequence补间动画序列</font></summary>
-<p><strong>Sequence的声明：</strong></p>
-<pre class="highlight"><code class="C#">Sequence sequence = DOTween.Sequence();
-</code></pre>
-<ul>
-<li>
-<p><code>Sequence.Append()</code></p>
-<p>添加动画到序列</p>
-<pre class="highlight"><code class="C#">sequence.Append(transform.DOMove(Vector3.forward*<span class="hljs-number">5f</span>, <span class="hljs-number">2f</span>));
-</code></pre>
-</li>
-<li>
-<p><code>Sequence.AppendInterval()</code></p>
-<p>添加序列时间间隔</p>
-<pre class="highlight"><code class="C#">sequence.AppendInterval(<span class="hljs-number">0.5f</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Sequence.Insert()</code></p>
-<p>在某时间点内插入动画（执行该动画）</p>
-<pre class="highlight"><code class="C#"><span class="hljs-comment">//把DOMoveX动画添加到此队列的0秒时执行，虽然它不是最先添加进队列的</span>
-sequence.Insert(<span class="hljs-number">0</span>, transform.DOMoveX(<span class="hljs-number">5f</span>,<span class="hljs-number">1f</span>));
-</code></pre>
-</li>
-<li>
-<p><code>Sequence.Join()</code></p>
-<p>将给定动画插入到添加到Sequence中的最后一个补间或回调的相同时间位置（与当前正在执行的动画一起执行）</p>
-<pre class="highlight"><code class="C#"><span class="hljs-comment">//DORotate将与DOMoveX一起播放</span>
-sequence.Append(transform.DOMoveX(<span class="hljs-number">45</span>, <span class="hljs-number">1</span>));
-sequence.Join(transform.DORotate(<span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>,<span class="hljs-number">180</span>,<span class="hljs-number">0</span>), <span class="hljs-number">1</span>));
-</code></pre>
-</li>
-<li>
-<p><code>Sequence.Prepend()</code></p>
-<p>预添加，将给定的动画添加到Sequence的开头，注意预添加的动画永远会在Append的动画前面，不管是先Append还是预添加后再Append</p>
-<pre class="highlight"><code class="C#">Sequence.Prepend(transform.DORotate(<span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>,<span class="hljs-number">180</span>,<span class="hljs-number">0</span>), <span class="hljs-number">1</span>));
-</code></pre>
-</li>
-<li>
-<p><code>Sequence.PrependInterval()</code></p>
-<p>预添加时间间隔</p>
-<pre class="highlight"><code class="C#">sequence.PrependInterval(<span class="hljs-number">1f</span>);
-</code></pre>
-</li>
-<li>
-<p><code>Sequence.PrependCallback()</code>、<code>Sequence.InsertCallback()</code>、<code>Sequence.AppendCallback()</code></p>
-<p>预添加回调、插入回调、添加回调</p>
-<pre class="highlight"><code class="C#">sequence.PrependCallback(PreCallBack);
-sequence.InsertCallback(<span class="hljs-number">0</span>, InsertCallBack);
-sequence.AppendCallback(CallBack);
-</code></pre>
-</li>
-</ul>
-</details>
-<details>
-<summary><font size= 3>协程返回值</font></summary>
-<pre class="highlight"><code class="C#">   <span class="hljs-function"><span class="hljs-keyword">private</span> IEnumerator <span class="hljs-title">Wait</span>(<span class="hljs-params"></span>)</span>
-&#123;
-    tweener = transform.DOMove(Vector3.one, <span class="hljs-number">2</span>);
-    
-  <span class="hljs-comment">//等待动画执行完毕</span>
-    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> tweener.WaitForCompletion();
-    
-  <span class="hljs-comment">//等待指定的循环次数</span>
-    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> tweener.WaitForElapsedLoops(<span class="hljs-number">2</span>);
-    
-  <span class="hljs-comment">//等待动画被杀死</span>
-    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> tweener.WaitForKill();
-    
-   <span class="hljs-comment">//等待动画执行指定时间</span>
-   <span class="hljs-comment">//参数为时间，动画执行传入的时间之后或动画执行完毕，继续执行</span>
-    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> tweener.WaitForPosition(<span class="hljs-number">0.5f</span>);
-    
-   <span class="hljs-comment">//等待动画回退</span>
-   <span class="hljs-comment">//以下情况会继续执行函数</span>
-    <span class="hljs-comment">//1.使用DORestart重新播放时</span>
-    <span class="hljs-comment">//2.使用Rewind倒播动画完成时</span>
-    <span class="hljs-comment">//3.使用DOFlip翻转动画完成时</span>
-    <span class="hljs-comment">//4.使用DOPlayBackwards反向播放动画完成时</span>
-    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> tweener.WaitForRewind();
-    
-    <span class="hljs-comment">//等待Start执行后继续执行</span>
-    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> tweener.WaitForStart();
-&#125;
-</code></pre>
-</details>
-</li>
-<li>
-<h2 id="一些注意事项"><a class="markdownIt-Anchor" href="#一些注意事项"></a> 一些注意事项</h2>
-<ol>
-<li>
-<p>每执行一个DOXXX方法就会创建一个动画，并且动画默认是 <code>自动销毁</code> 的</p>
-</li>
-<li>
-<p>在第一个动画创建后会在Hierarchy面板中创建一个 <code>[DOTween]</code> 的GameObject，记录了动画相关信息</p>
-</li>
-<li>
-<p>动画的初始化应该尽量放在Start或者Awake，而 <code>不要放在Update中</code> ，避免多次创建动画</p>
-</li>
-<li>
-<p>在Start或Awake中初始化的动画，如果不希望一开始就使用，应该调用 <code>Pause()</code> 暂停该动画，到使用的时候再 <code>Play()</code></p>
-</li>
-<li>
-<p>在Update中创建的动画，可以使用布尔去判断该动画是否已经存在，如果已经存在则不应该再次被创建</p>
-</li>
-<li>
-<p>关闭动画的自动销毁后，再次使用该动画时应该避免重新创建动画</p>
-</li>
-<li>
-<p>DOPlay()、DOPlayBackwards()、DOPlayForwards()等播放动画方法 <code>会播放transform身上挂载的所有动画</code></p>
+<li><p>DOPlay()、DOPlayBackwards()、DOPlayForwards()等播放动画方法 <code>会播放transform身上挂载的所有动画</code></p>
 </li>
 </ol>
 </li>

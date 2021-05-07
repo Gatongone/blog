@@ -168,7 +168,7 @@
         <div id="tagcloud" class="tagcloud">
             <span> Trending Tags </span>
             <div>
-             <a href="#" class="tag">C# </a><a href="#" class="tag">.net </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">.net, C# </a>
+             <a href="#" class="tag">C# </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">.net </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">unity </a>
             </div>
         </div>
         
@@ -192,11 +192,8 @@
             
             
             
-             常见的值类型和引用类型
-
-
- 值类型：
-
+            常见的值类型和引用类型
+值类型：
 无符号类型：byte,ushort,uint,ulong
 有符号类型：sbyte,short,int,long
 浮点类型：float,double,decimal
@@ -204,17 +201,15 @@
 字符型：char
 枚举：enum
 结构体：struct
-指针：int*,float*,…
-可空类型：int?,float?,…
+指针：int,float,……
+可空类型：int?,float?,……
 
 
-
- 引用类型：
-
+引用类型：
 类：class
 接口：interface
-数组：xxx[]
-委...
+数组：xxx[] 
+委托：deleg...
     </span>
 
     <div>
@@ -225,7 +220,7 @@
         <span>11 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">9198</span>
+        <span class="words">7138</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -246,11 +241,9 @@
             
             
             
-            特性是一种能用于为元数据添加额外信息的类，可以用通过方括号([])的方式在元素（可以是类、接口、成员、函数、函数参数等）前声明标签。标签则代表该元素拥有该特性。之后可以通过反射的方式获取特性。
+               特性是一种能用于为元数据添加额外信息的类，可以用通过方括号([])的方式在元素（可以是类、接口、成员、函数、函数参数等）前声明标签。标签则代表该元素拥有该特性。之后可以通过反射的方式获取特性。
 
-
- 标签
-标签的本质其实是构造函数，写在元素的上一行表示他们具有该特性的信息,相当于声明了一个类对象关联到该元素。如果特性类名是XXXAttribute，那么在掉用标签时会自动省略Attribute，比如  [XXX(“it is a stri...
+标签  标签的本质其实是构造函数，写在元素的上一行表示他们具有该特性的信息,相当于声明了一个类对象关联到该元素。如果特性类名是XXXAttribute，那么在掉用标签时会自动省略Attribute，比如  [XXX(“it is a st...
     </span>
 
     <div>
@@ -261,7 +254,7 @@
         <span>6 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">8479</span>
+        <span class="words">5105</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -283,24 +276,17 @@
             
             
             
-
- 程序集和元数据
-
-
+程序集和元数据
 程序集：.net中由C#、VB等语言的编译器编译后所产生的代码集合（包含了CIL）,一般被存放在bin文件中，后缀名一般为.dll（库文件）、.exe（可执行文件）。别人可以通过反射调用其他人的程序集的元数据。
-
-
 元数据：用来描述数据的数据，本质上就是用于描述被编译成程序集之前的各种类、成员等信息，元数据是保存在程序集中的。
+&lt;/br&gt;
 
 
 
 
 
 
-
-
- 反射
-在程序运行时，可以获得其他程序集或自身程序集中的元数据，该过...
+反射在程序运行时，可以获得其他程序集或自身程序集中的元数据，该过程就叫反...
     </span>
 
     <div>
@@ -311,7 +297,7 @@
         <span>6 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">11602</span>
+        <span class="words">6748</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -333,17 +319,15 @@
             
             
             全称：即时模式用户交互界面，是一种即见即所得的UI系统，一般用作创建游戏内置工具和脚本检视面板而不作为游戏玩家的UI。
+&lt;/br&gt;
 
 
-
-
- OnGui()
-继承了MonoBehaviour的脚本都可以调用OnGui()。OnGui()中的控件绘制函数都是由GUI类提供的静态函数，这些空间的的常见参数类型:
+OnGui()继承了MonoBehaviour的脚本都可以调用OnGui()。OnGui()中的控件绘制函数都是由GUI类提供的静态函数，这些空间的的常见参数类型:
 
 位置参数：Rect(x ,y ,w ,h);（x，y位置信息；w，h尺寸信息）
 显示文本：string
 图片信息：Texture
-组合信息：...
+组合信...
     </span>
 
     <div>
@@ -354,7 +338,7 @@
         <span>10 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">23279</span>
+        <span class="words">8984</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -378,14 +362,12 @@
             逆变（contravariant）与协变（covariant）是C#4新增的概念，只能用修饰泛型委托和泛型接口中的泛型字符。
 根据里氏替换原则：父类可以装子类，而子类不能装父类。可以这样理解：
 
+“协变”-&gt;”和谐的变”-&gt;”父类装子类，感受是和谐的”-&gt;string-&gt;object :协变
 
-“协变”-&gt;“和谐的变”-&gt;“父类装子类，感受是和谐的”-&gt;string-&gt;object :协变
-
-
-“逆变”-&gt;“逆常的变”-&gt;“子类装父类，感受不和谐的”-&gt;object-&gt;string :逆变
+“逆变”-&gt;”逆常的变”-&gt;”子类装父类，感受不和谐的”-&gt;object-&gt;string :逆变
 
 
-假设，有两个父子关系类，Human类和...
+假设，有两个父子关系类，Human类和Ch...
     </span>
 
     <div>
@@ -396,7 +378,7 @@
         <span>3 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">10105</span>
+        <span class="words">4804</span>
 
     </div>
     <hr color=#49495b SIZE=1>

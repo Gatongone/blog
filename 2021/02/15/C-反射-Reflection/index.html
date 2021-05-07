@@ -185,7 +185,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E9%9B%86%E5%92%8C%E5%85%83%E6%95%B0%E6%8D%AE"><span class="toc-text"> 程序集和元数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-text"> 反射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text"> 三种关键类型:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#type"><span class="toc-text"> Type:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assembly"><span class="toc-text"> Assembly:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#activator"><span class="toc-text"> Activator:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%BF%87%E7%A8%8B"><span class="toc-text"> 反射过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B"><span class="toc-text"> 通过反射获取泛型类型</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E9%9B%86%E5%92%8C%E5%85%83%E6%95%B0%E6%8D%AE"><span class="toc-text">程序集和元数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-text">反射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">三种关键类型:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Type"><span class="toc-text">Type:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Assembly"><span class="toc-text">Assembly:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activator"><span class="toc-text">Activator:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%BF%87%E7%A8%8B"><span class="toc-text">反射过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B"><span class="toc-text">通过反射获取泛型类型</span></a></li></ol>
                 </div>
                 
              </div>
@@ -202,279 +202,194 @@
         
         
         <ul>
-<li>
-<h2 id="程序集和元数据"><a class="markdownIt-Anchor" href="#程序集和元数据"></a> 程序集和元数据</h2>
-<ul>
-<li>
-<p>程序集：.net中由C#、VB等语言的编译器编译后所产生的代码集合（包含了CIL）,一般被存放在bin文件中，后缀名一般为.dll（库文件）、.exe（可执行文件）。别人可以通过反射调用其他人的程序集的元数据。</p>
-</li>
-<li>
-<p>元数据：用来描述数据的数据，本质上就是用于描述被编译成程序集之前的各种类、成员等信息，元数据是保存在程序集中的。</p>
-</br>
+<li><h2 id="程序集和元数据"><a href="#程序集和元数据" class="headerlink" title="程序集和元数据"></a>程序集和元数据</h2><ul>
+<li>程序集：.net中由C#、VB等语言的编译器编译后所产生的代码集合（包含了CIL）,一般被存放在bin文件中，后缀名一般为.dll（库文件）、.exe（可执行文件）。别人可以通过反射调用其他人的程序集的元数据。</li>
+<li><p>元数据：用来描述数据的数据，本质上就是用于描述被编译成程序集之前的各种类、成员等信息，元数据是保存在程序集中的。</p>
+<p>&lt;/br&gt;</p>
 </li>
 </ul>
 </li>
 </ul>
-<hr />
+<hr>
 <ul>
-<li>
-<h2 id="反射"><a class="markdownIt-Anchor" href="#反射"></a> 反射</h2>
-<p>在程序运行时，可以获得其他程序集或自身程序集中的元数据，该过程就叫反射。</p>
+<li><h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>在程序运行时，可以获得其他程序集或自身程序集中的元数据，该过程就叫反射。</p>
 <p>也就是说通过反射可以时，可以使用其他程序集中的类、变量、特性等，而不用自己实现。</p>
-  </br>
-  </br>
+<p>  &lt;/br&gt;<br>  &lt;/br&gt;</p>
 </li>
 </ul>
-<hr />
+<hr>
 <ul>
-<li>
-<h2 id="三种关键类型"><a class="markdownIt-Anchor" href="#三种关键类型"></a> 三种关键类型:</h2>
-<ul>
-<li>
-<h3 id="type"><a class="markdownIt-Anchor" href="#type"></a> Type:</h3>
-<p>表示某一类型并存储其信息，在反射中用于获取类的相关信息（构造函数、方法、成员变量、属性、事件等），是访问元数据的主要方式。</p>
+<li><h2 id="三种关键类型"><a href="#三种关键类型" class="headerlink" title="三种关键类型:"></a>三种关键类型:</h2><ul>
+<li><h3 id="Type"><a href="#Type" class="headerlink" title="Type:"></a>Type:</h3><p>表示某一类型并存储其信息，在反射中用于获取类的相关信息（构造函数、方法、成员变量、属性、事件等），是访问元数据的主要方式。</p>
 <p>获取Type的方法主要有</p>
-<pre class="highlight"><code class="C#">    <span class="hljs-comment">//通过object中的GetType方法获取</span>
-    <span class="hljs-keyword">int</span> i = <span class="hljs-number">20</span>;
+<pre><code class="lang-C#">    //通过object中的GetType方法获取
+    int i = 20;
     Type type1 = i.GetType();
 
-    <span class="hljs-comment">//通过typeof关键字传入类型</span>
-    Type type2 = <span class="hljs-keyword">typeof</span>(<span class="hljs-keyword">int</span>);
+    //通过typeof关键字传入类型
+    Type type2 = typeof(int);
 
-    <span class="hljs-comment">//通过传入类型的名字,注意需要将命名空间一并传入</span>
-    Type type3 = Type.GetType(<span class="hljs-string">"System.Int32"</span>);
+    //通过传入类型的名字,注意需要将命名空间一并传入
+    Type type3 = Type.GetType(&quot;System.Int32&quot;);
 </code></pre>
-<p>通过反射获取的类型（公有类型）：</p>
-<table>
-<thead>
-<tr>
-<th>\</th>
-<th>类型</th>
-<th>获得方法</th>
-<th>获得数组方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>所有公共成员</td>
-<td>MemberInfo</td>
-<td>Type.GetMember(Type type)</td>
-<td>Type.GetMembers(Type type)</td>
-</tr>
-<tr>
-<td>构造函数</td>
-<td>ConstructorInfo</td>
-<td>Type.GetConstructor(Type type)</td>
-<td>Type.GetConstructors(Type type)</td>
-</tr>
-<tr>
-<td>成员变量</td>
-<td>FieldInfoInfo</td>
-<td>Type.GetField(Type type)</td>
-<td>Type.GetFields(Type type)</td>
-</tr>
-<tr>
-<td>成员方法</td>
-<td>MethodInfo</td>
-<td>Type.GetMethod(Type type)</td>
-<td>Type.GetMethods(Type type)</td>
-</tr>
-<tr>
-<td>属性</td>
-<td>PropertyInfo</td>
-<td>Type.GetProperty(Type type)</td>
-<td>Type.GetPropertys(Type type)</td>
-</tr>
-<tr>
-<td>事件</td>
-<td>EventInfo</td>
-<td>Type.GetEvent(Type type)</td>
-<td>Type.GetEvents(Type type)</td>
-</tr>
-<tr>
-<td>枚举</td>
-<td>EnumInfo</td>
-<td>Type.GetEnumName(Type type)</td>
-<td>Type.GetEnumNames(Type type)</td>
-</tr>
-<tr>
-<td>接口</td>
-<td>InterfaceInfo</td>
-<td>Type.GetInterface(Type type)</td>
-<td>Type.GetInterfaces(Type type)</td>
-</tr>
-</tbody>
-</table>
-</br>
+<p>通过反射获取的类型（公有类型）：<br>\ |类型|获得方法|获得数组方法<br>——-|——-|——-|——-<br>所有公共成员|MemberInfo|Type.GetMember(Type type)|Type.GetMembers(Type type)<br>构造函数|ConstructorInfo|Type.GetConstructor(Type type)|Type.GetConstructors(Type type)<br>成员变量|FieldInfoInfo|Type.GetField(Type type)|Type.GetFields(Type type)<br>成员方法|MethodInfo|Type.GetMethod(Type type)|Type.GetMethods(Type type)<br>属性|PropertyInfo|Type.GetProperty(Type type)|Type.GetPropertys(Type type)<br>事件|EventInfo|Type.GetEvent(Type type)|Type.GetEvents(Type type)<br>枚举|EnumInfo|Type.GetEnumName(Type type)|Type.GetEnumNames(Type type)<br>接口|InterfaceInfo|Type.GetInterface(Type type)|Type.GetInterfaces(Type type)</p>
+<p>&lt;/br&gt;</p>
 </li>
-<li>
-<h3 id="assembly"><a class="markdownIt-Anchor" href="#assembly"></a> Assembly:</h3>
-<p>程序集类，用于加载程序集，一般用于加载非本程序集。</p>
+<li><h3 id="Assembly"><a href="#Assembly" class="headerlink" title="Assembly:"></a>Assembly:</h3><p>程序集类，用于加载程序集，一般用于加载非本程序集。</p>
 <p>一般有三种加载方式：</p>
-<pre class="highlight"><code class="C#">    Assembly assembly1 = Assembly.Load(<span class="hljs-string">"当前文件夹下的程序集名称"</span>);
+<pre><code class="lang-C#">    Assembly assembly1 = Assembly.Load(&quot;当前文件夹下的程序集名称&quot;);
 
-    Assembly assembly2 = Assembly.LoadFrom(<span class="hljs-string">"包含程序集清单的文件路径(一般是dll)"</span>);
+    Assembly assembly2 = Assembly.LoadFrom(&quot;包含程序集清单的文件路径(一般是dll)&quot;);
 
-    Assembly assembly3 = Assembly.LoadFile(<span class="hljs-string">"某个程序集的绝对路径"</span>);
+    Assembly assembly3 = Assembly.LoadFile(&quot;某个程序集的绝对路径&quot;);
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
-<li>
-<h3 id="activator"><a class="markdownIt-Anchor" href="#activator"></a> Activator:</h3>
-<p>用于快速实例化Type对象,可以根据参数快速匹配构造函数，不需要获取ConstructorInfor再去Invoke。用法：</p>
-<pre class="highlight"><code class="C#">    <span class="hljs-comment">//Test为当前程序集中的一个类</span>
-    Type classType = <span class="hljs-keyword">typeof</span>(Test);
+<li><h3 id="Activator"><a href="#Activator" class="headerlink" title="Activator:"></a>Activator:</h3><p>用于快速实例化Type对象,可以根据参数快速匹配构造函数，不需要获取ConstructorInfor再去Invoke。用法：</p>
+<pre><code class="lang-C#">    //Test为当前程序集中的一个类
+    Type classType = typeof(Test);
 
-    <span class="hljs-comment">//无参构造</span>
+    //无参构造
     Object obj1 = Activator.CreateInstance(classType);
 
-    <span class="hljs-comment">//有参构造</span>
-    Object obj2 = Activator.CreateInstance(classType ,参数<span class="hljs-number">1</span> ,参数<span class="hljs-number">2</span>);
+    //有参构造
+    Object obj2 = Activator.CreateInstance(classType ,参数1 ,参数2);
 </code></pre>
-</br>
+<p>&lt;/br&gt;</p>
 </li>
 </ul>
 </li>
 </ul>
-<hr />
+<hr>
 <ul>
-<li>
-<h2 id="反射过程"><a class="markdownIt-Anchor" href="#反射过程"></a> 反射过程</h2>
-<p>假设在某个程序集中有</p>
-<pre class="highlight"><code class="C#"><span class="hljs-keyword">namespace</span> <span class="hljs-title">Markdown.Codes</span>
-&#123;
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test</span>
-    &#123;
-        <span class="hljs-comment">//私有成员变量，无法被反射</span>
-        <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> num = <span class="hljs-number">20</span>;
-        <span class="hljs-comment">//公有成员变量</span>
-        <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> name;
-        <span class="hljs-comment">//属性</span>
-        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Num
-        &#123;
-            <span class="hljs-keyword">get</span>
-            &#123;
-                Console.WriteLine(<span class="hljs-string">"获取属性"</span>);
-                <span class="hljs-keyword">return</span> num;
-            &#125;
-            <span class="hljs-keyword">set</span>
-            &#123;
-                Console.WriteLine(<span class="hljs-string">"填充属性"</span>);
-                num = <span class="hljs-keyword">value</span>;
-            &#125;
-        &#125;
-        <span class="hljs-comment">//有参构造函数</span>
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Test</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> num, <span class="hljs-keyword">string</span> name</span>)</span>
-        &#123;
-            Console.WriteLine(<span class="hljs-string">"使用了有参构造函数"</span>);
-            <span class="hljs-keyword">this</span>.num = num;
-            <span class="hljs-keyword">this</span>.name = name;
-        &#125;
-        <span class="hljs-comment">//无参构造函数</span>
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Test</span>(<span class="hljs-params"></span>)</span>
-        &#123;
-            Console.WriteLine(<span class="hljs-string">"使用了无参构造函数"</span>);
-        &#125;
-        <span class="hljs-comment">//成员方法</span>
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Method</span>(<span class="hljs-params"></span>)</span>
-        &#123;
-            Console.WriteLine(<span class="hljs-string">"使用了方法"</span>);
-        &#125;
-    &#125;
-&#125;
+<li><h2 id="反射过程"><a href="#反射过程" class="headerlink" title="反射过程"></a>反射过程</h2><p>  假设在某个程序集中有</p>
+<pre><code class="lang-C#">  namespace Markdown.Codes
+  &#123;
+      public class Test
+      &#123;
+          //私有成员变量，无法被反射
+          private int num = 20;
+          //公有成员变量
+          public string name;
+          //属性
+          public int Num
+          &#123;
+              get
+              &#123;
+                  Console.WriteLine(&quot;获取属性&quot;);
+                  return num;
+              &#125;
+              set
+              &#123;
+                  Console.WriteLine(&quot;填充属性&quot;);
+                  num = value;
+              &#125;
+          &#125;
+          //有参构造函数
+          public Test(int num, string name)
+          &#123;
+              Console.WriteLine(&quot;使用了有参构造函数&quot;);
+              this.num = num;
+              this.name = name;
+          &#125;
+          //无参构造函数
+          public Test()
+          &#123;
+              Console.WriteLine(&quot;使用了无参构造函数&quot;);
+          &#125;
+          //成员方法
+          public void Method()
+          &#123;
+              Console.WriteLine(&quot;使用了方法&quot;);
+          &#125;
+      &#125;
+  &#125;
 </code></pre>
-<p>在另一程序集中对其反射</p>
-<pre class="highlight"><code class="c#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MainTest</span>
-&#123;
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span>
-    &#123;
-        <span class="hljs-comment">//获得程序集,如果是当前程序集则不需要</span>
-        Assembly assembly = Assembly.LoadFrom(<span class="hljs-string">@"E:\khaki\Markdown\bin\Debug\net5.0\Markdown"</span>);
-        
-        
-        <span class="hljs-comment">//获得类</span>
-        <span class="hljs-comment">//其他程序集</span>
-        Type classType = assembly.GetType(<span class="hljs-string">"Markdown.Codes.Test"</span>);
-        <span class="hljs-comment">//当前程序集</span>
-        <span class="hljs-comment">//Type classType = Type.GetType("Markdown.Codes.Test");</span>
+<p>  在另一程序集中对其反射<br>  ```c#<br>  public class MainTest<br>  {</p>
+<pre><code>  static void Main(string[] args)
+  &#123;
+      //获得程序集,如果是当前程序集则不需要
+      Assembly assembly = Assembly.LoadFrom(@&quot;E:\khaki\Markdown\bin\Debug\net5.0\Markdown&quot;);
+</code></pre></li>
+</ul>
+<pre><code>        //获得类
+        //其他程序集
+        Type classType = assembly.GetType(&quot;Markdown.Codes.Test&quot;);
+        //当前程序集
+        //Type classType = Type.GetType(&quot;Markdown.Codes.Test&quot;);
 
-        <span class="hljs-comment">/*------------------------------------------------------------*/</span>
+        /*------------------------------------------------------------*/
 
-        <span class="hljs-comment">//获得无参构造函数,参数为形参类型没有则填new Type[0]，不能填null</span>
-        ConstructorInfo ctorinfo1 = classType.GetConstructor(<span class="hljs-keyword">new</span> Type[<span class="hljs-number">0</span>]);
-        <span class="hljs-comment">//执行构造函数</span>
-        Object obj1 = ctorinfo1.Invoke(<span class="hljs-keyword">new</span> <span class="hljs-keyword">object</span>[<span class="hljs-number">0</span>]);<span class="hljs-comment">//参数为实参，没有填null或new object[0]</span>
-        <span class="hljs-comment">//或直接执行并赋值</span>
+        //获得无参构造函数,参数为形参类型没有则填new Type[0]，不能填null
+        ConstructorInfo ctorinfo1 = classType.GetConstructor(new Type[0]);
+        //执行构造函数
+        Object obj1 = ctorinfo1.Invoke(new object[0]);//参数为实参，没有填null或new object[0]
+        //或直接执行并赋值
         obj1 = Activator.CreateInstance(classType);
 
-        <span class="hljs-comment">/*------------------------------------------------------------*/</span>
-        
-        <span class="hljs-comment">//获得有参构造函数,参数为形参类型</span>
-        ConstructorInfo ctorinfo2 = classType.GetConstructor(<span class="hljs-keyword">new</span> Type[] &#123; <span class="hljs-keyword">typeof</span>(<span class="hljs-keyword">int</span>), <span class="hljs-keyword">typeof</span>(<span class="hljs-keyword">string</span>) &#125;);
-        <span class="hljs-comment">//执行构造函数</span>
-        Object obj2 = ctorinfo2.Invoke(<span class="hljs-keyword">new</span> <span class="hljs-keyword">object</span>[] &#123; <span class="hljs-number">55</span>, <span class="hljs-string">"关东关"</span> &#125;);
-        <span class="hljs-comment">//或直接执行并赋值</span>
-        obj2 = Activator.CreateInstance(classType, <span class="hljs-number">55</span>, <span class="hljs-string">"关东关"</span>);
+        /*------------------------------------------------------------*/
 
-        <span class="hljs-comment">/*------------------------------------------------------------*/</span>
-        
-        <span class="hljs-comment">//获得成员变量</span>
-        FieldInfo fieldInfo = classType.GetField(<span class="hljs-string">"name"</span>);
-        <span class="hljs-comment">//为字段赋值</span>
-        <span class="hljs-comment">//参数1：被赋值的对象</span>
-        <span class="hljs-comment">//参数2：赋值的值</span>
-        <span class="hljs-comment">//相当于obj2.name="啊萨德";</span>
-        fieldInfo.SetValue(obj2, <span class="hljs-string">"啊萨德"</span>);
-        <span class="hljs-comment">//获取字段</span>
-        <span class="hljs-comment">//参数为对象名</span>
-        <span class="hljs-comment">//相当于obj2.name;</span>
+        //获得有参构造函数,参数为形参类型
+        ConstructorInfo ctorinfo2 = classType.GetConstructor(new Type[] &#123; typeof(int), typeof(string) &#125;);
+        //执行构造函数
+        Object obj2 = ctorinfo2.Invoke(new object[] &#123; 55, &quot;关东关&quot; &#125;);
+        //或直接执行并赋值
+        obj2 = Activator.CreateInstance(classType, 55, &quot;关东关&quot;);
+
+        /*------------------------------------------------------------*/
+
+        //获得成员变量
+        FieldInfo fieldInfo = classType.GetField(&quot;name&quot;);
+        //为字段赋值
+        //参数1：被赋值的对象
+        //参数2：赋值的值
+        //相当于obj2.name=&quot;啊萨德&quot;;
+        fieldInfo.SetValue(obj2, &quot;啊萨德&quot;);
+        //获取字段
+        //参数为对象名
+        //相当于obj2.name;
         Console.WriteLine(fieldInfo.GetValue(obj2));
 
-        <span class="hljs-comment">/*------------------------------------------------------------*/</span>
-        
-        <span class="hljs-comment">//获得方法</span>
-        <span class="hljs-comment">//参数1：方法名</span>
-        <span class="hljs-comment">//参数2：为形参类型</span>
-        MethodInfo methodInfo = classType.GetMethod(<span class="hljs-string">"Method"</span>, <span class="hljs-keyword">new</span> Type[<span class="hljs-number">0</span>]);
-        <span class="hljs-comment">//执行方法</span>
-        <span class="hljs-comment">//参数1：为执行该方法的对象，如果是静态方法则填null或new object[0]</span>
-        <span class="hljs-comment">//参数2：为实参，没有则填null</span>
-        <span class="hljs-comment">//相当于obj2.Method();</span>
-        methodInfo.Invoke(obj2, <span class="hljs-literal">null</span>);
+        /*------------------------------------------------------------*/
 
-        <span class="hljs-comment">/*------------------------------------------------------------*/</span>
-        
-        <span class="hljs-comment">//获得属性</span>
-        PropertyInfo propInfo = classType.GetProperty(<span class="hljs-string">"Num"</span>);
-        <span class="hljs-comment">//参数1：被赋值的对象</span>
-        <span class="hljs-comment">//参数2：赋值的值</span>
-        <span class="hljs-comment">//相当于obj2.Num=80;</span>
-        propInfo.SetValue(obj2, <span class="hljs-number">80</span>);
-        <span class="hljs-comment">//获取属性</span>
-        <span class="hljs-comment">//参数为对象名</span>
-        <span class="hljs-comment">//相当于obj2.Num;</span>
+        //获得方法
+        //参数1：方法名
+        //参数2：为形参类型
+        MethodInfo methodInfo = classType.GetMethod(&quot;Method&quot;, new Type[0]);
+        //执行方法
+        //参数1：为执行该方法的对象，如果是静态方法则填null或new object[0]
+        //参数2：为实参，没有则填null
+        //相当于obj2.Method();
+        methodInfo.Invoke(obj2, null);
+
+        /*------------------------------------------------------------*/
+
+        //获得属性
+        PropertyInfo propInfo = classType.GetProperty(&quot;Num&quot;);
+        //参数1：被赋值的对象
+        //参数2：赋值的值
+        //相当于obj2.Num=80;
+        propInfo.SetValue(obj2, 80);
+        //获取属性
+        //参数为对象名
+        //相当于obj2.Num;
         Console.WriteLine(propInfo.GetValue(obj2));
     &#125;
 &#125;
-</code></pre>
-</li>
-</ul>
-<hr />
+```
+</code></pre><hr>
 <ul>
-<li>
-<h2 id="通过反射获取泛型类型"><a class="markdownIt-Anchor" href="#通过反射获取泛型类型"></a> 通过反射获取泛型类型</h2>
-<pre class="highlight"><code class="C#">Factory&lt;Coin&gt; coinFactory = <span class="hljs-keyword">new</span> Factory&lt;Coin&gt;();
-Type factoryType = coinFactory.GetType();
+<li><h2 id="通过反射获取泛型类型"><a href="#通过反射获取泛型类型" class="headerlink" title="通过反射获取泛型类型"></a>通过反射获取泛型类型</h2><pre><code class="lang-C#">  Factory&lt;Coin&gt; coinFactory = new Factory&lt;Coin&gt;();
+  Type factoryType = coinFactory.GetType();
 
-<span class="hljs-comment">//获得所有泛型</span>
-Type[] types = factoryType.GetGenericArguments();
-<span class="hljs-comment">//输出第一个</span>
-Console.WriteLine(types[<span class="hljs-number">0</span>]);
+  //获得所有泛型
+  Type[] types = factoryType.GetGenericArguments();
+  //输出第一个
+  Console.WriteLine(types[0]);
 </code></pre>
-<pre class="highlight"><code class="">输出：
-Markdown.Codes.Coin
-</code></pre>
-</li>
+<pre><code>  输出：
+  Markdown.Codes.Coin
+</code></pre></li>
 </ul>
 
     </div>
