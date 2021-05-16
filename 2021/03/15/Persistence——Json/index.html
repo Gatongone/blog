@@ -441,7 +441,7 @@ JsonData students = datas[<span class="hljs-string">"students"</span>];
     <span class="hljs-keyword">public</span> CustomClass customClass;
     <span class="hljs-keyword">public</span> CustomClass nullClass;
     <span class="hljs-keyword">public</span> List&lt;CustomClass&gt; customlist;
-    <span class="hljs-keyword">public</span> XmlDictionary&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">string</span>&gt; dic;
+    <span class="hljs-keyword">public</span> Dictionary&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">string</span>&gt; dic;
 &#125;
 </code></pre>
 <pre class="highlight"><code class="C#"><span class="hljs-function">JsonInfo <span class="hljs-title">Init</span>(<span class="hljs-params"></span>)</span>
@@ -462,7 +462,7 @@ JsonData students = datas[<span class="hljs-string">"students"</span>];
         <span class="hljs-keyword">new</span> CustomClass(<span class="hljs-number">3</span>, <span class="hljs-string">"Third Test String"</span>),
     &#125;;
 
-    jd.dic = <span class="hljs-keyword">new</span> XmlDictionary&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">string</span>&gt;()
+    jd.dic = <span class="hljs-keyword">new</span> lDictionary&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">string</span>&gt;()
     &#123;
         &#123;<span class="hljs-number">1</span>,<span class="hljs-string">"First"</span>&#125;,
         &#123;<span class="hljs-number">2</span>,<span class="hljs-string">"Second"</span>&#125;,
@@ -624,6 +624,21 @@ JsonData students = datas[<span class="hljs-string">"students"</span>];
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 
 </html>
