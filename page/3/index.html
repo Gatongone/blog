@@ -168,7 +168,7 @@
         <div id="tagcloud" class="tagcloud">
             <span> Trending Tags </span>
             <div>
-             <a href="#" class="tag">C# </a><a href="#" class="tag">.net </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">unity </a>
+             <a href="#" class="tag">C# </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">.net </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">unity </a>
             </div>
         </div>
         
@@ -177,6 +177,44 @@
              
 </div>
 
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/03/01/资源管理——AssetBundle/"  target="_self">资源管理——AssetBundle </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            开发人员可以通过AssetBundle将一个资源分到多个包或者将多个资源打到一个包内，并且可以实时地从任意位置加载资源包。Asset在打包时维护一个指向它所依赖包的id。相较于Resources,AssetBundle能自己控制资源的精确管理，包括资源的引用计数。更重要的一点，在游戏发布后，可以从服务器或本地中动态地加载资源包对资源进行更新（热更新），这是Resources所不能做到的。
+
+
+ AssetBundle常用的资源操作
+
+
+...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Mar 1st,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>6 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">12451</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
             
@@ -430,46 +468,6 @@ class Person
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/15/MVC(UGUI)/"  target="_self">MVC(UGUI) </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            基于UGUI的MVC个人用框架，源项目已上传至GitHub,若clone失败请用lfs。
-
-
- Model
-向外部提供修改数据的方法  public sealed class PlayerModel
-  {
-
-      //PlayerModel单例
-      private static readonly Lazy&lt;PlayerModel&gt; _instance = new Lazy&lt;PlayerModel&gt;(() =&gt; new P...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 15th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>10 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">20965</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
         
         <div class="paginator">
              <a class="extend prev" rel="prev" href="/blog/page/2/"><</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/4/">></a>
@@ -580,21 +578,6 @@ class Person
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+    </body>
 
 </html>

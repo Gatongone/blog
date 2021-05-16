@@ -168,7 +168,7 @@
         <div id="tagcloud" class="tagcloud">
             <span> Trending Tags </span>
             <div>
-             <a href="#" class="tag">C# </a><a href="#" class="tag">.net </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">unity </a>
+             <a href="#" class="tag">C# </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">.net </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">unity </a>
             </div>
         </div>
         
@@ -214,6 +214,48 @@ mono是挂载在gameobject身上的组件...
 
         <img src="/blog/images/icon/words.png" alt="">
         <span class="words">21293</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/03/15/Persistence——Json/"  target="_self">Persistence——Json </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            Json(JavaScript Object Notation)即JS对象简谱，纯文本键值对结构，一种轻量级的数据交换格式，相对于XML来说配置更简单，一般情况下更利于计算机读取
+
+
+ 序列化和反序列化
+json的序列化和反序列化方式有很多种，就我自己用过的有以下几种:
+
+Json .NET(Newtonsoft .Json)
+JsonUtlity
+LitJson
+JavaScriptSerializer
+DataContractJso...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Mar 15th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span></span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">15272</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -272,7 +314,7 @@ mono是挂载在gameobject身上的组件...
             
             
             
-            XML(Extensible Markup Language)即可拓展标记语言，作为互联网传输工具，无关于开发平台，可以实现不同系统之间的数据交互。(Extensible Markup Language)
+            XML(Extensible Markup Language)即可拓展标记语言，纯文本树形结构，作为互联网传输工具，无关于开发平台，可以实现不同系统之间的数据交互。(Extensible Markup Language)
 
 
  相关操作
@@ -283,7 +325,7 @@ mono是挂载在gameobject身上的组件...
 
 XmlDocument：把数据加载到内存中进行读取
 XmlTextReader：通过流形式读取，能减少内存占用，但是是单向只读的
-LINQ to XML：一种启用了 LINQ ...
+LINQ to XML：一种启...
     </span>
 
     <div>
@@ -294,7 +336,7 @@ LINQ to XML：一种启用了 LINQ ...
         <span>12 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">28281</span>
+        <span class="words">28289</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -377,44 +419,6 @@ public class Singleton&lt;T&gt; where T : new()
 
         <img src="/blog/images/icon/words.png" alt="">
         <span class="words">4043</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/03/01/资源管理——AssetBundle/"  target="_self">资源管理——AssetBundle </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            开发人员可以通过AssetBundle将一个资源分到多个包或者将多个资源打到一个包内，并且可以实时地从任意位置加载资源包。Asset在打包时维护一个指向它所依赖包的id。相较于Resources,AssetBundle能自己控制资源的精确管理，包括资源的引用计数。更重要的一点，在游戏发布后，可以从服务器或本地中动态地加载资源包对资源进行更新（热更新），这是Resources所不能做到的。
-
-
- AssetBundle常用的资源操作
-
-
-...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Mar 1st,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>6 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">12451</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -532,21 +536,6 @@ public class Singleton&lt;T&gt; where T : new()
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+    </body>
 
 </html>
