@@ -447,28 +447,28 @@ JsonData students = datas[<span class="hljs-string">"students"</span>];
 <pre class="highlight"><code class="C#"><span class="hljs-function">JsonInfo <span class="hljs-title">Init</span>(<span class="hljs-params"></span>)</span>
 &#123;
     JsonInfo jd = <span class="hljs-keyword">new</span> JsonInfo();
-    jd.id = <span class="hljs-number">1</span>;
-    jd.name = <span class="hljs-string">"JsonTest"</span>;
-    jd.<span class="hljs-keyword">value</span> = <span class="hljs-number">1.45f</span>;
-    jd.isTrue = <span class="hljs-literal">true</span>;
-    jd.customClass = <span class="hljs-keyword">new</span> CustomClass(<span class="hljs-number">5</span>, <span class="hljs-string">"A Test String"</span>);
-    jd.nullClass = <span class="hljs-literal">null</span>;
-    jd.day = Day.SunDay;
+    ji.id = <span class="hljs-number">1</span>;
+    ji.name = <span class="hljs-string">"JsonTest"</span>;
+    ji.<span class="hljs-keyword">value</span> = <span class="hljs-number">1.45f</span>;
+    ji.isTrue = <span class="hljs-literal">true</span>;
+    ji.customClass = <span class="hljs-keyword">new</span> CustomClass(<span class="hljs-number">5</span>, <span class="hljs-string">"A Test String"</span>);
+    ji.nullClass = <span class="hljs-literal">null</span>;
+    ji.day = Day.SunDay;
 
-    jd.customlist = <span class="hljs-keyword">new</span> List&lt;CustomClass&gt;()
+    ji.customlist = <span class="hljs-keyword">new</span> List&lt;CustomClass&gt;()
     &#123;
         <span class="hljs-keyword">new</span> CustomClass(<span class="hljs-number">1</span>, <span class="hljs-string">"First Test String"</span>),
         <span class="hljs-keyword">new</span> CustomClass(<span class="hljs-number">2</span>, <span class="hljs-string">"Second Test String"</span>),
         <span class="hljs-keyword">new</span> CustomClass(<span class="hljs-number">3</span>, <span class="hljs-string">"Third Test String"</span>),
     &#125;;
 
-    jd.dic = <span class="hljs-keyword">new</span> lDictionary&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">string</span>&gt;()
+    ji.dic = <span class="hljs-keyword">new</span> Dictionary&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">string</span>&gt;()
     &#123;
         &#123;<span class="hljs-number">1</span>,<span class="hljs-string">"First"</span>&#125;,
         &#123;<span class="hljs-number">2</span>,<span class="hljs-string">"Second"</span>&#125;,
         &#123;<span class="hljs-number">3</span>,<span class="hljs-string">"Third"</span>&#125;
     &#125;;
-    <span class="hljs-keyword">return</span> jd;
+    <span class="hljs-keyword">return</span> ji;
 &#125;
 </code></pre>
 <p>分别对JsonInfo实例进行序列化，生成的json文件如下</p>
