@@ -161,7 +161,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/05/06/DOTween/" class="post">DOTween </a><a href="/blog/2021/04/25/四元数/" class="post">四元数 </a><a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a><a href="/blog/2021/04/24/Unity-GL/" class="post">Unity.GL </a><a href="/blog/2021/04/06/计网笔记/" class="post">计网笔记 </a>
+             <a href="/blog/2021/05/26/Xlua-Hotfix方案/" class="post">XLua Hotfix方案 </a><a href="/blog/2021/05/06/DOTween/" class="post">DOTween </a><a href="/blog/2021/04/25/四元数/" class="post">四元数 </a><a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a><a href="/blog/2021/04/24/Unity-GL/" class="post">Unity.GL </a>
             </div>
         </div>
 
@@ -177,6 +177,65 @@
              
 </div>
 
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/03/21/渲染流水线（渲染管线）/"  target="_self">渲染流水线（渲染管线） </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            
+
+ 应用阶段
+由CPU控制的阶段，这个阶段开发者有最多的控制权
+
+
+ 数据准备
+
+
+ 准备场景数据
+包括：摄像机位置、视锥体参数、模型信息、光照光源信息
+
+
+ 粗粒度剔除
+包括：视锥体剔除（剔除掉不包含在视锥体内或与视锥体相交的物体）、遮挡剔除（剔除掉被最前面物体挡住的物体）
+目的是减少提交给GPU的无效数据
+
+
+ 设置渲染状态：
+定义网格应该怎样被渲染，包括shader、纹理、材质、光源的选定和属性设置
+
+
+
+
+ 数据处理
+
+
+ 将...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Mar 21st,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>5 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">3497</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
             
@@ -388,49 +447,9 @@ PlayerPrefs.SetString(&#34;PlayerName&#34;, &#34;关东关&#34;);
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/03/03/非泛型单例下的万能参数容器-非object/"  target="_self">非泛型单例下的万能参数容器(非object) </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            最近在项目中遇到的问题。
-已有以下两个类，一个工厂类负责根据泛型进行生产；一个单例基类。现在的需求是：继承单例基类来实现一个工厂管理器（FactoryMgr）。
-//泛型工厂
-public class Factory&lt;T&gt;{&amp;#125;
-//单例
-public class Singleton&lt;T&gt; where T : new()
-{
-    
-    private static readonly Lazy&lt;T&gt; _instance =...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Mar 3rd,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>2 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">4043</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
         
         <div class="paginator">
-             <a class="extend prev" rel="prev" href="/blog/"><</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/3/">></a>
+             <a class="extend prev" rel="prev" href="/blog/"><</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/3/">></a>
         </div>
 
         <div id="footer">

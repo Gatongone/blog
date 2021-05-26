@@ -184,7 +184,7 @@
 
 
 <div class="post_entry">
-    <a class="post_title" href="/blog/2021/05/26/Xlua-Hotfix方案/"  target="_self">XLua Hotfix方案 </a>   
+    <a class="post_title" href="/blog/2021/02/12/协变与逆变/"  target="_self">协变与逆变 </a>   
     
     </br>
     <span class="content">
@@ -192,264 +192,28 @@
             
             
             
-            
+            逆变（contravariant）与协变（covariant）是C#4新增的概念，只能用修饰泛型委托和泛型接口中的泛型字符。
+根据里氏替换原则：父类可以装子类，而子类不能装父类。可以这样理解：
 
- 使用方式
-1.添加HOTFIX_ENABLE宏
-如果是第一次使用Xlua做Hotfix，需要在Unity3D的File-&gt;Build Setting-&gt;Scripting Define Symbols下添加 HOTFIX_ENABLE 宏。
-设置宏后会在Xlua菜单下生成 Hotfix Inject In Editor 选项
-注意，该宏必须在编辑器下设置，在代码里头设置不会生效。编辑器、各手机平台这个宏要分别设置。
-2.为需要做H...
+
+“协变”-&gt;“和谐的变”-&gt;“父类装子类，感受是和谐的”-&gt;string-&gt;object :协变
+
+
+“逆变”-&gt;“逆常的变”-&gt;“子类装父类，感受不和谐的”-&gt;object-&gt;string :逆变
+
+
+假设，有两个父子关系类，Human类和...
     </span>
 
     <div>
         <img src="/blog/images/icon/date.png" alt="">
-        <span> May 26th,   2021</span>
+        <span> Feb 12th,   2021</span>
 
         <img src="/blog/images/icon/time.png" alt="">
-        <span>6 min</span>
+        <span>3 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">11322</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/05/06/DOTween/"  target="_self">DOTween </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            DOTWeen官网使用手册
-使用DOTween前应先引用命名空间
-using DG.Tweening;
-
-
-
- 一些基本概念
-DOTween是基于Tweener 或 TweenerCore（继承至Tweener）（可以理解为补间动画）来实现一些变量的缓动变换效果的。
-
-Tweener：补间动画
-Sequence：补间动画序列，相当于一个Tweener的链表，可以通过执行一个Sequence来执行一连串的Tweener
-Tween：泛指T...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> May 6th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>15 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">34683</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/04/25/四元数/"  target="_self">四元数 </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            
-
- 四元数的定义
-四元数是一种高阶的复数，定义如下
-Q = w + xi + yj + zk
-其中i、j、k为虚部单位，这里简单回顾一下高中知识
-
-
-对于复数 z = a + bi ，则有
-
-
-
-
-‘a’ 为z的实部，‘bi’ 为z的虚部，只有虚部没有实部的复数叫纯虚数
-
-
-
-
-i * i = -1
-
-
-
-
-z 的共轭复数 z‾\overline{\text{z}}​z​​​ = a - bi
-
-
-
-
-复数模长公式：∣z∣=a2+bb...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Apr 25th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>13 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">111498</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/"  target="_self">DataSet、DataTable、DataAdapter </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            
-
- 先说一下三者之间的关系
-DataTable是DataSet的子集，用于区分一个DataSet里的不同数据，如果没有这个需求当然也可以不需要建立DataTable。
-DataAdapter就是连接数据源和DataSet之间的桥梁,如果把，数据比作水，数据源比作水源，DataSet比作水库，那么DataAdpater就相当于输水管，通过输水管将水源中的水运输到水库中进行保管；而DataTable就相当于水库中分开管理的小水库，比如这个...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Apr 24th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>10 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">7494</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/04/24/Unity-GL/"  target="_self">Unity.GL </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            Unity.GL是Unity提供的低级别图形库，能发出类似于OpenGL即时模式的渲染指令，一般用于操作活动变换矩阵。当只需要绘制线条或三角形且不想处理网格时一般会使用此类（当然在一般情况下都应该使用 Graphics.DrawMesh 或 CommandBuffer而不使用即时模式）。
-
-
-
- 如何使用
-
-
- 使用范围
-如果在Update()中调用GL，这将会在渲染摄像机前执行，这很有可能会由于摄像机清除屏幕而导致GL绘制对象不可见。...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Apr 24th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>7 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">8616</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/04/06/计网笔记/"  target="_self">计网笔记 </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            
-
- 概述
-
-
- 三网融合
-
-计算机网络
-电信网络
-游戏电视网络
-
-
-
- Network 计算机网络
-由若干个结点（node）和连接这些点的链路（link）组成
-
-
- Internet 互联网
-特指起源于美国研制的ARPAnet，最大的、覆盖全球的计算机网络
-互联网的基本特性:
-
-连通性：用户间可以交换信息
-共享：资源的共享
-
-互联网+：互联网 + 各个传统行业
-
-
- internet(internetwork) 互连网
-通过路由器将各...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Apr 6th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>20 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">44245</span>
+        <span class="words">10105</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -459,7 +223,7 @@ DataAdapter就是连接数据源和DataSet之间的桥梁,如果把，数据比�
         
         
         <div class="paginator">
-             <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/2/">></a>
+             <a class="extend prev" rel="prev" href="/blog/page/4/"><</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><span class="page-number current">5</span>
         </div>
 
         <div id="footer">

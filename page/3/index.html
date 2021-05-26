@@ -161,7 +161,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/05/06/DOTween/" class="post">DOTween </a><a href="/blog/2021/04/25/四元数/" class="post">四元数 </a><a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a><a href="/blog/2021/04/24/Unity-GL/" class="post">Unity.GL </a><a href="/blog/2021/04/06/计网笔记/" class="post">计网笔记 </a>
+             <a href="/blog/2021/05/26/Xlua-Hotfix方案/" class="post">XLua Hotfix方案 </a><a href="/blog/2021/05/06/DOTween/" class="post">DOTween </a><a href="/blog/2021/04/25/四元数/" class="post">四元数 </a><a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a><a href="/blog/2021/04/24/Unity-GL/" class="post">Unity.GL </a>
             </div>
         </div>
 
@@ -177,6 +177,46 @@
              
 </div>
 
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/03/03/非泛型单例下的万能参数容器-非object/"  target="_self">非泛型单例下的万能参数容器(非object) </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            最近在项目中遇到的问题。
+已有以下两个类，一个工厂类负责根据泛型进行生产；一个单例基类。现在的需求是：继承单例基类来实现一个工厂管理器（FactoryMgr）。
+//泛型工厂
+public class Factory&lt;T&gt;{&amp;#125;
+//单例
+public class Singleton&lt;T&gt; where T : new()
+{
+    
+    private static readonly Lazy&lt;T&gt; _instance =...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Mar 3rd,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>2 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">4043</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
             
@@ -424,53 +464,9 @@ class Person
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/15/unity脚本生命周期/"  target="_self">unity脚本生命周期 </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            
-摘自unity官方手册：https://docs.unity3d.com/2019.3/Documentation/Manual/ExecutionOrder.html
-
-
-
-
-
- 场景第一次加载
-当 场景 开始时会调用这些函数（场景中每个对象执行一次）
-
-
- Awake：
-此函数始终会在任何 Start 函数之前以及预制件（prefab）之后实例化（如果 GameObject 在启动期间处于非活动状态，则在激活之前不会调用 Awak...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 15th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>5 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">6287</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
         
         <div class="paginator">
-             <a class="extend prev" rel="prev" href="/blog/page/2/"><</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/4/">></a>
+             <a class="extend prev" rel="prev" href="/blog/page/2/"><</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/4/">></a>
         </div>
 
         <div id="footer">

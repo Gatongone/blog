@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Gatongone">
+    <meta name="Description" content="Gatongone's Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+    <style>
+        body
+        {
+            background-color: rgb(20, 20, 34);
+            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none; /* Firefox */
+            overflow-x: hidden;
+            height: 100%;
+        }
+        body::-webkit-scrollbar
+        {
+            display: auto; /* Chrome Safari */
+            width: 0px;
+        }
+    </style>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+    <body>
+        
+<link rel="stylesheet" href="/blog/css/leftsidebar.css">
+
+<div class="leftpanel_out" id="leftpanel_out">
+    <div class="block1"></div>
+
+    <div class="profile_background" id="profile_background">
+        <a href="/blog/" target="_self">
+            <img class="profile" src="/blog/images/profile.jpg" />
+        </a>
+    </div>
+
+    <img class="block2" src="/blog/images/block.png"/>
+
+    <div class="buttons">
+        <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/26209665" title="bilibili">
+            <img class="shadowfilter bilibili" src="/blog/images/icon/bilibili_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://gatongone.lofter.com/" title="lofter">
+            <img class="shadowfilter lofter" src="/blog/images/icon/lofter_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+         <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" title="github">
+            <img class="shadowfilter github" src="/blog/images/icon/github_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://blog.csdn.net/Gatongone" title="CSDN">
+            <img class="shadowfilter csdn" src="/blog/images/icon/csdn_btn.png"/>
+        </a>
+    </div>
+    <div class="block3"></div>
+</div>
+<script>
+    // var obj=document.getElementById('leftpanel_out');
+    // MoveBar(obj,"leftpanel_in",1150)
+</script>                       <!-- 加载侧边栏 -->
+
+        <div class='body-wrapper' id="body-wrapper">
+
+            <head>
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+ <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+ 
+</head>
+<body>
+    
+<link rel="stylesheet" href="/blog/css/topbar.css">
+
+
+<script src="/blog/js/searchbar.js"></script>
+  
+<div class="topbar" id="topbar">
+    <div class = "top_left" id="top_left">
+    <a href="https://www.gatongone.site" target="_self">
+        <img src="/blog/images/NeonGame.png"/>
+    </a>
+        <font class="title_top" id="title_top" align="left">Gatongone's blog</font>
+    </div>
+    <div id="topblock">
+            <nav>
+                <input type="checkbox" id="nav"/><label for="nav" class="check" id="check"></label>
+                <ul>
+                    <li><a href="#" id='about' class="buttonfont">About</a></li>
+                    <li><a href="#" id="plan" class="buttonfont">Planing</a></li>
+                    <li><a href="#" id="RSS" class="buttonfont">RSS</a></li>
+                </ul>
+            </nav>
+    </div>
+    <div id="search">
+        <input id="search_input"  type="text" placeholder="search with title" value="" onkeydown=" if(event.which==13)''">
+        <button><img src="/blog/images/icon/search.png" style="height: 16px; width: 18px; margin-top: 2px;"></button>
+    </div>
+</div>
+
+<!-- swiftype search -->
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','ZLY73zc1DgdsrmGd9LyN','2.0.0');
+</script>
+
+
+
+<script src="/blog/js/hidebar.js"></script>
+
+    
+<link rel="stylesheet" href="/blog/css/mainbody.css">
+
+
+<!-- 回到首页 -->
+
+    <a href="/blog/">
+    <button class="home_btn" >
+        <img src="/blog/images/icon/home.png">
+    </button>
+    </a>
+
+
+<!-- 回到顶部 -->
+<div id="top">
+    <button class="top_btn" id="top_btn">
+        <img src="/blog/images/icon/top.png">
+    </button>
+</div>
+<!-- 主体 -->
+
+<div class="mainbody" id="mainbody">
+<!-- 加载post_entry -->
+    <div class="entry">
+    
+
+    
+<!--    加载post    -->    
+
+    
+        <head>
+    <title>XLua Hotfix方案</title>
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+</head>
+<body>
+
+    
+<link rel="stylesheet" href="/blog/css/post.css">
+
+    
+<link rel="stylesheet" href="/blog/css/hightlight.css">
+
+
+    
+<link rel="stylesheet" href="/blog/css/rightbar.css">
+
+<div id="right_bar">
+
+        
+
+        
+            <div id="post_index" class="post_index">
+                <span> Post Index </span>
+                <div>
+                    <div id="clear"></div>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text"> 使用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8lua%E4%B8%AD%E5%81%9Ac%E7%9A%84%E7%83%AD%E8%A1%A5%E4%B8%81"><span class="toc-text"> 在Lua中做C#的热补丁</span></a></li></ol>
+                </div>
+                
+             </div>
+        
+             
+</div>
+
+
+    <div class="page_title" id="page_title">
+        XLua Hotfix方案
+    </div>
+    <hr>
+    <div class="page_content">
+        
+        
+        <ul>
+<li>
+<h2 id="使用方式"><a class="markdownIt-Anchor" href="#使用方式"></a> 使用方式</h2>
+<p>1.添加<code>HOTFIX_ENABLE</code>宏</p>
+<p>如果是第一次使用Xlua做Hotfix，需要在Unity3D的File-&gt;Build Setting-&gt;Scripting Define Symbols下添加 HOTFIX_ENABLE 宏。</p>
+<p>设置宏后会在Xlua菜单下生成 Hotfix Inject In Editor 选项</p>
+<p><strong>注意，该宏必须在编辑器下设置，在代码里头设置不会生效。编辑器、各手机平台这个宏要分别设置。</strong></p>
+<p>2.为需要做Hotfix的类加上<code>[Hotfix]</code>特性</p>
+<p>通过该特性，xlua可以将要注入的代码加到Hotfix列表</p>
+<p>3.生成代码</p>
+<p>执行 XLua/Generate Code 菜单，生成的代码可以在 Xlua\Gen 看到</p>
+<p><strong>注意，每次对Hotfix列表中的类新增方法，都要重新生成一次代码</strong></p>
+<p>4.注入代码到Hotfix列表</p>
+<p>手动执行 XLua/Hotfix Inject In Editor 菜单，注入完成后会打印 hotfix inject finish! 或者 had injected! ，否则打印错误信息</p>
+<p>若打印 please install the Tools 说明缺少Tools依赖，需要将Tools文件夹导入到与Assets同级的目录下</p>
+<p><strong>注意，每次修改了Hotfix列表中的类，都要重新执行一次注入</strong></p>
+</li>
+<li>
+<h2 id="在lua中做c的热补丁"><a class="markdownIt-Anchor" href="#在lua中做c的热补丁"></a> 在Lua中做C#的热补丁</h2>
+<p>Cshap部分，这里举例了最常用的几个需要打热补丁的代码，这里的Log以及Lua中的log都是我自己封装的控制台输出方法，就当成 Debug.Log 和 print 就行</p>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Slime</span>&#123;&#125;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Goblin</span>&#123;&#125;
+
+[<span class="hljs-meta">Hotfix</span>]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Monster</span>&lt;<span class="hljs-title">T</span>&gt;
+&#123;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintMonsterType</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+        <span class="hljs-keyword">this</span>.Log(<span class="hljs-string">"Monster"</span>);
+    &#125;
+&#125;
+
+[<span class="hljs-meta">Hotfix</span>]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">DataInfo</span>
+&#123;
+    <span class="hljs-keyword">int</span>[] array;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Name
+    &#123;
+        <span class="hljs-keyword">get</span> =&gt; <span class="hljs-string">"Cshap中的属性"</span>;
+        <span class="hljs-keyword">set</span> &#123;&#125;
+    &#125;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-keyword">this</span>[<span class="hljs-keyword">int</span> index]
+    &#123;
+        <span class="hljs-keyword">get</span>
+        &#123;
+            <span class="hljs-keyword">if</span>(array.Length &lt;= index || index&lt;<span class="hljs-number">0</span>)
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IndexOutOfRangeException();
+            <span class="hljs-keyword">return</span> array[index];
+        &#125;
+        <span class="hljs-keyword">set</span>
+        &#123;
+            <span class="hljs-keyword">if</span>(index&lt;<span class="hljs-number">0</span>)
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IndexOutOfRangeException();
+            array[index] = <span class="hljs-keyword">value</span>;
+        &#125;
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DataInfo</span>(<span class="hljs-params"></span>)</span> =&gt; <span class="hljs-keyword">this</span>.Log(<span class="hljs-string">"这里是Cshap中的构造函数"</span>);
+    ~DataInfo() =&gt; Debug.Log(<span class="hljs-string">"这里是Cshap中的析构函数"</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Print</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+        <span class="hljs-keyword">this</span>.Log(<span class="hljs-string">"这里是Cshap中的成员方法"</span>);
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> IEnumerator <span class="hljs-title">Timer</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+        <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)
+        &#123;
+            <span class="hljs-keyword">this</span>.Log(<span class="hljs-string">"打印一次Cshap中的协程"</span>);
+            <span class="hljs-function"><span class="hljs-keyword">yield</span> return new <span class="hljs-title">WaitForSeconds</span>(<span class="hljs-params"><span class="hljs-number">1f</span></span>)</span>;
+        &#125;
+    &#125;
+
+&#125;
+
+[<span class="hljs-meta">Hotfix</span>]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">HotfixTest</span> : <span class="hljs-title">MonoBehaviour</span>
+&#123;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+        <span class="hljs-comment">//自己封装的初始化</span>
+        LuaMgr.Instance.Init();
+        LuaMgr.Instance.Require(<span class="hljs-string">"main"</span>);
+
+        <span class="hljs-keyword">var</span> datainfo = <span class="hljs-keyword">new</span> DataInfo();
+
+        datainfo.Name = <span class="hljs-string">"修改后的姓名"</span>;
+        <span class="hljs-keyword">this</span>.Log(datainfo.Name);
+
+        datainfo[<span class="hljs-number">0</span>] = <span class="hljs-number">2</span>;
+        Debug.Log(datainfo[<span class="hljs-number">0</span>]);
+
+        datainfo.Print();
+        StartCoroutine(datainfo.Timer());
+
+        <span class="hljs-keyword">var</span> slime = <span class="hljs-keyword">new</span> Monster&lt;Slime&gt;();
+        <span class="hljs-keyword">var</span> goblin = <span class="hljs-keyword">new</span> Monster&lt;Goblin&gt;();
+        slime.PrintMonsterType();
+        goblin.PrintMonsterType();
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Add</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b</span>)</span>
+    &#123;
+        <span class="hljs-keyword">this</span>.Log(<span class="hljs-string">"我猜不会打印出来"</span>);
+    &#125;
+&#125;
+</code></pre>
+<p>Lua部分，对Cshap打热补丁，注意对比输出的内容</p>
+<pre class="highlight"><code class="lua"><span class="hljs-comment">--导入工具包，下面重写协程要用</span>
+<span class="hljs-keyword">local</span> util = <span class="hljs-built_in">require</span> <span class="hljs-string">"xlua.util"</span>
+
+<span class="hljs-comment">--可以这样，用名字做引用，但只能写一个</span>
+
+xlua.hotfix(CS.HotfixTest,<span class="hljs-string">"Add"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(a,b)</span></span>
+    <span class="hljs-built_in">log</span>(<span class="hljs-string">"执行加法运算："</span>..a+b)
+<span class="hljs-keyword">end</span>)
+
+<span class="hljs-comment">--也可以合一块儿写</span>
+
+xlua.hotfix(CS.DataInfo,&#123;
+
+    <span class="hljs-comment">--重写属性</span>
+    get_Name = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(self)</span></span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"Lua中get属性"</span>
+    <span class="hljs-keyword">end</span>,
+    set_Name = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(self,value)</span></span>
+        <span class="hljs-built_in">log</span>(<span class="hljs-string">"Lua中set属性："</span>..value)
+    <span class="hljs-keyword">end</span>,
+
+    <span class="hljs-comment">--重写索引器,固定写法</span>
+    get_Item = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(self,index)</span></span>
+        <span class="hljs-built_in">log</span>(<span class="hljs-string">"尝试在lua中重写get索引器"</span>)
+    <span class="hljs-keyword">end</span>,
+    set_Item = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(self,index,value)</span></span>
+        <span class="hljs-built_in">log</span>(<span class="hljs-string">"尝试在lua中重写set索引器,传入值"</span>,value)
+    <span class="hljs-keyword">end</span>,
+
+    <span class="hljs-comment">--重写协程</span>
+    Timer = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span>
+        <span class="hljs-comment">--需要返回一个协程</span>
+        <span class="hljs-keyword">return</span> util.cs_generator(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span>
+            i = <span class="hljs-number">1</span>
+            <span class="hljs-keyword">while</span> i&lt;<span class="hljs-number">3</span> <span class="hljs-keyword">do</span>
+                <span class="hljs-built_in">log</span>(<span class="hljs-string">"打印一次lua中的协程"</span>)
+                coroutine.<span class="hljs-built_in">yield</span>( CS.UnityEngine.WaitForSeconds(<span class="hljs-number">1</span>) )
+                i = i + <span class="hljs-number">1</span>
+            <span class="hljs-keyword">end</span>
+        <span class="hljs-keyword">end</span>)
+    <span class="hljs-keyword">end</span>,
+
+    <span class="hljs-comment">--重写成员方法</span>
+    Print = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span>
+        <span class="hljs-built_in">log</span>(<span class="hljs-string">"这是在Lua中打了Hotfix后的成员方法"</span>)
+    <span class="hljs-keyword">end</span>,
+
+    <span class="hljs-comment">--构造函数固定写法</span>
+    [<span class="hljs-string">".ctor"</span>] = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span>
+        <span class="hljs-built_in">log</span>(<span class="hljs-string">"这是在Lua中打了Hotfix后的构造函数"</span>)
+    <span class="hljs-keyword">end</span>,
+
+    <span class="hljs-comment">--析构函数固定写法</span>
+    Finalize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span>
+        <span class="hljs-built_in">log</span>(<span class="hljs-string">"这是在Lua中打了Hotfix后的析构函数"</span>)
+    <span class="hljs-keyword">end</span>
+&#125;)
+
+<span class="hljs-comment">--泛型类替换</span>
+
+xlua.hotfix(CS.Monster(CS.Slime),&#123;
+    PrintMonsterType = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span>
+        <span class="hljs-built_in">log</span>(<span class="hljs-string">"Slime"</span>)
+    <span class="hljs-keyword">end</span>
+&#125;)
+xlua.hotfix(CS.Monster(CS.Goblin),&#123;
+    PrintMonsterType = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span>
+        <span class="hljs-built_in">log</span>(<span class="hljs-string">"IGoblin"</span>)
+    <span class="hljs-keyword">end</span>
+&#125;)
+</code></pre>
+<p>懒得截图了，直接把输出内容复制过来：</p>
+<pre class="highlight"><code class="">这里是Cshap中的构造函数
+这是在Lua中打了Hotfix后的构造函数
+Lua中set属性：修改后的姓名
+Lua中get属性
+尝试在lua中重写set索引器,传入值   :   2
+尝试在lua中重写get索引器
+这是在Lua中打了Hotfix后的成员方法
+打印一次lua中的协程
+Slime
+IGoblin
+打印一次lua中的协程
+</code></pre>
+<p>对比lua和cshap部分，可以发现，除了构造函数和析构函数，其他部分都被lua重写了。</p>
+<p>而构造函数和析构函数的执行顺序是：</p>
+<p>先执行cshap中的构造函数再执行lua中的hofix的构造函数，析构函数同理。</p>
+</li>
+</ul>
+
+    </div>
+    
+    <div class="footer">
+    <hr>
+        <font> ©2021 </font>
+        <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
+        some copyrights reserved
+        <div style="float: right; margin-right: -200px;">
+              May 26th  2021,  6:46:53  |
+            <font>Powered by</font>
+            <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
+            framework
+        </div>
+    </div>
+</body>
+    
+
+
+
+</div>
+
+
+
+<script>
+     var bar=document.getElementById("top_btn")
+     var showtime=0;
+     var hidetime=0;
+     window.addEventListener("pageshow",function(){
+         let scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+        if(scrollTop ==0)
+        {
+            bar.style.display = 'none';
+        }
+        else
+        {
+            bar.style.display = 'block';
+        }
+        window.addEventListener("scroll",function(){
+            bar.style.display = 'block';
+            scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+            if(scrollTop != 0)
+            {
+                if(hidetime==0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    hidetime++;
+                }
+                showtime=0;
+            }  
+            else
+            {
+                if(showtime==0 && hidetime!=0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    showtime++;
+                    hidetime=0;
+                }
+            }
+        }) 
+     })
+     
+    var timer = null;
+    bar.onclick = function()
+    {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn()
+        {
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            if(top > 0)
+            {
+                document.body.scrollTop = document.documentElement.scrollTop = top - 80;
+                timer = requestAnimationFrame(fn);
+            }
+            else
+            {
+                cancelAnimationFrame(timer);
+            } 
+        });
+    }
+         
+</script>
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+<script src="/blog/js/showpost.js"></script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+</body>                                             <!--  加载主体  -->
+
+        </div>                                                                 
+        
+<script src="/blog/js/searchbar.js"></script>
+<script src="/blog/js/hidebar.js"></script>
+              <!--    加载JS  -->                                                          
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+
+</html>
