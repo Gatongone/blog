@@ -410,7 +410,7 @@ LINQ to XML：一种启用了 LINQ 的内存 XML 编程接口
 
 
 <div class="post_entry">
-    <a class="post_title" href="/blog/2021/03/11/Persistence——PlayerPrefs/"  target="_self">Persistence——PlayerPrefs </a>   
+    <a class="post_title" href="/blog/2021/03/13/Persistence——Excel/"  target="_self">Persistence——Excel </a>   
     
     </br>
     <span class="content">
@@ -418,28 +418,23 @@ LINQ to XML：一种启用了 LINQ 的内存 XML 编程接口
             
             
             
-            Unity中提供了PlayerPrefs公共类用于存储玩家数据，支持int、float、string三种类型数据的存储，这类似于以键值对的形式进行的存储。
+            这个东西DDDD，一般用来读策划同学写的Excel文档，之后有什么转Json的需求就不用跑到网页上去转换了。这里将会介绍ExcelDataReader和EPPLus两种Excel插件。
 
 
- 相关函数
-
-
- 将数据存入内存中
-当使用Set方法时只会将数据存入内存，而并非磁盘中。也就是说如果游戏在运行时崩溃，将导致数据丢失。
-PS：使用相同的键名将会导致数据覆盖，即使类型不一样。
-PlayerPrefs.SetString(&#34;PlayerName&#34;, &#34;关东关&#34;);
-...
+ ExcelDataReader
+ExcelDataReader支持快速读取Excel数据，但不支持写入（基本上也不会用excel做持久化，一般只是做成数据配置表而已），读取速度和安全性相对于NPOI来说要好上不少。
+需要在Unity中添加三个依赖的...
     </span>
 
     <div>
         <img src="/blog/images/icon/date.png" alt="">
-        <span> Mar 11th,   2021</span>
+        <span> Mar 13th,   2021</span>
 
         <img src="/blog/images/icon/time.png" alt="">
-        <span>4 min</span>
+        <span></span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">3509</span>
+        <span class="words">10212</span>
 
     </div>
     <hr color=#49495b SIZE=1>
