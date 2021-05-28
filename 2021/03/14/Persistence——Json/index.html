@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Gatongone">
+    <meta name="Description" content="Gatongone's Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+    <style>
+        body
+        {
+            background-color: rgb(20, 20, 34);
+            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none; /* Firefox */
+            overflow-x: hidden;
+            height: 100%;
+        }
+        body::-webkit-scrollbar
+        {
+            display: auto; /* Chrome Safari */
+            width: 0px;
+        }
+    </style>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+    <body>
+        
+<link rel="stylesheet" href="/blog/css/leftsidebar.css">
+
+<div class="leftpanel_out" id="leftpanel_out">
+    <div class="block1"></div>
+
+    <div class="profile_background" id="profile_background">
+        <a href="/blog/" target="_self">
+            <img class="profile" src="/blog/images/profile.jpg" />
+        </a>
+    </div>
+
+    <img class="block2" src="/blog/images/block.png"/>
+
+    <div class="buttons">
+        <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/26209665" title="bilibili">
+            <img class="shadowfilter bilibili" src="/blog/images/icon/bilibili_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://gatongone.lofter.com/" title="lofter">
+            <img class="shadowfilter lofter" src="/blog/images/icon/lofter_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+         <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" title="github">
+            <img class="shadowfilter github" src="/blog/images/icon/github_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://blog.csdn.net/Gatongone" title="CSDN">
+            <img class="shadowfilter csdn" src="/blog/images/icon/csdn_btn.png"/>
+        </a>
+    </div>
+    <div class="block3"></div>
+</div>
+<script>
+    // var obj=document.getElementById('leftpanel_out');
+    // MoveBar(obj,"leftpanel_in",1150)
+</script>                       <!-- 加载侧边栏 -->
+
+        <div class='body-wrapper' id="body-wrapper">
+
+            <head>
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+ <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+ 
+</head>
+<body>
+    
+<link rel="stylesheet" href="/blog/css/topbar.css">
+
+
+<script src="/blog/js/searchbar.js"></script>
+  
+<div class="topbar" id="topbar">
+    <div class = "top_left" id="top_left">
+    <a href="https://www.gatongone.site" target="_self">
+        <img src="/blog/images/NeonGame.png"/>
+    </a>
+        <font class="title_top" id="title_top" align="left">Gatongone's blog</font>
+    </div>
+    <div id="topblock">
+            <nav>
+                <input type="checkbox" id="nav"/><label for="nav" class="check" id="check"></label>
+                <ul>
+                    <li><a href="#" id='about' class="buttonfont">About</a></li>
+                    <li><a href="#" id="plan" class="buttonfont">Planing</a></li>
+                    <li><a href="#" id="RSS" class="buttonfont">RSS</a></li>
+                </ul>
+            </nav>
+    </div>
+    <div id="search">
+        <input id="search_input"  type="text" placeholder="search with title" value="" onkeydown=" if(event.which==13)''">
+        <button><img src="/blog/images/icon/search.png" style="height: 16px; width: 18px; margin-top: 2px;"></button>
+    </div>
+</div>
+
+<!-- swiftype search -->
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','ZLY73zc1DgdsrmGd9LyN','2.0.0');
+</script>
+
+
+
+<script src="/blog/js/hidebar.js"></script>
+
+    
+<link rel="stylesheet" href="/blog/css/mainbody.css">
+
+
+<!-- 回到首页 -->
+
+    <a href="/blog/">
+    <button class="home_btn" >
+        <img src="/blog/images/icon/home.png">
+    </button>
+    </a>
+
+
+<!-- 回到顶部 -->
+<div id="top">
+    <button class="top_btn" id="top_btn">
+        <img src="/blog/images/icon/top.png">
+    </button>
+</div>
+<!-- 主体 -->
+
+<div class="mainbody" id="mainbody">
+<!-- 加载post_entry -->
+    <div class="entry">
+    
+
+    
+<!--    加载post    -->    
+
+    
+        <head>
+    <title>Persistence——Json</title>
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+</head>
+<body>
+
+    
+<link rel="stylesheet" href="/blog/css/post.css">
+
+    
+<link rel="stylesheet" href="/blog/css/hightlight.css">
+
+
+    
+<link rel="stylesheet" href="/blog/css/rightbar.css">
+
+<div id="right_bar">
+
+        
+
+        
+            <div id="post_index" class="post_index">
+                <span> Post Index </span>
+                <div>
+                    <div id="clear"></div>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化和反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Json-Net"><span class="toc-text">Json .Net</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JsonUtlity"><span class="toc-text">JsonUtlity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LitJson"><span class="toc-text">LitJson</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Json-Net%E3%80%81JsonUtlity%E3%80%81LitJson%E5%AF%B9%E6%AF%94"><span class="toc-text">Json .Net、JsonUtlity、LitJson对比</span></a></li></ol>
+                </div>
+                
+             </div>
+        
+             
+</div>
+
+
+    <div class="page_title" id="page_title">
+        Persistence——Json
+    </div>
+    <hr>
+    <div class="page_content">
+        
+        
+        <p>Json(JavaScript Object Notation)即JS对象简谱，纯文本键值对结构，一种轻量级的数据交换格式，相对于XML来说配置更简单，一般情况下更利于计算机读取</p>
+<ul>
+<li><h2 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h2><p>  json的序列化和反序列化方式有很多种，就我自己用过的有以下几种:</p>
+<ol>
+<li>Json .NET(Newtonsoft .Json)</li>
+<li>JsonUtlity</li>
+<li>LitJson</li>
+<li>JavaScriptSerializer</li>
+<li><p>DataContractJsonSerializer</p>
+<p>这里只举例unity中用的比较多的前三种</p>
+</li>
+</ol>
+<ul>
+<li><h3 id="Json-Net"><a href="#Json-Net" class="headerlink" title="Json .Net"></a>Json .Net</h3><p>  这玩意功能很强大，甚至支持序列化和反序列化DataTable，DataSet，Entity Framework和NHibernate，也是我最常用的一种，缺点是dll比较大，此外还有许多特性配合使用</p>
+<p>  <a target="_blank" rel="noopener" href="https://github.com/SaladLab/Json.Net.Unity3D/releases">附上Github的unity package</a></p>
+<p>  特性|描述<br>  ——-|——-<br>  [JsonObject(MemberSerialization.OptOut)]|默认使用的特性，此类中的所有公共成员都会被序列化<br>  [JsonObject(MemberSerialization.OptIn)]|只有标有特性<code>[JsonProperty]</code>的成员才会被序列化<br>  [DefaultValue(int value)]|序列化时使用的默认值<br>  [JsonProperty]|支持序列化访问属性为私有或保护的成员<br>  [JsonProperty(PropertyName = “CName”)]|自定义序列化成员名称<br>  [JsonProperty(NullValueHandling=NullValueHandling.Ignore)]|若该成员的值为null，则忽略<br>  [JsonIgnore]|忽略掉该成员<br>  [JsonConverter(typeof(StringEnumConverter))]|序列化时将枚举转换成字符串<br>  [JsonConverter(typeof(IsoDateTimeConverter))]|日期格式化，不常用，一般改成自定义的日期特性</p>
+<p>  序列化: </p>
+<pre><code class="lang-C#">  public static void SaveData&lt;T&gt;(T data, string filepath) where T : class, new()
+  &#123;
+      string jsonStr = jsonStr = JsonConvert.SerializeObject(data);
+
+      using (StreamWriter writer = new StreamWriter($&quot;&#123;filepath&#125;.json&quot;))
+      &#123;
+          writer.Write(jsonStr);
+      &#125;
+  &#125;
+</code></pre>
+<p>  反序列化：</p>
+<pre><code class="lang-C#">  public static T LoadData&lt;T&gt;(string filepath) where T : class, new()
+  &#123;
+      if (!File.Exists($&quot;&#123;Path&#125;/&#123;filename&#125;&quot;))
+      &#123;
+          return new T();
+      &#125;
+
+      string jsonStr = string.Empty;
+
+      using (StreamReader reader = new StreamReader($&quot;&#123;filepath&#125;.json&quot;))
+      &#123;
+          jsonStr = reader.ReadToEnd();
+      &#125;
+
+      return JsonConvert.DeserializeObject&lt;T&gt;(jsonStr);
+  &#125;
+</code></pre>
+<p>  附上自定义日期特性</p>
+<pre><code class="lang-C#">  public class UniversalDateTimeConverter : DateTimeConverterBase
+  &#123;
+      private static IsoDateTimeConverter isoConverter = new IsoDateTimeConverter &#123; DateTimeFormat = &quot;yyyy-MM-dd HH:mm:ss&quot; &#125;;
+
+      public override object ReadJson(Newtonsoft.Json.JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+      &#123;
+          return isoConverter.ReadJson(reader, objectType, existingValue, serializer);
+      &#125;
+
+      public override void WriteJson(Newtonsoft.Json.JsonWriter writer, object value, JsonSerializer serializer)
+      &#123;
+          isoConverter.WriteJson(writer, value, serializer);
+      &#125;
+  &#125;
+</code></pre>
+</li>
+<li><h3 id="JsonUtlity"><a href="#JsonUtlity" class="headerlink" title="JsonUtlity"></a>JsonUtlity</h3><p>  unity自带的Json解析类，只能处理一些简单的类，懒得导入其他json解析类时用这个，使用时因注意：</p>
+<ol>
+<li>不支持序列化字典</li>
+<li>float类型写入时看起来有些毛病，不过读取时没问题</li>
+<li>序列化自定义类时需要使用特性<code>[System.Serializable]</code></li>
+<li>对于私有和保护类型成员，如果需要序列化，则需要使用特性<code>[SerializeField]</code></li>
+<li>不支持直接反序列化为数据集合（即反序列化类型不能为<code>Collection</code>）</li>
+<li><p>注意json文件编码格式必须为utf-8</p>
+<p>序列化：</p>
+<pre><code class="lang-C#">public static void SaveData&lt;T&gt;(T data, string filepath) where T : class, new()
+&#123;
+ string jsonStr = jsonStr = JsonUtility.ToJson(data);
+
+ using (StreamWriter writer = new StreamWriter($&quot;&#123;filepath&#125;.json&quot;))
+ &#123;
+     writer.Write(jsonStr);
+ &#125;
+&#125;
+</code></pre>
+<p>反序列化：</p>
+<pre><code class="lang-C#">public static T LoadData&lt;T&gt;(string filepath) where T : class, new()
+&#123;
+ if (!File.Exists($&quot;&#123;Path&#125;/&#123;filename&#125;&quot;))
+ &#123;
+     return new T();
+ &#125;
+
+ string jsonStr = string.Empty;
+
+ using (StreamReader reader = new StreamReader($&quot;&#123;filepath&#125;.json&quot;))
+ &#123;
+     jsonStr = reader.ReadToEnd();
+ &#125;
+
+ return JsonUtility.FromJson&lt;T&gt;(jsonStr);
+&#125;
+</code></pre>
+</li>
+</ol>
+</li>
+<li><h3 id="LitJson"><a href="#LitJson" class="headerlink" title="LitJson"></a>LitJson</h3><p>  相对于JsonUtlity来说稍微方便点，不需要添加特性，而且支持字典的序列化和反序列化为数据集合</p>
+<p>  官网：<a target="_blank" rel="noopener" href="https://litjson.net/">https://litjson.net/</a></p>
+<p>  序列化：</p>
+<pre><code class="lang-C#">  public static void SaveData&lt;T&gt;(T data, string filepath) where T : class, new()
+  &#123;
+      string jsonStr = jsonStr = JsonMapper.ToJson(data);
+
+      using (StreamWriter writer = new StreamWriter($&quot;&#123;filepath&#125;.json&quot;))
+      &#123;
+          writer.Write(jsonStr);
+      &#125;
+  &#125;
+</code></pre>
+<p>  反序列化：</p>
+<pre><code class="lang-C#">  public static T LoadData&lt;T&gt;(string filepath) where T : class, new()
+  &#123;
+      if (!File.Exists($&quot;&#123;Path&#125;/&#123;filename&#125;&quot;))
+      &#123;
+          return new T();
+      &#125;
+
+      string jsonStr = string.Empty;
+
+      using (StreamReader reader = new StreamReader($&quot;&#123;filepath&#125;.json&quot;))
+      &#123;
+          jsonStr = reader.ReadToEnd();
+      &#125;
+
+      return JsonMapper.ToObject&lt;T&gt;(jsonStr);
+  &#125;
+</code></pre>
+<p>  LitJson内置了Json访问器<code>JsonData</code>，可以通过JsonData来获取Json字符串中的键值对：</p>
+<pre><code class="lang-C#">  string jsonStr = &quot;&#123;&#39;students&#39;:[&#123;&#39;name&#39;:&#39;Gatongone&#39;,&#39;age&#39;:20&#125;,&#123;&#39;name&#39;:&#39;Khaki&#39;,&#39;age&#39;:21&#125;]&#125;&quot;;
+  JsonData datas = JsonMapper.ToObject(jsonStr);
+  JsonData students = datas[&quot;students&quot;];
+
+  foreach(JsonData student in students)
+  &#123;
+      Debug.Log(student[&quot;name&quot;].ToString());
+      Debug.Log((int)student[&quot;age&quot;]);
+  &#125;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><h2 id="Json-Net、JsonUtlity、LitJson对比"><a href="#Json-Net、JsonUtlity、LitJson对比" class="headerlink" title="Json .Net、JsonUtlity、LitJson对比"></a>Json .Net、JsonUtlity、LitJson对比</h2><p>  对同一个实例进行序列化，看一下三者的区别</p>
+<pre><code class="lang-C#">  public enum Day
+  &#123;
+      SunDay,
+      MonDay
+  &#125;
+
+  [Serializable]
+  public class CustomClass
+  &#123;
+      public int Int;
+      public string String;
+
+      public CustomClass(int Int, string String)
+      &#123;
+          this.Int = Int;
+          this.String = String;
+      &#125;
+  &#125;
+
+  public class JsonInfo
+  &#123;
+      [JsonProperty]
+      [SerializeField]
+      private int privateInt;
+
+      [JsonProperty]
+      [SerializeField]
+      protected int protectedInt;
+      public int id;
+      public float value;
+      public string name;
+      public bool isTrue;
+
+      [JsonConverter(typeof(StringEnumConverter))]
+      public Day day;
+
+      public CustomClass customClass;
+      public CustomClass nullClass;
+      public List&lt;CustomClass&gt; customlist;
+      public Dictionary&lt;int, string&gt; dic;
+  &#125;
+</code></pre>
+<pre><code class="lang-C#">  JsonInfo Init()
+  &#123;
+      JsonInfo jd = new JsonInfo();
+      ji.id = 1;
+      ji.name = &quot;JsonTest&quot;;
+      ji.value = 1.45f;
+      ji.isTrue = true;
+      ji.customClass = new CustomClass(5, &quot;A Test String&quot;);
+      ji.nullClass = null;
+      ji.day = Day.SunDay;
+
+      ji.customlist = new List&lt;CustomClass&gt;()
+      &#123;
+          new CustomClass(1, &quot;First Test String&quot;),
+          new CustomClass(2, &quot;Second Test String&quot;),
+          new CustomClass(3, &quot;Third Test String&quot;),
+      &#125;;
+
+      ji.dic = new Dictionary&lt;int, string&gt;()
+      &#123;
+          &#123;1,&quot;First&quot;&#125;,
+          &#123;2,&quot;Second&quot;&#125;,
+          &#123;3,&quot;Third&quot;&#125;
+      &#125;;
+      return ji;
+  &#125;
+</code></pre>
+<p>  分别对JsonInfo实例进行序列化，生成的json文件如下</p>
+<p>  <img src="Json.jpg" alt="alt" style="max-width:100%;" ></p>
+<p>  \ |Json .Net|LitJson|JsonUtlity<br>  ——-|——-|——-|——-<br>  字典|支持|支持|不支持<br>  Collection数据集合|支持|支持|不支持<br>  null对象|写入null|写入null|写入默认值<br>  自定义序列化类|无需特性|无需特性|[System.Serializable]<br>  私有、保护成员变量|[JsonProperty]|不支持序列化|[SerializeField]<br>  Json访问器|无|JsonData|无</p>
+</li>
+</ul>
+
+    </div>
+    
+    <div class="footer">
+    <hr>
+        <font> ©2021 </font>
+        <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
+        some copyrights reserved
+        <div style="float: right; margin-right: -200px;">
+              Mar 14th  2021,  4:29:59  |
+            <font>Powered by</font>
+            <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
+            framework
+        </div>
+    </div>
+</body>
+    
+
+
+
+</div>
+
+
+
+<script>
+     var bar=document.getElementById("top_btn")
+     var showtime=0;
+     var hidetime=0;
+     window.addEventListener("pageshow",function(){
+         let scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+        if(scrollTop ==0)
+        {
+            bar.style.display = 'none';
+        }
+        else
+        {
+            bar.style.display = 'block';
+        }
+        window.addEventListener("scroll",function(){
+            bar.style.display = 'block';
+            scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+            if(scrollTop != 0)
+            {
+                if(hidetime==0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    hidetime++;
+                }
+                showtime=0;
+            }  
+            else
+            {
+                if(showtime==0 && hidetime!=0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    showtime++;
+                    hidetime=0;
+                }
+            }
+        }) 
+     })
+     
+    var timer = null;
+    bar.onclick = function()
+    {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn()
+        {
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            if(top > 0)
+            {
+                document.body.scrollTop = document.documentElement.scrollTop = top - 80;
+                timer = requestAnimationFrame(fn);
+            }
+            else
+            {
+                cancelAnimationFrame(timer);
+            } 
+        });
+    }
+         
+</script>
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+<script src="/blog/js/showpost.js"></script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+</body>                                             <!--  加载主体  -->
+
+        </div>                                                                 
+        
+<script src="/blog/js/searchbar.js"></script>
+<script src="/blog/js/hidebar.js"></script>
+              <!--    加载JS  -->                                                          
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+
+</html>
