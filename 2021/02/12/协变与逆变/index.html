@@ -258,11 +258,11 @@
     <span class="hljs-function">T <span class="hljs-title">Method</span>(<span class="hljs-params"></span>)</span>;
     <span class="hljs-comment">//void Method2(T param); //使用out时会报错，不能作为参数使用</span>
 &#125;
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">InTestImpl</span>: <span class="hljs-title">inTest</span>&lt;<span class="hljs-title">Father</span>&gt; <span class="hljs-comment">//接口的实例</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">OutTestImpl</span> : <span class="hljs-title">outTest</span>&lt;<span class="hljs-title">Son</span>&gt; <span class="hljs-comment">//接口的实例</span>
 &#123;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Method</span>(<span class="hljs-params">Father father</span>)</span>
+    Son outTest&lt;Son&gt;.Method()
     &#123;
-        <span class="hljs-comment">//do something.....</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">default</span>(Son);
     &#125;
 &#125;
 
@@ -274,11 +274,10 @@
 &#123;
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span>
     &#123;
-        inTest&lt;Son&gt; Is = <span class="hljs-keyword">new</span> InTestImpl();
-        inTest&lt;Father&gt; If = <span class="hljs-keyword">new</span> InTestImpl();
-        Is = If;<span class="hljs-comment">//不写out则无法隐式转换</span>
-        Is.Method(<span class="hljs-keyword">new</span> Father());<span class="hljs-comment">//错误，无法隐式转换</span>
-        Is.Method(<span class="hljs-keyword">new</span> Son());<span class="hljs-comment">//正确</span>
+        outTest&lt;Father&gt; Of = <span class="hljs-keyword">new</span> OutTestImpl();<span class="hljs-comment">//不是out则报错</span>
+        outTest&lt;Son&gt; Os = <span class="hljs-keyword">new</span> OutTestImpl();
+
+        Of = Os;<span class="hljs-comment">//不是out则报错</span>
     &#125;
 &#125;
 </code></pre>
@@ -362,14 +361,14 @@
 <p>in和out只能用于修饰泛型接口和泛型委托，不能用于修饰泛型类和泛型结构体。</p>
 </li>
 <li>
-<p>用out修饰的泛型，只能作为方法的返回值</p>
+<p>用out修饰的泛型，只能作为返回值来使用</p>
 <ul>
 <li>如：delegate T TestOut &lt; out T &gt;( );</li>
 <li>而不能是：delegate T TestOut&lt; out T &gt;( T t );</li>
 </ul>
 </li>
 <li>
-<p>用in修饰的泛型，只能作为方法的参数</p>
+<p>用in修饰的泛型，只能作为参数来使用</p>
 <ul>
 <li>如：delegate void TestIn&lt; in T &gt;( T t );</li>
 <li>而不能是：delegate T TestIn&lt; in T &gt;( T t );</li>
