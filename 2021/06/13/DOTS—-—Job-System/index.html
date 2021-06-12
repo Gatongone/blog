@@ -508,16 +508,12 @@ index: 1,result: 7.7
     <span class="hljs-comment">//第二个参数可以获取到Transform</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Execute</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> i, TransformAccess transform</span>)</span>
     &#123;
+        transform.position += velocity[i] * deltaTime;
+    &#125;
+&#125;
 </code></pre>
-</li>
-</ul>
-<p>transform.position += velocity[i] * deltaTime;<br />
-}<br />
-}<br />
-```<br />
-主线程完整Mono代码：</p>
-<pre><code>```C#
-public class ShpereMove : MonoBehaviour
+<p>主线程完整Mono代码：</p>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ShpereMove</span> : <span class="hljs-title">MonoBehaviour</span>
 &#123;
     GameObject sphere1;
     GameObject sphere2;
@@ -526,53 +522,52 @@ public class ShpereMove : MonoBehaviour
     PositionUpdateJob jobData;
     JobHandle handle;
 
-    //在Start中初始化Job
-    void Start()
+    <span class="hljs-comment">//在Start中初始化Job</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
     &#123;
-        //创建两个球体
+        <span class="hljs-comment">//创建两个球体</span>
         sphere1 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere2 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
         sphere1.transform.position = Vector3.zero;
         sphere2.transform.position = Vector3.zero;
 
-        //创建Job
-        jobData = new PositionUpdateJob();
+        <span class="hljs-comment">//创建Job</span>
+        jobData = <span class="hljs-keyword">new</span> PositionUpdateJob();
 
-        Transform[] transforms = new Transform[2];
+        Transform[] transforms = <span class="hljs-keyword">new</span> Transform[<span class="hljs-number">2</span>];
 
-        transforms[0] = sphere1.transform;
-        transforms[1] = sphere2.transform;
+        transforms[<span class="hljs-number">0</span>] = sphere1.transform;
+        transforms[<span class="hljs-number">1</span>] = sphere2.transform;
 
-        //获取所有物体的Transform，并放到数组中
-        transArray = new TransformAccessArray(transforms);
+        <span class="hljs-comment">//获取所有物体的Transform，并放到数组中</span>
+        transArray = <span class="hljs-keyword">new</span> TransformAccessArray(transforms);
 
-        result = new NativeArray&lt;Vector3&gt;(2, Allocator.TempJob);
-        result[0] = Vector3.forward * 2f;
-        result[1] = Vector3.forward * 3f;
+        result = <span class="hljs-keyword">new</span> NativeArray&lt;Vector3&gt;(<span class="hljs-number">2</span>, Allocator.TempJob);
+        result[<span class="hljs-number">0</span>] = Vector3.forward * <span class="hljs-number">2f</span>;
+        result[<span class="hljs-number">1</span>] = Vector3.forward * <span class="hljs-number">3f</span>;
         jobData.velocity = result;
     &#125;
-    //填充每帧变更需要改变的数据 并 调度作业
-    void Update()
+    <span class="hljs-comment">//填充每帧变更需要改变的数据 并 调度作业</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
     &#123;
         jobData.deltaTime = Time.deltaTime;
         handle = jobData.Schedule(transArray);
     &#125;
-    // 保证当前帧内Job执行完毕
-    private void LateUpdate()
+    <span class="hljs-comment">// 保证当前帧内Job执行完毕</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LateUpdate</span>(<span class="hljs-params"></span>)</span>
     &#123;
         handle.Complete();
     &#125;
-    // 释放数组分配的内存
-    private void OnDestroy()
+    <span class="hljs-comment">// 释放数组分配的内存</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnDestroy</span>(<span class="hljs-params"></span>)</span>
     &#123;
         transArray.Dispose();
         result.Dispose();
     &#125;
 &#125;
-```
 </code></pre>
-<ul>
+</li>
 <li>
 <h2 id="c-jobsystem-注意事项"><a class="markdownIt-Anchor" href="#c-jobsystem-注意事项"></a> C# JobSystem 注意事项</h2>
 <ul>
