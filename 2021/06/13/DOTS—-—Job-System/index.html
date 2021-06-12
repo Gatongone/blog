@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Gatongone">
+    <meta name="Description" content="Gatongone's Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+    <style>
+        body
+        {
+            background-color: rgb(20, 20, 34);
+            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none; /* Firefox */
+            overflow-x: hidden;
+            height: 100%;
+        }
+        body::-webkit-scrollbar
+        {
+            display: auto; /* Chrome Safari */
+            width: 0px;
+        }
+    </style>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+    <body>
+        
+<link rel="stylesheet" href="/blog/css/leftsidebar.css">
+
+<div class="leftpanel_out" id="leftpanel_out">
+    <div class="block1"></div>
+
+    <div class="profile_background" id="profile_background">
+        <a href="/blog/" target="_self">
+            <img class="profile" src="/blog/images/profile.jpg" />
+        </a>
+    </div>
+
+    <img class="block2" src="/blog/images/block.png"/>
+
+    <div class="buttons">
+        <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/26209665" title="bilibili">
+            <img class="shadowfilter bilibili" src="/blog/images/icon/bilibili_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://gatongone.lofter.com/" title="lofter">
+            <img class="shadowfilter lofter" src="/blog/images/icon/lofter_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+         <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" title="github">
+            <img class="shadowfilter github" src="/blog/images/icon/github_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://blog.csdn.net/Gatongone" title="CSDN">
+            <img class="shadowfilter csdn" src="/blog/images/icon/csdn_btn.png"/>
+        </a>
+    </div>
+    <div class="block3"></div>
+</div>
+<script>
+    // var obj=document.getElementById('leftpanel_out');
+    // MoveBar(obj,"leftpanel_in",1150)
+</script>                       <!-- 加载侧边栏 -->
+
+        <div class='body-wrapper' id="body-wrapper">
+
+            <head>
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+ <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+ 
+</head>
+<body>
+    
+<link rel="stylesheet" href="/blog/css/topbar.css">
+
+
+<script src="/blog/js/searchbar.js"></script>
+  
+<div class="topbar" id="topbar">
+    <div class = "top_left" id="top_left">
+    <a href="https://www.gatongone.site" target="_self">
+        <img src="/blog/images/NeonGame.png"/>
+    </a>
+        <font class="title_top" id="title_top" align="left">Gatongone's blog</font>
+    </div>
+    <div id="topblock">
+            <nav>
+                <input type="checkbox" id="nav"/><label for="nav" class="check" id="check"></label>
+                <ul>
+                    <li><a href="#" id='about' class="buttonfont">About</a></li>
+                    <li><a href="#" id="plan" class="buttonfont">Planing</a></li>
+                    <li><a href="#" id="RSS" class="buttonfont">RSS</a></li>
+                </ul>
+            </nav>
+    </div>
+    <div id="search">
+        <input id="search_input"  type="text" placeholder="search with title" value="" onkeydown=" if(event.which==13)''">
+        <button><img src="/blog/images/icon/search.png" style="height: 16px; width: 18px; margin-top: 2px;"></button>
+    </div>
+</div>
+
+<!-- swiftype search -->
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','ZLY73zc1DgdsrmGd9LyN','2.0.0');
+</script>
+
+
+
+<script src="/blog/js/hidebar.js"></script>
+
+    
+<link rel="stylesheet" href="/blog/css/mainbody.css">
+
+
+<!-- 回到首页 -->
+
+    <a href="/blog/">
+    <button class="home_btn" >
+        <img src="/blog/images/icon/home.png">
+    </button>
+    </a>
+
+
+<!-- 回到顶部 -->
+<div id="top">
+    <button class="top_btn" id="top_btn">
+        <img src="/blog/images/icon/top.png">
+    </button>
+</div>
+<!-- 主体 -->
+
+<div class="mainbody" id="mainbody">
+<!-- 加载post_entry -->
+    <div class="entry">
+    
+
+    
+<!--    加载post    -->    
+
+    
+        <head>
+    <title>DOTS— —Job System</title>
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+</head>
+<body>
+
+    
+<link rel="stylesheet" href="/blog/css/post.css">
+
+    
+<link rel="stylesheet" href="/blog/css/hightlight.css">
+
+
+    
+<link rel="stylesheet" href="/blog/css/rightbar.css">
+
+<div id="right_bar">
+
+        
+
+        
+            <div id="post_index" class="post_index">
+                <span> Post Index </span>
+                <div>
+                    <div id="clear"></div>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jobsystem"><span class="toc-text"> JobSystem</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#job%E4%BD%9C%E4%B8%9A%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text"> Job作业的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jobsystem%E4%BD%9C%E4%B8%9A%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text"> JobSystem作业系统的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jobsystem%E7%9A%84%E5%AE%89%E5%85%A8%E7%B3%BB%E7%BB%9F"><span class="toc-text"> JobSystem的安全系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nativecontainer"><span class="toc-text"> NativeContainer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84nativecontainer%E7%B1%BB%E5%9E%8B"><span class="toc-text"> 常用的NativeContainer类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nativecontainer%E5%92%8C%E5%AE%89%E5%85%A8%E7%B3%BB%E7%BB%9F"><span class="toc-text"> NativeContainer和安全系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#allocator%E5%88%86%E9%85%8D%E7%B1%BB%E5%9E%8B"><span class="toc-text"> Allocator分配类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#job%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text"> Job的创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#job%E7%9A%84%E8%B0%83%E5%BA%A6"><span class="toc-text"> Job的调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jobhandle%E5%92%8C%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="toc-text"> JobHandle和依赖项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#parallelfor-%E4%BD%9C%E4%B8%9A"><span class="toc-text"> ParallelFor 作业</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#parallelfor%E7%9A%84%E8%B0%83%E5%BA%A6"><span class="toc-text"> ParallelFor的调度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#parallelfortransform-%E4%BD%9C%E4%B8%9A"><span class="toc-text"> ParallelForTransform 作业</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c-jobsystem-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text"> C# JobSystem 注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E8%A6%81%E4%BB%8E%E4%BD%9C%E4%B8%9A%E8%AE%BF%E9%97%AEstatic%E6%95%B0%E6%8D%AE"><span class="toc-text"> 不要从作业访问static数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B7%E6%96%B0%E5%B7%B2%E8%B0%83%E5%BA%A6%E7%9A%84%E6%89%B9%E6%AC%A1"><span class="toc-text"> 刷新已调度的批次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E8%A6%81%E5%B0%9D%E8%AF%95%E6%9B%B4%E6%94%B9-nativecontainer-%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text"> 不要尝试更改 NativeContainer 的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8-jobhandlecomplete-%E4%BB%A5%E9%87%8D%E6%96%B0%E8%8E%B7%E5%BE%97%E6%89%80%E6%9C%89%E6%9D%83"><span class="toc-text"> 调用 JobHandle.Complete 以重新获得所有权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E4%B8%BB%E7%BA%BF%E7%A8%8B%E4%B8%AD%E4%BD%BF%E7%94%A8-schedule-%E5%92%8C-complete-%E6%96%B9%E6%B3%95"><span class="toc-text"> 在主线程中使用 Schedule 和 Complete 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E9%80%82%E5%BD%93%E6%97%B6%E9%97%B4%E4%BD%BF%E7%94%A8-schedule-%E5%92%8C-complete-%E6%96%B9%E6%B3%95"><span class="toc-text"> 在适当时间使用 Schedule 和 Complete 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86-nativecontainer-%E7%B1%BB%E5%9E%8B%E6%A0%87%E8%AE%B0%E4%B8%BA%E5%8F%AA%E8%AF%BB"><span class="toc-text"> 将 NativeContainer 类型标记为只读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BE%9D%E8%B5%96%E7%9A%84%E6%A3%80%E6%9F%A5"><span class="toc-text"> 数据依赖的检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-run-%E6%96%B9%E6%B3%95%E8%B0%83%E8%AF%95jobs"><span class="toc-text"> 通过 Run 方法调试Jobs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E8%A6%81%E5%9C%A8%E4%BD%9C%E4%B8%9A%E4%B8%AD%E5%88%86%E9%85%8D%E6%89%98%E7%AE%A1%E5%86%85%E5%AD%98"><span class="toc-text"> 不要在作业中分配托管内存</span></a></li></ol></li></ol></li></ol>
+                </div>
+                
+             </div>
+        
+             
+</div>
+
+
+    <div class="page_title" id="page_title">
+        DOTS— —Job System
+    </div>
+    <hr>
+    <div class="page_content">
+        
+        
+        <p>以下内容均来自<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/current/Manual/JobSystem.html">官方文档</a>和一些个人的理解</p>
+<h1 id="jobsystem"><a class="markdownIt-Anchor" href="#jobsystem"></a> JobSystem</h1>
+<p>JobSystem（作业系统）是DOTS提供的多线程解决方案，通过JobSystem和Burst编译器的配合，能极大提升代码生成质量。JobSystem与Unity原生的作业系统相集成，<strong>能避免超过CPU核心数的线程带来的Context Switch（上下文切换）</strong></p>
+<ul>
+<li>
+<h2 id="job作业的概念"><a class="markdownIt-Anchor" href="#job作业的概念"></a> Job作业的概念</h2>
+<p>这里的所说的<code>Job</code>（作业，官方这么叫的）并不等同于以前学过的 <code>Task（任务）</code>和 <code>ThreadPool（线程池）</code>，但都是基于多线程实现的异步。</p>
+<p>一个作业就是一项特定任务的其中一个小的工作单位（官方定义）。作业通过接收参数并且对一些<strong>数据副本</strong>和<strong>NativeContainer</strong>进行操作</p>
+</li>
+<li>
+<h2 id="jobsystem作业系统的概念"><a class="markdownIt-Anchor" href="#jobsystem作业系统的概念"></a> JobSystem作业系统的概念</h2>
+<p>我们先来看一下传统多线程在游戏开发中可能会带来的问题：</p>
+<ol>
+<li>多线程往往被用于一些长时间运行的任务，但是在游戏开发中，往往会有许多的生命周期不长的小指令。如果为这些小指令都分配一个线程，那么导致的结果是，系统将会同时存在许多线程，这会造成CPU和操作系统处理的压力.</li>
+<li>传统上会通过Task或者ThreadPool的方法来缓解线程生命周期的问题。但是也可能会出现这么一种情况：在某一时间同时激活大量线程，这是极有可能发生的。我们都知道，当线程数多于CPU核心数的时候，将会造成频繁的 Context Switch（上下文切换）。所谓的上下文切换是指：在线程的执行过程中，暂停并保存当前线程的状态，然后处理另外一个线程，处理结束之后在接着处理最开始的那个线程。Context Switch 是资源密集型的一个过程，应该尽力避免。</li>
+</ol>
+<p>为了解决以上问题，DOTS为我们提供了JobSystem。JobSystem是通过管理作业来管理多线程代码，并且跨多个CPU核心来管理一组工作线程，C# Job System（我们之后写的Job） 和 Unity Native Job System（unity原生的Job） 共享工作线程worker threads。</p>
+<p>它有以下特点：</p>
+<ol>
+<li>每个CPU核心对应一个工作线程；</li>
+<li>当工作线程数大于CPU核心数时将作业放入<strong>作业队列</strong>中等待执行（这就是为什么等避免Context Switch的原因）；</li>
+<li>作业系统会管理依赖关系以保证作业以适当的顺序执行（如果 jobA 依赖于 jobB，作业系统将确保 jobA 不会在 jobB 完成之前开始执行）；</li>
+<li>一旦作业被调度，就不能被中断；</li>
+</ol>
+</li>
+<li>
+<h2 id="jobsystem的安全系统"><a class="markdownIt-Anchor" href="#jobsystem的安全系统"></a> JobSystem的安全系统</h2>
+<p>JobSystem会检测出所有潜在的资源竞争条件，这是JobSystem最基本的安全系统。</p>
+<p>JobSytem会对每一个Job发送其需要操作数据的副本，并且规定了每一个Job只能对数据的副本进行访问，而不是直接对主线程的数据进行引用。这种复制数据的方式意味着Job只能访问 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/dotnet/framework/interop/blittable-and-non-blittable-types?redirectedfrom=MSDN">blittable数据类型</a>。</p>
+<p>拷贝数据副本的过程是这样的：JobSystem通过 <code>memcpy()</code>方法复制 <code>blittable</code> 类型数据，并在 Unity 的托管部分和本机部分之间传输数据。在调度作业时，系统又使用 <code>memcpy()</code> 将数据放入本机内存，并在执行作业时让托管端访问该副本。</p>
+<p>此外JobSystem封装了一个特殊的缓冲区（就是之后会提到的<code>NativeContainer</code>）用来访问主线程数据，并且在切换Job时，会转交该Job的<strong>所有权（读写权）</strong>，因此可以确保只有一个作业进行写入（JobSystem支持多个Job读取同一个<code>NativeContainer</code>）。</p>
+</li>
+<li>
+<h2 id="nativecontainer"><a class="markdownIt-Anchor" href="#nativecontainer"></a> NativeContainer</h2>
+<p>JobSystem拷贝数据的方式虽然能带来安全，但是带来的结果是每一个作业的结果数据都被隔离到每一个副本中。而我们在开发中往往需要获得原数据（主线程数据）的引用而不是拷贝的副本数据。因此需要把结果存储到一种名为 <code>NativeContainer</code> 的共享内存中。</p>
+<p><code>NativeContainer</code>是一种相对安全的<strong>托管值类型</strong>，它包含了一个指向非托管分配的内存地址的指针。它允许Job访问主线程共享的数据，而不是使用副本。</p>
+<p>前面提到了<code>NativeContainer</code>是一种托管的值类型，因此很容易产生垃圾，而且不会自动GC掉，所以需要手动调用<code>Dispose()</code>方法来进行垃圾回收。当然，如果忘记手动GC，系统会丢出异常。</p>
+<ul>
+<li>
+<h3 id="常用的nativecontainer类型"><a class="markdownIt-Anchor" href="#常用的nativecontainer类型"></a> 常用的NativeContainer类型</h3>
+<p>Unity自带了一个名为 <code>NativeArray</code> 的NativeContainer，并且可以通过<code>NativeSlice</code>来对<code>NativeArray</code>进行操作。</p>
+<p>此外 ECS包中扩展了 <code>Unity.Collections</code> 命名空间以包含其他类型的 <code>NativeContainer</code>：</p>
+<ul>
+<li><code>NativeList</code>：可调整大小的 NativeArray。</li>
+<li><code>NativeHashMap</code>：键/值对。</li>
+<li><code>NativeMultiHashMap</code>：每个键有多个值。</li>
+<li><code>NativeQueue</code>：先进先出 (FIFO) 队列。</li>
+</ul>
+</li>
+<li>
+<h3 id="nativecontainer和安全系统"><a class="markdownIt-Anchor" href="#nativecontainer和安全系统"></a> NativeContainer和安全系统</h3>
+<p>JobSystem中的安全系统会跟踪在 <code>NativeContainer</code> 中读写的内容。</p>
+<p>该安全系统对 NativeContainer 主要包含了以下两个部分：</p>
+<ul>
+<li><code>DisposeSentinel</code>：负责检测内存泄漏，如果未正确释放内存则报错</li>
+<li><code>AtomicSafetyHandle</code>：负责转交 NativeContainer 的所有权，如果两个调度的作业正在写入相同的 NativeArray 则会抛出异常</li>
+</ul>
+<p>之前提到Job拥有<code>NativeContainer</code>的读写权限，但是JobSystem不允许多个 Job 同时拥有对一个 <code>NativeContainer</code> 的写入权，因此我们往往会对不需要写入权的 <code>NativeContainer</code> 加上<code>[ReadOnly]</code>特性，以减少性能影响</p>
+<pre class="highlight"><code class="C#">[<span class="hljs-meta">ReadOnly</span>]
+<span class="hljs-keyword">public</span> NativeArray&lt;<span class="hljs-keyword">int</span>&gt; readArray;
+</code></pre>
+<p><strong>PS：安全系统无法防止从作业中访问具体数据，因为访问静态数据时会绕过所有的安全系统，并引起Crash</strong></p>
+</li>
+<li>
+<h3 id="allocator分配类型"><a class="markdownIt-Anchor" href="#allocator分配类型"></a> Allocator分配类型</h3>
+<p>在创建 <code>NativeContainer</code> 时必须指定所需的内存分配类型，Unity为我们提供了以下三种<code>Allocator</code>类型：</p>
+<ul>
+<li><code>Allocator.Temp</code>：最快的分配速度，适用于一帧或者更短的生命时长。不应该使用 <code>Temp</code> 将 <code>NativeContainer</code> 分配给 Job，在方法 <code>return</code> 前要调用 <code>Dispose()</code> 方法。</li>
+<li><code>Allocator.TempJob</code>：分配速度比 Temp 慢比 Persistent 快，适用于4帧的生命时长。若4帧内没有调用调用 <code>Dispose()</code> 方法，则会打印警告。大多数小Job都应该使用TempJob 分配类型。</li>
+<li><code>Allocator.Persistant</code>：最慢的分配速度，但是可以在任意时间内持续存在。该分配类型会直接调用 <code>malloc</code>,在较长时间的Job可以使用这种分配类型，但对于注重性能的项目来说一般不建议使用。</li>
+</ul>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">//参数1：NativeArray的大小</span>
+<span class="hljs-comment">//参数2：NativeArray的内存分配类型</span>
+NativeArray&lt;<span class="hljs-keyword">float</span>&gt; result = <span class="hljs-keyword">new</span> NativeArray&lt;<span class="hljs-keyword">float</span>&gt;(<span class="hljs-number">1</span>, Allocator.TempJob);
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<h2 id="job的创建"><a class="markdownIt-Anchor" href="#job的创建"></a> Job的创建</h2>
+<p>要在Unity中创建作业，必须实现<code>IJob</code>接口。</p>
+<p>&quot;作业&quot;是 Unity 中对任何实现 <code>IJob</code> 接口的 struct 总称。</p>
+<p>定义一个Job，需要实现以下三点：</p>
+<ol>
+<li>实现 <code>IJob</code> 的 struct</li>
+<li>成员变量只能是 <code>blittable</code> 或 <code>NativeContainer</code> 两种类型之一</li>
+<li>需要一个名为 <code>Excute()</code> 的方法，并在其中实现该作业</li>
+</ol>
+<p>执行作业时，<code>Excute()</code>方法在单个核心上运行一次。</p>
+<p>注意：在设计Job时，除了 <code>NativeContainer</code>，其他的数据都是对数据的副本进行操作</p>
+<h4 id="简单作业定义示例"><a class="markdownIt-Anchor" href="#简单作业定义示例"></a> 简单作业定义示例</h4>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">// 将两个浮点值相加的作业</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">struct</span> MyJob : IJob
+&#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> a;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> b;
+    <span class="hljs-keyword">public</span> NativeArray&lt;<span class="hljs-keyword">float</span>&gt; result;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Execute</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+        result[<span class="hljs-number">0</span>] = a + b;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<h2 id="job的调度"><a class="markdownIt-Anchor" href="#job的调度"></a> Job的调度</h2>
+<p>要在主线程种调度作业，必须：</p>
+<ol>
+<li>实例化该Job</li>
+<li>填充Job数据</li>
+<li>调用 <code>Schedule</code> 方法</li>
+</ol>
+<p>调用<code>Schedule</code>方法会将该作业放入作业队列中等待执行，并返回一个 <code>JobHandle</code> ，以便在适当的时间执行。一旦作业被调度，就不能被中断（我不太确定是指调用Schedule之后就不能中断，还是指从执行后不能中断）。</p>
+<h4 id="调度作业的示例"><a class="markdownIt-Anchor" href="#调度作业的示例"></a> 调度作业的示例</h4>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">// 实例化作业</span>
+NativeArray&lt;<span class="hljs-keyword">float</span>&gt; result = <span class="hljs-keyword">new</span> NativeArray&lt;<span class="hljs-keyword">float</span>&gt;(<span class="hljs-number">1</span>, Allocator.TempJob);
+
+<span class="hljs-comment">// 填充作业数据</span>
+MyJob jobData = <span class="hljs-keyword">new</span> MyJob();
+jobData.a = <span class="hljs-number">10</span>;
+jobData.b = <span class="hljs-number">10</span>;
+jobData.result = result;
+
+<span class="hljs-comment">// 调度作业</span>
+JobHandle handle = jobData.Schedule();
+
+<span class="hljs-comment">// 等待作业完成</span>
+handle.Complete();
+
+<span class="hljs-comment">// NativeArray 的所有副本都指向同一内存，您可以在"您的"NativeArray 副本中访问结果</span>
+<span class="hljs-keyword">float</span> aPlusB = result[<span class="hljs-number">0</span>];
+
+<span class="hljs-comment">// 释放由结果数组分配的内存</span>
+result.Dispose();
+</code></pre>
+</li>
+<li>
+<h2 id="jobhandle和依赖项"><a class="markdownIt-Anchor" href="#jobhandle和依赖项"></a> JobHandle和依赖项</h2>
+<p><code>Schedule</code> 通过返回 <code>JobHandle</code> 来获得该作业的的依赖项。如果一个作业依赖于另一个作业的结果，则可以将第一个作业的 <code>JobHandle</code> 作为参数传递给第二个作业的 <code>Schedule</code> 方法。</p>
+<pre class="highlight"><code class="C#">JobHandle firstJobHandle = firstJob.Schedule();
+secondJob.Schedule(firstJobHandle);
+</code></pre>
+<p>如果一个Job有很多个依赖项，则可以用 <code>JobHandle.CombineDependencies</code>静态方法来合并这些依赖并传给<code>Schedule</code></p>
+<pre class="highlight"><code class="C#">NativeArray&lt;JobHandle&gt; handles = <span class="hljs-keyword">new</span> NativeArray&lt;JobHandle&gt;(myJob, Allocator.TempJob);
+
+JobHandle jh = JobHandle.CombineDependencies(handles);
+</code></pre>
+<p>在<code>Schedule</code>时，作业并不会开始执行，直到作为依赖项被访问或者调用<code>Complete</code>方法。</p>
+<p><code>Complete</code>方法主要有以下几个作用：</p>
+<ol>
+<li>可以强制代码在主线程中等待作业完成；</li>
+<li>在缓存中刷新作业并启动执行过程；</li>
+<li>将该作业的 <code>NativeContainer</code>的所有权交还给主线程（否则主线程不能安全地访问<code>NativeContainer</code>）；</li>
+<li>清除安全系统的状态；</li>
+</ol>
+<h4 id="多个作业和依赖项的示例"><a class="markdownIt-Anchor" href="#多个作业和依赖项的示例"></a> 多个作业和依赖项的示例</h4>
+<p>Job代码:</p>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">// 将两个浮点值相加的作业</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">struct</span> MyJob : IJob
+&#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> a;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> b;
+    <span class="hljs-keyword">public</span> NativeArray&lt;<span class="hljs-keyword">float</span>&gt; result;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Execute</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+        result[<span class="hljs-number">0</span>] = a + b;
+    &#125;
+&#125;
+
+<span class="hljs-comment">// 将一个值加一的作业</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">struct</span> AddOneJob : IJob
+&#123;
+    <span class="hljs-keyword">public</span> NativeArray&lt;<span class="hljs-keyword">float</span>&gt; result;
+    
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Execute</span>(<span class="hljs-params"></span>)</span>
+    &#123;
+        result[<span class="hljs-number">0</span>] = result[<span class="hljs-number">0</span>] + <span class="hljs-number">1</span>;
+    &#125;
+&#125;
+</code></pre>
+<p>主线程代码:</p>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">// 创建单个浮点数的本机数组以存储结果。此示例等待作业完成</span>
+NativeArray&lt;<span class="hljs-keyword">float</span>&gt; result = <span class="hljs-keyword">new</span> NativeArray&lt;<span class="hljs-keyword">float</span>&gt;(<span class="hljs-number">1</span>, Allocator.TempJob);
+
+<span class="hljs-comment">// 设置作业 #1 的数据</span>
+MyJob jobData = <span class="hljs-keyword">new</span> MyJob();
+jobData.a = <span class="hljs-number">10</span>;
+jobData.b = <span class="hljs-number">10</span>;
+jobData.result = result;
+
+<span class="hljs-comment">// 调度作业 #1</span>
+JobHandle firstHandle = jobData.Schedule();
+
+<span class="hljs-comment">// 设置作业 #2 的数据</span>
+AddOneJob incJobData = <span class="hljs-keyword">new</span> AddOneJob();
+incJobData.result = result;
+
+<span class="hljs-comment">// 调度作业 #2</span>
+JobHandle secondHandle = incJobData.Schedule(firstHandle);
+
+<span class="hljs-comment">// 等待作业 #2 完成</span>
+secondHandle.Complete();
+
+<span class="hljs-comment">// NativeArray 的所有副本都指向同一内存，您可以在"您的"NativeArray 副本中访问结果</span>
+<span class="hljs-keyword">float</span> aPlusB = result[<span class="hljs-number">0</span>];
+
+<span class="hljs-comment">// 释放由结果数组分配的内存</span>
+result.Dispose();
+</code></pre>
+</li>
+<li>
+<h2 id="parallelfor-作业"><a class="markdownIt-Anchor" href="#parallelfor-作业"></a> ParallelFor 作业</h2>
+<p>在游戏中，经常会有对大量对象执行相同操作的需求（比如怪物集群行为等）。因此Unity提供了一种ParallelFor（相似作业或并行作业）来处理这种情况。</p>
+<p>所谓 ParallelFor 作业是 Unity 中对于任何实现 <code>IJobParallelFor</code> 接口的结构的统称。</p>
+<p>ParallelFor以一个数据 <code>NativeArray</code> 作为其数据源，在多个CPU核心上运行。<strong>如果有多个<code>NativeArray</code>，JobSystem将不会知道到底哪一个是数据源，对不是数据源的 <code>NativeArray</code> 应该加上 <code>[ReadOnly]</code> 特性</strong></p>
+<p>和原来一样还是一个Job一个核心，只是每一个Job负责处理几个<code>Excute</code>，这根据给出的<strong>批次</strong>而定。</p>
+<ul>
+<li>
+<h3 id="parallelfor的调度"><a class="markdownIt-Anchor" href="#parallelfor的调度"></a> ParallelFor的调度</h3>
+</li>
+</ul>
+<p>**批次batches：**在调度 ParallelFor 作业时，C# JobSystem 将ParallelFor分成多个批次在多个核心之间分配任务，每个批次包含一小部分 Execute 方法。要注意批次分得太少会导致 Work Thread 不断重建的性能损耗，分得太多会增加CPU单核的压力。</p>
+<p>ParalleFor 对数据源中的每一项都调用一次<code>Execute</code>方法。并且<code>Execute</code>方法中有一个整形的参数作为访问该作业中数据源的单个元素的索引。</p>
+<p><img src="jobsystem_parallelfor_job_batches.png" alt="img" style="max-width:100%;"  /></p>
+<p>简单说一下这个图：</p>
+<ol>
+<li>在主线程中创建 <code>ParallelFor</code> 实例</li>
+<li>填充数据到 <code>ParallelFor</code></li>
+<li>调用 <code>ParallelFor</code> 的 <code>Schedule</code> 方法</li>
+<li>对 <code>ParallelFor</code> 分批次，这里分成了4个批次</li>
+<li>把这些批次分配给几个Native Job，并放入作业队列。这相当于把几个<code>Excute</code>注册到一个Native Job的<code>Excute</code>中</li>
+<li>从作业队列中拿出 Native Job 并放到Core上执行。也就是说现在一个核心上会依次执行4个<code>Execute</code></li>
+<li>执行结果放入内存中</li>
+</ol>
+<p><strong>PS：当一个 Native Job 提前完成自己的batches时，会从其他的 Native Job 偷取一部分batches（剩余batches的一半），然后继续执行。</strong></p>
+<p>在调度 ParallelFor 作业时，必须指定要拆分的 NativeArray 数据源的长度，一般直接取NativeArray的数组长度作为执行次数，一次处理一个数据。</p>
+<h4 id="调度-parallelfor-作业的示例"><a class="markdownIt-Anchor" href="#调度-parallelfor-作业的示例"></a> 调度 ParallelFor 作业的示例</h4>
+<p>作业代码：</p>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">// 将两个浮点值相加的作业</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">struct</span> MyParallelJob : IJobParallelFor
+&#123;
+    [<span class="hljs-meta">ReadOnly</span>]
+    <span class="hljs-keyword">public</span> NativeArray&lt;<span class="hljs-keyword">float</span>&gt; a;
+    [<span class="hljs-meta">ReadOnly</span>]
+    <span class="hljs-keyword">public</span> NativeArray&lt;<span class="hljs-keyword">float</span>&gt; b;
+    <span class="hljs-keyword">public</span> NativeArray&lt;<span class="hljs-keyword">float</span>&gt; result;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Execute</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> i</span>)</span>
+    &#123;
+        result[i] = a[i] + b[i];
+        Debug.Log(<span class="hljs-string">$"index: <span class="hljs-subst">&#123;i&#125;</span>,result: <span class="hljs-subst">&#123;result[i]&#125;</span>"</span>);
+    &#125;
+&#125;
+</code></pre>
+<p>主线程代码：</p>
+<pre class="highlight"><code class="C#">NativeArray&lt;<span class="hljs-keyword">float</span>&gt; a = <span class="hljs-keyword">new</span> NativeArray&lt;<span class="hljs-keyword">float</span>&gt;(<span class="hljs-number">2</span>, Allocator.TempJob);
+
+NativeArray&lt;<span class="hljs-keyword">float</span>&gt; b = <span class="hljs-keyword">new</span> NativeArray&lt;<span class="hljs-keyword">float</span>&gt;(<span class="hljs-number">2</span>, Allocator.TempJob);
+
+NativeArray&lt;<span class="hljs-keyword">float</span>&gt; result = <span class="hljs-keyword">new</span> NativeArray&lt;<span class="hljs-keyword">float</span>&gt;(<span class="hljs-number">2</span>, Allocator.TempJob);
+
+a[<span class="hljs-number">0</span>] = <span class="hljs-number">1.1f</span>;
+b[<span class="hljs-number">0</span>] = <span class="hljs-number">2.2f</span>;
+
+a[<span class="hljs-number">1</span>] = <span class="hljs-number">3.3f</span>;
+b[<span class="hljs-number">1</span>] = <span class="hljs-number">4.4f</span>;
+
+MyParallelJob jobData = <span class="hljs-keyword">new</span> MyParallelJob();
+jobData.a = a;  
+jobData.b = b;
+jobData.result = result;
+
+<span class="hljs-comment">// 调度作业，为结果数组中的每个索引执行一个 Execute 方法，且每个处理批次只处理一项</span>
+JobHandle handle = jobData.Schedule(result.Length, <span class="hljs-number">1</span>);
+
+<span class="hljs-comment">// 等待作业完成</span>
+handle.Complete();
+
+<span class="hljs-comment">// 释放数组分配的内存</span>
+a.Dispose();
+b.Dispose();
+result.Dispose();
+</code></pre>
+<p>控制台打印结果：</p>
+<pre class="highlight"><code class="">index: 0,result: 3.3
+index: 1,result: 7.7
+</code></pre>
+</li>
+<li>
+<h2 id="parallelfortransform-作业"><a class="markdownIt-Anchor" href="#parallelfortransform-作业"></a> ParallelForTransform 作业</h2>
+<p><code>ParallelForTransform</code> 作业是另一种类型的 ParallelFor 作业，专为在 Transforms 上操作而设计。</p>
+<p><code>ParallelForTransform</code> 作业是 Unity 中对于任何实现 <code>IJobParallelForTransform</code> 接口的作业的统称。</p>
+<p>调度时需要传入<code>TransformAccessArray</code>：一个包含所有需要的Transform的数组，<strong>注意<code>TransformAccessArray</code>也是非托管值类型，需要手动Dispose</strong></p>
+<h4 id="调度-parallelfortransform-作业的示例"><a class="markdownIt-Anchor" href="#调度-parallelfortransform-作业的示例"></a> 调度 ParallelForTransform 作业的示例</h4>
+<p>作业代码：</p>
+<pre class="highlight"><code class="C#"><span class="hljs-comment">// 更新物体位移的作业</span>
+<span class="hljs-keyword">struct</span> PositionUpdateJob : IJobParallelForTransform
+&#123;
+    [<span class="hljs-meta">ReadOnly</span>]
+    <span class="hljs-keyword">public</span> NativeArray&lt;Vector3&gt; velocity;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> deltaTime;
+
+    <span class="hljs-comment">//第二个参数可以获取到Transform</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Execute</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> i, TransformAccess transform</span>)</span>
+    &#123;
+</code></pre>
+</li>
+</ul>
+<p>transform.position += velocity[i] * deltaTime;<br />
+}<br />
+}<br />
+```</p>
+<pre><code>主线程完整Mono代码：
+
+```C#
+public class ShpereMove : MonoBehaviour
+&#123;
+    GameObject sphere1;
+    GameObject sphere2;
+    NativeArray&lt;Vector3&gt; result;
+    TransformAccessArray transArray;
+    PositionUpdateJob jobData;
+    JobHandle handle;
+
+    //在Start中初始化Job
+    void Start()
+    &#123;
+        //创建两个球体
+        sphere1 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere2 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+
+        sphere1.transform.position = Vector3.zero;
+        sphere2.transform.position = Vector3.zero;
+
+        //创建Job
+        jobData = new PositionUpdateJob();
+
+        Transform[] transforms = new Transform[2];
+
+        transforms[0] = sphere1.transform;
+        transforms[1] = sphere2.transform;
+
+        //获取所有物体的Transform，并放到数组中
+        transArray = new TransformAccessArray(transforms);
+
+        result = new NativeArray&lt;Vector3&gt;(2, Allocator.TempJob);
+        result[0] = Vector3.forward * 2f;
+        result[1] = Vector3.forward * 3f;
+        jobData.velocity = result;
+    &#125;
+    //填充每帧变更需要改变的数据 并 调度作业
+    void Update()
+    &#123;
+        jobData.deltaTime = Time.deltaTime;
+        handle = jobData.Schedule(transArray);
+    &#125;
+    // 保证当前帧内Job执行完毕
+    private void LateUpdate()
+    &#123;
+        handle.Complete();
+    &#125;
+    // 释放数组分配的内存
+    private void OnDestroy()
+    &#123;
+        transArray.Dispose();
+        result.Dispose();
+    &#125;
+&#125;
+```
+</code></pre>
+<ul>
+<li>
+<h2 id="c-jobsystem-注意事项"><a class="markdownIt-Anchor" href="#c-jobsystem-注意事项"></a> C# JobSystem 注意事项</h2>
+<ul>
+<li>
+<h3 id="不要从作业访问static数据"><a class="markdownIt-Anchor" href="#不要从作业访问static数据"></a> 不要从作业访问static数据</h3>
+<p>之前提了一嘴，从作业访问静态数据时会绕过所有安全系统。如果访问错误的数据，通常可能会以意想不到的方式导致 Unity 崩溃。官方说在未来的版本将会增加<code>static analysis</code>来阻止这种用法。</p>
+</li>
+<li>
+<h3 id="刷新已调度的批次"><a class="markdownIt-Anchor" href="#刷新已调度的批次"></a> 刷新已调度的批次</h3>
+<p>如果不刷新批次，那么调度将会延迟到主线程等待batch结果时才执行。</p>
+<p>可以使用 <code>JobHandle.ScheduleBatchedJobs</code> 刷新已调度的批次,以此让作业开始执行。但是 <code>JobHandle.ScheduleBatchedJobs</code> 会带来性能损耗。通常情况下都建议使用<code>Complete</code>启动执行过程</p>
+<p><strong>在ECS中，会隐式刷新批次，不需要手动调用<code>JobHandle.ScheduleBatchJobs</code></strong></p>
+</li>
+<li>
+<h3 id="不要尝试更改-nativecontainer-的内容"><a class="markdownIt-Anchor" href="#不要尝试更改-nativecontainer-的内容"></a> 不要尝试更改 NativeContainer 的内容</h3>
+<p>由于缺少 ref 返回值，因此无法直接更改 NativeContainer 的内容。比如以下错误的操作：</p>
+<pre class="highlight"><code class="C#">myNativeArray[<span class="hljs-number">0</span>] = <span class="hljs-number">5</span>;
+<span class="hljs-comment">//或者</span>
+<span class="hljs-keyword">var</span> temp = myNativeArray[<span class="hljs-number">0</span>];
+temp = <span class="hljs-number">5</span>;
+</code></pre>
+<p>正确的做法是，必须将索引中的数据复制到本地临时副本，修改该副本，然后将其存回，如下所示：</p>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">var</span> temp = myNativeArray[<span class="hljs-number">0</span>];
+temp.memberVariable = <span class="hljs-number">0</span>;
+myNativeArray[<span class="hljs-number">0</span>] = temp;
+</code></pre>
+</li>
+<li>
+<h3 id="调用-jobhandlecomplete-以重新获得所有权"><a class="markdownIt-Anchor" href="#调用-jobhandlecomplete-以重新获得所有权"></a> 调用 JobHandle.Complete 以重新获得所有权</h3>
+</li>
+</ul>
+<p>要跟踪数据所有权，必须先完成依赖项，然后主线程才能再次使用这些依赖项。</p>
+<p>仅检查 <code>JobHandle.IsCompleted</code> 是不够的，需要手动调用<code>Complete</code>，否则会造成内存泄漏。此外<code>Complete</code>会清理安全系统的状态，</p>
+<ul>
+<li>
+<h3 id="在主线程中使用-schedule-和-complete-方法"><a class="markdownIt-Anchor" href="#在主线程中使用-schedule-和-complete-方法"></a> 在主线程中使用 Schedule 和 Complete 方法</h3>
+</li>
+</ul>
+<p>只能从主线程调用 <code>Schedule</code> 和 <code>Complete</code>。如果一个作业依赖于另一个作业，<strong>请使用 <code>JobHandle</code> 来管理依赖关系，而不是尝试在作业中调度作业</strong>。</p>
+<ul>
+<li>
+<h3 id="在适当时间使用-schedule-和-complete-方法"><a class="markdownIt-Anchor" href="#在适当时间使用-schedule-和-complete-方法"></a> 在适当时间使用 Schedule 和 Complete 方法</h3>
+</li>
+</ul>
+<p>**拥有作业所需的数据后就立即在作业上调用 <code>Schedule</code>，并仅在需要结果时才开始在作业上调用 <code>Complete</code>。**例如：如果在这一帧结束和下一帧开始之间的一段时间没有作业正在运行，并且可以接受一帧延迟，则可以在这一帧结束时调度作业，并在下一帧中使用其结果。</p>
+<ul>
+<li>
+<h3 id="将-nativecontainer-类型标记为只读"><a class="markdownIt-Anchor" href="#将-nativecontainer-类型标记为只读"></a> 将 NativeContainer 类型标记为只读</h3>
+</li>
+</ul>
+<p>请注意，默认情况下，作业对 <code>NativeContainer</code> 类型具有读写访问权限。请在适当时使用 <code>[ReadOnly]</code> 特性来提高性能。</p>
+<ul>
+<li>
+<h3 id="数据依赖的检查"><a class="markdownIt-Anchor" href="#数据依赖的检查"></a> 数据依赖的检查</h3>
+</li>
+</ul>
+<p>在 Unity Profiler 窗口中，主线程上的标记<code>WaitForJobGroup</code>表示 Unity 正在等待工作线程上的作业完成。这说明你的代码在什么地方引入了数据依赖。请查找 <code>JobHandle.Complete</code> 来查看是什么依赖关系导致了主线程的等待。</p>
+<ul>
+<li>
+<h3 id="通过-run-方法调试jobs"><a class="markdownIt-Anchor" href="#通过-run-方法调试jobs"></a> 通过 Run 方法调试Jobs</h3>
+</li>
+</ul>
+<p>Jobs有一个 <code>Run</code> 函数，可以使用此函数代替 <code>Schedule</code> 立即在主线程上执行作业。可将此函数用于调试。</p>
+<ul>
+<li>
+<h3 id="不要在作业中分配托管内存"><a class="markdownIt-Anchor" href="#不要在作业中分配托管内存"></a> 不要在作业中分配托管内存</h3>
+</li>
+</ul>
+<p>在作业中分配托管内存非常慢，会导致 Unity Burst 无法使用。</p>
+</li>
+</ul>
+
+    </div>
+    
+    <div class="footer">
+    <hr>
+        <font> ©2021 </font>
+        <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
+        some copyrights reserved
+        <div style="float: right; margin-right: -200px;">
+              Jun 13th  2021,  12:42:09  |
+            <font>Powered by</font>
+            <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
+            framework
+        </div>
+    </div>
+</body>
+    
+
+
+
+</div>
+
+
+
+<script>
+     var bar=document.getElementById("top_btn")
+     var showtime=0;
+     var hidetime=0;
+     window.addEventListener("pageshow",function(){
+         let scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+        if(scrollTop ==0)
+        {
+            bar.style.display = 'none';
+        }
+        else
+        {
+            bar.style.display = 'block';
+        }
+        window.addEventListener("scroll",function(){
+            bar.style.display = 'block';
+            scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+            if(scrollTop != 0)
+            {
+                if(hidetime==0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    hidetime++;
+                }
+                showtime=0;
+            }  
+            else
+            {
+                if(showtime==0 && hidetime!=0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    showtime++;
+                    hidetime=0;
+                }
+            }
+        }) 
+     })
+     
+    var timer = null;
+    bar.onclick = function()
+    {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn()
+        {
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            if(top > 0)
+            {
+                document.body.scrollTop = document.documentElement.scrollTop = top - 80;
+                timer = requestAnimationFrame(fn);
+            }
+            else
+            {
+                cancelAnimationFrame(timer);
+            } 
+        });
+    }
+         
+</script>
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+<script src="/blog/js/showpost.js"></script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+</body>                                             <!--  加载主体  -->
+
+        </div>                                                                 
+        
+<script src="/blog/js/searchbar.js"></script>
+<script src="/blog/js/hidebar.js"></script>
+              <!--    加载JS  -->                                                          
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+
+</html>
