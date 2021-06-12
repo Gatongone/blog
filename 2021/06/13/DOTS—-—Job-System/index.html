@@ -214,8 +214,12 @@
 <h2 id="jobsystem作业系统的概念"><a class="markdownIt-Anchor" href="#jobsystem作业系统的概念"></a> JobSystem作业系统的概念</h2>
 <p>我们先来看一下传统多线程在游戏开发中可能会带来的问题：</p>
 <ol>
-<li>多线程往往被用于一些长时间运行的任务，但是在游戏开发中，往往会有许多的生命周期不长的小指令。如果为这些小指令都分配一个线程，那么导致的结果是，系统将会同时存在许多线程，这会造成CPU和操作系统处理的压力.</li>
-<li>传统上会通过Task或者ThreadPool的方法来缓解线程生命周期的问题。但是也可能会出现这么一种情况：在某一时间同时激活大量线程，这是极有可能发生的。我们都知道，当线程数多于CPU核心数的时候，将会造成频繁的 Context Switch（上下文切换）。所谓的上下文切换是指：在线程的执行过程中，暂停并保存当前线程的状态，然后处理另外一个线程，处理结束之后在接着处理最开始的那个线程。Context Switch 是资源密集型的一个过程，应该尽力避免。</li>
+<li>
+<p>多线程往往被用于一些长时间运行的任务，但是在游戏开发中，往往会有许多的生命周期不长的小指令。如果为这些小指令都分配一个线程，那么导致的结果是，系统将会同时存在许多线程，这会造成CPU和操作系统处理的压力.</p>
+</li>
+<li>
+<p>传统上会通过Task或者ThreadPool的方法来缓解线程生命周期的问题。但是也可能会出现这么一种情况：在某一时间同时激活大量线程，这是极有可能发生的。我们都知道，当线程数多于CPU核心数的时候，将会造成频繁的 Context Switch（上下文切换）。所谓的上下文切换是指：在线程的执行过程中，暂停并保存当前线程的状态，然后处理另外一个线程，处理结束之后在接着处理最开始的那个线程。Context Switch 是资源密集型的一个过程，应该尽力避免。</p>
+</li>
 </ol>
 <p>为了解决以上问题，DOTS为我们提供了JobSystem。JobSystem是通过管理作业来管理多线程代码，并且跨多个CPU核心来管理一组工作线程，C# Job System（我们之后写的Job） 和 Unity Native Job System（unity原生的Job） 共享工作线程worker threads。</p>
 <p>它有以下特点：</p>
@@ -244,10 +248,18 @@
 <p>Unity自带了一个名为 <code>NativeArray</code> 的NativeContainer，并且可以通过<code>NativeSlice</code>来对<code>NativeArray</code>进行操作。</p>
 <p>此外 ECS包中扩展了 <code>Unity.Collections</code> 命名空间以包含其他类型的 <code>NativeContainer</code>：</p>
 <ul>
-<li><code>NativeList</code>：可调整大小的 NativeArray。</li>
-<li><code>NativeHashMap</code>：键/值对。</li>
-<li><code>NativeMultiHashMap</code>：每个键有多个值。</li>
-<li><code>NativeQueue</code>：先进先出 (FIFO) 队列。</li>
+<li>
+<p><code>NativeList</code>：可调整大小的 NativeArray。</p>
+</li>
+<li>
+<p><code>NativeHashMap</code>：键/值对。</p>
+</li>
+<li>
+<p><code>NativeMultiHashMap</code>：每个键有多个值。</p>
+</li>
+<li>
+<p><code>NativeQueue</code>：先进先出 (FIFO) 队列。</p>
+</li>
 </ul>
 </li>
 <li>
@@ -255,8 +267,12 @@
 <p>JobSystem中的安全系统会跟踪在 <code>NativeContainer</code> 中读写的内容。</p>
 <p>该安全系统对 NativeContainer 主要包含了以下两个部分：</p>
 <ul>
-<li><code>DisposeSentinel</code>：负责检测内存泄漏，如果未正确释放内存则报错</li>
-<li><code>AtomicSafetyHandle</code>：负责转交 NativeContainer 的所有权，如果两个调度的作业正在写入相同的 NativeArray 则会抛出异常</li>
+<li>
+<p><code>DisposeSentinel</code>：负责检测内存泄漏，如果未正确释放内存则报错</p>
+</li>
+<li>
+<p><code>AtomicSafetyHandle</code>：负责转交 NativeContainer 的所有权，如果两个调度的作业正在写入相同的 NativeArray 则会抛出异常</p>
+</li>
 </ul>
 <p>之前提到Job拥有<code>NativeContainer</code>的读写权限，但是JobSystem不允许多个 Job 同时拥有对一个 <code>NativeContainer</code> 的写入权，因此我们往往会对不需要写入权的 <code>NativeContainer</code> 加上<code>[ReadOnly]</code>特性，以减少性能影响</p>
 <pre class="highlight"><code class="C#">[<span class="hljs-meta">ReadOnly</span>]
@@ -268,9 +284,15 @@
 <h3 id="allocator分配类型"><a class="markdownIt-Anchor" href="#allocator分配类型"></a> Allocator分配类型</h3>
 <p>在创建 <code>NativeContainer</code> 时必须指定所需的内存分配类型，Unity为我们提供了以下三种<code>Allocator</code>类型：</p>
 <ul>
-<li><code>Allocator.Temp</code>：最快的分配速度，适用于一帧或者更短的生命时长。不应该使用 <code>Temp</code> 将 <code>NativeContainer</code> 分配给 Job，在方法 <code>return</code> 前要调用 <code>Dispose()</code> 方法。</li>
-<li><code>Allocator.TempJob</code>：分配速度比 Temp 慢比 Persistent 快，适用于4帧的生命时长。若4帧内没有调用调用 <code>Dispose()</code> 方法，则会打印警告。大多数小Job都应该使用TempJob 分配类型。</li>
-<li><code>Allocator.Persistant</code>：最慢的分配速度，但是可以在任意时间内持续存在。该分配类型会直接调用 <code>malloc</code>,在较长时间的Job可以使用这种分配类型，但对于注重性能的项目来说一般不建议使用。</li>
+<li>
+<p><code>Allocator.Temp</code>：最快的分配速度，适用于一帧或者更短的生命时长。不应该使用 <code>Temp</code> 将 <code>NativeContainer</code> 分配给 Job，在方法 <code>return</code> 前要调用 <code>Dispose()</code> 方法。</p>
+</li>
+<li>
+<p><code>Allocator.TempJob</code>：分配速度比 Temp 慢比 Persistent 快，适用于4帧的生命时长。若4帧内没有调用调用 <code>Dispose()</code> 方法，则会打印警告。大多数小Job都应该使用TempJob 分配类型。</p>
+</li>
+<li>
+<p><code>Allocator.Persistant</code>：最慢的分配速度，但是可以在任意时间内持续存在。该分配类型会直接调用 <code>malloc</code>,在较长时间的Job可以使用这种分配类型，但对于注重性能的项目来说一般不建议使用。</p>
+</li>
 </ul>
 <pre class="highlight"><code class="C#"><span class="hljs-comment">//参数1：NativeArray的大小</span>
 <span class="hljs-comment">//参数2：NativeArray的内存分配类型</span>
@@ -429,13 +451,27 @@ result.Dispose();
 <p><img src="jobsystem_parallelfor_job_batches.png" alt="img" style="max-width:100%;"  /></p>
 <p>简单说一下这个图：</p>
 <ol>
-<li>在主线程中创建 <code>ParallelFor</code> 实例</li>
-<li>填充数据到 <code>ParallelFor</code></li>
-<li>调用 <code>ParallelFor</code> 的 <code>Schedule</code> 方法</li>
-<li>对 <code>ParallelFor</code> 分批次，这里分成了4个批次</li>
-<li>把这些批次分配给几个Native Job，并放入作业队列。这相当于把几个<code>Excute</code>注册到一个Native Job的<code>Excute</code>中</li>
-<li>从作业队列中拿出 Native Job 并放到Core上执行。也就是说现在一个核心上会依次执行4个<code>Execute</code></li>
-<li>执行结果放入内存中</li>
+<li>
+<p>在主线程中创建 <code>ParallelFor</code> 实例</p>
+</li>
+<li>
+<p>填充数据到 <code>ParallelFor</code></p>
+</li>
+<li>
+<p>调用 <code>ParallelFor</code> 的 <code>Schedule</code> 方法</p>
+</li>
+<li>
+<p>对 <code>ParallelFor</code> 分批次，这里分成了4个批次</p>
+</li>
+<li>
+<p>把这些批次分配给几个Native Job，并放入作业队列。这相当于把几个<code>Excute</code>注册到一个Native Job的<code>Excute</code>中</p>
+</li>
+<li>
+<p>从作业队列中拿出 Native Job 并放到Core上执行。也就是说现在一个核心上会依次执行4个<code>Execute</code></p>
+</li>
+<li>
+<p>执行结果放入内存中</p>
+</li>
 </ol>
 <p><strong>PS：当一个 Native Job 提前完成自己的batches时，会从其他的 Native Job 偷取一部分batches（剩余batches的一半），然后继续执行。</strong></p>
 <p>在调度 ParallelFor 作业时，必须指定要拆分的 NativeArray 数据源的长度，一般直接取NativeArray的数组长度作为执行次数，一次处理一个数据。</p>
