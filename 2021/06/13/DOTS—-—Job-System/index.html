@@ -602,46 +602,34 @@ myNativeArray[<span class="hljs-number">0</span>] = temp;
 </li>
 <li>
 <h3 id="调用-jobhandlecomplete-以重新获得所有权"><a class="markdownIt-Anchor" href="#调用-jobhandlecomplete-以重新获得所有权"></a> 调用 JobHandle.Complete 以重新获得所有权</h3>
-</li>
-</ul>
 <p>要跟踪数据所有权，必须先完成依赖项，然后主线程才能再次使用这些依赖项。</p>
 <p>仅检查 <code>JobHandle.IsCompleted</code> 是不够的，需要手动调用<code>Complete</code>，否则会造成内存泄漏。此外<code>Complete</code>会清理安全系统的状态，</p>
-<ul>
+</li>
 <li>
 <h3 id="在主线程中使用-schedule-和-complete-方法"><a class="markdownIt-Anchor" href="#在主线程中使用-schedule-和-complete-方法"></a> 在主线程中使用 Schedule 和 Complete 方法</h3>
-</li>
-</ul>
 <p>只能从主线程调用 <code>Schedule</code> 和 <code>Complete</code>。如果一个作业依赖于另一个作业，<strong>请使用 <code>JobHandle</code> 来管理依赖关系，而不是尝试在作业中调度作业</strong>。</p>
-<ul>
+</li>
 <li>
 <h3 id="在适当时间使用-schedule-和-complete-方法"><a class="markdownIt-Anchor" href="#在适当时间使用-schedule-和-complete-方法"></a> 在适当时间使用 Schedule 和 Complete 方法</h3>
-</li>
-</ul>
 <p>**拥有作业所需的数据后就立即在作业上调用 <code>Schedule</code>，并仅在需要结果时才开始在作业上调用 <code>Complete</code>。**例如：如果在这一帧结束和下一帧开始之间的一段时间没有作业正在运行，并且可以接受一帧延迟，则可以在这一帧结束时调度作业，并在下一帧中使用其结果。</p>
-<ul>
+</li>
 <li>
 <h3 id="将-nativecontainer-类型标记为只读"><a class="markdownIt-Anchor" href="#将-nativecontainer-类型标记为只读"></a> 将 NativeContainer 类型标记为只读</h3>
-</li>
-</ul>
 <p>请注意，默认情况下，作业对 <code>NativeContainer</code> 类型具有读写访问权限。请在适当时使用 <code>[ReadOnly]</code> 特性来提高性能。</p>
-<ul>
+</li>
 <li>
 <h3 id="数据依赖的检查"><a class="markdownIt-Anchor" href="#数据依赖的检查"></a> 数据依赖的检查</h3>
-</li>
-</ul>
 <p>在 Unity Profiler 窗口中，主线程上的标记<code>WaitForJobGroup</code>表示 Unity 正在等待工作线程上的作业完成。这说明你的代码在什么地方引入了数据依赖。请查找 <code>JobHandle.Complete</code> 来查看是什么依赖关系导致了主线程的等待。</p>
-<ul>
+</li>
 <li>
 <h3 id="通过-run-方法调试jobs"><a class="markdownIt-Anchor" href="#通过-run-方法调试jobs"></a> 通过 Run 方法调试Jobs</h3>
-</li>
-</ul>
 <p>Jobs有一个 <code>Run</code> 函数，可以使用此函数代替 <code>Schedule</code> 立即在主线程上执行作业。可将此函数用于调试。</p>
-<ul>
+</li>
 <li>
 <h3 id="不要在作业中分配托管内存"><a class="markdownIt-Anchor" href="#不要在作业中分配托管内存"></a> 不要在作业中分配托管内存</h3>
+<p>在作业中分配托管内存非常慢，会导致 Unity Burst 无法使用。</p>
 </li>
 </ul>
-<p>在作业中分配托管内存非常慢，会导致 Unity Burst 无法使用。</p>
 </li>
 </ul>
 
