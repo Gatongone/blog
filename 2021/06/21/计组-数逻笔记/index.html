@@ -82,10 +82,6 @@
  <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
  
-    <title>
-            关东关
-    </title>
- 
 </head>
 <body>
     
@@ -138,6 +134,12 @@
 
 <!-- 回到首页 -->
 
+    <a href="/blog/">
+    <button class="home_btn" >
+        <img src="/blog/images/icon/home.png">
+    </button>
+    </a>
+
 
 <!-- 回到顶部 -->
 <div id="top">
@@ -152,228 +154,69 @@
     <div class="entry">
     
 
-        
+    
+<!--    加载post    -->    
+
+    
+        <head>
+    <title>计组&数逻笔记</title>
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+</head>
+<body>
+
+    
+<link rel="stylesheet" href="/blog/css/post.css">
+
+    
+<link rel="stylesheet" href="/blog/css/hightlight.css">
+
+
+    
 <link rel="stylesheet" href="/blog/css/rightbar.css">
 
 <div id="right_bar">
 
         
-        <div id="recent_update" class="recent_update">
-            <span> Recent Update </span>
-            <div>
-             <a href="/blog/2021/06/21/计组-数逻笔记/" class="post">计组&数逻笔记 </a><a href="/blog/2021/06/13/DOTS—-—Job-System/" class="post">DOTS— —Job System </a><a href="/blog/2021/05/26/Xlua-Hotfix方案/" class="post">XLua Hotfix方案 </a><a href="/blog/2021/05/06/DOTween/" class="post">DOTween </a><a href="/blog/2021/04/25/四元数/" class="post">四元数 </a>
-            </div>
-        </div>
 
-        <div id="tagcloud" class="tagcloud">
-            <span> Trending Tags </span>
-            <div>
-             <a href="#" class="tag">C# </a><a href="#" class="tag">Reflection </a><a href="#" class="tag">.net </a><a href="#" class="tag">Attribute </a><a href="#" class="tag">unity </a>
-            </div>
-        </div>
         
-
+            <div id="post_index" class="post_index">
+                <span> Post Index </span>
+                <div>
+                    <div id="clear"></div>
+                    
+                </div>
+                
+             </div>
         
              
 </div>
 
 
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/15/C-特性-Attribute/"  target="_self">C#特性(Attribute) </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            特性是一种能用于为元数据添加额外信息的类，可以用通过方括号([])的方式在元素（可以是类、接口、成员、函数、函数参数等）前声明标签。标签则代表该元素拥有该特性。之后可以通过反射的方式获取特性。
-
-
- 标签
-标签的本质其实是构造函数，写在元素的上一行表示他们具有该特性的信息,相当于声明了一个类对象关联到该元素。如果特性类名是XXXAttribute，那么在掉用标签时会自动省略Attribute，比如  [XXX(“it is a stri...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 15th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>6 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">8479</span>
-
+    <div class="page_title" id="page_title">
+        计组&数逻笔记
     </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+    <hr>
+    <div class="page_content">
         
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/15/C-反射-Reflection/"  target="_self">C#反射(Reflection) </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            
-
- 程序集和元数据
-
-
-程序集：.net中由C#、VB等语言的编译器编译后所产生的代码集合（包含了CIL）,一般被存放在bin文件中，后缀名一般为.dll（库文件）、.exe（可执行文件）。别人可以通过反射调用其他人的程序集的元数据。
-
-
-元数据：用来描述数据的数据，本质上就是用于描述被编译成程序集之前的各种类、成员等信息，元数据是保存在程序集中的。
-
-
-
-
-
-
-
-
- 反射
-在程序运行时，可以获得其他程序集或自身程序集中的元数据，该过...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 15th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>6 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">11602</span>
-
+        
+        
     </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/14/GUI(IMGUI)/"  target="_self">GUI(IMGUI) </a>   
     
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            全称：即时模式用户交互界面，是一种即见即所得的UI系统，一般用作创建游戏内置工具和脚本检视面板而不作为游戏玩家的UI。
-
-
-
-
- OnGui()
-继承了MonoBehaviour的脚本都可以调用OnGui()。OnGui()中的控件绘制函数都是由GUI类提供的静态函数，这些空间的的常见参数类型:
-
-位置参数：Rect(x ,y ,w ,h);（x，y位置信息；w，h尺寸信息）
-显示文本：string
-图片信息：Texture
-组合信息：...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 14th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>10 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">23279</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/12/协变与逆变/"  target="_self">协变与逆变 </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            逆变（contravariant）与协变（covariant）是C#4新增的概念，只能用修饰泛型委托和泛型接口中的泛型字符。
-根据里氏替换原则：父类可以装子类，而子类不能装父类。可以这样理解：
-
-
-“协变”-&gt;“和谐的变”-&gt;“父类装子类，感受是和谐的”-&gt;string-&gt;object :协变
-
-
-“逆变”-&gt;“逆常的变”-&gt;“子类装父类，感受不和谐的”-&gt;object-&gt;string :逆变
-
-
-假设，有两个父子关系类，Human类和...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 12th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>3 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">9801</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-        
-        <div class="paginator">
-             <a class="extend prev" rel="prev" href="/blog/page/4/"><</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><span class="page-number current">5</span>
-        </div>
-
-        <div id="footer">
-            <hr>
-            <font>©2021</font>
-            <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
-            some copyrights reserved
-            <div style="float: right;">
-                <font>Powered by</font>
-                <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
-                framework
-            </div>
+    <div class="footer">
+    <hr>
+        <font> ©2021 </font>
+        <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
+        some copyrights reserved
+        <div style="float: right; margin-right: -200px;">
+              Jun 21st  2021,  5:00:07  |
+            <font>Powered by</font>
+            <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
+            framework
         </div>
     </div>
-
-
-    
-
-    
-<!--    加载post    -->    
-
+</body>
     
 
 
@@ -452,8 +295,7 @@
 </script>
 
 
-</body>
-                                             <!--  加载主体  -->
+</body>                                             <!--  加载主体  -->
 
         </div>                                                                 
         

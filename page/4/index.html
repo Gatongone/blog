@@ -161,7 +161,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/06/13/DOTS—-—Job-System/" class="post">DOTS— —Job System </a><a href="/blog/2021/05/26/Xlua-Hotfix方案/" class="post">XLua Hotfix方案 </a><a href="/blog/2021/05/06/DOTween/" class="post">DOTween </a><a href="/blog/2021/04/25/四元数/" class="post">四元数 </a><a href="/blog/2021/04/24/DataSet、DataTable、DataAdapter/" class="post">DataSet、DataTable、DataAdapter </a>
+             <a href="/blog/2021/06/21/计组-数逻笔记/" class="post">计组&数逻笔记 </a><a href="/blog/2021/06/13/DOTS—-—Job-System/" class="post">DOTS— —Job System </a><a href="/blog/2021/05/26/Xlua-Hotfix方案/" class="post">XLua Hotfix方案 </a><a href="/blog/2021/05/06/DOTween/" class="post">DOTween </a><a href="/blog/2021/04/25/四元数/" class="post">四元数 </a>
             </div>
         </div>
 
@@ -177,6 +177,59 @@
              
 </div>
 
+
+        
+            
+<link rel="stylesheet" href="/blog/css/post_entry.css">
+
+
+<div class="post_entry">
+    <a class="post_title" href="/blog/2021/02/27/资源管理——AssetDataBase/"  target="_self">资源管理——AssetDataBase </a>   
+    
+    </br>
+    <span class="content">
+            
+            
+            
+            
+            AssetDatabase是一个对资源进行读写等操作的编辑器类接口，位于工程目录的Assets/Editor文件夹下，需要引入UnityEditor命名空间和宏管理。
+#if UNITY_EDITOR
+using UnityEditor; //手机上没有UnityEditor文件
+#endif
+
+
+
+ AssetDatabase常用的资源操作
+
+
+ 加载资源
+
+
+
+加载类型
+方法
+
+
+
+
+加载单个Asset
+UnityEngine.Ob...
+    </span>
+
+    <div>
+        <img src="/blog/images/icon/date.png" alt="">
+        <span> Feb 27th,   2021</span>
+
+        <img src="/blog/images/icon/time.png" alt="">
+        <span>5 min</span>
+
+        <img src="/blog/images/icon/words.png" alt="">
+        <span class="words">6672</span>
+
+    </div>
+    <hr color=#49495b SIZE=1>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         
             
@@ -403,42 +456,6 @@ class Person
 
         <img src="/blog/images/icon/words.png" alt="">
         <span class="words">9198</span>
-
-    </div>
-    <hr color=#49495b SIZE=1>
-</div>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-        
-            
-<link rel="stylesheet" href="/blog/css/post_entry.css">
-
-
-<div class="post_entry">
-    <a class="post_title" href="/blog/2021/02/15/C-特性-Attribute/"  target="_self">C#特性(Attribute) </a>   
-    
-    </br>
-    <span class="content">
-            
-            
-            
-            
-            特性是一种能用于为元数据添加额外信息的类，可以用通过方括号([])的方式在元素（可以是类、接口、成员、函数、函数参数等）前声明标签。标签则代表该元素拥有该特性。之后可以通过反射的方式获取特性。
-
-
- 标签
-标签的本质其实是构造函数，写在元素的上一行表示他们具有该特性的信息,相当于声明了一个类对象关联到该元素。如果特性类名是XXXAttribute，那么在掉用标签时会自动省略Attribute，比如  [XXX(“it is a stri...
-    </span>
-
-    <div>
-        <img src="/blog/images/icon/date.png" alt="">
-        <span> Feb 15th,   2021</span>
-
-        <img src="/blog/images/icon/time.png" alt="">
-        <span>6 min</span>
-
-        <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">8479</span>
 
     </div>
     <hr color=#49495b SIZE=1>
