@@ -161,7 +161,7 @@
         <div id="recent_update" class="recent_update">
             <span> Recent Update </span>
             <div>
-             <a href="/blog/2021/06/21/计组-数逻笔记/" class="post">计组&数逻笔记 </a><a href="/blog/2021/06/13/DOTS—-—Job-System/" class="post">DOTS— —Job System </a><a href="/blog/2021/05/26/Xlua-Hotfix方案/" class="post">XLua Hotfix方案 </a><a href="/blog/2021/05/06/DOTween/" class="post">DOTween </a><a href="/blog/2021/04/25/四元数/" class="post">四元数 </a>
+             <a href="/blog/2021/06/21/计组-数逻笔记/" class="post">计组&数逻笔记 </a><a href="/blog/2021/06/13/DOTS—-—Job-System/" class="post">DOTS——Job System </a><a href="/blog/2021/05/26/Xlua-Hotfix方案/" class="post">XLua Hotfix方案 </a><a href="/blog/2021/05/06/DOTween/" class="post">DOTween </a><a href="/blog/2021/04/25/四元数/" class="post">四元数 </a>
             </div>
         </div>
 
@@ -193,9 +193,15 @@
             
             
             
-计算机概论
-计算机的分类：数字计算机、模拟计算机
-计算机的发展史：
+
+ 计算机概论
+
+
+ 计算机的分类：数字计算机、模拟计算机
+
+
+ 计算机的发展史：
+
 一代目：电子管计算机
 二代目：晶体管计算机
 三代目：中小规模集成电路计算机（小型计算机）
@@ -203,7 +209,9 @@
 五代目：巨大规模集成电路计算机：单片机
 
 
-计算机性能指标
+
+ 计算机性能指标
+
 主频
 总线宽度
 存储器容量和带宽
@@ -213,20 +221,14 @@
 处理机字长
 
 
-计算机系统层级
+
+ 计算机系统层级
+
 微程序级
 机器级
 操作系统级
 汇编语言级
-高级语言级
-
-
-
-
-
-
-
-冯·诺依曼...
+高级语...
     </span>
 
     <div>
@@ -237,7 +239,7 @@
         <span>1 h</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">32540</span>
+        <span class="words">48778</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -250,7 +252,7 @@
 
 
 <div class="post_entry">
-    <a class="post_title" href="/blog/2021/06/13/DOTS—-—Job-System/"  target="_self">DOTS— —Job System </a>   
+    <a class="post_title" href="/blog/2021/06/13/DOTS—-—Job-System/"  target="_self">DOTS——Job System </a>   
     
     </br>
     <span class="content">
@@ -571,6 +573,21 @@ DataAdapter就是连接数据源和DataSet之间的桥梁,如果把，数据比�
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 
 </html>
