@@ -630,12 +630,37 @@ ______________________
 <li>C：存放乘数和数值低位（取绝对值）</li>
 </ul>
 <p>计算过程与原码一位乘类似，A 根据 <code>C的最低两位</code>来判断 是<code>加B</code> 还是 <code>减</code>B 还是 <code>加0</code>，booth算法需要遵循下表</p>
-<p>C倒数第二位|C倒数第一位|运算操作</p>
-<p>------|------|------<br />
-0|1|右移一位+B<br />
-1|0|右移一位-B<br />
-0|0|右移一位+0<br />
-1|1|右移一位+0</p>
+<table>
+<thead>
+<tr>
+<th>C倒数第二位</th>
+<th>C倒数第一位</th>
+<th>运算操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>右移一位+B</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>右移一位-B</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>右移一位+0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>右移一位+0</td>
+</tr>
+</tbody>
+</table>
 <p>在计算结束后还需要根据该表来进行校正</p>
 <pre class="highlight"><code class="">  例：计算 X=-0.1101，Y=-0.1011，计算[XY]补
 
