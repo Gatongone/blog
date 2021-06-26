@@ -185,7 +185,7 @@
                 <span> Post Index </span>
                 <div>
                     <div id="clear"></div>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化和反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Json-Net"><span class="toc-text">Json .Net</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JsonUtlity"><span class="toc-text">JsonUtlity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LitJson"><span class="toc-text">LitJson</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Json-Net%E3%80%81JsonUtlity%E3%80%81LitJson%E5%AF%B9%E6%AF%94"><span class="toc-text">Json .Net、JsonUtlity、LitJson对比</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text"> 序列化和反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#json-net"><span class="toc-text"> Json .Net</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsonutlity"><span class="toc-text"> JsonUtlity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#litjson"><span class="toc-text"> LitJson</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#json-net-jsonutlity-litjson%E5%AF%B9%E6%AF%94"><span class="toc-text"> Json .Net、JsonUtlity、LitJson对比</span></a></li></ol>
                 </div>
                 
              </div>
@@ -203,224 +203,324 @@
         
         <p>Json(JavaScript Object Notation)即JS对象简谱，纯文本键值对结构，一种轻量级的数据交换格式，相对于XML来说配置更简单，一般情况下更利于计算机读取</p>
 <ul>
-<li><h2 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h2><p>  json的序列化和反序列化方式有很多种，就我自己用过的有以下几种:</p>
+<li>
+<h2 id="序列化和反序列化"><a class="markdownIt-Anchor" href="#序列化和反序列化"></a> 序列化和反序列化</h2>
+<p>json的序列化和反序列化方式有很多种，就我自己用过的有以下几种:</p>
 <ol>
 <li>Json .NET(Newtonsoft .Json)</li>
 <li>JsonUtlity</li>
 <li>LitJson</li>
 <li>JavaScriptSerializer</li>
-<li><p>DataContractJsonSerializer</p>
-<p>这里只举例unity中用的比较多的前三种</p>
-</li>
+<li>DataContractJsonSerializer</li>
 </ol>
+<p>这里只举例unity中用的比较多的前三种</p>
 <ul>
-<li><h3 id="Json-Net"><a href="#Json-Net" class="headerlink" title="Json .Net"></a>Json .Net</h3><p>  这玩意功能很强大，甚至支持序列化和反序列化DataTable，DataSet，Entity Framework和NHibernate，也是我最常用的一种，缺点是dll比较大，此外还有许多特性配合使用</p>
-<p>  <a target="_blank" rel="noopener" href="https://github.com/SaladLab/Json.Net.Unity3D/releases">附上Github的unity package</a></p>
-<p>  特性|描述<br>  ——-|——-<br>  [JsonObject(MemberSerialization.OptOut)]|默认使用的特性，此类中的所有公共成员都会被序列化<br>  [JsonObject(MemberSerialization.OptIn)]|只有标有特性<code>[JsonProperty]</code>的成员才会被序列化<br>  [DefaultValue(int value)]|序列化时使用的默认值<br>  [JsonProperty]|支持序列化访问属性为私有或保护的成员<br>  [JsonProperty(PropertyName = “CName”)]|自定义序列化成员名称<br>  [JsonProperty(NullValueHandling=NullValueHandling.Ignore)]|若该成员的值为null，则忽略<br>  [JsonIgnore]|忽略掉该成员<br>  [JsonConverter(typeof(StringEnumConverter))]|序列化时将枚举转换成字符串<br>  [JsonConverter(typeof(IsoDateTimeConverter))]|日期格式化，不常用，一般改成自定义的日期特性</p>
-<p>  序列化: </p>
-<pre><code class="lang-C#">  public static void SaveData&lt;T&gt;(T data, string filepath) where T : class, new()
-  &#123;
-      string jsonStr = jsonStr = JsonConvert.SerializeObject(data);
-
-      using (StreamWriter writer = new StreamWriter($&quot;&#123;filepath&#125;.json&quot;))
-      &#123;
-          writer.Write(jsonStr);
-      &#125;
-  &#125;
+<li>
+<h3 id="json-net"><a class="markdownIt-Anchor" href="#json-net"></a> Json .Net</h3>
+<p>这玩意功能很强大，甚至支持序列化和反序列化DataTable，DataSet，Entity Framework和NHibernate，也是我最常用的一种，缺点是dll比较大，此外还有许多特性配合使用</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SaladLab/Json.Net.Unity3D/releases">附上Github的unity package</a></p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[JsonObject(MemberSerialization.OptOut)]</td>
+<td>默认使用的特性，此类中的所有公共成员都会被序列化</td>
+</tr>
+<tr>
+<td>[JsonObject(MemberSerialization.OptIn)]</td>
+<td>只有标有特性<code>[JsonProperty]</code>的成员才会被序列化</td>
+</tr>
+<tr>
+<td>[DefaultValue(int value)]</td>
+<td>序列化时使用的默认值</td>
+</tr>
+<tr>
+<td>[JsonProperty]</td>
+<td>支持序列化访问属性为私有或保护的成员</td>
+</tr>
+<tr>
+<td>[JsonProperty(PropertyName = “CName”)]</td>
+<td>自定义序列化成员名称</td>
+</tr>
+<tr>
+<td>[JsonProperty(NullValueHandling=NullValueHandling.Ignore)]</td>
+<td>若该成员的值为null，则忽略</td>
+</tr>
+<tr>
+<td>[JsonIgnore]</td>
+<td>忽略掉该成员</td>
+</tr>
+<tr>
+<td>[JsonConverter(typeof(StringEnumConverter))]</td>
+<td>序列化时将枚举转换成字符串</td>
+</tr>
+<tr>
+<td>[JsonConverter(typeof(IsoDateTimeConverter))]</td>
+<td>日期格式化，不常用，一般改成自定义的日期特性</td>
+</tr>
+</tbody>
+</table>
+<p>序列化:</p>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> SaveData&lt;T&gt;(T data, <span class="hljs-keyword">string</span> filepath) <span class="hljs-keyword">where</span> T : <span class="hljs-keyword">class</span>, <span class="hljs-title">new</span>()
+&#123;
+    <span class="hljs-keyword">string</span> jsonStr = jsonStr = JsonConvert.SerializeObject(data);
+    
+    <span class="hljs-keyword">using</span> (StreamWriter writer = <span class="hljs-keyword">new</span> StreamWriter(<span class="hljs-string">$"<span class="hljs-subst">&#123;filepath&#125;</span>.json"</span>))
+    &#123;
+        writer.Write(jsonStr);
+    &#125;
+&#125;
 </code></pre>
-<p>  反序列化：</p>
-<pre><code class="lang-C#">  public static T LoadData&lt;T&gt;(string filepath) where T : class, new()
-  &#123;
-      if (!File.Exists($&quot;&#123;Path&#125;/&#123;filename&#125;&quot;))
-      &#123;
-          return new T();
-      &#125;
+<p>反序列化：</p>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> T LoadData&lt;T&gt;(<span class="hljs-keyword">string</span> filepath) <span class="hljs-keyword">where</span> T : <span class="hljs-keyword">class</span>, <span class="hljs-title">new</span>()
+&#123;
+    <span class="hljs-keyword">if</span> (!File.Exists(<span class="hljs-string">$"<span class="hljs-subst">&#123;Path&#125;</span>/<span class="hljs-subst">&#123;filename&#125;</span>"</span>))
+    &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> T();
+    &#125;
 
-      string jsonStr = string.Empty;
+    <span class="hljs-keyword">string</span> jsonStr = <span class="hljs-keyword">string</span>.Empty;
 
-      using (StreamReader reader = new StreamReader($&quot;&#123;filepath&#125;.json&quot;))
-      &#123;
-          jsonStr = reader.ReadToEnd();
-      &#125;
+    <span class="hljs-keyword">using</span> (StreamReader reader = <span class="hljs-keyword">new</span> StreamReader(<span class="hljs-string">$"<span class="hljs-subst">&#123;filepath&#125;</span>.json"</span>))
+    &#123;
+        jsonStr = reader.ReadToEnd();
+    &#125;
 
-      return JsonConvert.DeserializeObject&lt;T&gt;(jsonStr);
-  &#125;
+    <span class="hljs-keyword">return</span> JsonConvert.DeserializeObject&lt;T&gt;(jsonStr);
+&#125;
 </code></pre>
-<p>  附上自定义日期特性</p>
-<pre><code class="lang-C#">  public class UniversalDateTimeConverter : DateTimeConverterBase
-  &#123;
-      private static IsoDateTimeConverter isoConverter = new IsoDateTimeConverter &#123; DateTimeFormat = &quot;yyyy-MM-dd HH:mm:ss&quot; &#125;;
+<p>附上自定义日期特性</p>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">UniversalDateTimeConverter</span> : <span class="hljs-title">DateTimeConverterBase</span>
+&#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> IsoDateTimeConverter isoConverter = <span class="hljs-keyword">new</span> IsoDateTimeConverter &#123; DateTimeFormat = <span class="hljs-string">"yyyy-MM-dd HH:mm:ss"</span> &#125;;
 
-      public override object ReadJson(Newtonsoft.Json.JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-      &#123;
-          return isoConverter.ReadJson(reader, objectType, existingValue, serializer);
-      &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">object</span> <span class="hljs-title">ReadJson</span>(<span class="hljs-params">Newtonsoft.Json.JsonReader reader, Type objectType, <span class="hljs-keyword">object</span> existingValue, JsonSerializer serializer</span>)</span>
+    &#123;
+        <span class="hljs-keyword">return</span> isoConverter.ReadJson(reader, objectType, existingValue, serializer);
+    &#125;
 
-      public override void WriteJson(Newtonsoft.Json.JsonWriter writer, object value, JsonSerializer serializer)
-      &#123;
-          isoConverter.WriteJson(writer, value, serializer);
-      &#125;
-  &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">WriteJson</span>(<span class="hljs-params">Newtonsoft.Json.JsonWriter writer, <span class="hljs-keyword">object</span> <span class="hljs-keyword">value</span>, JsonSerializer serializer</span>)</span>
+    &#123;
+        isoConverter.WriteJson(writer, <span class="hljs-keyword">value</span>, serializer);
+    &#125;
+&#125;
 </code></pre>
 </li>
-<li><h3 id="JsonUtlity"><a href="#JsonUtlity" class="headerlink" title="JsonUtlity"></a>JsonUtlity</h3><p>  unity自带的Json解析类，只能处理一些简单的类，懒得导入其他json解析类时用这个，使用时因注意：</p>
+<li>
+<h3 id="jsonutlity"><a class="markdownIt-Anchor" href="#jsonutlity"></a> JsonUtlity</h3>
+<p>unity自带的Json解析类，只能处理一些简单的类，懒得导入其他json解析类时用这个，使用时因注意：</p>
 <ol>
 <li>不支持序列化字典</li>
 <li>float类型写入时看起来有些毛病，不过读取时没问题</li>
 <li>序列化自定义类时需要使用特性<code>[System.Serializable]</code></li>
 <li>对于私有和保护类型成员，如果需要序列化，则需要使用特性<code>[SerializeField]</code></li>
 <li>不支持直接反序列化为数据集合（即反序列化类型不能为<code>Collection</code>）</li>
-<li><p>注意json文件编码格式必须为utf-8</p>
+<li>注意json文件编码格式必须为utf-8</li>
+</ol>
 <p>序列化：</p>
-<pre><code class="lang-C#">public static void SaveData&lt;T&gt;(T data, string filepath) where T : class, new()
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> SaveData&lt;T&gt;(T data, <span class="hljs-keyword">string</span> filepath) <span class="hljs-keyword">where</span> T : <span class="hljs-keyword">class</span>, <span class="hljs-title">new</span>()
 &#123;
- string jsonStr = jsonStr = JsonUtility.ToJson(data);
-
- using (StreamWriter writer = new StreamWriter($&quot;&#123;filepath&#125;.json&quot;))
- &#123;
-     writer.Write(jsonStr);
- &#125;
+    <span class="hljs-keyword">string</span> jsonStr = jsonStr = JsonUtility.ToJson(data);
+    
+    <span class="hljs-keyword">using</span> (StreamWriter writer = <span class="hljs-keyword">new</span> StreamWriter(<span class="hljs-string">$"<span class="hljs-subst">&#123;filepath&#125;</span>.json"</span>))
+    &#123;
+        writer.Write(jsonStr);
+    &#125;
 &#125;
 </code></pre>
 <p>反序列化：</p>
-<pre><code class="lang-C#">public static T LoadData&lt;T&gt;(string filepath) where T : class, new()
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> T LoadData&lt;T&gt;(<span class="hljs-keyword">string</span> filepath) <span class="hljs-keyword">where</span> T : <span class="hljs-keyword">class</span>, <span class="hljs-title">new</span>()
 &#123;
- if (!File.Exists($&quot;&#123;Path&#125;/&#123;filename&#125;&quot;))
- &#123;
-     return new T();
- &#125;
+    <span class="hljs-keyword">if</span> (!File.Exists(<span class="hljs-string">$"<span class="hljs-subst">&#123;Path&#125;</span>/<span class="hljs-subst">&#123;filename&#125;</span>"</span>))
+    &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> T();
+    &#125;
 
- string jsonStr = string.Empty;
+    <span class="hljs-keyword">string</span> jsonStr = <span class="hljs-keyword">string</span>.Empty;
 
- using (StreamReader reader = new StreamReader($&quot;&#123;filepath&#125;.json&quot;))
- &#123;
-     jsonStr = reader.ReadToEnd();
- &#125;
+    <span class="hljs-keyword">using</span> (StreamReader reader = <span class="hljs-keyword">new</span> StreamReader(<span class="hljs-string">$"<span class="hljs-subst">&#123;filepath&#125;</span>.json"</span>))
+    &#123;
+        jsonStr = reader.ReadToEnd();
+    &#125;
 
- return JsonUtility.FromJson&lt;T&gt;(jsonStr);
+    <span class="hljs-keyword">return</span> JsonUtility.FromJson&lt;T&gt;(jsonStr);
 &#125;
 </code></pre>
 </li>
-</ol>
-</li>
-<li><h3 id="LitJson"><a href="#LitJson" class="headerlink" title="LitJson"></a>LitJson</h3><p>  相对于JsonUtlity来说稍微方便点，不需要添加特性，而且支持字典的序列化和反序列化为数据集合</p>
-<p>  官网：<a target="_blank" rel="noopener" href="https://litjson.net/">https://litjson.net/</a></p>
-<p>  序列化：</p>
-<pre><code class="lang-C#">  public static void SaveData&lt;T&gt;(T data, string filepath) where T : class, new()
-  &#123;
-      string jsonStr = jsonStr = JsonMapper.ToJson(data);
-
-      using (StreamWriter writer = new StreamWriter($&quot;&#123;filepath&#125;.json&quot;))
-      &#123;
-          writer.Write(jsonStr);
-      &#125;
-  &#125;
+<li>
+<h3 id="litjson"><a class="markdownIt-Anchor" href="#litjson"></a> LitJson</h3>
+<p>相对于JsonUtlity来说稍微方便点，不需要添加特性，而且支持字典的序列化和反序列化为数据集合</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://litjson.net/">https://litjson.net/</a></p>
+<p>序列化：</p>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> SaveData&lt;T&gt;(T data, <span class="hljs-keyword">string</span> filepath) <span class="hljs-keyword">where</span> T : <span class="hljs-keyword">class</span>, <span class="hljs-title">new</span>()
+&#123;
+    <span class="hljs-keyword">string</span> jsonStr = jsonStr = JsonMapper.ToJson(data);
+    
+    <span class="hljs-keyword">using</span> (StreamWriter writer = <span class="hljs-keyword">new</span> StreamWriter(<span class="hljs-string">$"<span class="hljs-subst">&#123;filepath&#125;</span>.json"</span>))
+    &#123;
+        writer.Write(jsonStr);
+    &#125;
+&#125;
 </code></pre>
-<p>  反序列化：</p>
-<pre><code class="lang-C#">  public static T LoadData&lt;T&gt;(string filepath) where T : class, new()
-  &#123;
-      if (!File.Exists($&quot;&#123;Path&#125;/&#123;filename&#125;&quot;))
-      &#123;
-          return new T();
-      &#125;
+<p>反序列化：</p>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> T LoadData&lt;T&gt;(<span class="hljs-keyword">string</span> filepath) <span class="hljs-keyword">where</span> T : <span class="hljs-keyword">class</span>, <span class="hljs-title">new</span>()
+&#123;
+    <span class="hljs-keyword">if</span> (!File.Exists(<span class="hljs-string">$"<span class="hljs-subst">&#123;Path&#125;</span>/<span class="hljs-subst">&#123;filename&#125;</span>"</span>))
+    &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> T();
+    &#125;
 
-      string jsonStr = string.Empty;
+    <span class="hljs-keyword">string</span> jsonStr = <span class="hljs-keyword">string</span>.Empty;
 
-      using (StreamReader reader = new StreamReader($&quot;&#123;filepath&#125;.json&quot;))
-      &#123;
-          jsonStr = reader.ReadToEnd();
-      &#125;
+    <span class="hljs-keyword">using</span> (StreamReader reader = <span class="hljs-keyword">new</span> StreamReader(<span class="hljs-string">$"<span class="hljs-subst">&#123;filepath&#125;</span>.json"</span>))
+    &#123;
+        jsonStr = reader.ReadToEnd();
+    &#125;
 
-      return JsonMapper.ToObject&lt;T&gt;(jsonStr);
-  &#125;
+    <span class="hljs-keyword">return</span> JsonMapper.ToObject&lt;T&gt;(jsonStr);
+&#125;
 </code></pre>
-<p>  LitJson内置了Json访问器<code>JsonData</code>，可以通过JsonData来获取Json字符串中的键值对：</p>
-<pre><code class="lang-C#">  string jsonStr = &quot;&#123;&#39;students&#39;:[&#123;&#39;name&#39;:&#39;Gatongone&#39;,&#39;age&#39;:20&#125;,&#123;&#39;name&#39;:&#39;Khaki&#39;,&#39;age&#39;:21&#125;]&#125;&quot;;
-  JsonData datas = JsonMapper.ToObject(jsonStr);
-  JsonData students = datas[&quot;students&quot;];
+<p>LitJson内置了Json访问器<code>JsonData</code>，可以通过JsonData来获取Json字符串中的键值对：</p>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">string</span> jsonStr = <span class="hljs-string">"&#123;'students':[&#123;'name':'Gatongone','age':20&#125;,&#123;'name':'Khaki','age':21&#125;]&#125;"</span>;
+JsonData datas = JsonMapper.ToObject(jsonStr);
+JsonData students = datas[<span class="hljs-string">"students"</span>];
 
-  foreach(JsonData student in students)
-  &#123;
-      Debug.Log(student[&quot;name&quot;].ToString());
-      Debug.Log((int)student[&quot;age&quot;]);
-  &#125;
+<span class="hljs-keyword">foreach</span>(JsonData student <span class="hljs-keyword">in</span> students)
+&#123;
+    Debug.Log(student[<span class="hljs-string">"name"</span>].ToString());
+    Debug.Log((<span class="hljs-keyword">int</span>)student[<span class="hljs-string">"age"</span>]);
+&#125;
 </code></pre>
 </li>
 </ul>
 </li>
-<li><h2 id="Json-Net、JsonUtlity、LitJson对比"><a href="#Json-Net、JsonUtlity、LitJson对比" class="headerlink" title="Json .Net、JsonUtlity、LitJson对比"></a>Json .Net、JsonUtlity、LitJson对比</h2><p>  对同一个实例进行序列化，看一下三者的区别</p>
-<pre><code class="lang-C#">  public enum Day
-  &#123;
-      SunDay,
-      MonDay
-  &#125;
+<li>
+<h2 id="json-net-jsonutlity-litjson对比"><a class="markdownIt-Anchor" href="#json-net-jsonutlity-litjson对比"></a> Json .Net、JsonUtlity、LitJson对比</h2>
+<p>对同一个实例进行序列化，看一下三者的区别</p>
+<pre class="highlight"><code class="C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> Day
+&#123;
+    SunDay,
+    MonDay
+&#125;
 
-  [Serializable]
-  public class CustomClass
-  &#123;
-      public int Int;
-      public string String;
+[<span class="hljs-meta">Serializable</span>]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CustomClass</span>
+&#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Int;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> String;
 
-      public CustomClass(int Int, string String)
-      &#123;
-          this.Int = Int;
-          this.String = String;
-      &#125;
-  &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">CustomClass</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> Int, <span class="hljs-keyword">string</span> String</span>)</span>
+    &#123;
+        <span class="hljs-keyword">this</span>.Int = Int;
+        <span class="hljs-keyword">this</span>.String = String;
+    &#125;
+&#125;
 
-  public class JsonInfo
-  &#123;
-      [JsonProperty]
-      [SerializeField]
-      private int privateInt;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">JsonInfo</span>
+&#123;
+    [<span class="hljs-meta">JsonProperty</span>]
+    [<span class="hljs-meta">SerializeField</span>]
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> privateInt;
 
-      [JsonProperty]
-      [SerializeField]
-      protected int protectedInt;
-      public int id;
-      public float value;
-      public string name;
-      public bool isTrue;
+    [<span class="hljs-meta">JsonProperty</span>]
+    [<span class="hljs-meta">SerializeField</span>]
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">int</span> protectedInt;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> id;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> <span class="hljs-keyword">value</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> name;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">bool</span> isTrue;
 
-      [JsonConverter(typeof(StringEnumConverter))]
-      public Day day;
+    [<span class="hljs-meta">JsonConverter(typeof(StringEnumConverter))</span>]
+    <span class="hljs-keyword">public</span> Day day;
 
-      public CustomClass customClass;
-      public CustomClass nullClass;
-      public List&lt;CustomClass&gt; customlist;
-      public Dictionary&lt;int, string&gt; dic;
-  &#125;
+    <span class="hljs-keyword">public</span> CustomClass customClass;
+    <span class="hljs-keyword">public</span> CustomClass nullClass;
+    <span class="hljs-keyword">public</span> List&lt;CustomClass&gt; customlist;
+    <span class="hljs-keyword">public</span> Dictionary&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">string</span>&gt; dic;
+&#125;
 </code></pre>
-<pre><code class="lang-C#">  JsonInfo Init()
-  &#123;
-      JsonInfo jd = new JsonInfo();
-      ji.id = 1;
-      ji.name = &quot;JsonTest&quot;;
-      ji.value = 1.45f;
-      ji.isTrue = true;
-      ji.customClass = new CustomClass(5, &quot;A Test String&quot;);
-      ji.nullClass = null;
-      ji.day = Day.SunDay;
+<pre class="highlight"><code class="C#"><span class="hljs-function">JsonInfo <span class="hljs-title">Init</span>(<span class="hljs-params"></span>)</span>
+&#123;
+    JsonInfo jd = <span class="hljs-keyword">new</span> JsonInfo();
+    ji.id = <span class="hljs-number">1</span>;
+    ji.name = <span class="hljs-string">"JsonTest"</span>;
+    ji.<span class="hljs-keyword">value</span> = <span class="hljs-number">1.45f</span>;
+    ji.isTrue = <span class="hljs-literal">true</span>;
+    ji.customClass = <span class="hljs-keyword">new</span> CustomClass(<span class="hljs-number">5</span>, <span class="hljs-string">"A Test String"</span>);
+    ji.nullClass = <span class="hljs-literal">null</span>;
+    ji.day = Day.SunDay;
 
-      ji.customlist = new List&lt;CustomClass&gt;()
-      &#123;
-          new CustomClass(1, &quot;First Test String&quot;),
-          new CustomClass(2, &quot;Second Test String&quot;),
-          new CustomClass(3, &quot;Third Test String&quot;),
-      &#125;;
+    ji.customlist = <span class="hljs-keyword">new</span> List&lt;CustomClass&gt;()
+    &#123;
+        <span class="hljs-keyword">new</span> CustomClass(<span class="hljs-number">1</span>, <span class="hljs-string">"First Test String"</span>),
+        <span class="hljs-keyword">new</span> CustomClass(<span class="hljs-number">2</span>, <span class="hljs-string">"Second Test String"</span>),
+        <span class="hljs-keyword">new</span> CustomClass(<span class="hljs-number">3</span>, <span class="hljs-string">"Third Test String"</span>),
+    &#125;;
 
-      ji.dic = new Dictionary&lt;int, string&gt;()
-      &#123;
-          &#123;1,&quot;First&quot;&#125;,
-          &#123;2,&quot;Second&quot;&#125;,
-          &#123;3,&quot;Third&quot;&#125;
-      &#125;;
-      return ji;
-  &#125;
+    ji.dic = <span class="hljs-keyword">new</span> Dictionary&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">string</span>&gt;()
+    &#123;
+        &#123;<span class="hljs-number">1</span>,<span class="hljs-string">"First"</span>&#125;,
+        &#123;<span class="hljs-number">2</span>,<span class="hljs-string">"Second"</span>&#125;,
+        &#123;<span class="hljs-number">3</span>,<span class="hljs-string">"Third"</span>&#125;
+    &#125;;
+    <span class="hljs-keyword">return</span> ji;
+&#125;
 </code></pre>
-<p>  分别对JsonInfo实例进行序列化，生成的json文件如下</p>
-<p>  <img src="Json.jpg" alt="alt" style="max-width:100%;" ></p>
-<p>  \ |Json .Net|LitJson|JsonUtlity<br>  ——-|——-|——-|——-<br>  字典|支持|支持|不支持<br>  Collection数据集合|支持|支持|不支持<br>  null对象|写入null|写入null|写入默认值<br>  自定义序列化类|无需特性|无需特性|[System.Serializable]<br>  私有、保护成员变量|[JsonProperty]|不支持序列化|[SerializeField]<br>  Json访问器|无|JsonData|无</p>
+<p>分别对JsonInfo实例进行序列化，生成的json文件如下</p>
+<p><img src="Json.jpg" alt="alt" style="max-width:100%;"  /></p>
+<table>
+<thead>
+<tr>
+<th>\</th>
+<th>Json .Net</th>
+<th>LitJson</th>
+<th>JsonUtlity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字典</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>Collection数据集合</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>null对象</td>
+<td>写入null</td>
+<td>写入null</td>
+<td>写入默认值</td>
+</tr>
+<tr>
+<td>自定义序列化类</td>
+<td>无需特性</td>
+<td>无需特性</td>
+<td>[System.Serializable]</td>
+</tr>
+<tr>
+<td>私有、保护成员变量</td>
+<td>[JsonProperty]</td>
+<td>不支持序列化</td>
+<td>[SerializeField]</td>
+</tr>
+<tr>
+<td>Json访问器</td>
+<td>无</td>
+<td>JsonData</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
 </li>
 </ul>
 
