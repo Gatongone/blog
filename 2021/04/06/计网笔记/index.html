@@ -619,13 +619,15 @@
 <table>
 <thead>
 <tr>
+<th>SOH</th>
 <th>帧中间的数据部分</th>
 <th>EOT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>p;</td>
+<td> </td>
+<td> </td>
 <td> </td>
 </tr>
 </tbody>
@@ -634,6 +636,7 @@
 <table>
 <thead>
 <tr>
+<th>SOH</th>
 <th>数据段</th>
 <th>ESC</th>
 <th>EOT</th>
@@ -643,7 +646,8 @@
 </thead>
 <tbody>
 <tr>
-<td>p;</td>
+<td> </td>
+<td> </td>
 <td> </td>
 <td> </td>
 <td> </td>
@@ -827,9 +831,20 @@
 <p>适配器每从网络上受到一个MAC帧，就首先用硬件检测MAC帧中的MAC地址，发往本站的帧则收下，否则丢弃该帧</p>
 <p>IEEE802标准规定MAC地址字段可采用6字节（48位）或2字节（16位）</p>
 <p>当采用48位的MAC地址时，其MAC地址结构为：</p>
-<p>24bit   |24bit  <br />
------|-----<br />
-组织唯一标识符|扩展唯一标识符</p>
+<table>
+<thead>
+<tr>
+<th>24bit  </th>
+<th>24bit  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>组织唯一标识符</td>
+<td>扩展唯一标识符</td>
+</tr>
+</tbody>
+</table>
 <p>IEEE 把地址字段第一字节的最低第 2 位规定为 G/L位，表示 Global/Local。</p>
 <ul>
 <li>当 G/L位 = 0 时，是全球管理（保证在全球没有相同的地址），厂商向IEEE购买的 OUI 都属于全球管理。</li>
@@ -947,7 +962,8 @@
 <table>
 <thead>
 <tr>
-<th>bit</th>
+<th>6bit</th>
+<th>6bit</th>
 <th>4bit</th>
 <th>2bit</th>
 <th>45~1500bit</th>
@@ -956,7 +972,8 @@
 </thead>
 <tbody>
 <tr>
-<td>地址</td>
+<td>目的地址</td>
+<td>源地址</td>
 <td>tag</td>
 <td>类型</td>
 <td>数据</td>
@@ -989,38 +1006,46 @@
 <table>
 <thead>
 <tr>
+<th>\</th>
 <th>虚电路服务</th>
 <th>数据报服务</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>接的建立</td>
+<td>逻辑连接的建立</td>
 <td>需要</td>
-</tr>
-<tr>
-<td>址与源地址的携带</td>
 <td>不需要</td>
 </tr>
 <tr>
-<td>选择</td>
+<td>目的地址与源地址的携带</td>
+<td>不需要</td>
+<td>必须携带</td>
+</tr>
+<tr>
+<td>路由的选择</td>
 <td>所有分组选择同一路由</td>
+<td>每个分组独立选择路由</td>
 </tr>
 <tr>
-<td>故障时</td>
+<td>路由器故障时</td>
 <td>虚电路罢工</td>
+<td>路由器丢失分组或发生一些变化</td>
 </tr>
 <tr>
-<td>顺序</td>
+<td>分组的顺序</td>
 <td>按发送顺序到达目的站点</td>
+<td>到达站点的分组顺序可能不一致</td>
 </tr>
 <tr>
-<td>的差错控制和流量控制</td>
+<td>端到端的差错控制和流量控制</td>
 <td>可以由网络或主机负责</td>
+<td>由主机负责</td>
 </tr>
 <tr>
-<td>层的实现</td>
+<td>在传输层的实现</td>
 <td>TCP</td>
+<td>UDP</td>
 </tr>
 </tbody>
 </table>
@@ -1149,7 +1174,8 @@
 <table>
 <thead>
 <tr>
-<th>络号</th>
+<th>类别</th>
+<th>网络号</th>
 <th>主机号</th>
 <th>能表示范围</th>
 <th>一般表示含义</th>
@@ -1157,19 +1183,22 @@
 </thead>
 <tbody>
 <tr>
-<td>1个</td>
+<td>A类</td>
+<td>前1个</td>
 <td>后3个</td>
 <td>1.0.0.1——126.255.255.254</td>
 <td>10.0.0.0——10.255.255.255是私有地址，127.0.0.0——127.255.255.255是保留地址</td>
 </tr>
 <tr>
-<td>2个</td>
+<td>B类</td>
+<td>前2个</td>
 <td>后2个</td>
 <td>128.1.0.1——191.255.255.254</td>
 <td>172.16.0.0——172.31.255.255是私有地址，169.254.0.0——169.254.255.255是保留地址</td>
 </tr>
 <tr>
-<td>3个</td>
+<td>C类</td>
+<td>前3个</td>
 <td>后1个</td>
 <td>192.0.1.1——223.255.255.254</td>
 <td>192.168.0.0——192.168.255.255是私有地址</td>
@@ -1282,12 +1311,16 @@
 <table>
 <thead>
 <tr>
+<th>网络前缀</th>
+<th>|</th>
 <th>主机号</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>nbsp</td>
+<td> </td>
+<td> </td>
+<td> </td>
 </tr>
 </tbody>
 </table>
@@ -1447,13 +1480,13 @@
 <table>
 <thead>
 <tr>
-<th>用端口号</th>
+<th>服务器使用端口号</th>
 <th>客户端使用端口号</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>号：0 - 1023 登记端口号1024 - 49151</td>
+<td>熟知端口号：0 - 1023 登记端口号1024 - 49151</td>
 <td>49152 - 65535</td>
 </tr>
 </tbody>
@@ -1467,6 +1500,7 @@
 <table>
 <thead>
 <tr>
+<th>应用程序</th>
 <th>FTP</th>
 <th>TELNET</th>
 <th>SMTP</th>
@@ -1478,13 +1512,14 @@
 </thead>
 <tbody>
 <tr>
-<td>号</td>
+<td>熟知端口号</td>
 <td>21</td>
 <td>23</td>
 <td>25</td>
 <td>53</td>
 <td>69</td>
 <td>80</td>
+<td>161</td>
 </tr>
 </tbody>
 </table>
@@ -1496,7 +1531,7 @@
 <p>UDP只在IP数据报服务上增加了很少功能，即复用分用和差错检测</p>
 <p>UDP的主要特点：</p>
 <p>1.UDP是<strong>无连接</strong>的，减少开销和发送数据之前的时延</p>
-<ol start="2">
+<ol>
 <li>UDP使用最大努力交付，即<strong>不可靠交付</strong></li>
 <li>UDP是<strong>面向报文</strong>的，适合一次性传输少量数据的网络应用</li>
 <li>UDP<strong>无拥塞控制</strong>，适合很多实时应用</li>
