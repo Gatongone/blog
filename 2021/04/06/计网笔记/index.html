@@ -1823,9 +1823,15 @@
 <li>
 <h4 id="网络层-2"><a class="markdownIt-Anchor" href="#网络层-2"></a> 网络层：</h4>
 <ul>
-<li>对之前封装的一份份 TCP数据报 加上一个 <code>网络层首部</code>（包含IP地址），变成一份 <code>IP数据报</code>。</li>
-<li>然后看看<code>ARP高速缓存</code>中有没有这个目的IP地址，如果没有，则广播一个 <code>ARP请求分组</code>，去问本局域网上其他主机有没有。有的话则将该 IP地址 对应的 硬件地址 写入<code>MAC帧</code></li>
-<li>当IP数据报超过了 <code>最大传送单元MTU</code>，则可以选择 对其分片 或者 返回一个 <code>ICMP协议的差错报文</code></li>
+<li>
+<p>对之前封装的一份份 TCP数据报 加上一个 <code>网络层首部</code>（包含IP地址），变成一份 <code>IP数据报</code>。</p>
+</li>
+<li>
+<p>然后看看<code>ARP高速缓存</code>中有没有这个目的IP地址，如果没有，则广播一个 <code>ARP请求分组</code>，去问本局域网上其他主机有没有。有的话则将该 IP地址 对应的 硬件地址 写入<code>MAC帧</code></p>
+</li>
+<li>
+<p>当IP数据报超过了 <code>最大传送单元MTU</code>，则可以选择 对其分片 或者 返回一个 <code>ICMP协议的差错报文</code></p>
+</li>
 </ul>
 </li>
 <li>
@@ -1854,8 +1860,12 @@
 <li>
 <h4 id="数据链路层-3"><a class="markdownIt-Anchor" href="#数据链路层-3"></a> 数据链路层：</h4>
 <ul>
-<li>为了避免总线上有两个站在同时发数据（发送碰撞），所以需要使用<code>CSMA/CD协议</code>来进行监听和检测</li>
-<li>数据帧经过 <code>以太网交换机</code> 时被缓存起来，然后再根据 目的地址的 <code>MAC地址</code>来选择转发接口。此外<code>以太网交换机</code>还会通过<code>自学习</code>的方式自动更新MAC地址表</li>
+<li>
+<p>为了避免总线上有两个站在同时发数据（发送碰撞），所以需要使用<code>CSMA/CD协议</code>来进行监听和检测</p>
+</li>
+<li>
+<p>数据帧经过 <code>以太网交换机</code> 时被缓存起来，然后再根据 目的地址的 <code>MAC地址</code>来选择转发接口。此外<code>以太网交换机</code>还会通过<code>自学习</code>的方式自动更新MAC地址表</p>
+</li>
 </ul>
 </li>
 <li>
