@@ -623,9 +623,13 @@
 <th>EOT</th>
 </tr>
 </thead>
-<tbody></tbody>
+<tbody>
+<tr>
+<td>p;</td>
+<td> </td>
+</tr>
+</tbody>
 </table>
-<p>| |</p>
 <p>SOH、EOT被叫做帧定界符分别表示从首部开始到尾部结束，但是SOH和EOT并不能准确得帧定界（比如数据部分插入了SOH或EOT，这将导致数据的丢失），因此需要进行<code>字符填充（字节填充）</code>：在数据段中出现的SOH或EOT前面插入一个转义字符<code>ESC</code>。</p>
 <table>
 <thead>
@@ -639,11 +643,11 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>p;</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
 </tr>
 </tbody>
 </table>
@@ -823,18 +827,9 @@
 <p>适配器每从网络上受到一个MAC帧，就首先用硬件检测MAC帧中的MAC地址，发往本站的帧则收下，否则丢弃该帧</p>
 <p>IEEE802标准规定MAC地址字段可采用6字节（48位）或2字节（16位）</p>
 <p>当采用48位的MAC地址时，其MAC地址结构为：</p>
-<table>
-<thead>
-<tr>
-<th>24bit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>符</td>
-</tr>
-</tbody>
-</table>
+<p>24bit   |24bit  <br />
+-----|-----<br />
+组织唯一标识符|扩展唯一标识符</p>
 <p>IEEE 把地址字段第一字节的最低第 2 位规定为 G/L位，表示 Global/Local。</p>
 <ul>
 <li>当 G/L位 = 0 时，是全球管理（保证在全球没有相同的地址），厂商向IEEE购买的 OUI 都属于全球管理。</li>
