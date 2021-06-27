@@ -381,16 +381,34 @@ Tween：泛指T...
             
             
             
-四元数的定义  四元数是一种高阶的复数，定义如下
-  Q = w + xi + yj + zk
-  其中i、j、k为虚部单位，这里简单回顾一下高中知识
+
+ 四元数的定义
+四元数是一种高阶的复数，定义如下
+Q = w + xi + yj + zk
+其中i、j、k为虚部单位，这里简单回顾一下高中知识
 
 
 对于复数 z = a + bi ，则有
-‘a’ 为z的实部，’bi’ 为z的虚部，只有虚部没有实部的复数叫纯虚数
+
+
+
+
+‘a’ 为z的实部，‘bi’ 为z的虚部，只有虚部没有实部的复数叫纯虚数
+
+
+
+
 i * i = -1
-z 的共轭复数 $\overline{\text{z}}$ = a - bi
-复数模长公式：$\lvert{z}\rvert = \sqrt{a^...
+
+
+
+
+z 的共轭复数 z‾\overline{\text{z}}​z​​​ = a - bi
+
+
+
+
+复数模长公式：∣z∣=a2+bb...
     </span>
 
     <div>
@@ -401,7 +419,7 @@ z 的共轭复数 $\overline{\text{z}}$ = a - bi
         <span>13 min</span>
 
         <img src="/blog/images/icon/words.png" alt="">
-        <span class="words">6921</span>
+        <span class="words">111893</span>
 
     </div>
     <hr color=#49495b SIZE=1>
@@ -555,6 +573,21 @@ DataAdapter就是连接数据源和DataSet之间的桥梁,如果把，数据比�
 <script src="/blog/js/searchbar.js"></script>
 <script src="/blog/js/hidebar.js"></script>
               <!--    加载JS  -->                                                          
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 
 </html>
