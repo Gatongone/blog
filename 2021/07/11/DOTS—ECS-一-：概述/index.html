@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Gatongone">
+    <meta name="Description" content="Gatongone's Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+    <style>
+        body
+        {
+            background-color: rgb(20, 20, 34);
+            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none; /* Firefox */
+            overflow-x: hidden;
+            height: 100%;
+        }
+        body::-webkit-scrollbar
+        {
+            display: auto; /* Chrome Safari */
+            width: 0px;
+        }
+    </style>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+    <body>
+        
+<link rel="stylesheet" href="/blog/css/leftsidebar.css">
+
+<div class="leftpanel_out" id="leftpanel_out">
+    <div class="block1"></div>
+
+    <div class="profile_background" id="profile_background">
+        <a href="/blog/" target="_self">
+            <img class="profile" src="/blog/images/profile.jpg" />
+        </a>
+    </div>
+
+    <img class="block2" src="/blog/images/block.png"/>
+
+    <div class="buttons">
+        <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/26209665" title="bilibili">
+            <img class="shadowfilter bilibili" src="/blog/images/icon/bilibili_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://gatongone.lofter.com/" title="lofter">
+            <img class="shadowfilter lofter" src="/blog/images/icon/lofter_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+         <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" title="github">
+            <img class="shadowfilter github" src="/blog/images/icon/github_btn.png"/>
+        </a>
+         <a>
+           
+        </a>
+        <a target="_blank" rel="noopener" href="https://blog.csdn.net/Gatongone" title="CSDN">
+            <img class="shadowfilter csdn" src="/blog/images/icon/csdn_btn.png"/>
+        </a>
+    </div>
+    <div class="block3"></div>
+</div>
+<script>
+    // var obj=document.getElementById('leftpanel_out');
+    // MoveBar(obj,"leftpanel_in",1150)
+</script>                       <!-- 加载侧边栏 -->
+
+        <div class='body-wrapper' id="body-wrapper">
+
+            <head>
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+ <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+ <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+ 
+</head>
+<body>
+    
+<link rel="stylesheet" href="/blog/css/topbar.css">
+
+
+<script src="/blog/js/searchbar.js"></script>
+  
+<div class="topbar" id="topbar">
+    <div class = "top_left" id="top_left">
+    <a href="https://www.gatongone.site" target="_self">
+        <img src="/blog/images/NeonGame.png"/>
+    </a>
+        <font class="title_top" id="title_top" align="left">Gatongone's blog</font>
+    </div>
+    <div id="topblock">
+            <nav>
+                <input type="checkbox" id="nav"/><label for="nav" class="check" id="check"></label>
+                <ul>
+                    <li><a href="#" id='about' class="buttonfont">About</a></li>
+                    <li><a href="#" id="plan" class="buttonfont">Planing</a></li>
+                    <li><a href="#" id="RSS" class="buttonfont">RSS</a></li>
+                </ul>
+            </nav>
+    </div>
+    <div id="search">
+        <input id="search_input"  type="text" placeholder="search with title" value="" onkeydown=" if(event.which==13)''">
+        <button><img src="/blog/images/icon/search.png" style="height: 16px; width: 18px; margin-top: 2px;"></button>
+    </div>
+</div>
+
+<!-- swiftype search -->
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','ZLY73zc1DgdsrmGd9LyN','2.0.0');
+</script>
+
+
+
+<script src="/blog/js/hidebar.js"></script>
+
+    
+<link rel="stylesheet" href="/blog/css/mainbody.css">
+
+
+<!-- 回到首页 -->
+
+    <a href="/blog/">
+    <button class="home_btn" >
+        <img src="/blog/images/icon/home.png">
+    </button>
+    </a>
+
+
+<!-- 回到顶部 -->
+<div id="top">
+    <button class="top_btn" id="top_btn">
+        <img src="/blog/images/icon/top.png">
+    </button>
+</div>
+<!-- 主体 -->
+
+<div class="mainbody" id="mainbody">
+<!-- 加载post_entry -->
+    <div class="entry">
+    
+
+    
+<!--    加载post    -->    
+
+    
+        <head>
+    <title>DOTS—ECS(一)：概述</title>
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_L.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_M.ico">
+    <link rel="icon" type="image/x-icon"  href="/images/NeonGame_S.ico">
+</head>
+<body>
+
+    
+<link rel="stylesheet" href="/blog/css/post.css">
+
+    
+<link rel="stylesheet" href="/blog/css/hightlight.css">
+
+
+    
+<link rel="stylesheet" href="/blog/css/rightbar.css">
+
+<div id="right_bar">
+
+        
+
+        
+            <div id="post_index" class="post_index">
+                <span> Post Index </span>
+                <div>
+                    <div id="clear"></div>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ecs%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text"> ECS架构的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ecs%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84%E8%AF%B4%E6%98%8E"><span class="toc-text"> ECS的基本架构说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#world"><span class="toc-text"> World</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#entity"><span class="toc-text"> Entity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#component"><span class="toc-text"> Component</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#system"><span class="toc-text"> System</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ecs%E5%AF%B9%E7%BC%93%E5%AD%98%E8%A1%8C%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-text"> ECS对缓存行的优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E8%A1%8C%E5%92%8C%E4%BC%A0%E7%BB%9F%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98"><span class="toc-text"> 缓存行和传统模式下的内存问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ecs%E5%AF%B9%E7%BC%93%E5%AD%98%E8%A1%8C%E7%9A%84%E4%BC%98%E5%8C%96-2"><span class="toc-text"> ECS对缓存行的优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#archetype-%E5%92%8C-chunks"><span class="toc-text"> Archetype 和 Chunks</span></a></li></ol>
+                </div>
+                
+             </div>
+        
+             
+</div>
+
+
+    <div class="page_title" id="page_title">
+        DOTS—ECS(一)：概述
+    </div>
+    <hr>
+    <div class="page_content">
+        
+        
+        <p>参考视频： <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sD4y1Q7an?t=4443">DOTS从原理到应用-雨松MOMO</a></p>
+<p>官方文档： <a target="_blank" rel="noopener" href="https://docs.unity3d.com/Packages/com.unity.entities@0.9/manual/">文档</a></p>
+<ul>
+<li>
+<h2 id="ecs架构的概念"><a class="markdownIt-Anchor" href="#ecs架构的概念"></a> ECS架构的概念</h2>
+<p>ECS，即 <code>Entity-Component-System</code>（实体组件系统），是Unity DOTS 解决方案中的核心框架之一。游戏中任何一个基本单位都是一个 <strong>Entity（实体）</strong>，每一个 Entity 中的每一份数据都是一个<strong>Component（组件）</strong> 或者叫做 <strong>ComponentData（组件数据）</strong>。Component 中仅包含数据，而不包含任何对数据操作的方法。一组不同的组件叫做一个 <strong>Archetype（原型类型）</strong>，拥有相同组件的Entity叫做一个 <strong>EntityArchetype（实体原型类型）</strong>。而一个 <strong>System（系统）</strong> 则可以根据 Entity 索引获取相应的 Component，对Component中的数据进行处理。</p>
+<p>也就是说一个Entity，应该由什么样的能力（可以做什么），完全由它拥有哪些Component来决定；应该有什么样的行为（怎么做），完全由它的System来决定</p>
+<p><img src="ECSBlockDiagram.png" alt="img" style="max-width:100%;"  /></p>
+</li>
+<li>
+<h2 id="ecs的基本架构说明"><a class="markdownIt-Anchor" href="#ecs的基本架构说明"></a> ECS的基本架构说明</h2>
+<p><img src="ECS.png" alt="img" style="max-width:100%;"  /></p>
+<ul>
+<li>
+<h3 id="world"><a class="markdownIt-Anchor" href="#world"></a> World</h3>
+<p>管理着一个 EntityManager 和 Systems，而 EntityManager 又通过NativeArray管理着一堆 Entity ，所以如果你的场景上只有一个World，那么你创建的entity和system几乎都能在World中找到。</p>
+<p>ps：默认情况下，在PlayMode时，unity都会创建一个World，并且通过反射把所有的ComponentSystem添加进去,可以通过<code>World.DefaultGameObjectInjectionWorld</code>来获取它</p>
+</li>
+<li>
+<h3 id="entity"><a class="markdownIt-Anchor" href="#entity"></a> Entity</h3>
+<p>实体其实就是一个 <code>index</code> 和 <code>version</code>。index 是一个实体的 onlyID ，用于区分不同的实体。当实体被挂上组件后，它的组件都会被 index 所标记，以此来明确该组件是属于该实体的。而 version 是用来区分该实体是第几次世代（Version只有在Entity被回收后会加1）</p>
+</li>
+<li>
+<h3 id="component"><a class="markdownIt-Anchor" href="#component"></a> Component</h3>
+<p>与 mono 中的 Component 不同，这里的 Component 只有数据而没有行为，并且数据由 struct 来存储。一般来说只要一个 struct 实现了以下任意一个接口，就可以叫做一个Component</p>
+<ul>
+<li>
+<p><code>IComponentData</code></p>
+<p>最通用的自定义组件接口，IComponentData 结构体中不能包含引用类型的对象，因此不会产生GC</p>
+</li>
+<li>
+<p><code>ISharedComponentData</code></p>
+<p>一种特殊的组件接口，一般来说一组不同的Component组合成一个Archetype，但是如果其中有ISharedComponentData，且ISharedComponentData中的值不一样，那么将组合成不一样的Archetype</p>
+</li>
+<li>
+<p><code>IBufferElementData</code></p>
+<p>通过这个接口可以把一组相同的组件作为一个单独的组件，其实就是类似于List的存在而已</p>
+</li>
+<li>
+<p><code>ISystemStateComponentData</code></p>
+<p>用于判断Component中的值是否被改变</p>
+</li>
+<li>
+<p><code>ISharedSystemStateComponentData</code></p>
+<p>ISharedComponentData + ISystemStateComponentData</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="system"><a class="markdownIt-Anchor" href="#system"></a> System</h3>
+<p>System不关系Entity，它只负责对Component中的数据进行处理，一般来说只要继承一个<code>SystemBase</code>即可叫做一个System。ECS会自动找到项目中所有的System，在运行时实例化它们，并将它们添加进一个默认的组里面。</p>
+<p>Systes是在主线程上执行的，我们可以在<code>OnUpdate</code>中，利用Job来进行多线程处理，从而提高效率。</p>
+</li>
+</ul>
+</li>
+<li>
+<h2 id="ecs对缓存行的优化"><a class="markdownIt-Anchor" href="#ecs对缓存行的优化"></a> ECS对缓存行的优化</h2>
+<p>CPU读取数据时，会优先从自己的缓存中去找，如下图的三级缓存结构，如果L1缓存中没有，则从L2缓存中找，如果没有再从L3缓存中找。如果不能缓存中找到，则从内存中找，此时称为一次缓存未命中（Cache Miss）。从图中可以看到，从L1读取数据是最快的，而从内存中读取数据所花费的时间是L1的100倍左右。而ECS的目的之一就是为了提高缓存的命中率（Cache Hit）。</p>
+<p><img src="ECSCacheRead.png" alt="img" style="max-width:100%;"  /></p>
+<h3 id="缓存行和传统模式下的内存问题"><a class="markdownIt-Anchor" href="#缓存行和传统模式下的内存问题"></a> 缓存行和传统模式下的内存问题</h3>
+<p>缓存由若干个 缓存行（Cache Line）组成，每一个缓存行大概占用64个字节</p>
+<p>假设控制一个物体的移动和旋转，则需要用到 Vector3(x,y,z)来表示坐标 和 Quaternion(x,y,z,w)来表示旋转，已知一个浮点数需要4个字节，则一共需要 7*4=28 字节，那么在缓存行中将有 64-28=36 字节被浪费掉</p>
+<p><img src="1.png" alt="img" style="max-width:100%;"  /></p>
+<p>但是在实际使用中，比如僵尸只能在平面上移动，那么坐标只用到X、Y，旋转只用到了Y，也就是说实际上用到的只有 3*4=12 字节。此时缓存行中将有 16+36=52字节被浪费。而且在传统模式中，每一个游戏对象所在的缓存行经常是不同的，也就是说缓存中有80%可能都是内存垃圾，缓存命中率将直线下降。</p>
+<p><img src="2.png" alt="img" style="max-width:100%;"  /></p>
+<p>传统的游戏对象是这样的，一个游戏对象包含了各种脚本，并且脚本直接可能存在引用关系，他们在内存中的排列将变得十分凌乱，如下图。</p>
+<p><img src="ClassicProblems.png" alt="img" style="max-width:100%;"  /></p>
+<p>假设一个游戏对象挂了1024个脚本，且每个脚本上有一个长度为1024的int数组，忽略游戏对象本身的内存和托管堆指针内存，那么加载该游戏对象则需要 4<em>1024</em>1024=4MB 内存。如果此时缓存只有4MB，那么加载该游戏对象后，再对其他对象进行加载都会Cache Miss。</p>
+<p>此外，由于脚本间的引用，在尝试引用某个脚本中的某一个实例的某一个数据时，也会导致这一整个实例的其他数据被加载到缓存中，比如下面的 transform：</p>
+<p><img src="3.png" alt="img" style="max-width:100%;"  /></p>
+<h3 id="ecs对缓存行的优化-2"><a class="markdownIt-Anchor" href="#ecs对缓存行的优化-2"></a> ECS对缓存行的优化</h3>
+<p>ECS将所有可能用到的数据（比如上面的 Vector3的XY 和 Quaternion的Y）放到一个Component中，并且所有相同的Component（即Archetype）在内存中都排列到一起。</p>
+<p>这样优化后，对于刚才的控制一个物体的移动和旋转，一个缓存行则可以缓存5个这样的数据，因为 5*12=60 &lt; 64，此时只会浪费 64-60=4 字节。可以看到仅仅是优化缓存，就能提高大概10倍的效率。</p>
+<p><img src="4.png" alt="img" style="max-width:100%;"  /></p>
+</li>
+<li>
+<h2 id="archetype-和-chunks"><a class="markdownIt-Anchor" href="#archetype-和-chunks"></a> Archetype 和 Chunks</h2>
+<p>之前提到，即使是不同实体的Entity，只要组件相同，都会保存到一个ArcheType中。</p>
+<p><img src="ArchetypeDiagram.png" alt="img" style="max-width:100%;"  /></p>
+<p>ArcheType是一个数组容器，ECS会根据Archetype来进行分配内存，每个内存块我们称之为Chunk。</p>
+<p>Chunk长度是固定的16kb。假设一个组件长度为16字节，那么一个Chunk可以保存1024个这样的组件，当16kb容量不够时，会再开一个Chunk来连续保存</p>
+<p><img src="ArchetypeChunkDiagram.png" alt="img" style="max-width:100%;"  /></p>
+</li>
+</ul>
+
+    </div>
+    
+    <div class="footer">
+    <hr>
+        <font> ©2021 </font>
+        <a target="_blank" rel="noopener" href="https://github.com/Gatongone/" style="color: rgb(214, 207, 218);">Gatongone</a>
+        some copyrights reserved
+        <div style="float: right; margin-right: -200px;">
+              Jul 11th  2021,  9:50:45  |
+            <font>Powered by</font>
+            <a target="_blank" rel="noopener" href="https://hexo.io/"  style="color: rgb(214, 207, 218);">Hexo</a>
+            framework
+        </div>
+    </div>
+</body>
+    
+
+
+
+</div>
+
+
+
+<script>
+     var bar=document.getElementById("top_btn")
+     var showtime=0;
+     var hidetime=0;
+     window.addEventListener("pageshow",function(){
+         let scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+        if(scrollTop ==0)
+        {
+            bar.style.display = 'none';
+        }
+        else
+        {
+            bar.style.display = 'block';
+        }
+        window.addEventListener("scroll",function(){
+            bar.style.display = 'block';
+            scrollTop = window.pageYOffset ||document.documentElement.scrollTop|| document.body.scrollTop || 0;
+            if(scrollTop != 0)
+            {
+                if(hidetime==0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    hidetime++;
+                }
+                showtime=0;
+            }  
+            else
+            {
+                if(showtime==0 && hidetime!=0)
+                {
+                    bar.classList.toggle("top_btn_show");
+                    showtime++;
+                    hidetime=0;
+                }
+            }
+        }) 
+     })
+     
+    var timer = null;
+    bar.onclick = function()
+    {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn()
+        {
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            if(top > 0)
+            {
+                document.body.scrollTop = document.documentElement.scrollTop = top - 80;
+                timer = requestAnimationFrame(fn);
+            }
+            else
+            {
+                cancelAnimationFrame(timer);
+            } 
+        });
+    }
+         
+</script>
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+<script src="/blog/js/showpost.js"></script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+</body>                                             <!--  加载主体  -->
+
+        </div>                                                                 
+        
+<script src="/blog/js/searchbar.js"></script>
+<script src="/blog/js/hidebar.js"></script>
+              <!--    加载JS  -->                                                          
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+
+</html>
